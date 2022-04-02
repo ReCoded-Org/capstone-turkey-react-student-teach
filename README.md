@@ -1,5 +1,8 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
+## Deployment status
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a4a12498-3933-460b-a2b5-bbf9dacc49bb/deploy-status)](https://app.netlify.com/sites/student-teach/deploys)
+
 ## Available Scripts
 
 In the project directory, you can run:
