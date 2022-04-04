@@ -1,6 +1,6 @@
 import Photo from './assets/avatar.jpg';
 
-export const data = [
+const data = [
   {
     id: 1,
     avatar: Photo,
@@ -114,3 +114,5 @@ export const data = [
       'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys 1500s',
   },
 ];
+
+export default data;
