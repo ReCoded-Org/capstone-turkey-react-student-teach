@@ -16,7 +16,7 @@ function BookmarkPage() {
   };
 
   useEffect(() => {
-    loopThroughItem(0, next);
+    loopThroughItem(0, 8);
   }, []);
 
   // useEffect(() => {
