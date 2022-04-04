@@ -21,8 +21,8 @@ function Navbar() {
         />
       )}
       <div
-        className={`lg:flex lg:justify-between lg:items-center w-screen lg:h-[4rem] opacity-${
-          burger ? 0 : 100
+        className={`lg:flex lg:justify-between lg:items-center w-screen lg:h-[4rem] ${
+          burger ? 'hidden' : null
         } lg:opacity-100 transition-all ease-in-out duration-300`}
       >
         <div>
@@ -67,7 +67,7 @@ function Navbar() {
                   className="sr-only"
                 />
 
-                <div className="bgColor block border-[1px] border-cusOrange border-black-600 w-[4rem] lg:w-[3rem] h-6 rounded-md" />
+                <div className="bgColor block border-[2px] lg:border-[1px] border-cusOrange border-black-600 w-[4rem] lg:w-[3rem] h-6 rounded-md" />
 
                 <div className="dot absolute left-1 top-1 bg-no-repeat w-9 lg:w-6 h-4 rounded-3xl transition" />
               </div>
@@ -80,7 +80,7 @@ function Navbar() {
               <li>
                 <Link
                   to="/signup"
-                  className="pr-3 border-r-[1px] border-cusOrange hover:text-cusOrange transition-all ease-in-out"
+                  className="pr-3 border-r-[2px] lg:border-r-[1px] border-cusOrange hover:text-cusOrange transition-all ease-in-out"
                 >
                   Sign Up
                 </Link>
