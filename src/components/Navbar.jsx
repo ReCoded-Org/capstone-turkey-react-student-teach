@@ -27,13 +27,13 @@ function Navbar() {
       >
         <div>
           <ul className="mt-4 text-2xl lg:mt-0 lg:text-base lg:flex lg:items-center lg:ml-10">
-            <li className="mb-3 lg:pr-3 lg:border-r-2 lg:border-cusOrange hover:text-cusOrange transition-all ease-in-out">
+            <li className="mb-3 lg:pr-3 lg:border-r-[1px] lg:border-cusOrange hover:text-cusOrange  transition-all ease-in-out">
               <Link to="/">Home</Link>
             </li>
-            <li className="mb-3 lg:px-3 lg:border-r-2 lg:border-cusOrange hover:text-cusOrange transition-all ease-in-out">
+            <li className="mb-3 lg:px-3 lg:border-r-[1px] lg:border-cusOrange hover:text-cusOrange transition-all ease-in-out">
               <Link to="/questions">Questions</Link>
             </li>
-            <li className="mb-3 lg:px-3 lg:border-r-2 lg:border-cusOrange hover:text-cusOrange transition-all ease-in-out">
+            <li className="mb-3 lg:px-3 lg:border-r-[1px] lg:border-cusOrange hover:text-cusOrange transition-all ease-in-out">
               <Link to="/contact">Contact</Link>
             </li>
             <li className="mb-3 lg:px-3 hover:text-cusOrange transition-all ease-in-out">
@@ -67,7 +67,7 @@ function Navbar() {
                   className="sr-only"
                 />
 
-                <div className="bgColor block border-2 border-black-600 w-[4rem] lg:w-[3rem] h-6 rounded-md" />
+                <div className="bgColor block border-[1px] border-cusOrange border-black-600 w-[4rem] lg:w-[3rem] h-6 rounded-md" />
 
                 <div className="dot absolute left-1 top-1 bg-no-repeat w-9 lg:w-6 h-4 rounded-3xl transition" />
               </div>
@@ -80,7 +80,7 @@ function Navbar() {
               <li>
                 <Link
                   to="/signup"
-                  className="pr-3 border-r-2 border-cusOrange hover:text-cusOrange transition-all ease-in-out"
+                  className="pr-3 border-r-[1px] border-cusOrange hover:text-cusOrange transition-all ease-in-out"
                 >
                   Sign Up
                 </Link>
