@@ -47,7 +47,7 @@ function BookmarkPage() {
   return data && data.length ? (
     <>
       <div className="  mt-20 ml-20 ">
-        <h1 className="text-[#CA7560] text-3xl font-thin ">
+        <h1 className="text-[#CA7560]  text-3xl font-thin ">
           Bookmarks <span className="text-4xl font-extralight">|</span>{' '}
         </h1>
         <div className="  mt-16 max-w-7xl grid grid-cols-2 gap-x-16 gap-y-14">
