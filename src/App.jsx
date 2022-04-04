@@ -4,6 +4,7 @@ import BookmarkPage from './pages/BookmarkPage';
 function App() {
   return (
     <div className="App">
+      <p>learn</p>
       <BookmarkPage />
     </div>
   );

@@ -19,8 +19,6 @@ function BookmarkPage() {
     loopThroughItem(0, next);
   }, []);
 
-  console.log(bookmarkedItemToShow.length);
-
   // useEffect(() => {
   //   if (bookmarkedItemToShow.length < 8 && bookmarkedItemToShow.length !== 0) {
   //     handleMoreItemsOnRemoved();
