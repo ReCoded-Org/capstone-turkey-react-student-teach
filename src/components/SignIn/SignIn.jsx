@@ -1,8 +1,15 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { Fragment, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { Dialog, Transition } from '@headlessui/react';
 import { Link } from 'react-router-dom';
+import { Dialog, Transition } from '@headlessui/react';
+import { Formik, Form, Field } from 'formik';
+import * as Yup from 'yup';
+
+const SignInSchema = Yup.object().shape({
+  usename: Yup.string().min(3).max(24).required(),
+  password: Yup.string().min(8).max(32).required(),
+});
 
 function SignIn({ open, setOpen }) {
   const cancelButtonRef = useRef(null);
@@ -62,52 +69,107 @@ function SignIn({ open, setOpen }) {
                     </svg>
                   </button>
                 </div>
-                <form action="">
-                  <div className="mb-3">
-                    <label
-                      htmlFor="username"
-                      className="block text-sm font-medium text-gray-700"
-                    >
-                      Username
-                    </label>
-                    <input
-                      type="text"
-                      name="username"
-                      id="username"
-                      autoComplete="username"
-                      className="mt-1 focus:ring-red-500 focus:border-red-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                    />
-                  </div>
-                  <div className="mb-3">
-                    <label
-                      htmlFor="password"
-                      className="block text-sm font-medium text-gray-700"
-                    >
-                      Password
-                    </label>
-                    <input
-                      type="password"
-                      name="password"
-                      id="password"
-                      autoComplete="password"
-                      className="mt-1 focus:ring-red-500 focus:border-red-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                    />
-                  </div>
-                  <div className="flex justify-between items-center mt-7">
-                    <button
-                      type="submit"
-                      className="bg-red-600 text-gray-100 hover:bg-red-800 rounded px-4 py-1.5 "
-                    >
-                      Sign In
-                    </button>
-                    <Link
-                      to="/reset-password"
-                      className="text-red-600 hover:text-red-800"
-                    >
-                      Forgot your password?
-                    </Link>
-                  </div>
-                </form>
+                <Formik
+                  initialValues={{
+                    username: '',
+                    password: '',
+                  }}
+                  validationSchema={SignInSchema}
+                  onSubmit={(values) => {
+                    console.log(values);
+                  }}
+                >
+                  {({
+                    // handleSubmit,
+                    // handleChange,
+                    // handleBlur,
+                    // values,
+                    touched,
+                    // isValid,
+                    errors,
+                    isSubmitting,
+                  }) => (
+                    <Form>
+                      <div className="mb-3">
+                        <label
+                          htmlFor="username"
+                          className="block text-sm font-medium text-gray-700"
+                        >
+                          Username
+                        </label>
+                        <Field
+                          id="username"
+                          type="text"
+                          name="usename"
+                          autoComplete="username"
+                          className="mt-1 focus:ring-red-500 focus:border-red-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                        />
+                        {errors.firstName && touched.firstName ? (
+                          <div>{errors.firstName}</div>
+                        ) : null}
+                      </div>
+                      <div className="mb-3">
+                        <label
+                          htmlFor="password"
+                          className="block text-sm font-medium text-gray-700"
+                        >
+                          Password
+                        </label>
+                        <Field
+                          id="password"
+                          type="password"
+                          name="password"
+                          autoComplete="password"
+                          className="mt-1 focus:ring-red-500 focus:border-red-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                        />
+                      </div>
+                      <div className="flex justify-between items-center mt-7">
+                        {isSubmitting ? (
+                          <button
+                            type="submit"
+                            className="text-lg bg-red-700 text-gray-200 rounded flex items-center px-5 py-2"
+                            disabled
+                          >
+                            <svg
+                              className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                            >
+                              <circle
+                                className="opacity-25"
+                                cx="12"
+                                cy="12"
+                                r="10"
+                                stroke="currentColor"
+                                strokeWidth="4"
+                              />
+                              <path
+                                className="opacity-75"
+                                fill="currentColor"
+                                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                              />
+                            </svg>
+                            Signing in...
+                          </button>
+                        ) : (
+                          <button
+                            type="submit"
+                            className="text-lg text-gray-100 bg-red-600 hover:bg-red-700 transition rounded px-5 py-2"
+                          >
+                            Sign in
+                          </button>
+                        )}
+                        <Link
+                          to="/reset-password"
+                          className="text-red-600 hover:text-red-700 transition"
+                        >
+                          Forgot your password?
+                        </Link>
+                      </div>
+                    </Form>
+                  )}
+                </Formik>
               </div>
             </div>
           </Transition.Child>
