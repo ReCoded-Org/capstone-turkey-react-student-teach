@@ -3,6 +3,15 @@ import { useState } from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { VscChromeClose } from 'react-icons/vsc';
 import { SiTailwindcss } from 'react-icons/si';
+import {
+  ABOUT_ROUTE,
+  CONTACT_ROUTE,
+  HOME_ROUTE,
+  QUESTIONS_ROUTE,
+  QUESTION_PLUS_ROUTE,
+  SIGNIN_ROUTE,
+  SIGNUP_ROUTE,
+} from '../../routes';
 
 function Navbar() {
   const [dark, setDark] = useState(false);
@@ -26,7 +35,7 @@ function Navbar() {
         </div>
         <div className="inline-block lg:hidden lg:mr-[6rem] hover:scale-110 ease-in-out transition-all">
           <Link
-            to="/question+"
+            to={QUESTION_PLUS_ROUTE}
             className="p-[7px] rounded-md border-[1px] border-cusOrange lg:p-2 "
           >
             <span className="text-sm text-cusOrange lg:text-base">
@@ -48,16 +57,16 @@ function Navbar() {
           <ul className="inline-block mt-4 text-2xl lg:mt-0 lg:text-base lg:flex lg:items-center">
             <SiTailwindcss className="hidden mb-3 lg:mb-0 mx-10 text-[2rem] fill-current lg:block" />
             <li className="mb-3 lg:mb-0 lg:pr-3 lg:border-r-[1px] lg:border-cusOrange hover:text-cusOrange transition-all ease-in-out">
-              <Link to="/">Home</Link>
+              <Link to={HOME_ROUTE}>Home</Link>
             </li>
             <li className="mb-3 lg:mb-0 lg:px-3 lg:border-r-[1px] lg:border-cusOrange hover:text-cusOrange transition-all ease-in-out">
-              <Link to="/questions">Questions</Link>
+              <Link to={QUESTIONS_ROUTE}>Questions</Link>
             </li>
             <li className="mb-3 lg:mb-0 lg:px-3 lg:border-r-[1px] lg:border-cusOrange hover:text-cusOrange transition-all ease-in-out">
-              <Link to="/contact">Contact</Link>
+              <Link to={CONTACT_ROUTE}>Contact</Link>
             </li>
             <li className="mb-3 lg:mb-0 lg:px-3 hover:text-cusOrange transition-all ease-in-out">
-              <Link to="/about">About</Link>
+              <Link to={ABOUT_ROUTE}>About</Link>
             </li>
           </ul>
         </div>
@@ -97,7 +106,7 @@ function Navbar() {
             <ul className="flex justify-center items-center mt-2 ml-10 text-2xl lg:text-base lg:mt-0">
               <li>
                 <Link
-                  to="/signup"
+                  to={SIGNUP_ROUTE}
                   className="pr-3 border-r-[2px] border-cusOrange lg:border-r-[1px] hover:text-cusOrange transition-all ease-in-out inline-block"
                 >
                   Sign Up
@@ -105,7 +114,7 @@ function Navbar() {
               </li>
               <li>
                 <Link
-                  to="/signin"
+                  to={SIGNIN_ROUTE}
                   className="pl-3 mr-10 hover:text-cusOrange transition-all ease-in-out inline-block"
                 >
                   Sign In

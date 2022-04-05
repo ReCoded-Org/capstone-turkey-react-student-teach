@@ -1,4 +1,4 @@
-import { Field, useFormik } from 'formik';
+import { useFormik } from 'formik';
 
 function Contact() {
   const formik = useFormik({

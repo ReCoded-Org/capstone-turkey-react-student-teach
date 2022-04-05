@@ -27,7 +27,7 @@ code {
 
 input:checked ~ .dot {
   transform: translateX(100%);
-  background-image: url('./svg/moon3.svg');
+  background-image: url('./resources/images/moon3.svg');
 }
 
 input:checked ~ .bgColor {
@@ -38,5 +38,5 @@ input ~ .bgColor {
   background-color: white;
 }
 .dot {
-  background-image: url('./svg/sun3.svg');
+  background-image: url('./resources/images/sun3.svg');
 }
