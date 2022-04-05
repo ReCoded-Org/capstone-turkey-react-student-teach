@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { VscChromeClose } from 'react-icons/vsc';
-import { FcCdLogo } from 'react-icons/fc';
+import { SiTailwindcss } from 'react-icons/si';
 
 function Navbar() {
   const [dark, setDark] = useState(false);
@@ -34,19 +34,19 @@ function Navbar() {
             </span>
           </Link>
         </div>
-        <FcCdLogo className="block text-[2rem] lg:hidden" />
+        <SiTailwindcss className="block text-[2rem] lg:hidden " />
       </div>
 
       <div
         onClick={() => setBurger(true)}
         aria-hidden="true"
-        className={`ml-3 w-screen top-[4rem] lg:ml-0 lg:flex lg:justify-between lg:items-center lg:h-[4rem] lg:top-[1px] absolute ${
+        className={`ml-2 w-screen top-[4rem] lg:ml-0 lg:flex lg:justify-between lg:items-center lg:h-[4rem] lg:top-[1px] absolute ${
           burger ? 'hidden' : null
         }`}
       >
         <div>
           <ul className="inline-block mt-4 text-2xl lg:mt-0 lg:text-base lg:flex lg:items-center">
-            <FcCdLogo className="hidden mb-3 lg:mb-0 mx-10 text-[2rem] fill-current text-cusOrange lg:block" />
+            <SiTailwindcss className="hidden mb-3 lg:mb-0 mx-10 text-[2rem] fill-current lg:block" />
             <li className="mb-3 lg:mb-0 lg:pr-3 lg:border-r-[1px] lg:border-cusOrange hover:text-cusOrange transition-all ease-in-out">
               <Link to="/">Home</Link>
             </li>
@@ -74,7 +74,7 @@ function Navbar() {
         </div>
 
         <div className="flex flex-col-reverse lg:flex lg:flex-row lg:item-center">
-          <div className="flex justify-center item-center mt-5 ml-[3.7rem] mr-10 lg:mt-0">
+          <div className="flex justify-center item-center mt-5 ml-[3rem] mr-10 lg:mt-0">
             <label
               htmlFor="toggleB"
               className="flex item-center cursor-pointer"
