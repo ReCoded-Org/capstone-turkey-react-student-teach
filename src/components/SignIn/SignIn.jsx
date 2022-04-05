@@ -1,13 +1,14 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import { Fragment, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Dialog, Transition } from '@headlessui/react';
-import { Formik, Form, Field } from 'formik';
+import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 
+import FormField from '../FormField/FormField';
+
 const SignInSchema = Yup.object().shape({
-  usename: Yup.string().min(3).max(24).required(),
+  username: Yup.string().min(3).max(24).required(),
   password: Yup.string().min(8).max(32).required(),
 });
 
@@ -90,39 +91,24 @@ function SignIn({ open, setOpen }) {
                     isSubmitting,
                   }) => (
                     <Form>
-                      <div className="mb-3">
-                        <label
-                          htmlFor="username"
-                          className="block text-sm font-medium text-gray-700"
-                        >
-                          Username
-                        </label>
-                        <Field
-                          id="username"
-                          type="text"
-                          name="usename"
-                          autoComplete="username"
-                          className="mt-1 focus:ring-red-500 focus:border-red-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                        />
-                        {errors.firstName && touched.firstName ? (
-                          <div>{errors.firstName}</div>
-                        ) : null}
-                      </div>
-                      <div className="mb-3">
-                        <label
-                          htmlFor="password"
-                          className="block text-sm font-medium text-gray-700"
-                        >
-                          Password
-                        </label>
-                        <Field
-                          id="password"
-                          type="password"
-                          name="password"
-                          autoComplete="password"
-                          className="mt-1 focus:ring-red-500 focus:border-red-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                        />
-                      </div>
+                      <FormField
+                        autoComplete="username"
+                        className="mb-3"
+                        errors={errors}
+                        label="Username"
+                        name="username"
+                        touched={touched}
+                        type="text"
+                      />
+                      <FormField
+                        autoComplete="password"
+                        className="mb-3"
+                        errors={errors}
+                        label="Password"
+                        name="passwords"
+                        touched={touched}
+                        type="password"
+                      />
                       <div className="flex justify-between items-center mt-7">
                         {isSubmitting ? (
                           <button
