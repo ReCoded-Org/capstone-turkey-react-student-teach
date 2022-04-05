@@ -14,6 +14,7 @@ const SignInSchema = Yup.object().shape({
 
 function SignIn({ open, setOpen }) {
   const cancelButtonRef = useRef(null);
+
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog
@@ -76,8 +77,11 @@ function SignIn({ open, setOpen }) {
                     password: '',
                   }}
                   validationSchema={SignInSchema}
-                  onSubmit={(values) => {
-                    console.log(values);
+                  onSubmit={(values, { setSubmitting }) => {
+                    setTimeout(() => {
+                      console.log(values);
+                      setSubmitting(false);
+                    }, 1000);
                   }}
                 >
                   {({
@@ -105,7 +109,7 @@ function SignIn({ open, setOpen }) {
                         className="mb-3"
                         errors={errors}
                         label="Password"
-                        name="passwords"
+                        name="password"
                         touched={touched}
                         type="password"
                       />
