@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { FaSpinner } from 'react-icons/fa';
@@ -12,7 +11,7 @@ const SignInSchema = Yup.object().shape({
   password: Yup.string().min(8).max(32).required(),
 });
 
-function SignIn({ open, setOpen }) {
+function SignIn({ open, setOpen, setSignUp }) {
   return (
     <Modal label="Sign in" open={open} setOpen={setOpen}>
       <Formik
@@ -77,12 +76,20 @@ function SignIn({ open, setOpen }) {
                   Sign in
                 </button>
               )}
-              <Link
-                to="/reset-password"
-                className="text-red-600 hover:text-red-700 transition"
-              >
-                Forgot your password?
-              </Link>
+              <p className="text-right text-xs text-gray-500 mb-0">
+                Don&apos;t have an account yet?
+                <br />
+                <button
+                  type="button"
+                  className="text-sm text-red-600 hover:text-red-700 transition"
+                  onClick={() => {
+                    setOpen(false);
+                    setSignUp(true);
+                  }}
+                >
+                  Sign up
+                </button>
+              </p>
             </div>
           </Form>
         )}
@@ -93,6 +100,7 @@ function SignIn({ open, setOpen }) {
 SignIn.propTypes = {
   open: PropTypes.bool.isRequired,
   setOpen: PropTypes.func.isRequired,
+  setSignUp: PropTypes.func.isRequired,
 };
 
 export default SignIn;
