@@ -7,7 +7,7 @@
     @apply m-5 p-1 cursor-pointer rounded-3xl bg-white hover:rounded-md transition-all duration-300 hover:scale-150 hover:bg-black hover:text-white shadow-lg;
   }
   .burger-icons {
-    @apply cursor-pointer mt-5 text-xl font-light select-none lg:hidden;
+    @apply cursor-pointer text-xl font-light select-none lg:hidden;
   }
 }
 
