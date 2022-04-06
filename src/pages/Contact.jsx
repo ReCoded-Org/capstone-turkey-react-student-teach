@@ -1,5 +1,13 @@
 import { useFormik } from 'formik';
-import { FaInstagram, FaGithub, FaLinkedinIn, FaYoutube } from 'react-icons/fa';
+import {
+  FaInstagram,
+  FaGithub,
+  FaLinkedinIn,
+  FaYoutube,
+  FaMapMarker,
+  FaPhoneAlt,
+  FaMediumM,
+} from 'react-icons/fa';
 
 function Contact() {
   const formik = useFormik({
@@ -72,34 +80,44 @@ function Contact() {
         </form>
       </section>
 
-      <section className="bg-cusOrange">
-        <div>
-          <h1>Get in touch</h1>s
-          <h4>We love to hear from you, Our team is always here to chat.</h4>
+      <section className="mt-5 bg-cusOrange">
+        <div className="p-4">
+          <h1 className="font-bold">Get in touch</h1>
+          <h4 className="mt-2 ">
+            We love to hear from you, Our team is always here to chat.
+          </h4>
         </div>
-        <div>
-          <div>
-            <h2>Email</h2>
+        <div className="flex flex-col bg-cusOrange p-4 pt-3">
+          <div className="flex justify-center items-center mr-3">
+            <FaMediumM className="" />
+            <h2 className="font-bold ml-2">Email</h2>
           </div>
+          <h3>Contact us via email</h3>
           <h3>hi@untitiledui.com</h3>
         </div>
-        <div>
-          <div>
-            <h2>Location</h2>
+
+        <div className="flex flex-col bg-cusOrange p-4">
+          <div className="flex justify-center items-center mr-3">
+            <FaPhoneAlt className=" " />
+            <h2 className="font-bold ml-2">Phone</h2>
+          </div>
+          <h3>Contact us via phone</h3>
+          <h3>552-555-5555</h3>
+        </div>
+        <div className="flex flex-col bg-cusOrange p-4">
+          <div className="flex justify-center items-cente ">
+            <FaMapMarker className="" />
+            <h2 className="font-bold ml-2">Location</h2>
           </div>
           <h3>Turkey, Ankara</h3>
           <h3>36 Street, Bahcelievler</h3>
         </div>
-        <div>
-          <h2>Phone</h2>
-          <h3>552-555-5555</h3>
-        </div>
 
-        <div>
-          <FaGithub />
-          <FaInstagram />
-          <FaLinkedinIn />
-          <FaYoutube />
+        <div className="flex justify-center items-center p-3">
+          <FaInstagram className="mx-3 text-xl" />
+          <FaGithub className="mx-3 text-xl" />
+          <FaLinkedinIn className="mx-3 text-xl" />
+          <FaYoutube className="mx-3 text-xl" />
         </div>
       </section>
     </div>
