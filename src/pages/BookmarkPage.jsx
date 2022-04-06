@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
+
 import BookmarkCard from '../components/BookmarkCard';
-import data from '../mockData';
+import data from './mockData';
 
 const numberOfItemsOnClick = 4;
 let arrayHoldingWholeData = [];
@@ -19,17 +20,6 @@ function BookmarkPage() {
     loopThroughItem(0, 8);
   }, []);
 
-  // useEffect(() => {
-  //   if (bookmarkedItemToShow.length < 8 && bookmarkedItemToShow.length !== 0) {
-  //     handleMoreItemsOnRemoved();
-  //   }
-  // }, [bookmarkedItemToShow.length]);
-
-  // const handleMoreItemsOnRemoved = () => {
-  //   loopThroughItem(next, next + 1);
-  //   setNext(next + 1);
-  // };
-
   const handleMoreItems = () => {
     loopThroughItem(next, next + numberOfItemsOnClick);
     setNext(next + numberOfItemsOnClick);
@@ -38,8 +28,6 @@ function BookmarkPage() {
   const removeBookmarked = (id) => {
     const filteredBookmarks = bookmarkedItemToShow.filter((i) => i.id !== id);
     setBookmarkedItemToShow(filteredBookmarks);
-    // loopThroughItem(next, next + 1);
-    // setNext(next + 1);
   };
 
   return data && data.length ? (
@@ -52,7 +40,7 @@ function BookmarkPage() {
           {bookmarkedItemToShow.map((item) => (
             <BookmarkCard
               key={item.id}
-              avatar={item.avatar}
+              userImage={item.avatar}
               id={item.id}
               name={item.name}
               questionTitle={item.questionTitle}

@@ -1,4 +1,4 @@
-import Photo from './assets/avatar.jpg';
+import Photo from '../assets/images/avatar.jpg';
 
 const data = [
   {
