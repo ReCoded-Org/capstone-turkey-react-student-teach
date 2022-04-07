@@ -1,4 +1,3 @@
-import { useFormik } from 'formik';
 import {
   FaInstagram,
   FaGithub,
@@ -7,77 +6,76 @@ import {
   FaMapMarker,
   FaPhoneAlt,
   FaMediumM,
+  FaSpinner,
 } from 'react-icons/fa';
+import { Formik, Form } from 'formik';
+import * as Yup from 'yup';
+import FormField from '../../components/FormField/FormField';
+import SignUp from '../../components/SignUp/SignUp';
 
+const SignInSchema = Yup.object().shape({
+  username: Yup.string().min(3).max(24).required(),
+  email: Yup.string().email().required(),
+  password: Yup.string().min(8).max(32).required(),
+  passwordConfimation: Yup.string()
+    .oneOf([Yup.ref('password'), null], 'Passwords does not match')
+    .required(),
+});
 function Contact() {
-  const formik = useFormik({
-    initialValues: {
-      name: '',
-      email: '',
-      text: '',
-      checked: [],
-    },
-    onSubmit: (values) => {
-      console.log(values);
-    },
-  });
-
   return (
     <div className="lg:flex lg:flex-row-reverse lg:justify-end lg:h-screen">
       <section>
-        <form
-          onSubmit={formik.handleSubmit}
-          className="flex flex-col justify-center items-center bg-red-200"
+        <Formik
+          initialValues={{
+            name: '',
+            password: '',
+          }}
+          validationSchema={SignInSchema}
+          onSubmit={(values, { setSubmitting }) => {
+            setTimeout(() => {
+              console.log(values, 'aa');
+              setSubmitting(false);
+            }, 100);
+          }}
         >
-          <label htmlFor="name" className="flex flex-col items-start mt-7">
-            Name
-            <input
-              id="name"
-              type="text"
-              placeholder="Your name"
-              onChange={formik.handleChange}
-              value={formik.values.name}
-              className="w-[11.3rem] p-1  mt-2 text-[12px] text-left"
-            />
-          </label>
-          <label htmlFor="email" className="flex flex-col items-start mt-7">
-            Email
-            <input
-              id="email"
-              type="email"
-              placeholder="Your email"
-              onChange={formik.handleChange}
-              value={formik.values.email}
-              className="w-[11.3rem] p-1  mt-2 text-[12px] text-left"
-            />
-          </label>
-          <label htmlFor="text" className="flex flex-col items-start mt-7">
-            How can we help?
-            <textarea
-              id="text"
-              type="text"
-              placeholder="Tell us about the project..."
-              onChange={formik.handleChange}
-              value={formik.values.text}
-              className="w-[11.3rem] p-1 pb-[8rem] mt-2 text-[12px] text-left"
-            />
-          </label>
-          <div>
-            <label htmlFor="website-design">
-              Website Design
-              <input
-                type="checkbox"
-                name="checked"
-                value="website-design"
-                id="website-design"
+          {({
+            // Unused props: handleSubmit, handleChange, handleBlur, values, isValid,
+            touched,
+            errors,
+            isSubmitting,
+            // handleSubmit,
+          }) => (
+            <Form>
+              <FormField
+                autoComplete="username"
+                className="mb-3 "
+                errors={errors}
+                label="Name"
+                name="name"
+                touched={touched}
+                type="text"
               />
-            </label>
-          </div>
 
-          <button type="submit" className="px-[4.13rem] py-1 mt-2 bg-cusOrange">
-            Submit
-          </button>
-        </form>
+              {isSubmitting ? (
+                <button
+                  type="submit"
+                  className="text-lg bg-red-700 text-gray-200 rounded flex items-center px-5 py-2"
+                  disabled
+                >
+                  <FaSpinner className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" />
+                  Submiting...
+                </button>
+              ) : (
+                <button
+                  type="submit"
+                  className="text-lg text-gray-100 bg-red-600 hover:bg-red-700 transition rounded px-5 py-2"
+                >
+                  Submit
+                </button>
+              )}
+            </Form>
+          )}
+        </Formik>
       </section>
 
       <section className="bg-cusOrange lg:flex lg:flex-col lg:items-start lg:pr-[2rem] ">
