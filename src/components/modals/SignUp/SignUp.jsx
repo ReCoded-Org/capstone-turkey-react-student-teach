@@ -4,16 +4,20 @@ import * as Yup from 'yup';
 import { FaSpinner } from 'react-icons/fa';
 
 import Modal from '../Modal/Modal';
-import FormField from '../FormField/FormField';
+import FormField from '../../FormField/FormField';
 
 const SignInSchema = Yup.object().shape({
   username: Yup.string().min(3).max(24).required(),
+  email: Yup.string().email().required(),
   password: Yup.string().min(8).max(32).required(),
+  passwordConfimation: Yup.string()
+    .oneOf([Yup.ref('password'), null], 'Passwords does not match')
+    .required(),
 });
 
-function SignIn({ open, setOpen, setSignUp }) {
+function SignUp({ open, setOpen, setSignIn }) {
   return (
-    <Modal label="Sign in" open={open} setOpen={setOpen}>
+    <Modal label="Sign up" open={open} setOpen={setOpen}>
       <Formik
         initialValues={{
           username: '',
@@ -44,11 +48,29 @@ function SignIn({ open, setOpen, setSignUp }) {
               type="text"
             />
             <FormField
-              autoComplete="password"
+              autoComplete="email"
+              className="mb-3"
+              errors={errors}
+              label="Email address"
+              name="email"
+              touched={touched}
+              type="email"
+            />
+            <FormField
+              autoComplete="new-password"
               className="mb-3"
               errors={errors}
               label="Password"
               name="password"
+              touched={touched}
+              type="password"
+            />
+            <FormField
+              autoComplete="new-password"
+              className="mb-3"
+              errors={errors}
+              label="Repeat password"
+              name="passwordConfimation"
               touched={touched}
               type="password"
             />
@@ -60,28 +82,28 @@ function SignIn({ open, setOpen, setSignUp }) {
                   disabled
                 >
                   <FaSpinner className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" />
-                  Signing in...
+                  Signing up...
                 </button>
               ) : (
                 <button
                   type="submit"
                   className="text-lg text-gray-100 bg-red-600 hover:bg-red-700 transition rounded px-5 py-2"
                 >
-                  Sign in
+                  Sign up
                 </button>
               )}
               <p className="text-right text-xs text-gray-500 mb-0">
-                Don&apos;t have an account yet?
+                Already have an account?
                 <br />
                 <button
                   type="button"
                   className="text-sm text-red-600 hover:text-red-700 transition"
                   onClick={() => {
                     setOpen(false);
-                    setSignUp(true);
+                    setSignIn(true);
                   }}
                 >
-                  Sign up
+                  Sign in
                 </button>
               </p>
             </div>
@@ -91,10 +113,10 @@ function SignIn({ open, setOpen, setSignUp }) {
     </Modal>
   );
 }
-SignIn.propTypes = {
+SignUp.propTypes = {
   open: PropTypes.bool.isRequired,
   setOpen: PropTypes.func.isRequired,
-  setSignUp: PropTypes.func.isRequired,
+  setSignIn: PropTypes.func.isRequired,
 };
 
-export default SignIn;
+export default SignUp;

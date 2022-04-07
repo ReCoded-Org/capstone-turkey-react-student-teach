@@ -8,7 +8,7 @@ import { FaFileUpload, FaSpinner } from 'react-icons/fa';
 import prettyBytes from 'pretty-bytes';
 
 import Modal from '../Modal/Modal';
-import FormField from '../FormField/FormField';
+import FormField from '../../FormField/FormField';
 
 const SignInSchema = Yup.object().shape({
   title: Yup.string().min(3).max(24).required(),
