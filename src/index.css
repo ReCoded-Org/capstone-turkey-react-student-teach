@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .social-icons {
+    @apply cursor-pointer mx-3 text-xl lg:text-3xl lg:mx-7 lg:hover:rounded-md lg:transition-all lg:duration-300 lg:hover:scale-150 lg:hover:text-white;
+  }
+  .burger-icons {
+    @apply cursor-pointer text-xl font-light select-none lg:hidden;
+  }
+}
