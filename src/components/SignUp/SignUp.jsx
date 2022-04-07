@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 import { FaSpinner } from 'react-icons/fa';
 
 import Modal from '../Modal/Modal';
-import FormField from '../FormField/FormField';
+import FormField from '../../FormField/FormField';
 
 const SignInSchema = Yup.object().shape({
   username: Yup.string().min(3).max(24).required(),

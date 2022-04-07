@@ -12,13 +12,8 @@ import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import FormField from '../../components/FormField/FormField';
 
-const SignInSchema = Yup.object().shape({
-  username: Yup.string().min(3).max(24).required(),
-  email: Yup.string().email().required(),
-  password: Yup.string().min(8).max(32).required(),
-  passwordConfimation: Yup.string()
-    .oneOf([Yup.ref('password'), null], 'Passwords does not match')
-    .required(),
+const ContactSchema = Yup.object().shape({
+  username: Yup.string().max(24).required(),
 });
 function Contact() {
   return (
@@ -27,14 +22,13 @@ function Contact() {
         <Formik
           initialValues={{
             name: '',
-            password: '',
           }}
-          validationSchema={SignInSchema}
+          validationSchema={ContactSchema}
           onSubmit={(values, { setSubmitting }) => {
             setTimeout(() => {
               console.log(values, 'aa');
               setSubmitting(false);
-            }, 100);
+            }, 1000);
           }}
         >
           {({
@@ -42,11 +36,10 @@ function Contact() {
             touched,
             errors,
             isSubmitting,
-            // handleSubmit,
           }) => (
             <Form>
               <FormField
-                autoComplete="username"
+                autoComplete="name"
                 className="mb-3 "
                 errors={errors}
                 label="Name"
