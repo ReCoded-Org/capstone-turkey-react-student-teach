@@ -11,12 +11,15 @@ function BookmarkCard({
   return (
     <div className="flex items-center">
       <img
-        className=" mr-2 w-10 h-10 rounded-xl "
+        className=" mr-1 md:mr-2 lg:mr-2 w-8 h-8 lg:w-10 lg:h-10 rounded-xl "
         src={userImage}
-        alt="userImage.png"
+        alt={`${userImage}.png`}
       />
-      <h3 className="  text-sm mr-4 w-16 font-medium truncate "> {name} </h3>
-      <p className=" self-start h-full mr-8 w-2/3 text-sm line-clamp-2">
+      <h3 className="  text-sm mr-2 lg:mr-4 w-16 font-medium truncate ">
+        {' '}
+        {name}{' '}
+      </h3>
+      <p className=" self-start h-full mr-2 lg:mr-8 w-1/2 lg:w-2/3 text-xs lg:text-sm line-clamp-2">
         {' '}
         {questionTitle}{' '}
       </p>

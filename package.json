@@ -6,9 +6,6 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "@reduxjs/toolkit": "^1.5.1",
-    "@tailwindcss/line-clamp": "^0.3.1",
-    "eslint": "^8.12.0",
     "formik": "^2.2.9",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
@@ -43,7 +40,10 @@
     ]
   },
   "devDependencies": {
+    "@reduxjs/toolkit": "^1.5.1",
+    "@tailwindcss/line-clamp": "^0.3.1",
     "autoprefixer": "^10.4.4",
+    "eslint": "^8.12.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.25.4",
@@ -54,7 +54,8 @@
     "husky": "^7.0.0",
     "postcss": "^8.4.12",
     "prettier": "^2.6.0",
-    "tailwindcss": "^3.0.23"
+    "tailwindcss": "^3.0.23",
+    "react-test-renderer": "^18.0.0"
   },
   "optionalDependencies": {
     "fsevents": "^2.3.2"

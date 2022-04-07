@@ -1,10 +1,10 @@
 import './App.css';
-import BookmarkPage from './pages/BookmarkPage';
+import BookmarkPage from './pages/BookMarkPage/BookmarkPage';
 
 function App() {
   return (
     <div className="App">
-      <p>learn</p>
+      <p className="hidden">learn</p>
       <BookmarkPage />
     </div>
   );
