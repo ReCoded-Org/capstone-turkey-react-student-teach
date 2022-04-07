@@ -11,7 +11,6 @@ import {
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import FormField from '../../components/FormField/FormField';
-import SignUp from '../../components/SignUp/SignUp';
 
 const SignInSchema = Yup.object().shape({
   username: Yup.string().min(3).max(24).required(),
