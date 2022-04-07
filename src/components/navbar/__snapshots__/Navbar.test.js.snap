@@ -100,7 +100,7 @@ exports[`Navbar snapshot 1`] = `
           className="mb-3 lg:mb-0 lg:pr-3 lg:border-r-[1px] lg:border-cusOrange hover:text-cusOrange transition-all ease-in-out"
         >
           <a
-            href="/home"
+            href="/"
             onClick={[Function]}
           >
             Home

@@ -8,9 +8,9 @@ import {
   CONTACT_ROUTE,
   HOME_ROUTE,
   QUESTIONS_ROUTE,
-  QUESTION_PLUS_ROUTE,
   SIGNIN_ROUTE,
   SIGNUP_ROUTE,
+  ADD_QUESTION_ROUTE,
 } from '../../routes';
 
 function Navbar() {
@@ -35,7 +35,7 @@ function Navbar() {
         </div>
         <div className="inline-block lg:hidden lg:mr-[6rem] hover:scale-110 ease-in-out transition-all">
           <Link
-            to={QUESTION_PLUS_ROUTE}
+            to={ADD_QUESTION_ROUTE}
             className="p-[7px] rounded-md border-[1px] border-cusOrange lg:p-2 "
           >
             <span className="text-sm text-cusOrange lg:text-base">
@@ -73,7 +73,7 @@ function Navbar() {
 
         <div className="hidden mt-5 lg:mt-0 lg:mr-[6rem] lg:inline-block hover:scale-110 ease-in-out transition-all">
           <Link
-            to="/question+"
+            to={ADD_QUESTION_ROUTE}
             className="max-w-[10rem] p-3 rounded-md bg-cusOrange lg:p-2"
           >
             <span className="text-2xl text-white lg:text-base">
