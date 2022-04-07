@@ -11,30 +11,43 @@ function FormField({
   rows,
   type,
 }) {
-  return (
-    <div className={className}>
-      <label htmlFor={name} className="block text-sm font-medium text-gray-700">
-        {label}
-      </label>
-      {type === 'textarea' ? (
+  if (type === 'textarea') {
+    return (
+      <div className={className}>
+        <label
+          htmlFor={name}
+          className="block text-sm font-medium text-gray-700"
+        >
+          {label}
+        </label>
         <Field
-          as={type}
+          as="textarea"
           autoComplete={autoComplete}
           className="my-1 focus:ring-red-500 focus:border-red-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
           id={name}
           name={name}
           rows={rows}
         />
-      ) : (
-        <Field
-          autoComplete={autoComplete}
-          className="my-1 focus:ring-red-500 focus:border-red-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-          id={name}
+        <ErrorMessage
+          className="text-sm text-red-600"
+          component="div"
           name={name}
-          type={type}
         />
-      )}
-
+      </div>
+    );
+  }
+  return (
+    <div className={className}>
+      <label htmlFor={name} className="block text-sm font-medium text-gray-700">
+        {label}
+      </label>
+      <Field
+        autoComplete={autoComplete}
+        className="my-1 focus:ring-red-500 focus:border-red-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+        id={name}
+        name={name}
+        type={type}
+      />
       <ErrorMessage
         className="text-sm text-red-600"
         component="div"
