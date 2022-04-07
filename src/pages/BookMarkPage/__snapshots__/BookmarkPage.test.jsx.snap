@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render when text of no bookmark found removes 1`] = `
+Array [
+  <div
+    className=" mt-12 mx-2  md:mt-20 md:mx-10 lg:mt-20 lg:ml-20 "
+  >
+    <h1
+      className="text-[#CA7560] text-xl md:text-2xl lg:text-3xl font-thin "
+    >
+      Bookmarks
+       
+      <span
+        className="text-2xl  md:text-3xl lg:text-4xl font-extralight"
+      >
+        |
+      </span>
+       
+    </h1>
+    <div
+      className="  mt-16 max-w-7xl grid grid-cols-2 gap-x-5 gap-y-10 lg:gap-x-16 lg:gap-y-14"
+    />
+  </div>,
+  <div
+    className="text-center mt-28"
+  >
+    <button
+      className=" text-gray-400 -ml-2 lg:-ml-28  "
+      onClick={[Function]}
+      type="button"
+    >
+      load more...
+    </button>
+  </div>,
+]
+`;
