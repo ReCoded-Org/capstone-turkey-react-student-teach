@@ -1,5 +1,4 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable react/jsx-props-no-spreading */
 
 import PropTypes from 'prop-types';
 import { Formik, Form } from 'formik';
@@ -72,12 +71,17 @@ function AddQuestion({ open, setOpen }) {
               {({ acceptedFiles, getRootProps, getInputProps }) => (
                 <section>
                   <div
+                    // eslint-disable-next-line react/jsx-props-no-spreading
                     {...getRootProps({
                       className:
                         'dropzone flex flex-col items-center bg-gray-50 rounded-lg outline-dashed outline-gray-200 px-4 py-5 my-2',
                     })}
                   >
-                    <input {...getInputProps()} id="attachments" />
+                    <input
+                      // eslint-disable-next-line react/jsx-props-no-spreading
+                      {...getInputProps()}
+                      id="attachments"
+                    />
                     <FaFileUpload className="w-9 h-9 text-gray-400 mb-3" />
                     <p className="text-sm text-gray-500 text-center">
                       Drag and drop images, or click to browse
