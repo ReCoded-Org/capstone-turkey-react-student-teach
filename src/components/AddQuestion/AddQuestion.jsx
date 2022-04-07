@@ -1,7 +1,11 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable react/jsx-props-no-spreading */
 import PropTypes from 'prop-types';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
-import { FaSpinner } from 'react-icons/fa';
+import Dropzone from 'react-dropzone';
+import { FaFileUpload, FaSpinner } from 'react-icons/fa';
+import prettyBytes from 'pretty-bytes';
 
 import Modal from '../Modal/Modal';
 import FormField from '../FormField/FormField';
@@ -52,6 +56,47 @@ function AddQuestion({ open, setOpen }) {
               touched={touched}
               type="textarea"
             />
+            <label
+              htmlFor="attachments"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Attachments
+            </label>
+            <Dropzone
+              accept="image/*"
+              onDrop={(acceptedFiles) => console.log(acceptedFiles)}
+              maxFiles={4}
+              maxSize={4194304} // 4MB
+            >
+              {({ acceptedFiles, getRootProps, getInputProps }) => (
+                <section>
+                  <div
+                    {...getRootProps({
+                      className:
+                        'dropzone flex flex-col items-center bg-gray-50 rounded-lg outline-dashed outline-gray-200 px-4 py-5 my-2',
+                    })}
+                  >
+                    <input {...getInputProps()} id="attachments" />
+                    <FaFileUpload className="w-9 h-9 text-gray-400 mb-3" />
+                    <p className="text-sm text-gray-500 text-center">
+                      Drag and drop images, or click to browse
+                    </p>
+                    {acceptedFiles.length ? (
+                      <aside className="mt-4">
+                        <h4 className="text-red-600">Files</h4>
+                        <ul className="list-disc text-sm">
+                          {acceptedFiles.map((file) => (
+                            <li key={file.path} className="ml-4">
+                              {file.path} - {prettyBytes(file.size)}
+                            </li>
+                          ))}
+                        </ul>
+                      </aside>
+                    ) : null}
+                  </div>
+                </section>
+              )}
+            </Dropzone>
             <div className="flex justify-between items-center mt-7">
               {isSubmitting ? (
                 <button
