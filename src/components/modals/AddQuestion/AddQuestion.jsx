@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/jsx-props-no-spreading */
+
 import PropTypes from 'prop-types';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
@@ -18,7 +19,7 @@ const SignInSchema = Yup.object().shape({
 
 function AddQuestion({ open, setOpen }) {
   return (
-    <Modal label="Ask question" maxWidth="md" open={open} setOpen={setOpen}>
+    <Modal label="Ask question" open={open} setOpen={setOpen}>
       <Formik
         initialValues={{
           username: '',
