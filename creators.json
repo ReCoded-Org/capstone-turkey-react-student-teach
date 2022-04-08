@@ -1,0 +1,72 @@
+[
+    {
+        "id": 1,
+        "name": "Suat Enes Koç",
+        "title": "Front-end Developer",
+        "e-mail": "suateneskoc@gmail.com",
+        "contact": [
+            {
+                "github": "www.github.com/oguzdashyilmaz"
+            },
+            {
+                "linkedin": "wwww.linkedin.com/in/oguzdashyilmaz"
+            }
+        ]
+    },
+{
+        "id": 2,
+        "name": "Hazar Can Nas",
+        "title": "Front-end Developer",
+        "e-mail": "hazarcan.nas@gmail.com",
+        "contact": [
+            {
+                "github": "www.github.com/oguzdashyilmaz"
+            },
+            {
+                "linkedin": "wwww.linkedin.com/in/oguzdashyilmaz"
+            }
+        ]
+    },
+{
+        "id": 3,
+        "name": "Muhammed Yusuf Adıyaman",
+        "title": "Front-end Developer",
+        "e-mail": "myusufadiyaman@gmail.com",
+        "contact": [
+            {
+                "github": "www.github.com/oguzdashyilmaz"
+            },
+            {
+                "linkedin": "wwww.linkedin.com/in/oguzdashyilmaz"
+            }
+        ]
+    },
+{
+        "id": 4,
+        "name": "Ali Saleh",
+        "title": "Front-end Developer",
+        "e-mail": "iqalisalehiq@gmail.com",
+        "contact": [
+            {
+                "github": "www.github.com/oguzdashyilmaz"
+            },
+            {
+                "linkedin": "wwww.linkedin.com/in/oguzdashyilmaz"
+            }
+        ]
+    },
+{
+        "id": 5,
+        "name": "Oguz Yılmaz",
+        "title": "Front-end Developer",
+        "e-mail": "yilmazoguz@outlook.com",
+        "contact": [
+            {
+                "github": "www.github.com/oguzdashyilmaz"
+            },
+            {
+                "linkedin": "wwww.linkedin.com/in/oguzdashyilmaz"
+            }
+        ]
+    }
+]
