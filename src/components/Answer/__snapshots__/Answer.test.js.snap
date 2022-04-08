@@ -5,7 +5,7 @@ exports[`renders an answer component 1`] = `
   className="flex flex-col"
 >
   <div
-    className="group bg-gray-100 rounded-lg px-5 py-4"
+    className="group relative bg-gray-100 rounded-lg px-5 py-4"
   >
     <div
       className="flex justify-between items-center mb-2"
