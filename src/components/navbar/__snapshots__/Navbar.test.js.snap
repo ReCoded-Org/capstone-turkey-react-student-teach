@@ -68,12 +68,20 @@ exports[`Navbar snapshot 1`] = `
   </div>
   <div
     aria-hidden="true"
+<<<<<<< HEAD
     className="ml-2 w-screen top-[4rem] lg:ml-0 lg:flex lg:justify-between lg:items-center lg:h-[4rem] lg:top-[1px] absolute hidden"
+=======
+    className="ml-2 w-screen top-[4rem] flex flex-col justify-center items-center lg:ml-0 lg:flex lg:flex-row lg:justify-between lg:items-center lg:h-[4rem] lg:top-[1px] absolute hidden"
+>>>>>>> 3be01968d7f57049441103d4743f526ba246e6d6
     onClick={[Function]}
   >
     <div>
       <ul
+<<<<<<< HEAD
         className="inline-block mt-4 text-2xl lg:mt-0 lg:text-base lg:flex lg:items-center"
+=======
+        className="inline-block mt-4 text-2xl lg:mt-0 lg:text-base lg:flex lg:items-center text-center"
+>>>>>>> 3be01968d7f57049441103d4743f526ba246e6d6
       >
         <svg
           className="hidden mb-3 lg:mb-0 mx-10 text-[2rem] fill-current lg:block"
