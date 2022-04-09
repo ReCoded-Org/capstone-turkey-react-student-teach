@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import BookmarkCard from '../../components/BookmarkCard';
+import BookmarkCard from '../../components/cards/bookmarkCard/BookmarkCard';
 import data from '../mockData';
 
 const numberOfItemsOnClick = 4;
