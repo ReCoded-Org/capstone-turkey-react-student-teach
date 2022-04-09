@@ -20,7 +20,7 @@ const ContactSchema = Yup.object().shape({
 function Contact() {
   return (
     <div className="lg:flex lg:flex-row-reverse lg:justify-end lg:h-screen lg:text-base md:text-base text-sm">
-      <section className="w-screen h-3/4 mt-10 md:h-[60vh] flex flex-col justify-center items-center lg:mt-[10rem]">
+      <section className="w-screen h-3/4 mt-10 md:mt-[4rem] md:h-[60vh] flex flex-col justify-center items-center lg:mt-[10rem]">
         <h1 className="mb-10 font-semibold text-2xl md:text-3xl lg:text-[2.3rem] lg:mb-[3.5]">
           Level up Your brand
         </h1>
@@ -45,7 +45,7 @@ function Contact() {
             errors,
             isSubmitting,
           }) => (
-            <Form className="w-[15rem] lg:w-[20rem]">
+            <Form className="flex flex-col w-[15rem] lg:w-[20rem]">
               <FormField
                 autoComplete="name"
                 className="mb-10 lg:text-left"
@@ -123,7 +123,7 @@ function Contact() {
                   className="text-lg bg-cusOrange text-white rounded pl-10 pr-5 py-2 mb-10 lg:mb-0 relative"
                   disabled
                 >
-                  <FaSpinner className="animate-spin h-5 text-white mr-3 absolute right-[7rem] top-[0.8rem]" />
+                  <FaSpinner className="animate-spin h-5 text-white mr-[4rem] lg:mr-[6rem] absolute right-[7rem] top-[0.8rem]" />
                   Submiting...
                 </button>
               ) : (
@@ -140,7 +140,7 @@ function Contact() {
       </section>
 
       <section className="bg-cusOrange mt-10 md:h-3/4 lg:h-[100vh] lg:mt-0 lg:flex lg:flex-col lg:items-start lg:pr-[2rem]">
-        <div className="p-4 lg:mt-[5rem] lg:text-left lg:ml-10">
+        <div className="p-4 flex flex-col items-center text-center lg:flex lg:items-start lg:mt-[5rem] lg:text-left lg:ml-10">
           <h1 className="font-bold lg:text-xl">Get in touch</h1>
           <h4 className="mt-2 lg:mt-1">
             We love to hear from you,
