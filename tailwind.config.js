@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 module.exports = {
   content: ['./src/**/*.{js,jsx}'],
   theme: {
@@ -16,5 +17,5 @@ module.exports = {
       orange: 'rgba(202, 117, 96, 1)',
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/forms'),require('@tailwindcss/line-clamp')],
 };
