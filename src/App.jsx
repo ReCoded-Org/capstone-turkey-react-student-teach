@@ -1,11 +1,14 @@
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
+/* import logo from './logo.svg';
+import { Counter } from './features/counter/Counter'; */
 import './App.css';
+// eslint-disable-next-line no-unused-vars
+import HomeContent from './components/home/HomeContent';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      <HomeContent />
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <Counter />
         <p>
@@ -49,7 +52,7 @@ function App() {
             React Redux
           </a>
         </span>
-      </header>
+      </header> */}
     </div>
   );
 }
