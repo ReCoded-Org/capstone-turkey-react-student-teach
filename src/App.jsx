@@ -1,10 +1,10 @@
 import './App.css';
-import Contact from './pages/contact/Contact';
+import Navbar from './components/navbar/Navbar';
 
 function App() {
   return (
     <div className="App">
-      <Contact />
+      <Navbar />
     </div>
   );
 }

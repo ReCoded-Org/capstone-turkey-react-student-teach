@@ -20,4 +20,40 @@
   .contact-checkbox-field {
     @apply mb-3 lg:text-left flex flex-row-reverse justify-center items-center;
   }
+  .social-icons {
+    @apply m-5 p-1 cursor-pointer rounded-3xl bg-white hover:rounded-md transition-all duration-300 hover:scale-150 hover:bg-black hover:text-white shadow-lg;
+  }
+  .burger-icons {
+    @apply cursor-pointer text-xl font-light select-none lg:hidden;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+input:checked ~ .dot {
+  transform: translateX(100%);
+  background-image: url('./assets/images/moon3.svg');
+}
+
+input:checked ~ .bgColor {
+  background-color: white;
+}
+
+input ~ .bgColor {
+  background-color: white;
+}
+.dot {
+  background-image: url('./assets/images/sun3.svg');
 }
