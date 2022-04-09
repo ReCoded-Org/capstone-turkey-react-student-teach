@@ -34,7 +34,6 @@ function Contact() {
           validationSchema={ContactSchema}
           onSubmit={(values, { setSubmitting, resetForm }) => {
             setTimeout(() => {
-              console.log(values);
               setSubmitting(false);
               resetForm();
             }, 1000);
