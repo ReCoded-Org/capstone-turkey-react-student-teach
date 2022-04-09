@@ -49,12 +49,12 @@ function Navbar() {
       <div
         onClick={() => setBurger(true)}
         aria-hidden="true"
-        className={`ml-2 w-screen top-[4rem] lg:ml-0 lg:flex lg:justify-between lg:items-center lg:h-[4rem] lg:top-[1px] absolute ${
+        className={`ml-2 w-screen top-[4rem] flex flex-col justify-center items-center lg:ml-0 lg:flex lg:flex-row lg:justify-between lg:items-center lg:h-[4rem] lg:top-[1px] absolute ${
           burger ? 'hidden' : null
         }`}
       >
         <div>
-          <ul className="inline-block mt-4 text-2xl lg:mt-0 lg:text-base lg:flex lg:items-center">
+          <ul className="inline-block mt-4 text-2xl lg:mt-0 lg:text-base lg:flex lg:items-center text-center">
             <SiTailwindcss className="hidden mb-3 lg:mb-0 mx-10 text-[2rem] fill-current lg:block" />
             <li className="mb-3 lg:mb-0 lg:pr-3 lg:border-r-[1px] lg:border-cusOrange hover:text-cusOrange transition-all ease-in-out">
               <Link to={HOME_ROUTE}>Home</Link>
