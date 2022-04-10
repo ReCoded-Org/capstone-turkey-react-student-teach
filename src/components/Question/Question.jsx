@@ -123,7 +123,7 @@ function Question({
 
       <div className="relative w-full px-2 lg:px-20 ">
         <input
-          className="focus:outline-none border-[#CA7560] border-[3px] border-opacity-50 rounded-lg py-4 pl-5 text-xs w-full "
+          className=" line-clamp-5 pr-14 md:pr-16 lg:pr-14 focus:outline-none border-[#CA7560] border-[3px] border-opacity-50 rounded-lg py-4 pl-5 text-xs w-full "
           type="text"
           placeholder="Answer the question..."
         />
@@ -137,7 +137,7 @@ Question.propTypes = {
   userName: PropTypes.string.isRequired,
   questionTitle: PropTypes.string.isRequired,
   questionText: PropTypes.string.isRequired,
-  questionImage: PropTypes.string,
+  questionImage: PropTypes.string.isRequired,
 };
 
 export default Question;

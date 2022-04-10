@@ -99,7 +99,7 @@ exports[`renders an Question component correctly 1`] = `
         <img
           alt="question.png"
           className=" rounded-xl transition-transform hover:scale-105 hover:cursor-pointer z-0 "
-          src="questionImage.png"
+          src="https://via.placeholder.co"
         />
       </button>
     </div>
@@ -108,7 +108,7 @@ exports[`renders an Question component correctly 1`] = `
     className="relative w-full px-2 lg:px-20 "
   >
     <input
-      className="focus:outline-none border-[#CA7560] border-[3px] border-opacity-50 rounded-lg py-4 pl-5 text-xs w-full "
+      className=" line-clamp-5 pr-14 md:pr-16 lg:pr-14 focus:outline-none border-[#CA7560] border-[3px] border-opacity-50 rounded-lg py-4 pl-5 text-xs w-full "
       placeholder="Answer the question..."
       type="text"
     />
