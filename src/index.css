@@ -7,7 +7,7 @@
     @apply cursor-pointer text-xl font-light select-none lg:hidden;
   }
   .contact-social-icons {
-    @apply cursor-pointer mx-3 text-xl lg:text-3xl lg:mx-7 lg:hover:rounded-md lg:transition-all lg:duration-300 lg:hover:scale-150 lg:hover:text-white;
+    @apply cursor-pointer mx-3 text-xl lg:text-3xl lg:mx-7 lg:hover:rounded-md lg:transition-all lg:duration-300 lg:hover:scale-150 lg:hover:text-[#fff];
   }
 
   .contact-info-icon-container {
