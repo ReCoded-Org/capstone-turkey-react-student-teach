@@ -90,7 +90,7 @@ exports[`renders an Question component correctly 1`] = `
       questionText
     </p>
     <div
-      className="hover:scale-105 transition-transform mx-auto w-1/2"
+      className="hover:scale-105 transition-transform mx-auto w-1/2 "
     >
       <button
         onClick={[Function]}
