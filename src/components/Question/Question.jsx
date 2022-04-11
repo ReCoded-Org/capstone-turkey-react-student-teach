@@ -104,8 +104,8 @@ function Question({
         <div
           className={
             fullImageSize
-              ? 'fixed top-0 bottom-0 left-0 right-2 lg:left-80 lg:right-0 w-screen h-screen flex items-center z-50'
-              : 'hover:scale-105 transition-transform mx-auto w-1/2'
+              ? 'fixed top-0 bottom-0 left-0 lg:right-0 w-screen h-screen flex items-center justify-center z-50 backdrop-blur-lg backdrop-filter'
+              : 'hover:scale-105 transition-transform mx-auto w-1/2 '
           }
         >
           <button
@@ -118,6 +118,15 @@ function Question({
               alt="question.png"
             />
           </button>
+          {fullImageSize && (
+            <button
+              onClick={() => setFullImageSize(false)}
+              type="button"
+              className="text-[#CA7560] text-xl absolute top-4 right-10"
+            >
+              X
+            </button>
+          )}
         </div>
       </div>
 
