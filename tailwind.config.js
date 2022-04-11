@@ -16,6 +16,11 @@ module.exports = {
       current: 'currentColor',
       orange: 'rgba(202, 117, 96, 1)',
     },
+    extend: {
+      colors: {
+        cusOrange: '#CA7560',
+      },
+    },
   },
   plugins: [require('@tailwindcss/forms'),require('@tailwindcss/line-clamp')],
 };
