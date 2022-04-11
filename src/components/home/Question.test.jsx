@@ -5,6 +5,7 @@ it('Render when text of no Question found removes', () => {
   const tree = renderer.create(<Question />).toJSON();
   expect(tree).toMatchSnapshot();
 });
+// eslint-disable-next-line jest/no-identical-title
 it('Render when text of no Question found removes', () => {
   const tree = renderer
     .create(

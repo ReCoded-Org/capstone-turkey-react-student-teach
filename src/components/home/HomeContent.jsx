@@ -8,8 +8,9 @@ function HomeContent() {
   const [question, setquestion] = useState();
   useEffect(() => {
     setquestion(allQuestions.allQuestions);
+    // eslint-disable-next-line no-console
     console.log(question);
-  }, []);
+  }, [question]);
 
   return (
     <div className="container ml-8 mt-8 pr-2">
