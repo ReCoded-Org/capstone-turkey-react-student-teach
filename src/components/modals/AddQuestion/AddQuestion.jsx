@@ -64,7 +64,7 @@ function AddQuestion({ open, setOpen }) {
             </label>
             <Dropzone
               accept="image/*"
-              onDrop={(acceptedFiles) => console.log(acceptedFiles)}
+              onDrop={() => {}}
               maxFiles={4}
               maxSize={4194304} // 4MB
             >
