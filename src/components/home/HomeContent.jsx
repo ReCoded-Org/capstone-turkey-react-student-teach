@@ -3,19 +3,22 @@
 import React, { useEffect, useState } from 'react';
 import Question from './Question';
 import allQuestions from './questions.json';
+import styles from './home.module.css';
 
 function HomeContent() {
   const [question, setquestion] = useState();
   useEffect(() => {
     setquestion(allQuestions.allQuestions);
-    // eslint-disable-next-line no-console
-    console.log(question);
   }, [question]);
 
   return (
-    <div className="container ml-8 mt-8 pr-2">
+    <div className="container sm:mx-auto w-10/12  mt-8 pr-2">
       <div className="flex ">
-        <div className="w-7/12 z-20">
+        <div
+          className={`w-full z-20 mx-auto  sm:w-10/12  xl:w-7/12
+            ${styles.main_text}
+          `}
+        >
           <h2 className="text-7xl text-orange">Student Teach</h2>
           <h4 className="font-semibold text-2xl text-black mt-9 py-0.5">
             We grow up by helping each other.
@@ -30,15 +33,18 @@ function HomeContent() {
           </p>
         </div>
         <div
-          className="w-5/12 bg-cover bg-right w-full scale-150 z-10"
+          className="hidden w-5/12  bg-cover lg:flex  bg-right w-full scale-150 z-10"
           style={{ backgroundImage: 'url("./images/home.png")' }}
         >
-          <button className="bg-orange rounded-[10px] text-xl w-44 h-10 text-[#FFFFFF] absolute inline-block bottom-[20px] left-[150px]">
+          <button className="bg-orange rounded-[10px] text-xl w-44 h-10 text-[#FFFFFF] absolute inline-block bottom-[20px] left-[125px] lg:left-[50px]">
             Ask Question +
           </button>
         </div>
       </div>
-      <div className="mt-20">
+      <button className=" lg:hidden mt-10 mx-auto bg-orange rounded-[10px] text-xl w-[10rem] h-[3rem] text-[#FFFFFF] absolute inline-block  left-[40%]">
+        Ask Question +
+      </button>
+      <div className="mt-24">
         {question?.map((q) => (
           <Question
             username={q.username}
