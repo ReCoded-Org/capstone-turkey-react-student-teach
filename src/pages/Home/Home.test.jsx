@@ -1,7 +1,7 @@
 import renderer from 'react-test-renderer';
-import HomePage from './HomePage';
+import Home from './Home';
 
 it('Render when text of no HomePage found removes', () => {
-  const tree = renderer.create(<HomePage />).toJSON();
+  const tree = renderer.create(<Home />).toJSON();
   expect(tree).toMatchSnapshot();
 });
