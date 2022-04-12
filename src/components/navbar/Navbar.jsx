@@ -10,6 +10,9 @@ import {
   HOME_ROUTE,
   QUESTIONS_ROUTE,
 } from '../../routes';
+import AddQuestion from '../modals/AddQuestion/AddQuestion';
+import SignUp from '../modals/SignUp/SignUp';
+import SignIn from '../modals/SignIn/SignIn';
 
 function Navbar() {
   const [dark, setDark] = useState(false);
@@ -38,6 +41,7 @@ function Navbar() {
           <button
             type="button"
             className="text-sm text-cusOrange lg:text-base p-[7px] rounded-md border-[1px] border-cusOrange lg:p-2 whitespace-nowrap"
+            onClick={() => setAddQuestionModal(true)}
           >
             Ask Question
             <FaPlus className="inline-block ml-1" />
@@ -81,6 +85,8 @@ function Navbar() {
           </button>
         </div>
 
+        <AddQuestion open={addQuestionModal} setOpen={setAddQuestionModal} />
+
         <div className="flex flex-col-reverse lg:flex lg:flex-row lg:item-center">
           <div className="flex justify-center item-center mt-5 ml-[3rem] mr-10 lg:mt-0">
             <label
@@ -107,17 +113,29 @@ function Navbar() {
                 <button
                   type="button"
                   className="pr-3 border-r-[2px] border-cusOrange lg:border-r-[1px] hover:text-cusOrange transition-all ease-in-out inline-block"
+                  onClick={() => setSignUpModal(true)}
                 >
                   Sign Up
                 </button>
+                <SignUp
+                  open={signUpModal}
+                  setOpen={setSignUpModal}
+                  setSignIn={setSignInModal}
+                />
               </li>
               <li>
                 <button
                   type="button"
                   className="pl-3 mr-10 hover:text-cusOrange transition-all ease-in-out inline-block"
+                  onClick={() => setSignInModal(true)}
                 >
                   Sign In
                 </button>
+                <SignIn
+                  open={signInModal}
+                  setOpen={setSignInModal}
+                  setSignUp={setSignUpModal}
+                />
               </li>
             </ul>
           </div>
