@@ -3,14 +3,12 @@ import { useState } from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { VscChromeClose } from 'react-icons/vsc';
 import { SiTailwindcss } from 'react-icons/si';
+import { FaPlus } from 'react-icons/fa';
 import {
   ABOUT_ROUTE,
   CONTACT_ROUTE,
   HOME_ROUTE,
   QUESTIONS_ROUTE,
-  SIGNIN_ROUTE,
-  SIGNUP_ROUTE,
-  ADD_QUESTION_ROUTE,
 } from '../../routes';
 
 function Navbar() {
@@ -34,14 +32,13 @@ function Navbar() {
           )}
         </div>
         <div className="inline-block lg:hidden lg:mr-[6rem] hover:scale-110 ease-in-out transition-all">
-          <Link
-            to={ADD_QUESTION_ROUTE}
-            className="p-[7px] rounded-md border-[1px] border-cusOrange lg:p-2 "
+          <button
+            type="button"
+            className="text-sm text-cusOrange lg:text-base p-[7px] rounded-md border-[1px] border-cusOrange lg:p-2 whitespace-nowrap"
           >
-            <span className="text-sm text-cusOrange lg:text-base">
-              Ask Question+
-            </span>
-          </Link>
+            Ask Question
+            <FaPlus className="inline-block ml-1" />
+          </button>
         </div>
         <SiTailwindcss className="block text-[2rem] lg:hidden " />
       </div>
@@ -72,14 +69,13 @@ function Navbar() {
         </div>
 
         <div className="hidden mt-5 lg:mt-0 lg:mr-[6rem] lg:inline-block hover:scale-110 ease-in-out transition-all">
-          <Link
-            to={ADD_QUESTION_ROUTE}
-            className="max-w-[10rem] p-3 rounded-md bg-cusOrange lg:p-2"
+          <button
+            type="button"
+            className="text-sm text-cusOrange lg:text-base p-[7px] rounded-md border-[1px] border-cusOrange lg:p-2 whitespace-nowrap"
           >
-            <span className="text-2xl text-white lg:text-base">
-              Ask Question+
-            </span>
-          </Link>
+            Ask Question
+            <FaPlus className="inline-block ml-1" />
+          </button>
         </div>
 
         <div className="flex flex-col-reverse lg:flex lg:flex-row lg:item-center">
@@ -105,20 +101,20 @@ function Navbar() {
           <div className="inline-block">
             <ul className="flex justify-center items-center mt-2 ml-10 text-2xl lg:text-base lg:mt-0">
               <li>
-                <Link
-                  to={SIGNUP_ROUTE}
+                <button
+                  type="button"
                   className="pr-3 border-r-[2px] border-cusOrange lg:border-r-[1px] hover:text-cusOrange transition-all ease-in-out inline-block"
                 >
                   Sign Up
-                </Link>
+                </button>
               </li>
               <li>
-                <Link
-                  to={SIGNIN_ROUTE}
+                <button
+                  type="button"
                   className="pl-3 mr-10 hover:text-cusOrange transition-all ease-in-out inline-block"
                 >
                   Sign In
-                </Link>
+                </button>
               </li>
             </ul>
           </div>
