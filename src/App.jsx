@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
+
 import './App.css';
 import Navbar from './components/navbar/Navbar';
 import Home from './pages/Home/Home';
@@ -13,7 +14,6 @@ import {
   QUESTIONS_ROUTE,
   HOME_ROUTE,
 } from './routes';
-import Question from './components/Question/Question';
 
 function App() {
   const [burger, setBurger] = useState(true);
@@ -28,7 +28,6 @@ function App() {
         <Route path={ABOUT_ROUTE} element={<About />} />
       </Routes>
       <Navbar />
-      <Question />
     </div>
   );
 }
