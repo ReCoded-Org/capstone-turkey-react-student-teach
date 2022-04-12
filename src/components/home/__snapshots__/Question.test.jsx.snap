@@ -2,7 +2,7 @@
 
 exports[`Render when text of no Question found removes 1`] = `
 <div
-  className="flex flex-col even:float-right mb-12 w-10/12 h-28 truncate"
+  className="flex flex-col lg:even:float-right mb-4 xl:mb-12 w-12/12 lg:w-10/12 h-20 sm:h-28 truncate"
 >
   <div
     className="bg-[#F0F0F0] group relative bg-gray-100  rounded-lg px-5 py-4"
@@ -18,14 +18,15 @@ exports[`Render when text of no Question found removes 1`] = `
         >
           <img
             alt="s profile pic"
-            className="w-16 rounded-full mr-24"
+            className=" w-8 sm:w-10 xl:w-16 rounded-full mr-8 sm:mr-10 xl:mr-20"
+            src=""
           />
         </a>
         <a
           href="/question:id"
         >
           <div
-            className="font-medium text-black truncate w-[51rem] "
+            className="text-sm sm:text-base xl:text-xl text-black truncate w-[15rem] sm:w-[30rem] lg:w-[40rem] xl:w-[50rem] 2xl:w-[60rem]"
           >
             <span
               className="text-orange"
@@ -33,9 +34,10 @@ exports[`Render when text of no Question found removes 1`] = `
               Q
             </span>
             : 
+            
           </div>
           <div
-            className="font-medium text-[#C4C4C4] truncate w-[52rem]"
+            className="text-sm sm:text-base xl:text-xl text-[#C4C4C4] truncate w-[15rem] sm:w-[30rem] lg:w-[40rem] xl:w-[50rem] 2xl:w-[60rem] "
           >
             <span
               className="text-orange ml-4"
@@ -43,6 +45,7 @@ exports[`Render when text of no Question found removes 1`] = `
               A
             </span>
             : 
+            
           </div>
         </a>
       </div>
@@ -53,7 +56,7 @@ exports[`Render when text of no Question found removes 1`] = `
 
 exports[`Render when text of no Question found removes 2`] = `
 <div
-  className="flex flex-col even:float-right mb-12 w-10/12 h-28 truncate"
+  className="flex flex-col lg:even:float-right mb-4 xl:mb-12 w-12/12 lg:w-10/12 h-20 sm:h-28 truncate"
 >
   <div
     className="bg-[#F0F0F0] group relative bg-gray-100  rounded-lg px-5 py-4"
@@ -69,7 +72,7 @@ exports[`Render when text of no Question found removes 2`] = `
         >
           <img
             alt="s profile pic"
-            className="w-16 rounded-full mr-24"
+            className=" w-8 sm:w-10 xl:w-16 rounded-full mr-8 sm:mr-10 xl:mr-20"
             src="none"
           />
         </a>
@@ -77,7 +80,7 @@ exports[`Render when text of no Question found removes 2`] = `
           href="/question:id"
         >
           <div
-            className="font-medium text-black truncate w-[51rem] "
+            className="text-sm sm:text-base xl:text-xl text-black truncate w-[15rem] sm:w-[30rem] lg:w-[40rem] xl:w-[50rem] 2xl:w-[60rem]"
           >
             <span
               className="text-orange"
@@ -88,7 +91,7 @@ exports[`Render when text of no Question found removes 2`] = `
             2+2=?2*2
           </div>
           <div
-            className="font-medium text-[#C4C4C4] truncate w-[52rem]"
+            className="text-sm sm:text-base xl:text-xl text-[#C4C4C4] truncate w-[15rem] sm:w-[30rem] lg:w-[40rem] xl:w-[50rem] 2xl:w-[60rem] "
           >
             <span
               className="text-orange ml-4"
