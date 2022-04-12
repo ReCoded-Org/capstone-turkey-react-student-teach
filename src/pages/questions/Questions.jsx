@@ -1,5 +1,7 @@
+import Question from '../../components/Question/Question';
+
 function Questions() {
-  return <div>Questions</div>;
+  return <Question />;
 }
 
 export default Questions;

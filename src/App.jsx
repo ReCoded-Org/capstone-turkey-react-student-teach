@@ -13,7 +13,6 @@ import {
   QUESTIONS_ROUTE,
   HOME_ROUTE,
 } from './routes';
-import Question from './components/Question/Question';
 
 function App() {
   const [burger, setBurger] = useState(true);
@@ -27,8 +26,6 @@ function App() {
         <Route path={CONTACT_ROUTE} element={<Contact />} />
         <Route path={ABOUT_ROUTE} element={<About />} />
       </Routes>
-      <Navbar />
-      <Question />
     </div>
   );
 }
