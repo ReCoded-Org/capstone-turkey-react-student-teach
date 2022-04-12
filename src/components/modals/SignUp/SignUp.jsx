@@ -26,7 +26,7 @@ function SignUp({ open, setOpen, setSignIn }) {
         validationSchema={SignInSchema}
         onSubmit={(values, { setSubmitting }) => {
           setTimeout(() => {
-            console.log(values);
+            // console.log(values);
             setSubmitting(false);
           }, 1000);
         }}
