@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
@@ -15,7 +16,7 @@ import AddQuestion from '../modals/AddQuestion/AddQuestion';
 import SignUp from '../modals/SignUp/SignUp';
 import SignIn from '../modals/SignIn/SignIn';
 
-function Navbar() {
+function Navbar({ onBurgerClick }) {
   const [dark, setDark] = useState(false);
   const [burger, setBurger] = useState(true);
   const [addQuestionModal, setAddQuestionModal] = useState(false);
@@ -23,17 +24,23 @@ function Navbar() {
   const [signUpModal, setSignUpModal] = useState(false);
 
   return (
-    <nav className="flex flex-col justify-center items-center h-[55px] relative">
+    <nav className="flex flex-col justify-center items-center h-[55px] relative z-10">
       <div className="flex flex-row-reverse justify-around items-center w-screen mt-3 lg:mt-0">
         <div>
           {burger ? (
             <GiHamburgerMenu
-              onClick={() => setBurger(!burger)}
+              onClick={() => {
+                onBurgerClick(!burger);
+                setBurger(!burger);
+              }}
               className="burger-icons"
             />
           ) : (
             <VscChromeClose
-              onClick={() => setBurger(!burger)}
+              onClick={() => {
+                onBurgerClick(!burger);
+                setBurger(!burger);
+              }}
               className="burger-icons"
             />
           )}
@@ -52,7 +59,10 @@ function Navbar() {
       </div>
 
       <div
-        onClick={() => setBurger(true)}
+        onClick={() => {
+          setBurger(!burger);
+          onBurgerClick(!burger);
+        }}
         aria-hidden="true"
         className={`ml-2 w-screen top-[4rem] flex flex-col justify-center items-center lg:ml-0 lg:flex lg:flex-row lg:justify-between lg:items-center lg:h-[4rem] lg:top-[1px] absolute ${
           burger ? 'hidden' : null
@@ -145,5 +155,13 @@ function Navbar() {
     </nav>
   );
 }
+
+Navbar.propTypes = {
+  onBurgerClick: PropTypes.bool,
+};
+
+Navbar.defaultProps = {
+  onBurgerClick: true,
+};
 
 export default Navbar;
