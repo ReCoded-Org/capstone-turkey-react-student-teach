@@ -27,7 +27,7 @@ function AddQuestion({ open, setOpen }) {
         validationSchema={SignInSchema}
         onSubmit={(values, { setSubmitting }) => {
           setTimeout(() => {
-            console.log(values);
+            // console.log(values);
             setSubmitting(false);
           }, 1000);
         }}
