@@ -1,7 +1,5 @@
-// eslint-disable-next-line no-unused-vars
-import React from 'react';
+import PropTypes from 'prop-types';
 
-// eslint-disable-next-line react/prop-types
 function Question({ profileImage, question, answer }) {
   return (
     <div className="flex flex-col even:float-right mb-12 w-10/12 h-28 truncate">
@@ -31,3 +29,13 @@ function Question({ profileImage, question, answer }) {
 }
 
 export default Question;
+Question.propTypes = {
+  profileImage: PropTypes.string,
+  question: PropTypes.string,
+  answer: PropTypes.string,
+};
+Question.defaultProps = {
+  profileImage: '',
+  question: '',
+  answer: '',
+};
