@@ -14,6 +14,9 @@ import {
 function Navbar() {
   const [dark, setDark] = useState(false);
   const [burger, setBurger] = useState(true);
+  const [addQuestionModal, setAddQuestionModal] = useState(false);
+  const [signInModal, setSignInModal] = useState(false);
+  const [signUpModal, setSignUpModal] = useState(false);
 
   return (
     <nav className="flex flex-col justify-center items-center h-[55px] relative">
