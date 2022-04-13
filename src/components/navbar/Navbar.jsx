@@ -1,53 +1,68 @@
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { VscChromeClose } from 'react-icons/vsc';
 import { SiTailwindcss } from 'react-icons/si';
+import { FaPlus } from 'react-icons/fa';
+
 import {
   ABOUT_ROUTE,
   CONTACT_ROUTE,
   HOME_ROUTE,
   QUESTIONS_ROUTE,
-  SIGNIN_ROUTE,
-  SIGNUP_ROUTE,
-  ADD_QUESTION_ROUTE,
 } from '../../routes';
+import AddQuestion from '../modals/AddQuestion/AddQuestion';
+import SignUp from '../modals/SignUp/SignUp';
+import SignIn from '../modals/SignIn/SignIn';
 
-function Navbar() {
+function Navbar({ onBurgerClick }) {
   const [dark, setDark] = useState(false);
   const [burger, setBurger] = useState(true);
+  const [addQuestionModal, setAddQuestionModal] = useState(false);
+  const [signInModal, setSignInModal] = useState(false);
+  const [signUpModal, setSignUpModal] = useState(false);
 
   return (
-    <nav className="flex flex-col justify-center items-center h-[55px] relative">
+    <nav className="flex flex-col justify-center items-center h-[55px] relative z-10">
       <div className="flex flex-row-reverse justify-around items-center w-screen mt-3 lg:mt-0">
         <div>
           {burger ? (
             <GiHamburgerMenu
-              onClick={() => setBurger(!burger)}
+              onClick={() => {
+                onBurgerClick(!burger);
+                setBurger(!burger);
+              }}
               className="burger-icons"
             />
           ) : (
             <VscChromeClose
-              onClick={() => setBurger(!burger)}
+              onClick={() => {
+                onBurgerClick(!burger);
+                setBurger(!burger);
+              }}
               className="burger-icons"
             />
           )}
         </div>
         <div className="inline-block lg:hidden lg:mr-[6rem] hover:scale-110 ease-in-out transition-all">
-          <Link
-            to={ADD_QUESTION_ROUTE}
-            className="p-[7px] rounded-md border-[1px] border-cusOrange lg:p-2 "
+          <button
+            type="button"
+            className="text-sm text-cusOrange lg:text-base p-[7px] rounded-md border-[1px] border-cusOrange lg:p-2 whitespace-nowrap"
+            onClick={() => setAddQuestionModal(true)}
           >
-            <span className="text-sm text-cusOrange lg:text-base">
-              Ask Question+
-            </span>
-          </Link>
+            Ask Question
+            <FaPlus className="inline-block ml-1" />
+          </button>
         </div>
         <SiTailwindcss className="block text-[2rem] lg:hidden " />
       </div>
 
       <div
-        onClick={() => setBurger(true)}
+        onClick={() => {
+          setBurger(true);
+          onBurgerClick(true);
+        }}
         aria-hidden="true"
         className={`ml-2 w-screen top-[4rem] flex flex-col justify-center items-center lg:ml-0 lg:flex lg:flex-row lg:justify-between lg:items-center lg:h-[4rem] lg:top-[1px] absolute ${
           burger ? 'hidden' : null
@@ -72,15 +87,16 @@ function Navbar() {
         </div>
 
         <div className="hidden mt-5 lg:mt-0 lg:mr-[6rem] lg:inline-block hover:scale-110 ease-in-out transition-all">
-          <Link
-            to={ADD_QUESTION_ROUTE}
-            className="max-w-[10rem] p-3 rounded-md bg-cusOrange lg:p-2"
+          <button
+            type="button"
+            className="text-sm text-cusOrange lg:text-base p-[7px] rounded-md border-[1px] border-cusOrange lg:p-2 whitespace-nowrap"
           >
-            <span className="text-2xl text-white lg:text-base">
-              Ask Question+
-            </span>
-          </Link>
+            Ask Question
+            <FaPlus className="inline-block ml-1" />
+          </button>
         </div>
+
+        <AddQuestion open={addQuestionModal} setOpen={setAddQuestionModal} />
 
         <div className="flex flex-col-reverse lg:flex lg:flex-row lg:item-center">
           <div className="flex justify-center item-center mt-5 ml-[3rem] mr-10 lg:mt-0">
@@ -105,20 +121,32 @@ function Navbar() {
           <div className="inline-block">
             <ul className="flex justify-center items-center mt-2 ml-10 text-2xl lg:text-base lg:mt-0">
               <li>
-                <Link
-                  to={SIGNUP_ROUTE}
+                <button
+                  type="button"
                   className="pr-3 border-r-[2px] border-cusOrange lg:border-r-[1px] hover:text-cusOrange transition-all ease-in-out inline-block"
+                  onClick={() => setSignUpModal(true)}
                 >
                   Sign Up
-                </Link>
+                </button>
+                <SignUp
+                  open={signUpModal}
+                  setOpen={setSignUpModal}
+                  setSignIn={setSignInModal}
+                />
               </li>
               <li>
-                <Link
-                  to={SIGNIN_ROUTE}
+                <button
+                  type="button"
                   className="pl-3 mr-10 hover:text-cusOrange transition-all ease-in-out inline-block"
+                  onClick={() => setSignInModal(true)}
                 >
                   Sign In
-                </Link>
+                </button>
+                <SignIn
+                  open={signInModal}
+                  setOpen={setSignInModal}
+                  setSignUp={setSignUpModal}
+                />
               </li>
             </ul>
           </div>
@@ -127,5 +155,13 @@ function Navbar() {
     </nav>
   );
 }
+
+Navbar.propTypes = {
+  onBurgerClick: PropTypes.bool,
+};
+
+Navbar.defaultProps = {
+  onBurgerClick: true,
+};
 
 export default Navbar;

@@ -3,6 +3,23 @@
 @tailwind utilities;
 
 @layer components {
+  .burger-icons {
+    @apply cursor-pointer text-xl font-light select-none lg:hidden;
+  }
+  .contact-social-icons {
+    @apply cursor-pointer mx-3 text-xl lg:text-3xl lg:mx-7 lg:hover:rounded-md lg:transition-all lg:duration-300 lg:hover:scale-150 lg:hover:text-white;
+  }
+
+  .contact-info-icon-container {
+    @apply flex flex-col justify-center items-center text-center bg-cusOrange p-4 lg:flex lg:flex-row lg:items-start lg:text-left lg:ml-10 lg:mt-5;
+  }
+
+  .contact-info-icon {
+    @apply flex justify-center items-center mr-3;
+  }
+  .contact-checkbox-field {
+    @apply mb-3 lg:text-left flex flex-row-reverse justify-center items-center;
+  }
   .social-icons {
     @apply m-5 p-1 cursor-pointer rounded-3xl bg-white hover:rounded-md transition-all duration-300 hover:scale-150 hover:bg-black hover:text-white shadow-lg;
   }
