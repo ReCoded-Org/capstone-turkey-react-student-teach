@@ -1,13 +1,13 @@
 import './App.css';
-import Mission from './components/Mission';
 import BookmarkPage from './pages/BookMarkPage/BookmarkPage';
+import About from './pages/AboutUs/About';
 
 function App() {
   return (
     <div className="App">
       <p className="hidden">learn</p>
       <BookmarkPage />
-      <Mission/>
+      <About />
     </div>
   );
 }
