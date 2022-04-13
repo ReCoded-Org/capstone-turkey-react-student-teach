@@ -19,8 +19,8 @@ const ContactSchema = Yup.object().shape({
 });
 function Contact() {
   return (
-    <div className="lg:flex lg:flex-row-reverse lg:justify-end lg:h-screen lg:text-base md:text-base text-sm">
-      <section className="w-screen h-3/4 mt-10 md:mt-[4rem] md:h-[60vh] flex flex-col justify-center items-center lg:mt-[10rem]">
+    <div className="lg:flex lg:flex-row-reverse lg:justify-end lg:w-screen lg:text-base md:text-base text-sm">
+      <section className="h-3/4 mt-10 md:mt-[4rem] md:h-[60vh] flex flex-col justify-center items-center lg:w-screen lg:mt-[10rem]">
         <h1 className="mb-10 font-semibold text-2xl md:text-3xl lg:text-[2.3rem] lg:mb-[3.5]">
           Level up Your brand
         </h1>
@@ -139,7 +139,7 @@ function Contact() {
         </Formik>
       </section>
 
-      <section className="bg-cusOrange mt-10 md:h-3/4 lg:h-[100vh] lg:mt-0 lg:flex lg:flex-col lg:items-start lg:pr-[2rem]">
+      <section className="bg-cusOrange mt-10 md:h-3/4 lg:h-[94.3vh] lg:mt-0 lg:flex lg:flex-col lg:items-start lg:pr-[2rem]">
         <div className="p-4 flex flex-col items-center text-center lg:flex lg:items-start lg:mt-[5rem] lg:text-left lg:ml-10">
           <h1 className="font-bold lg:text-xl">Get in touch</h1>
           <h4 className="mt-2 lg:mt-1">
@@ -181,7 +181,7 @@ function Contact() {
             <h3>36 Street, Bahcelievler</h3>
           </div>
         </div>
-        <div className="flex justify-center items-center p-3 lg:mt-[19rem] lg:ml-[1rem]">
+        <div className="flex justify-center items-center p-3 lg:mt-[16rem] lg:ml-[1rem]">
           <FaInstagram className="contact-social-icons" />
           <FaGithub className="contact-social-icons" />
           <FaLinkedinIn className="contact-social-icons" />
