@@ -1,4 +1,3 @@
-/* eslint-disable react/button-has-type */
 import { useEffect, useState } from 'react';
 import Question from './Question';
 import allQuestions from './questions.json';
@@ -30,12 +29,18 @@ function HomeContent() {
           className="hidden w-5/12  bg-cover lg:flex  bg-right w-full scale-150 -z-10"
           style={{ backgroundImage: 'url("./images/home.png")' }}
         >
-          <button className="bg-orange rounded-[10px] text-xs w-44 h-10 text-[#FFFFFF] absolute inline-block bottom-[20px] xl:left-[40%] lg:left-[20%]">
+          <button
+            type="button"
+            className="bg-orange rounded-[10px] text-xs w-44 h-10 text-[#FFFFFF] absolute inline-block bottom-[20px] xl:left-[40%] lg:left-[20%]"
+          >
             Ask Question +
           </button>
         </div>
       </div>
-      <button className=" lg:hidden mt-10 text-xs  sm:text-3xl mx-auto bg-orange rounded-[10px] sm:w-[14rem] sm:h-[4rem] w-[8rem] h-[2rem] text-[#FFFFFF] absolute inline-block  left-[30%]">
+      <button
+        type="button"
+        className=" lg:hidden mt-10 text-xs  sm:text-3xl mx-auto bg-orange rounded-[10px] sm:w-[14rem] sm:h-[4rem] w-[8rem] h-[2rem] text-[#FFFFFF] absolute inline-block  left-[30%]"
+      >
         Ask Question +
       </button>
       <div className="mt-32">
