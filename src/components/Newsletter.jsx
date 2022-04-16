@@ -10,7 +10,7 @@ const validate = values => {
   }
   return errors;
 };
-s
+
 const Newsletter = () => {
 
   const formik = useFormik({
