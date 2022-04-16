@@ -3,9 +3,9 @@ module.exports = {
   theme: {
     extend: {},
     colors: {
-      primary: "#CA7560",
-      secondary: "#C4C4C4",
-      font: "#424242"
+      "primary-color": "var(--primary-color)",
+      "secondary-color": "var(--secondary-color)",
+      "font-color": "var(--font-color)"
     }
   },
   plugins: [],

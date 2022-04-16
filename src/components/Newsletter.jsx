@@ -12,10 +12,11 @@ const Newsletter = () => {
 
   return (
     <>
-      <form>
-        <input type="text" name="Email" value={inputValue} onChange={handleChange} placeholder="Your Email Address"/>
-        <button type="submit">
-          <input type="submit" value="Submit" />
+      <form className='flex flex-cols'>
+        <input type="text" value={inputValue} onChange={handleChange} placeholder="Your Email Address" className='block w-full text-base font-normal transition ease-in-out m-0 color-[secondary] rounded border-secondary'/>
+        <br/>
+        <button type="submit" className='block w-full text-base font-normal'>
+          Submit
         </button>
       </form>
     </>
