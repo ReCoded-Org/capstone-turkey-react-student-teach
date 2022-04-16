@@ -7,13 +7,16 @@ const Newsletter = () => {
 
   const handleChange = (e) => {
     setInputValue(e.currentTarget.value)
+    e.preventDefault();
   }
 
   return (
     <>
       <form>
-        <input type="text" name="" value={inputValue} onChange={handleChange} />
-        <input type="submit" value="Submit" />
+        <input type="text" name="Email" value={inputValue} onChange={handleChange} placeholder="Your Email Address"/>
+        <button type="submit">
+          <input type="submit" value="Submit" />
+        </button>
       </form>
     </>
   )
