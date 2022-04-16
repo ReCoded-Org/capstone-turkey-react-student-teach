@@ -60,8 +60,8 @@ function Navbar({ onBurgerClick }) {
 
       <div
         onClick={() => {
-          setBurger(!burger);
-          onBurgerClick(!burger);
+          setBurger(true);
+          onBurgerClick(true);
         }}
         aria-hidden="true"
         className={`ml-2 w-screen top-[4rem] flex flex-col justify-center items-center lg:ml-0 lg:flex lg:flex-row lg:justify-between lg:items-center lg:h-[4rem] lg:top-[1px] absolute ${
