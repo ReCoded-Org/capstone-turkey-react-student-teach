@@ -1,7 +1,11 @@
 import React from 'react'
+import { useState } from 'react';
+
+const Newsletter = () => {
+
+  const [inputValue, setInputValue] =  useState("");
 
 
-const Form = () => {
   return (
     <>
       
@@ -9,4 +13,4 @@ const Form = () => {
   )
 }
 
-export default Form
+export default Newsletter
