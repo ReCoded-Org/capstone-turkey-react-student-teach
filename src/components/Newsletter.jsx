@@ -5,10 +5,15 @@ const Newsletter = () => {
 
   const [inputValue, setInputValue] =  useState("");
 
+  const handleChange = (e) => {
+    setInputValue(e.currentTarget.value)
+  }
 
   return (
     <>
-      
+      <form>
+        
+      </form>
     </>
   )
 }
