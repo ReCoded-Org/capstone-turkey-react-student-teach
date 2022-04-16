@@ -12,8 +12,8 @@ import FormField from '../../FormField/FormField';
 
 const SignInSchema = Yup.object().shape({
   title: Yup.string().min(3).max(24).required(),
-  question: Yup.string().email().required(),
-  attachment: Yup.string().min(8).max(32).required(),
+  question: Yup.string().required(),
+  attachment: Yup.string().min(8).max(32),
 });
 
 function AddQuestion({ open, setOpen }) {
@@ -21,13 +21,13 @@ function AddQuestion({ open, setOpen }) {
     <Modal label="Ask question" open={open} setOpen={setOpen}>
       <Formik
         initialValues={{
-          username: '',
-          password: '',
+          title: '',
+          question: '',
         }}
         validationSchema={SignInSchema}
         onSubmit={(values, { setSubmitting }) => {
           setTimeout(() => {
-            // console.log(values);
+            console.log(values);
             setSubmitting(false);
           }, 1000);
         }}

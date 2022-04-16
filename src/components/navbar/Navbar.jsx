@@ -24,7 +24,7 @@ function Navbar({ onBurgerClick }) {
   const [signUpModal, setSignUpModal] = useState(false);
 
   return (
-    <nav className="flex flex-col justify-center items-center h-[55px] relative z-10">
+    <nav className="flex flex-col justify-center items-center h-[55px] relative z-[100]">
       <div className="flex flex-row-reverse justify-around items-center w-screen mt-3 lg:mt-0">
         <div>
           {burger ? (
@@ -90,6 +90,7 @@ function Navbar({ onBurgerClick }) {
           <button
             type="button"
             className="text-sm text-cusOrange lg:text-base p-[7px] rounded-md border-[1px] border-cusOrange lg:p-2 whitespace-nowrap"
+            onClick={() => setAddQuestionModal(true)}
           >
             Ask Question
             <FaPlus className="inline-block ml-1" />

@@ -86,6 +86,7 @@ function Contact() {
                     name="service"
                     label="Web Design"
                     value="WebDesign"
+                    id="WebDesign"
                     type="checkbox"
                   />
                   <FormField
@@ -94,6 +95,7 @@ function Contact() {
                     name="service"
                     label="Content Creation"
                     value="ContentCreation"
+                    id="ContentCreation"
                     type="checkbox"
                   />
                 </div>
@@ -104,6 +106,7 @@ function Contact() {
                     name="service"
                     label="UX Desgin"
                     value="UxDesgin"
+                    id="UxDesgin"
                     type="checkbox"
                   />
                   <FormField
@@ -112,6 +115,7 @@ function Contact() {
                     name="service"
                     label="Other"
                     value="Other"
+                    id="Other"
                     type="checkbox"
                   />
                 </div>
