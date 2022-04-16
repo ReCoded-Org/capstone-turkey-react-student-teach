@@ -95,7 +95,7 @@ function Contact() {
                     name="service"
                     label="Content Creation"
                     value="ContentCreation"
-                    id="ContentCreation"
+                    id="UxDesgin"
                     type="checkbox"
                   />
                 </div>
@@ -115,7 +115,7 @@ function Contact() {
                     name="service"
                     label="Other"
                     value="Other"
-                    id="Other"
+                    id="UxDesgin"
                     type="checkbox"
                   />
                 </div>

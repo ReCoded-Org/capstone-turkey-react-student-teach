@@ -48,7 +48,6 @@ function AddQuestion({ open, setOpen }) {
               type="text"
             />
             <FormField
-              autoComplete="email"
               className="mb-3"
               errors={errors}
               label="Question"
