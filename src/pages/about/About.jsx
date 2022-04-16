@@ -1,6 +1,11 @@
 import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addQuestion } from '../../redux/features/addQuestionSlice';
 
 function About() {
+  const dispatch = useDispatch();
+  const message = useSelector((state) => state.addQuestionReducer);
+  console.log(message);
   const [post, setPost] = useState(false);
   useEffect(() => {
     if (post) {
@@ -12,27 +17,30 @@ function About() {
         body: JSON.stringify({
           comments: [],
           content: { title: '', body: '' },
-          createdAt: new Date(),
+          createdAt: '',
           isSolved: false,
           studen: '',
           subjects: [],
           updatedAt: '',
-          __v: 0,
-          _id: '',
         }),
         headers: {
           'Content-type': 'application/json; charset=UTF-8',
         },
-      })
-        .then((res) => res.json())
-        .then((json) => console.log(json.meesage));
+      }).catch((err) => console.log(err));
       setPost(false);
     }
   }, [post]);
 
   return (
     <div>
-      <button onClick={() => setPost(!post)} type="button">
+      <button
+        onClick={() =>
+          dispatch(
+            addQuestion({ title: 'title', body: 'body', studenId: 'id' }),
+          )
+        }
+        type="button"
+      >
         Fetch
       </button>
     </div>
