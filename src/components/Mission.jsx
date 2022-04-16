@@ -1,54 +1,31 @@
 import React from "react";
-import Card from "./Card";
 import about from "../assets/images/about.png";
-import Divider from "./Divider";
 
 function Mission() {
     return (
         <>
-            <div className="container mx-auto px-12 flex flex-row self-start items-stretch items-center">
-
-                {/* first column with h1 and description begins here */}
-                <div className="md:container md:mx-auto columns-1">
-                    <h1 className="font-bold leading-normal mb-8 text-[#CA7560] text-left text-2xl mt-16">Who We Are</h1>
-                    <p className="text-[#424242] font-semibold mb-4 text-left">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae
-                        voluptatibus dolorum explicabo laboriosam consequatur officiis consectetur<br /> repellat velit nulla placeat.<br />
-                    </p>
-                    <p className="text-[#424242] font-semibold mb-4 text-left">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae<br /> voluptatibus dolorum explicabo laboriosam consequatur officiis consectetur<br />repellat velit nulla placeat.<br />
-                    </p>
+            <div className=" md:container px-2 py-4 mx-auto grid md:grid-cols-2 lg:flex lg:h-128 lg:py-16 xl:h-128 xl:py-16">
+                <div className="flex flex-col items-center w-full lg:flex-row lg:w-1/2">
+                    <div className="max-w-lg">
+                        <h1 className="text-xl tracking-wide text-[color:var(--primary-color)] lg:text-4xl font-semibold">
+                            Who are we?
+                        </h1>
+                        <p className="mt-4 text-gray-600">
+                            Lorem ipsum, dolor sit amet consectetur
+                            adipisicing elit. Aut quia asperiores alias vero magnam recusandae adipisci ad vitae
+                            laudantium quod rem voluptatem eos accusantium cumque.
+                        </p>
+                        <p className="mt-4 text-gray-600">
+                            Lorem ipsum, dolor sit amet consectetur
+                            adipisicing elit. Aut quia asperiores alias vero magnam recusandae adipisci ad vitae
+                            laudantium quod rem voluptatem eos accusantium cumque.
+                        </p>
+                    </div>
                 </div>
-                {/* first column with h1 and description ends here */}
-
-                {/* second column with image begins here */}
-                <div className="md:container md:mx-auto columns-1">
-                    <img src={about} width={770} height={480} alt="hands reaching each other"/>
+                <div className="flex items-center justify-center w-full mt-2 lg:h-96 lg:w-1/2">
+                    <img className="object-cover w-full max-w-2xl rounded-md lg:h-full xs:w-0 xs:h-0" src={about} />
                 </div>
-                {/* second column with image ends here */}
-
             </div>
-
-            {/* team section with header and cards begins here */}
-            
-            <div className="md:container mx-auto px-12 flex flex-col self-start items-stretch items-center">
-
-                <h1 className="font-bold leading-normal mb-8 text-[#424242] text-center mt-36 columns-1 text-2xl">Team</h1>
-
-                {/* buraya yatay çizgi gelecek */}
-
-                <Divider/>
-
-                <div className="flex flex-row items-center columns-1 m-8">
-                    <Card />
-                </div>
-
-                <Divider/>
-
-            </div>
-
-            {/* team section with header and cards ends here */}
-
         </>
     )
 }

@@ -26,6 +26,7 @@
     "no-param-reassign": ["off"],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "testing-library/prefer-screen-queries": ["off"],
-    "prettier/prettier": ["error", { "endOfLine": "auto" }]
+    "prettier/prettier": ["error", { "endOfLine": "auto" }],
+    "indent": ["error", "tab"]
   }
 }
