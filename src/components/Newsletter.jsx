@@ -12,7 +12,8 @@ const Newsletter = () => {
   return (
     <>
       <form>
-        
+        <input type="text" name="" value={inputValue} onChange={handleChange} />
+        <input type="submit" value="Submit" />
       </form>
     </>
   )
