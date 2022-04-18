@@ -19,55 +19,19 @@ export const Footer = () => {
                     </div>
                     <ul className='flex flex-col align-middle m-6'>
                         <span className='p-1 font-semibold text-2xl'>Useful Links</span>
-                        <a href="">
-                            <li className='mt-9 mb-3 p-1 text-secondary-color text-base'>
-                                Lorem, ipsum.
+                        <a href="#!" className='mt-9 mb-3 inline-block'>
+                            <li className='text-secondary-color text-base'>
+                                Lorem, ipsum...
                             </li>
                         </a>
-                        <a href="">
-                            <li className='m-3 p-1 text-secondary-color text-base'>
-                                Lorem, ipsum.
+                        <a href="#!" className='mt-9 mb-3 inline-block'>
+                            <li className='text-secondary-color text-base'>
+                                Lorem, ipsum...
                             </li>
                         </a>
-                        <a href="">
-                            <li className='m-3 p-1 text-secondary-color text-base'>
-                                Lorem, ipsum.
-                            </li>
-                        </a>
-                    </ul>
-                    <ul className='flex flex-col align-middle m-6'>
-                        <span className='p-1 font-semibold text-2xl'>Useful Links</span>
-                        <a href="">
-                            <li className='mt-9 mb-3 p-1 text-secondary-color text-base'>
-                                Lorem, ipsum.
-                            </li>
-                        </a>
-                        <a href="">
-                            <li className='m-3 p-1 text-secondary-color text-base'>
-                                Lorem, ipsum.
-                            </li>
-                        </a>
-                        <a href="">
-                            <li className='m-3 p-1 text-secondary-color text-base'>
-                                Lorem, ipsum.
-                            </li>
-                        </a>
-                    </ul>
-                    <ul className='flex flex-col align-middle m-6'>
-                        <span className='p-1 font-semibold text-2xl'>Useful Links</span>
-                        <a href="">
-                            <li className='mt-9 mb-3 p-1 text-secondary-color text-base'>
-                                Lorem, ipsum.
-                            </li>
-                        </a>
-                        <a href="">
-                            <li className='m-3 p-1 text-secondary-color text-base'>
-                                Lorem, ipsum.
-                            </li>
-                        </a>
-                        <a href="">
-                            <li className='m-3 p-1 text-secondary-color text-base'>
-                                Lorem, ipsum.
+                        <a href="#!" className='mt-9 mb-3 inline-block'>
+                            <li className='text-secondary-color text-base'>
+                                Lorem, ipsum...
                             </li>
                         </a>
                     </ul>
