@@ -4,7 +4,7 @@ import Newsletter from './Newsletter'
 export const Footer = () => {
     return (
         <div className='container mx-auto grid md:grid-cols-1 lg:grid-cols-1'>
-            <h2 className='mb-6'>Subscribe to Our Newsletter</h2>
+            <h2 className='mb-6 text-2xl font-semibold'>Subscribe to Our Newsletter</h2>
             <Newsletter />
             <div className='grid lg:grid-cols-4 gap-4 mt-16'>
                     <div className='grid md:grid-cols-2 lg:grid-cols-4 content-start'>
@@ -17,6 +17,42 @@ export const Footer = () => {
                             </div>
                         </div>
                     </div>
+                    <ul className='flex flex-col align-middle m-6'>
+                        <span className='p-1 font-semibold text-2xl'>Useful Links</span>
+                        <a href="#!" className='mt-9 mb-3 inline-block'>
+                            <li className='text-secondary-color text-base'>
+                                Lorem, ipsum...
+                            </li>
+                        </a>
+                        <a href="#!" className='mt-9 mb-3 inline-block'>
+                            <li className='text-secondary-color text-base'>
+                                Lorem, ipsum...
+                            </li>
+                        </a>
+                        <a href="#!" className='mt-9 mb-3 inline-block'>
+                            <li className='text-secondary-color text-base'>
+                                Lorem, ipsum...
+                            </li>
+                        </a>
+                    </ul>
+                    <ul className='flex flex-col align-middle m-6'>
+                        <span className='p-1 font-semibold text-2xl'>Useful Links</span>
+                        <a href="#!" className='mt-9 mb-3 inline-block'>
+                            <li className='text-secondary-color text-base'>
+                                Lorem, ipsum...
+                            </li>
+                        </a>
+                        <a href="#!" className='mt-9 mb-3 inline-block'>
+                            <li className='text-secondary-color text-base'>
+                                Lorem, ipsum...
+                            </li>
+                        </a>
+                        <a href="#!" className='mt-9 mb-3 inline-block'>
+                            <li className='text-secondary-color text-base'>
+                                Lorem, ipsum...
+                            </li>
+                        </a>
+                    </ul>
                     <ul className='flex flex-col align-middle m-6'>
                         <span className='p-1 font-semibold text-2xl'>Useful Links</span>
                         <a href="#!" className='mt-9 mb-3 inline-block'>
