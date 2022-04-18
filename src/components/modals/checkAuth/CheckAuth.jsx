@@ -11,7 +11,7 @@ function CheckAuth({ open, setOpen }) {
     <div>
       <Modal className="" label="" open={open} setOpen={setOpen} set>
         <div>
-          <h1 className="">You must Sign In to be able to add a question</h1>
+          <h1 className="">You must Sign In to add add new question</h1>
           <h3>
             Have an account?
             <button
@@ -26,7 +26,7 @@ function CheckAuth({ open, setOpen }) {
             </button>
           </h3>
           <h3>
-            Create new account.
+            Dont have an account yet?
             <button
               className="text-cusOrange ml-2"
               type="button"

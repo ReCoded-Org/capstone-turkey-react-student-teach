@@ -23,7 +23,7 @@ function Navbar({ onBurgerClick }) {
   const [addQuestionModal, setAddQuestionModal] = useState(false);
   const [signInModal, setSignInModal] = useState(false);
   const [signUpModal, setSignUpModal] = useState(false);
-  const fakeUser = true;
+  const fakeUser = false;
 
   return (
     <nav className="flex flex-col justify-center items-center h-[55px] relative z-[100]">
@@ -97,12 +97,15 @@ function Navbar({ onBurgerClick }) {
             Ask Question
             <FaPlus className="inline-block ml-1" />
           </button>
+          {fakeUser ? (
+            <AddQuestion
+              open={addQuestionModal}
+              setOpen={setAddQuestionModal}
+            />
+          ) : (
+            <CheckAuth open={addQuestionModal} setOpen={setAddQuestionModal} />
+          )}
         </div>
-        {fakeUser ? (
-          <AddQuestion open={addQuestionModal} setOpen={setAddQuestionModal} />
-        ) : (
-          <CheckAuth open={addQuestionModal} setOpen={setAddQuestionModal} />
-        )}
 
         <div className="flex flex-col-reverse lg:flex lg:flex-row lg:item-center">
           <div className="flex justify-center item-center mt-5 ml-[3rem] mr-10 lg:mt-0">
@@ -163,11 +166,7 @@ function Navbar({ onBurgerClick }) {
 }
 
 Navbar.propTypes = {
-  onBurgerClick: PropTypes.bool,
-};
-
-Navbar.defaultProps = {
-  onBurgerClick: true,
+  onBurgerClick: PropTypes.func.isRequired,
 };
 
 export default Navbar;

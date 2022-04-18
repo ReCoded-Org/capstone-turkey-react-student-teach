@@ -2,23 +2,24 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 export const addQuestion = createAsyncThunk(
   'addQuestionSlice/question-post',
-  async ({ title, body, studenId }, { rejectWithValue }) => {
+  async ({ jwt, questionTitle, questionContnet }, { rejectWithValue }) => {
     try {
-      return fetch('https://studentsteach.re-coded.com/questions', {
+      return fetch('https://studentsteach.re-coded.com/api/questions', {
         method: 'POST',
         body: JSON.stringify({
-          comments: [],
-          content: { questionTitle: title, questionBody: body },
-          createdAt: new Date(),
           isSolved: false,
-          studen: studenId,
-          subjects: [],
-          updatedAt: '',
-          __v: 0,
-          _id: '',
+          comments: [],
+          title: questionTitle,
+          content: questionContnet,
+          subjects: [
+            {
+              title: 'Math',
+            },
+          ],
         }),
         headers: {
           'Content-type': 'application/json; charset=UTF-8',
+          Authorization: `Bearer ${jwt}`,
         },
       });
     } catch (err) {
