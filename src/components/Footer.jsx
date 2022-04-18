@@ -3,8 +3,8 @@ import Newsletter from './Newsletter'
 
 export const Footer = () => {
     return (
-        <div className='container mx-auto grid md:grid-cols-1 lg:grid-cols-1'>
-            <h2 className='mb-6 text-2xl font-semibold'>Subscribe to Our Newsletter</h2>
+        <div className='container mx-auto justify-center grid md:grid-cols-1 lg:grid-cols-1'>
+            <h2 className='mb-6 text-2xl font-semibold text-font-color'>Subscribe to Our Newsletter</h2>
             <Newsletter />
             <div className='grid lg:grid-cols-4 gap-4 mt-16'>
                     <div className='grid md:grid-cols-2 lg:grid-cols-4 content-start'>
