@@ -2,13 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-.root,
-#root {
-    --primary-color: #CA7560,
-    --secondary-color: #C4C4C4,
-    --font-color: #424242,
+.root {
+  --primary-color: #ca7560;
+  --secondary-color: #c4c4c4;
+  --font-color: #424242;
 }
 
 html {
-    font-family: Roboto, sans-serif;
+  font-family: Roboto, sans-serif;
 }
