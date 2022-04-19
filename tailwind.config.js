@@ -19,6 +19,9 @@ module.exports = {
     extend: {
       colors: {
         cusOrange: '#CA7560',
+        'primary-color': 'var(--primary-color)',
+				'secondary-color': 'var(--secondary-color)',
+				'card-background': 'var(--card-background)'
       },
     },
   },
