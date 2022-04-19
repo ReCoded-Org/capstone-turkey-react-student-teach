@@ -1,9 +1,9 @@
-import ppAli from '../assets/images/pp-ali.png';
-import ppEnes from '../assets/images/pp-enes.png';
-import ppHazar from '../assets/images/pp-hazar.png';
-import ppYusuf from '../assets/images/pp-yusuf.png';
-import ppOguz from '../assets/images/pp-oguz.png';
-import ppMuhanned from '../assets/images/pp-muhanned.jpg';
+import ppAli from '../../assets/images/pp-ali.png';
+import ppEnes from '../../assets/images/pp-enes.png';
+import ppHazar from '../../assets/images/pp-hazar.png';
+import ppYusuf from '../../assets/images/pp-yusuf.png';
+import ppOguz from '../../assets/images/pp-oguz.jpg';
+import ppMuhanned from '../../assets/images/pp-muhanned.jpg';
 
 const creators = [
   {
