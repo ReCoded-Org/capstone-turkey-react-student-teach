@@ -1,0 +1,490 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navbar snapshot 1`] = `
+<div
+  className=""
+>
+  <section
+    className="md:h-[30vh] mt-10 m-8 lg:min-h-[50vh] lg:mx-[0rem] lg:flex lg:justify-center"
+  >
+    <div>
+      <img
+        alt="cover"
+        className="w-[50rem] h-[8rem] object-fill rounded lg:h-[20rem] relative"
+        src="cover-placeholder.png"
+      />
+      <div
+        className="mt-3"
+      >
+        <img
+          alt="profile"
+          className="h-[4rem] w-[4rem] object-cover ml-5 rounded-full absolute border-[2px] border-white top-[11.3rem] lg:top-[21rem] lg:h-[7rem] lg:w-[7rem] lg:ml-[3rem]"
+          src="Profile_placeholer.png"
+        />
+        <div
+          className="flex flex-col justify-center items-center"
+        >
+          <svg
+            className="place-self-end mr-3 text-cusOrange cursor-pointer"
+            fill="currentColor"
+            height="1em"
+            onClick={[Function]}
+            stroke="currentColor"
+            strokeWidth="0"
+            style={
+              Object {
+                "color": undefined,
+              }
+            }
+            viewBox="0 0 512 512"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M262.29 192.31a64 64 0 1057.4 57.4 64.13 64.13 0 00-57.4-57.4zM416.39 256a154.34 154.34 0 01-1.53 20.79l45.21 35.46a10.81 10.81 0 012.45 13.75l-42.77 74a10.81 10.81 0 01-13.14 4.59l-44.9-18.08a16.11 16.11 0 00-15.17 1.75A164.48 164.48 0 01325 400.8a15.94 15.94 0 00-8.82 12.14l-6.73 47.89a11.08 11.08 0 01-10.68 9.17h-85.54a11.11 11.11 0 01-10.69-8.87l-6.72-47.82a16.07 16.07 0 00-9-12.22 155.3 155.3 0 01-21.46-12.57 16 16 0 00-15.11-1.71l-44.89 18.07a10.81 10.81 0 01-13.14-4.58l-42.77-74a10.8 10.8 0 012.45-13.75l38.21-30a16.05 16.05 0 006-14.08c-.36-4.17-.58-8.33-.58-12.5s.21-8.27.58-12.35a16 16 0 00-6.07-13.94l-38.19-30A10.81 10.81 0 0149.48 186l42.77-74a10.81 10.81 0 0113.14-4.59l44.9 18.08a16.11 16.11 0 0015.17-1.75A164.48 164.48 0 01187 111.2a15.94 15.94 0 008.82-12.14l6.73-47.89A11.08 11.08 0 01213.23 42h85.54a11.11 11.11 0 0110.69 8.87l6.72 47.82a16.07 16.07 0 009 12.22 155.3 155.3 0 0121.46 12.57 16 16 0 0015.11 1.71l44.89-18.07a10.81 10.81 0 0113.14 4.58l42.77 74a10.8 10.8 0 01-2.45 13.75l-38.21 30a16.05 16.05 0 00-6.05 14.08c.33 4.14.55 8.3.55 12.47z"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="32"
+            />
+          </svg>
+          <h1
+            className="mt-2 "
+          >
+            Username
+          </h1>
+          <h1
+            className="mt-2 "
+          >
+            Web Developer
+          </h1>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section
+    className="text-sm md:h-[50vh] m-7 lg:min-h-[70vh] lg:text-base"
+  >
+    <div
+      className="flex justify-around items-center lg:justify-center lg:mr-7"
+    >
+      <button
+        className="px-5 py-3 hover:scale-110 ease-in-out transition-all hover:text-cusOrange text-white rounded bg-cusOrange hover:text-white "
+        onClick={[Function]}
+        type="button"
+      >
+        Latest Questions
+      </button>
+      <button
+        className="px-5 py-3 hover:scale-110 ease-in-out transition-all hover:text-cusOrange null"
+        onClick={[Function]}
+        type="button"
+      >
+        Latest Answers
+      </button>
+    </div>
+    <div
+      className="flex flex-col items-center justify-center lg:pb-10"
+    >
+      <div>
+        <div
+          className=" relative max-w-3xl mx-auto"
+        >
+          <div
+            className=" mx-auto my-8 max-w-3xl px-6 pt-4 pb-6 bg-[#F0F0F0]"
+          >
+            <div
+              className="flex mb-5"
+            >
+              <img
+                alt="user.png"
+                className="w-10 h-10 rounded-full"
+                src="avatar.jpg"
+              />
+              <p
+                className="pl-2 font-semibold self-center text-sm mr-auto"
+              >
+                Maria1223
+              </p>
+              <div
+                className="text-xl   self-center cursor-pointer"
+              >
+                <svg
+                  fill="currentColor"
+                  height="1em"
+                  onClick={[Function]}
+                  stroke="currentColor"
+                  strokeWidth="0"
+                  style={
+                    Object {
+                      "color": undefined,
+                    }
+                  }
+                  viewBox="0 0 192 512"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
+                  />
+                </svg>
+              </div>
+              <div
+                className="absolute -right-0 top-12 lg:-right-48 lg:top-0 z-10 w-44 rounded-lg shadow-lg  border-[#CA7560] border-[4px]  border-opacity-50 bg-white transition  py-1 lg:py-3 hidden opacity-0"
+                id="dropdown"
+              >
+                <button
+                  className=" w-full lg:w-full text-sm text-left text-gray-800 hover:text-gray-900 hover:bg-gray-200 transition px-2 lg:px-4 py-1"
+                  type="button"
+                >
+                  Edit Question
+                </button>
+                <button
+                  className="w-full lg:w-full text-sm text-left hover:bg-gray-200 transition px-2 lg:px-4 py-1"
+                  type="button"
+                >
+                  Add to Bookmark
+                </button>
+                <button
+                  className="w-full lg:w-full text-sm text-left  hover:bg-gray-200 transition px-2 lg:px-4 py-1"
+                  type="button"
+                >
+                  Share
+                </button>
+                <button
+                  className="w-full lg:w-full text-sm text-left text-red-600 hover:text-red-700 hover:bg-gray-200 transition px-2 lg:px-4 py-1"
+                  type="button"
+                >
+                  Delete Question
+                </button>
+              </div>
+            </div>
+            <h3
+              className="text-2xl mb-5"
+            >
+              <span
+                className="text-[#CA7560] "
+              >
+                Q
+              </span>
+              : 
+              Lorem Ipsum is simply dummy 
+            </h3>
+            <p
+              className="text-sm mb-7 pl-7 line-clamp-3"
+            >
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys 1500s test clamp data classname Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys 1500s test clamp data classname Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys 1500s test clamp data classname
+            </p>
+            <div
+              className="hover:scale-105 transition-transform mx-auto w-1/2 "
+            >
+              <button
+                onClick={[Function]}
+                type="button"
+              >
+                <img
+                  alt="question.png"
+                  className=" rounded-xl transition-transform hover:scale-105 hover:cursor-pointer z-0 "
+                  src="questionImage.png"
+                />
+              </button>
+            </div>
+          </div>
+          <div
+            className="relative w-full px-2 lg:px-20 "
+          >
+            <input
+              className=" line-clamp-5 pr-14 md:pr-16 lg:pr-14 focus:outline-none border-[#CA7560] border-[3px] border-opacity-50 rounded-lg py-4 pl-5 text-xs w-full "
+              placeholder="Answer the question..."
+              type="text"
+            />
+            <svg
+              className="absolute top-[19px] text-gray-600 cursor-pointer text-lg right-8 md:right-12 lg:right-28 hover:scale-105"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              strokeWidth="0"
+              style={
+                Object {
+                  "color": undefined,
+                }
+              }
+              viewBox="0 0 512 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M464 448H48c-26.51 0-48-21.49-48-48V112c0-26.51 21.49-48 48-48h416c26.51 0 48 21.49 48 48v288c0 26.51-21.49 48-48 48zM112 120c-30.928 0-56 25.072-56 56s25.072 56 56 56 56-25.072 56-56-25.072-56-56-56zM64 384h384V272l-87.515-87.515c-4.686-4.686-12.284-4.686-16.971 0L208 320l-55.515-55.515c-4.686-4.686-12.284-4.686-16.971 0L64 336v48z"
+              />
+            </svg>
+          </div>
+        </div>
+        <div
+          className=" relative max-w-3xl mx-auto"
+        >
+          <div
+            className=" mx-auto my-8 max-w-3xl px-6 pt-4 pb-6 bg-[#F0F0F0]"
+          >
+            <div
+              className="flex mb-5"
+            >
+              <img
+                alt="user.png"
+                className="w-10 h-10 rounded-full"
+                src="avatar.jpg"
+              />
+              <p
+                className="pl-2 font-semibold self-center text-sm mr-auto"
+              >
+                Maria1223
+              </p>
+              <div
+                className="text-xl   self-center cursor-pointer"
+              >
+                <svg
+                  fill="currentColor"
+                  height="1em"
+                  onClick={[Function]}
+                  stroke="currentColor"
+                  strokeWidth="0"
+                  style={
+                    Object {
+                      "color": undefined,
+                    }
+                  }
+                  viewBox="0 0 192 512"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
+                  />
+                </svg>
+              </div>
+              <div
+                className="absolute -right-0 top-12 lg:-right-48 lg:top-0 z-10 w-44 rounded-lg shadow-lg  border-[#CA7560] border-[4px]  border-opacity-50 bg-white transition  py-1 lg:py-3 hidden opacity-0"
+                id="dropdown"
+              >
+                <button
+                  className=" w-full lg:w-full text-sm text-left text-gray-800 hover:text-gray-900 hover:bg-gray-200 transition px-2 lg:px-4 py-1"
+                  type="button"
+                >
+                  Edit Question
+                </button>
+                <button
+                  className="w-full lg:w-full text-sm text-left hover:bg-gray-200 transition px-2 lg:px-4 py-1"
+                  type="button"
+                >
+                  Add to Bookmark
+                </button>
+                <button
+                  className="w-full lg:w-full text-sm text-left  hover:bg-gray-200 transition px-2 lg:px-4 py-1"
+                  type="button"
+                >
+                  Share
+                </button>
+                <button
+                  className="w-full lg:w-full text-sm text-left text-red-600 hover:text-red-700 hover:bg-gray-200 transition px-2 lg:px-4 py-1"
+                  type="button"
+                >
+                  Delete Question
+                </button>
+              </div>
+            </div>
+            <h3
+              className="text-2xl mb-5"
+            >
+              <span
+                className="text-[#CA7560] "
+              >
+                Q
+              </span>
+              : 
+              Lorem Ipsum is simply dummy 
+            </h3>
+            <p
+              className="text-sm mb-7 pl-7 line-clamp-3"
+            >
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys 1500s test clamp data classname Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys 1500s test clamp data classname Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys 1500s test clamp data classname
+            </p>
+            <div
+              className="hover:scale-105 transition-transform mx-auto w-1/2 "
+            >
+              <button
+                onClick={[Function]}
+                type="button"
+              >
+                <img
+                  alt="question.png"
+                  className=" rounded-xl transition-transform hover:scale-105 hover:cursor-pointer z-0 "
+                  src="questionImage.png"
+                />
+              </button>
+            </div>
+          </div>
+          <div
+            className="relative w-full px-2 lg:px-20 "
+          >
+            <input
+              className=" line-clamp-5 pr-14 md:pr-16 lg:pr-14 focus:outline-none border-[#CA7560] border-[3px] border-opacity-50 rounded-lg py-4 pl-5 text-xs w-full "
+              placeholder="Answer the question..."
+              type="text"
+            />
+            <svg
+              className="absolute top-[19px] text-gray-600 cursor-pointer text-lg right-8 md:right-12 lg:right-28 hover:scale-105"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              strokeWidth="0"
+              style={
+                Object {
+                  "color": undefined,
+                }
+              }
+              viewBox="0 0 512 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M464 448H48c-26.51 0-48-21.49-48-48V112c0-26.51 21.49-48 48-48h416c26.51 0 48 21.49 48 48v288c0 26.51-21.49 48-48 48zM112 120c-30.928 0-56 25.072-56 56s25.072 56 56 56 56-25.072 56-56-25.072-56-56-56zM64 384h384V272l-87.515-87.515c-4.686-4.686-12.284-4.686-16.971 0L208 320l-55.515-55.515c-4.686-4.686-12.284-4.686-16.971 0L64 336v48z"
+              />
+            </svg>
+          </div>
+        </div>
+        <div
+          className=" relative max-w-3xl mx-auto"
+        >
+          <div
+            className=" mx-auto my-8 max-w-3xl px-6 pt-4 pb-6 bg-[#F0F0F0]"
+          >
+            <div
+              className="flex mb-5"
+            >
+              <img
+                alt="user.png"
+                className="w-10 h-10 rounded-full"
+                src="avatar.jpg"
+              />
+              <p
+                className="pl-2 font-semibold self-center text-sm mr-auto"
+              >
+                Maria1223
+              </p>
+              <div
+                className="text-xl   self-center cursor-pointer"
+              >
+                <svg
+                  fill="currentColor"
+                  height="1em"
+                  onClick={[Function]}
+                  stroke="currentColor"
+                  strokeWidth="0"
+                  style={
+                    Object {
+                      "color": undefined,
+                    }
+                  }
+                  viewBox="0 0 192 512"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
+                  />
+                </svg>
+              </div>
+              <div
+                className="absolute -right-0 top-12 lg:-right-48 lg:top-0 z-10 w-44 rounded-lg shadow-lg  border-[#CA7560] border-[4px]  border-opacity-50 bg-white transition  py-1 lg:py-3 hidden opacity-0"
+                id="dropdown"
+              >
+                <button
+                  className=" w-full lg:w-full text-sm text-left text-gray-800 hover:text-gray-900 hover:bg-gray-200 transition px-2 lg:px-4 py-1"
+                  type="button"
+                >
+                  Edit Question
+                </button>
+                <button
+                  className="w-full lg:w-full text-sm text-left hover:bg-gray-200 transition px-2 lg:px-4 py-1"
+                  type="button"
+                >
+                  Add to Bookmark
+                </button>
+                <button
+                  className="w-full lg:w-full text-sm text-left  hover:bg-gray-200 transition px-2 lg:px-4 py-1"
+                  type="button"
+                >
+                  Share
+                </button>
+                <button
+                  className="w-full lg:w-full text-sm text-left text-red-600 hover:text-red-700 hover:bg-gray-200 transition px-2 lg:px-4 py-1"
+                  type="button"
+                >
+                  Delete Question
+                </button>
+              </div>
+            </div>
+            <h3
+              className="text-2xl mb-5"
+            >
+              <span
+                className="text-[#CA7560] "
+              >
+                Q
+              </span>
+              : 
+              Lorem Ipsum is simply dummy 
+            </h3>
+            <p
+              className="text-sm mb-7 pl-7 line-clamp-3"
+            >
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys 1500s test clamp data classname Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys 1500s test clamp data classname Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys 1500s test clamp data classname
+            </p>
+            <div
+              className="hover:scale-105 transition-transform mx-auto w-1/2 "
+            >
+              <button
+                onClick={[Function]}
+                type="button"
+              >
+                <img
+                  alt="question.png"
+                  className=" rounded-xl transition-transform hover:scale-105 hover:cursor-pointer z-0 "
+                  src="questionImage.png"
+                />
+              </button>
+            </div>
+          </div>
+          <div
+            className="relative w-full px-2 lg:px-20 "
+          >
+            <input
+              className=" line-clamp-5 pr-14 md:pr-16 lg:pr-14 focus:outline-none border-[#CA7560] border-[3px] border-opacity-50 rounded-lg py-4 pl-5 text-xs w-full "
+              placeholder="Answer the question..."
+              type="text"
+            />
+            <svg
+              className="absolute top-[19px] text-gray-600 cursor-pointer text-lg right-8 md:right-12 lg:right-28 hover:scale-105"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              strokeWidth="0"
+              style={
+                Object {
+                  "color": undefined,
+                }
+              }
+              viewBox="0 0 512 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M464 448H48c-26.51 0-48-21.49-48-48V112c0-26.51 21.49-48 48-48h416c26.51 0 48 21.49 48 48v288c0 26.51-21.49 48-48 48zM112 120c-30.928 0-56 25.072-56 56s25.072 56 56 56 56-25.072 56-56-25.072-56-56-56zM64 384h384V272l-87.515-87.515c-4.686-4.686-12.284-4.686-16.971 0L208 320l-55.515-55.515c-4.686-4.686-12.284-4.686-16.971 0L64 336v48z"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+`;

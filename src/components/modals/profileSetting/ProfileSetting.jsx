@@ -4,7 +4,6 @@ import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import Dropzone from 'react-dropzone';
 import { useState } from 'react';
-import prettyBytes from 'pretty-bytes';
 import FormField from '../../FormField/FormField';
 import Modal from '../Modal/Modal';
 
@@ -115,13 +114,7 @@ function ProfileSetting({ open, setOpen }) {
                                 reader.onload = () => {
                                   setProfilePic(reader.result);
                                 };
-                                reader.readAsDataURL(file);
-
-                                return (
-                                  <li key={file.path} className="ml-4">
-                                    {file.path} - {prettyBytes(file.size)}
-                                  </li>
-                                );
+                                return reader.readAsDataURL(file);
                               })}
                             </ul>
                           </aside>
@@ -166,13 +159,7 @@ function ProfileSetting({ open, setOpen }) {
                                 reader.onload = () => {
                                   setCoverPic(reader.result);
                                 };
-                                reader.readAsDataURL(file);
-
-                                return (
-                                  <li key={file.path} className="ml-4">
-                                    {file.path} - {prettyBytes(file.size)}
-                                  </li>
-                                );
+                                return reader.readAsDataURL(file);
                               })}
                             </ul>
                           </aside>
