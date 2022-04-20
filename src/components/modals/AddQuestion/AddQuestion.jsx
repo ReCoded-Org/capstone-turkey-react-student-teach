@@ -6,17 +6,17 @@ import * as Yup from 'yup';
 import Dropzone from 'react-dropzone';
 import { FaFileUpload, FaSpinner } from 'react-icons/fa';
 import prettyBytes from 'pretty-bytes';
-
+import { useState } from 'react';
 import Modal from '../Modal/Modal';
 import FormField from '../../FormField/FormField';
 
 const SignInSchema = Yup.object().shape({
   title: Yup.string().min(3).max(24).required(),
   question: Yup.string().email().required(),
-  attachment: Yup.string().min(8).max(32).required(),
 });
 
 function AddQuestion({ open, setOpen }) {
+  const [newPic, setNewPic] = useState('');
   return (
     <Modal label="Ask question" open={open} setOpen={setOpen}>
       <Formik
@@ -28,6 +28,7 @@ function AddQuestion({ open, setOpen }) {
         onSubmit={(values, { setSubmitting }) => {
           setTimeout(() => {
             // console.log(values);
+            console.log(newPic);
             setSubmitting(false);
           }, 1000);
         }}
@@ -90,11 +91,19 @@ function AddQuestion({ open, setOpen }) {
                       <aside className="mt-4">
                         <h4 className="text-red-600">Files</h4>
                         <ul className="list-disc text-sm">
-                          {acceptedFiles.map((file) => (
-                            <li key={file.path} className="ml-4">
-                              {file.path} - {prettyBytes(file.size)}
-                            </li>
-                          ))}
+                          {acceptedFiles.map((file) => {
+                            const reader = new FileReader();
+                            reader.onload = () => {
+                              setNewPic(reader.result);
+                            };
+                            reader.readAsDataURL(file);
+
+                            return (
+                              <li key={file.path} className="ml-4">
+                                {file.path} - {prettyBytes(file.size)}
+                              </li>
+                            );
+                          })}
                         </ul>
                       </aside>
                     ) : null}

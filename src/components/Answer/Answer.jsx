@@ -5,7 +5,7 @@ import { FaEllipsisV, FaThumbsDown, FaThumbsUp } from 'react-icons/fa';
 function Answer({ children, image, username }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col mt-8 max-w-[50rem]">
       <div className="group relative bg-gray-100 rounded-lg px-5 py-4">
         <div className="flex justify-between items-center mb-2">
           <div className="flex items-center">
@@ -56,6 +56,10 @@ function Answer({ children, image, username }) {
           </div>
         </div>
         {children}
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem eos
+        tempore tenetur ea suscipit, quisquam adipisci, tempora sequi nostrum
+        omnis, autem labore eius accusamus quas voluptatibus? Iste odit itaque
+        cumque!
       </div>
       <div className="flex justify-end px-5 py-3">
         <BelowButton className="text-gray-500 hover:text-gray-600">
