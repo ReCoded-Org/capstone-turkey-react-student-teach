@@ -3,18 +3,17 @@ import Newsletter from './Newsletter';
 
 export const Footer = () => {
   return (
-    <div className="container mx-auto justify-center grid md:grid-cols-1 lg:grid-cols-1">
+    <div className="container mx-auto justify-center sm:grid-cols-1 grid ">
       <h2 className="mb-6 text-2xl font-semibold text-font-color tracking-[.75px]">
         Subscribe to Our Newsletter
       </h2>
       <Newsletter />
-      <div className="grid lg:grid-cols-4 gap-4 mt-16">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 content-start">
-          <div className="flex flex-col">
+      <div className="grid lg:grid-cols-4 gap-4 md:grid-cols-1 md:grid-rows-4 sm:grid-rows-4 sm:grid-cols-1 mt-16 sm:justify-center xs:justify-center xs:align-middle xs:grid-cols-1">
+          <div className="flex flex-col md:justify-center sm:justify-center sm:align-middle sm:flex lg:justify-center">
             <div className="w-[72px] h-[72px] rounded-full bg-gray-400 mr-96 ml-[10px]">
               {/* this is an empty div to create a circle */}
             </div>
-            <div className="p-[10px] text-left text-base w-[300px] h-[200px] text-black">
+            <div className="p-[10px] text-left text-base w-[300px] h-[200px] text-black md:w-[auto] sm:w-[auto] block">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla in
               metus vel elit luctus luctus nec in arcu. Aliquam porttitor,
               sapien id hendrerit vestibulum, risus nulla accumsan libero, et
@@ -22,7 +21,6 @@ export const Footer = () => {
               iaculis. Integer ut cursus ex.
             </div>
           </div>
-        </div>
         <ul className="flex flex-col align-middle m-6">
           <span className="p-1 font-semibold text-2xl">Useful Links</span>
           <a

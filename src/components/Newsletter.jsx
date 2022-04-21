@@ -44,7 +44,7 @@ function Newsletter() {
           <a href="!#" className="w-[468px]">
             <button
               type="submit"
-              className="w-[468px] h-auto text-base border border-transparent font-semibold text-white bg-primary-color hover:bg-white hover:text-primary-color hover:border-primary-color rounded-md px-5 py-3"
+              className="w-[468px] h-auto text-base border border-transparent font-semibold text-white bg-primary-color hover:bg-white hover:text-primary-color hover:border-primary-color rounded-md px-5 py-3 xs:w-[auto]"
             >
               Submit
             </button>
