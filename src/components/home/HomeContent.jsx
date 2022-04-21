@@ -11,7 +11,7 @@ function HomeContent() {
   return (
     <div className="container sm:mx-auto w-10/12  mt-8 pr-2">
       <div className="flex ">
-        <div className="w-full z-20 mx-auto place-self-center w-12/12 sm:w-10/12  xl:w-7/12">
+        <div className="w-full z-10 mx-auto place-self-center w-12/12 sm:w-10/12  xl:w-7/12">
           <h2 className="text-5xl sm:text-7xl text-orange">Student Teach</h2>
           <h4 className="font-semibold text-base sm:text-2xl text-black mt-2 sm:mt-9 py-0.5">
             We grow up by helping each other.
@@ -26,7 +26,7 @@ function HomeContent() {
           </p>
         </div>
         <div
-          className="hidden w-5/12  bg-cover lg:flex  bg-right w-full scale-150 -z-10"
+          className="hidden w-5/12 bg-cover lg:flex bg-right scale-150 -z-10"
           style={{ backgroundImage: 'url("./images/home.png")' }}
         >
           <button

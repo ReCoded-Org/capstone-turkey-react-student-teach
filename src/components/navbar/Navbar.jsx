@@ -1,3 +1,5 @@
+/* eslint no-nested-ternary:1 */
+
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
@@ -5,7 +7,7 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 import { VscChromeClose } from 'react-icons/vsc';
 import { SiTailwindcss } from 'react-icons/si';
 import { FaPlus } from 'react-icons/fa';
-
+import { useSelector } from 'react-redux';
 import {
   ABOUT_ROUTE,
   CONTACT_ROUTE,
@@ -22,6 +24,9 @@ function Navbar({ onBurgerClick }) {
   const [addQuestionModal, setAddQuestionModal] = useState(false);
   const [signInModal, setSignInModal] = useState(false);
   const [signUpModal, setSignUpModal] = useState(false);
+  const signIn = useSelector((state) => state.signIn);
+  const isSuccess = signIn.user.status === 200;
+  const isFailed = signIn.user.status === 400;
 
   return (
     <nav className="flex flex-col justify-center items-center h-[55px] relative z-10">
@@ -119,36 +124,42 @@ function Navbar({ onBurgerClick }) {
             </label>
           </div>
           <div className="inline-block">
-            <ul className="flex justify-center items-center mt-2 ml-10 text-2xl lg:text-base lg:mt-0">
-              <li>
-                <button
-                  type="button"
-                  className="pr-3 border-r-[2px] border-cusOrange lg:border-r-[1px] hover:text-cusOrange transition-all ease-in-out inline-block"
-                  onClick={() => setSignUpModal(true)}
-                >
-                  Sign Up
-                </button>
-                <SignUp
-                  open={signUpModal}
-                  setOpen={setSignUpModal}
-                  setSignIn={setSignInModal}
-                />
-              </li>
-              <li>
-                <button
-                  type="button"
-                  className="pl-3 mr-10 hover:text-cusOrange transition-all ease-in-out inline-block"
-                  onClick={() => setSignInModal(true)}
-                >
-                  Sign In
-                </button>
-                <SignIn
-                  open={signInModal}
-                  setOpen={setSignInModal}
-                  setSignUp={setSignUpModal}
-                />
-              </li>
-            </ul>
+            {isSuccess ? (
+              <p>welcome hazar!</p>
+            ) : isFailed ? (
+              <p>something went wrong</p>
+            ) : (
+              <ul className="flex justify-center items-center mt-2 ml-10 text-2xl lg:text-base lg:mt-0">
+                <li>
+                  <button
+                    type="button"
+                    className="pr-3 border-r-[2px] border-cusOrange lg:border-r-[1px] hover:text-cusOrange transition-all ease-in-out inline-block"
+                    onClick={() => setSignUpModal(true)}
+                  >
+                    Sign Up
+                  </button>
+                  <SignUp
+                    open={signUpModal}
+                    setOpen={setSignUpModal}
+                    setSignIn={setSignInModal}
+                  />
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    className="pl-3 mr-10 hover:text-cusOrange transition-all ease-in-out inline-block"
+                    onClick={() => setSignInModal(true)}
+                  >
+                    Sign In
+                  </button>
+                  <SignIn
+                    open={signInModal}
+                    setOpen={setSignInModal}
+                    setSignUp={setSignUpModal}
+                  />
+                </li>
+              </ul>
+            )}
           </div>
         </div>
       </div>
@@ -157,7 +168,7 @@ function Navbar({ onBurgerClick }) {
 }
 
 Navbar.propTypes = {
-  onBurgerClick: PropTypes.bool,
+  onBurgerClick: PropTypes.func,
 };
 
 Navbar.defaultProps = {
