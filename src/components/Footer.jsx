@@ -25,38 +25,64 @@ export const Footer = () => {
         </div>
         <ul className="flex flex-col align-middle m-6">
           <span className="p-1 font-semibold text-2xl">Useful Links</span>
-          <a href="#!" className="mt-9 mb-3 inline-block">
-            <li className="text-secondary-color text-base">Lorem, ipsum...</li>
+          <a
+            href="https://www.re-coded.com/"
+            className="mt-9 mb-3 inline-block"
+          >
+            <li className="text-secondary-color text-base hover:text-font-color">Re:coded</li>
           </a>
-          <a href="#!" className="mt-9 mb-3 inline-block">
-            <li className="text-secondary-color text-base">Lorem, ipsum...</li>
+          <a
+            href="https://flatironschool.com/"
+            className="mt-9 mb-3 inline-block"
+          >
+            <li className="text-secondary-color text-base hover:text-font-color">Flatiron School</li>
           </a>
-          <a href="#!" className="mt-9 mb-3 inline-block">
-            <li className="text-secondary-color text-base">Lorem, ipsum...</li>
-          </a>
-        </ul>
-        <ul className="flex flex-col align-middle m-6">
-          <span className="p-1 font-semibold text-2xl">Useful Links</span>
-          <a href="#!" className="mt-9 mb-3 inline-block">
-            <li className="text-secondary-color text-base">Lorem, ipsum...</li>
-          </a>
-          <a href="#!" className="mt-9 mb-3 inline-block">
-            <li className="text-secondary-color text-base">Lorem, ipsum...</li>
-          </a>
-          <a href="#!" className="mt-9 mb-3 inline-block">
-            <li className="text-secondary-color text-base">Lorem, ipsum...</li>
+          <a
+            href="https://github.com/ReCoded-Org/capstone-turkey-react-student-teach" className="mt-9 mb-3 inline-block"
+          >
+            <li className="text-secondary-color text-base hover:text-font-color">Project Repo</li>
           </a>
         </ul>
         <ul className="flex flex-col align-middle m-6">
           <span className="p-1 font-semibold text-2xl">Useful Links</span>
-          <a href="#!" className="mt-9 mb-3 inline-block">
-            <li className="text-secondary-color text-base">Lorem, ipsum...</li>
+          <a
+            href='https://reactjs.org/'
+            className="mt-9 mb-3 inline-block"
+          >
+            <li className="text-secondary-color text-base hover:text-font-color">React</li>
           </a>
-          <a href="#!" className="mt-9 mb-3 inline-block">
-            <li className="text-secondary-color text-base">Lorem, ipsum...</li>
+          <a
+            href="https://overreacted.io/"
+            className="mt-9 mb-3 inline-block"
+          >
+            <li className="text-secondary-color text-base hover:text-font-color">Overreacted.io</li>
           </a>
-          <a href="#!" className="mt-9 mb-3 inline-block">
-            <li className="text-secondary-color text-base">Lorem, ipsum...</li>
+          <a
+            href='https://developer.mozilla.org/en-US/'
+            className="mt-9 mb-3 inline-block"
+          >
+            <li className="text-secondary-color text-base hover:text-font-color">MDN</li>
+          </a>
+        </ul>
+        <ul className="flex flex-col align-middle m-6">
+          <span className="p-1 font-semibold text-2xl">Useful Links</span>
+          <a
+            href="https://dev.to/"
+            className="mt-9 mb-3 inline-block"
+          >
+            <li className="text-secondary-color text-base hover:text-font-color">dev.to</li>
+          </a>
+          <a
+            href="https://www.youtube.com/c/WebDevSimplified"
+            className="mt-9 mb-3 inline-block"
+          >
+            <li className="text-secondary-color text-base hover:text-font-color">Kyle</li>
+          </a>
+          <a
+            href="https://www.youtube.com/c/DevEd"
+            className="mt-9 mb-3 inline-block"
+          >
+            <li className="text-secondary-color text-base hover:text-font-color">Ed</li>
           </a>
         </ul>
       </div>
