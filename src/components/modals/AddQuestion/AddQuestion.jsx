@@ -7,8 +7,10 @@ import Dropzone from 'react-dropzone';
 import { FaFileUpload, FaSpinner } from 'react-icons/fa';
 import prettyBytes from 'pretty-bytes';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import Modal from '../Modal/Modal';
 import FormField from '../../FormField/FormField';
+import { addQuestion } from '../../../redux/features/addQuestionSlice';
 
 const SignInSchema = Yup.object().shape({
   title: Yup.string().min(3).max(24).required(),
@@ -18,16 +20,23 @@ const SignInSchema = Yup.object().shape({
 function AddQuestion({ open, setOpen }) {
   // eslint-disable-next-line no-unused-vars
   const [newPic, setNewPic] = useState('');
+  const dispatch = useDispatch();
   return (
     <Modal label="Ask question" open={open} setOpen={setOpen}>
       <Formik
         initialValues={{
-          username: '',
-          password: '',
+          title: '',
+          question: '',
         }}
         validationSchema={SignInSchema}
         onSubmit={(values, { setSubmitting }) => {
           setTimeout(() => {
+            dispatch(
+              addQuestion({
+                questionTitle: values.title,
+                questionContnet: values.question,
+              }),
+            );
             setSubmitting(false);
           }, 1000);
         }}
@@ -48,7 +57,6 @@ function AddQuestion({ open, setOpen }) {
               type="text"
             />
             <FormField
-              autoComplete="email"
               className="mb-3"
               errors={errors}
               label="Question"
