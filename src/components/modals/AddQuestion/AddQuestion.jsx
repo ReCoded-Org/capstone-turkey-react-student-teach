@@ -6,6 +6,7 @@ import * as Yup from 'yup';
 import Dropzone from 'react-dropzone';
 import { FaFileUpload, FaSpinner } from 'react-icons/fa';
 import prettyBytes from 'pretty-bytes';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import Modal from '../Modal/Modal';
 import FormField from '../../FormField/FormField';
@@ -13,11 +14,12 @@ import { addQuestion } from '../../../redux/features/addQuestionSlice';
 
 const SignInSchema = Yup.object().shape({
   title: Yup.string().min(3).max(24).required(),
-  question: Yup.string().required(),
-  attachment: Yup.string().min(8).max(32),
+  question: Yup.string().email().required(),
 });
 
 function AddQuestion({ open, setOpen }) {
+  // eslint-disable-next-line no-unused-vars
+  const [newPic, setNewPic] = useState('');
   const dispatch = useDispatch();
   return (
     <Modal label="Ask question" open={open} setOpen={setOpen}>
@@ -96,11 +98,19 @@ function AddQuestion({ open, setOpen }) {
                       <aside className="mt-4">
                         <h4 className="text-red-600">Files</h4>
                         <ul className="list-disc text-sm">
-                          {acceptedFiles.map((file) => (
-                            <li key={file.path} className="ml-4">
-                              {file.path} - {prettyBytes(file.size)}
-                            </li>
-                          ))}
+                          {acceptedFiles.map((file) => {
+                            const reader = new FileReader();
+                            reader.onload = () => {
+                              setNewPic(reader.result);
+                            };
+                            reader.readAsDataURL(file);
+
+                            return (
+                              <li key={file.path} className="ml-4">
+                                {file.path} - {prettyBytes(file.size)}
+                              </li>
+                            );
+                          })}
                         </ul>
                       </aside>
                     ) : null}

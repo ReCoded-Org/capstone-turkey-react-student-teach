@@ -11,14 +11,12 @@ module.exports = {
         '2xl': '6rem',
       },
     },
-    colors: {
-      transparent: 'transparent',
-      current: 'currentColor',
-      orange: 'rgba(202, 117, 96, 1)',
-    },
     extend: {
       colors: {
         cusOrange: '#CA7560',
+        transparent: 'transparent',
+        current: 'currentColor',
+        orange: 'rgba(202, 117, 96, 1)',
       },
     },
   },
