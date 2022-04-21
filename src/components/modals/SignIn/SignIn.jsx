@@ -1,3 +1,4 @@
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
@@ -5,6 +6,7 @@ import { FaSpinner } from 'react-icons/fa';
 
 import Modal from '../Modal/Modal';
 import FormField from '../../FormField/FormField';
+import { login } from '../../../redux/features/userSlice';
 
 const SignInSchema = Yup.object().shape({
   username: Yup.string().min(3).max(24).required(),
@@ -12,8 +14,10 @@ const SignInSchema = Yup.object().shape({
 });
 
 function SignIn({ open, setOpen, setSignUp }) {
+  const dispatch = useDispatch();
+
   return (
-    <Modal label="Sign in" open={open} setOpen={setOpen}>
+    <Modal className="z-99" label="Sign in" open={open} setOpen={setOpen}>
       <Formik
         initialValues={{
           username: '',
@@ -22,8 +26,14 @@ function SignIn({ open, setOpen, setSignUp }) {
         validationSchema={SignInSchema}
         onSubmit={(values, { setSubmitting }) => {
           setTimeout(() => {
+            dispatch(
+              login({
+                email: values.username,
+                password: values.password,
+              }),
+            );
             setSubmitting(false);
-          }, 1000);
+          }, 2000);
         }}
       >
         {({
@@ -37,7 +47,7 @@ function SignIn({ open, setOpen, setSignUp }) {
               autoComplete="username"
               className="mb-3"
               errors={errors}
-              label="Username"
+              label="Email"
               name="username"
               touched={touched}
               type="text"
@@ -51,6 +61,7 @@ function SignIn({ open, setOpen, setSignUp }) {
               touched={touched}
               type="password"
             />
+
             <div className="flex justify-between items-center mt-7">
               {isSubmitting ? (
                 <button

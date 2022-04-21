@@ -4,6 +4,7 @@ import addQuestionSlice from '../features/addQuestionSlice';
 const store = configureStore({
   reducer: {
     addQuestionReducer: addQuestionSlice,
+    signIn: userSlice,
   },
 });
 
