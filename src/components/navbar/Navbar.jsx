@@ -13,20 +13,16 @@ import {
   QUESTIONS_ROUTE,
 } from '../../routes';
 import AddQuestion from '../modals/AddQuestion/AddQuestion';
-import SignUp from '../modals/SignUp/SignUp';
-import SignIn from '../modals/SignIn/SignIn';
-import CheckAuth from '../modals/checkAuth/CheckAuth';
+// import UserAuth from '../userSection/UserAuth';
+import UserSection from '../profile/userSection/UserSection';
 
 function Navbar({ onBurgerClick }) {
   const [dark, setDark] = useState(false);
   const [burger, setBurger] = useState(true);
   const [addQuestionModal, setAddQuestionModal] = useState(false);
-  const [signInModal, setSignInModal] = useState(false);
-  const [signUpModal, setSignUpModal] = useState(false);
-  const fakeUser = false;
 
   return (
-    <nav className="flex flex-col justify-center items-center h-[55px] relative z-[100]">
+    <nav className="flex flex-col justify-center items-center h-[55px] relative z-10 w-[99%]">
       <div className="flex flex-row-reverse justify-around items-center w-screen mt-3 lg:mt-0">
         <div>
           {burger ? (
@@ -92,72 +88,35 @@ function Navbar({ onBurgerClick }) {
           <button
             type="button"
             className="text-sm text-cusOrange lg:text-base p-[7px] rounded-md border-[1px] border-cusOrange lg:p-2 whitespace-nowrap"
-            onClick={() => setAddQuestionModal(true)}
           >
             Ask Question
             <FaPlus className="inline-block ml-1" />
           </button>
-          {fakeUser ? (
-            <AddQuestion
-              open={addQuestionModal}
-              setOpen={setAddQuestionModal}
-            />
-          ) : (
-            <CheckAuth open={addQuestionModal} setOpen={setAddQuestionModal} />
-          )}
         </div>
 
-        <div className="flex flex-col-reverse lg:flex lg:flex-row lg:item-center">
+        <AddQuestion open={addQuestionModal} setOpen={setAddQuestionModal} />
+
+        <div className="flex flex-col-reverse lg:flex lg:flex-row lg:item-center lg:h-10">
           <div className="flex justify-center item-center mt-5 ml-[3rem] mr-10 lg:mt-0">
             <label
               htmlFor="toggleB"
               className="flex item-center cursor-pointer"
             >
-              <div className="relative">
+              <div className="relative lg:flex lg:items-center">
                 <input
                   type="checkbox"
                   onClick={() => setDark(!dark)}
                   id="toggleB"
                   className="sr-only"
                 />
-
                 <div className="bgColor block border-[2px] rounded-md border-cusOrange w-[4rem] h-6 lg:border-[1px] lg:w-[3rem]" />
-
-                <div className="dot left-1 top-1 bg-no-repeat w-9 h-4 rounded-3xl lg:w-6 transition absolute" />
+                <div className="dot left-1 top-1 bg-no-repeat w-9 h-4 rounded-3xl lg:w-6 transition absolute lg:top-3" />
               </div>
             </label>
           </div>
-          <div className="inline-block">
-            <ul className="flex justify-center items-center mt-2 ml-10 text-2xl lg:text-base lg:mt-0">
-              <li>
-                <button
-                  type="button"
-                  className="pr-3 border-r-[2px] border-cusOrange lg:border-r-[1px] hover:text-cusOrange transition-all ease-in-out inline-block"
-                  onClick={() => setSignUpModal(true)}
-                >
-                  Sign Up
-                </button>
-                <SignUp
-                  open={signUpModal}
-                  setOpen={setSignUpModal}
-                  setSignIn={setSignInModal}
-                />
-              </li>
-              <li>
-                <button
-                  type="button"
-                  className="pl-3 mr-10 hover:text-cusOrange transition-all ease-in-out inline-block"
-                  onClick={() => setSignInModal(true)}
-                >
-                  Sign In
-                </button>
-                <SignIn
-                  open={signInModal}
-                  setOpen={setSignInModal}
-                  setSignUp={setSignUpModal}
-                />
-              </li>
-            </ul>
+          <div className="lg:flex lg:items-center lg:justify-center">
+            {/* <UserAuth /> */}
+            <UserSection />
           </div>
         </div>
       </div>
@@ -166,7 +125,11 @@ function Navbar({ onBurgerClick }) {
 }
 
 Navbar.propTypes = {
-  onBurgerClick: PropTypes.func.isRequired,
+  onBurgerClick: PropTypes.bool,
+};
+
+Navbar.defaultProps = {
+  onBurgerClick: true,
 };
 
 export default Navbar;
