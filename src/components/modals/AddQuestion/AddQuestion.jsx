@@ -16,6 +16,7 @@ const SignInSchema = Yup.object().shape({
 });
 
 function AddQuestion({ open, setOpen }) {
+  // eslint-disable-next-line no-unused-vars
   const [newPic, setNewPic] = useState('');
   return (
     <Modal label="Ask question" open={open} setOpen={setOpen}>
@@ -27,8 +28,6 @@ function AddQuestion({ open, setOpen }) {
         validationSchema={SignInSchema}
         onSubmit={(values, { setSubmitting }) => {
           setTimeout(() => {
-            // console.log(values);
-            console.log(newPic);
             setSubmitting(false);
           }, 1000);
         }}

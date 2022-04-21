@@ -13,7 +13,9 @@ const ContactSchema = Yup.object().shape({
   title: Yup.string().min(2).max(24),
 });
 function ProfileSetting({ open, setOpen }) {
+  // eslint-disable-next-line no-unused-vars
   const [newProfilePic, setProfilePic] = useState('');
+  // eslint-disable-next-line no-unused-vars
   const [newCoverPic, setCoverPic] = useState('');
 
   return (
@@ -33,8 +35,6 @@ function ProfileSetting({ open, setOpen }) {
             onSubmit={(values, { setSubmitting, resetForm }) => {
               setTimeout(() => {
                 setSubmitting(false);
-                console.log(newProfilePic);
-                console.log(newCoverPic);
                 setOpen(false);
                 resetForm();
               }, 1000);
