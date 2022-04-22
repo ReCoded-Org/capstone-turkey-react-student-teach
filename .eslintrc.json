@@ -23,7 +23,7 @@
     ],
     "rules": {
         "quotes":["error","single",{"avoidEscape": true}],
-        "react/jsx-uses-react":["off"],
+        "react/jsx-uses-react":["on"],
         "react/react-in-jsx-scope":["off"],
         "react/jsx-props-no-spreading":["warn"],
         "no-param-reassign":["off"],
