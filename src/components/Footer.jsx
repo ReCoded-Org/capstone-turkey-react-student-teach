@@ -11,15 +11,9 @@ export const Footer = () => {
       <div className="grid lg:grid-cols-4 gap-4 md:grid-cols-1 md:grid-rows-4 xs:grid-rows-4 sm:grid-rows-4 sm:grid-cols-1 mt-16 sm:justify-center xs:justify-center xs:align-middle xs:grid-cols-1
       xs:pb-8">
           <div className="flex flex-col xs:justify-items-center xs:align-middle sm:justify-items-center md:justify-items-center lg:justify-center">
-            <div className="w-[72px] h-[72px] rounded-full bg-gray-400 mr-96 ml-[10px] xs:ml-36">
-              {/* this is an empty div to create a circle */}
-            </div>
-            <div className="p-[10px] text-left text-base w-[screen] max-h-max xs:w-[200px] xs:h-[300px] mx-auto text-black">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla in
-              metus vel elit luctus luctus nec in arcu. Aliquam porttitor,
-              sapien id hendrerit vestibulum, risus nulla accumsan libero, et
-              convallis arcu nisl vitae justo. Etiam vel metus et mauris iaculis
-              iaculis. Integer ut cursus ex.
+            <img src="recoded-logo.png" className="w-[72px] h-[72px] rounded-full mr-96 ml-[10px] xs:ml-28" alt="logo of recoded" />
+            <div className="p-[10px] text-left text-base w-[screen] max-h-max xs:w-[260px] xs:h-[300px] mx-auto text-black xs:mb-24">
+              This project has been completed by two groups selected for the bootcamps of React and back end conducted by Re:coded respectively. Attendees of the bootcamps have completed their individual tasks by gathering together occasionally 3 times a week. All attendees have been given chances to develop their skills in every possible realm they could possibly face in real world.
             </div>
           </div>
         <ul className="flex flex-col align-middle m-6 xs:m-1 sm:mt-1">
@@ -63,7 +57,7 @@ export const Footer = () => {
             <li className="text-secondary-color text-base hover:text-font-color">MDN</li>
           </a>
         </ul>
-        <ul className="flex flex-col align-middle m-6 xs:mb-1">
+        <ul className="flex flex-col align-middle m-6 xs:mb-1 sm:m-1">
           <span className="p-1 font-semibold text-2xl">Useful Links</span>
           <a
             href="https://dev.to/"
