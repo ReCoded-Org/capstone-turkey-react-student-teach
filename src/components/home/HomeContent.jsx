@@ -1,24 +1,26 @@
 import { useEffect, useState } from 'react';
 import Question from './Question';
 import allQuestions from './questions.json';
+import AddQuestion from '../modals/AddQuestion/AddQuestion';
 
 function HomeContent() {
+  const [addQuestionModal, setAddQuestionModal] = useState(false);
   const [question, setQuestion] = useState();
   useEffect(() => {
     setQuestion(allQuestions.allQuestions);
   }, [question]);
 
   return (
-    <div className="container sm:mx-auto w-10/12  mt-8 pr-2">
+    <div className="container sm:mx-auto w-10/12 mt-8 pr-2 outline outline-2 outline-gray-100 rounded-md">
       <div className="flex">
-        <div className="w-full z-20 mx-auto place-self-center w-12/12 sm:w-10/12  xl:w-7/12">
+        <div className="w-full z-20 mx-auto place-self-center w-12/12 sm:w-10/12  xl:w-7/12 ">
           <h2 className="text-5xl sm:text-7xl text-orange">Student Teach</h2>
           <h4 className="font-semibold text-base sm:text-2xl text-black mt-2 sm:mt-9 py-0.5">
             We grow up by helping each other.
           </h4>
           <p className="mt-2 sm:mt-9 text-sm sm:text-xl  py-0.5 w-12/12 lg:w-10/12 ">
-            This is a platform where you can ask your questions and help them
-            people find answers.
+            This is a platform where you can ask your questions and help people
+            find answers.
           </p>
           <p className="mt-2 sm:mt-9 text-sm sm:text-xl  py-0.5 w-12/12 lg:w-10/12 ">
             There are hundreds of categories in which you can ask your questions
@@ -26,16 +28,18 @@ function HomeContent() {
           </p>
         </div>
         <div
-          className="hidden w-5/12  bg-cover lg:flex  bg-right w-full scale-150 -z-10"
+          className="hidden w-5/12  bg-cover lg:flex  bg-right z-10 relative"
           style={{ backgroundImage: 'url("./images/home.png")' }}
         >
           <button
             type="button"
-            className="bg-orange rounded-[10px] text-xs w-44 h-10 text-[#FFFFFF] absolute inline-block bottom-[20px] xl:left-[40%] lg:left-[20%]"
+            className="bg-orange rounded-[10px] text-xs w-44 h-10 text-[#FFFFFF] absolute inline-block bottom-[20px] xl:left-[40%] lg:left-[20%] hover:scale-110 ease-in-out transition-all"
+            onClick={() => setAddQuestionModal(true)}
           >
             Ask Question +
           </button>
         </div>
+        <AddQuestion open={addQuestionModal} setOpen={setAddQuestionModal} />
       </div>
       <button
         type="button"
