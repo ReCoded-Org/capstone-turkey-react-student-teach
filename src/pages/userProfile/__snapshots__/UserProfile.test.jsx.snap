@@ -103,9 +103,7 @@ exports[`Navbar snapshot 1`] = `
               />
               <p
                 className="pl-2 font-semibold self-center text-sm mr-auto"
-              >
-                Maria1223
-              </p>
+              />
               <div
                 className="text-xl   self-center cursor-pointer"
               >
@@ -235,9 +233,7 @@ exports[`Navbar snapshot 1`] = `
               />
               <p
                 className="pl-2 font-semibold self-center text-sm mr-auto"
-              >
-                Maria1223
-              </p>
+              />
               <div
                 className="text-xl   self-center cursor-pointer"
               >
@@ -367,9 +363,7 @@ exports[`Navbar snapshot 1`] = `
               />
               <p
                 className="pl-2 font-semibold self-center text-sm mr-auto"
-              >
-                Maria1223
-              </p>
+              />
               <div
                 className="text-xl   self-center cursor-pointer"
               >

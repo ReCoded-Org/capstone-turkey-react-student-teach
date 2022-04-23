@@ -18,7 +18,7 @@ exports[`renders an Question component correctly 1`] = `
       <p
         className="pl-2 font-semibold self-center text-sm mr-auto"
       >
-        hazarcan
+        hazarcann
       </p>
       <div
         className="text-xl   self-center cursor-pointer"
@@ -82,12 +82,12 @@ exports[`renders an Question component correctly 1`] = `
         Q
       </span>
       : 
-      Loeerasdsa
+      Loeerasdsaasd
     </h3>
     <p
       className="text-sm mb-7 pl-7 line-clamp-3"
     >
-      questionText
+      questionTexttttw
     </p>
     <div
       className="hover:scale-105 transition-transform mx-auto w-1/2 "

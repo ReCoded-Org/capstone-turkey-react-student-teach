@@ -6,10 +6,10 @@ it('renders an Question component correctly', () => {
   const tree = renderer
     .create(
       <Question
-        questionTitle="Loeerasdsa"
-        userName="hazarcan"
+        questionTitle="Loeerasdsaasd"
+        userName="hazarcann"
         avatar="https://via.placeholder.com/150"
-        questionText="questionText"
+        questionText="questionTexttttw"
         questionImage="https://via.placeholder.co"
       />,
     )

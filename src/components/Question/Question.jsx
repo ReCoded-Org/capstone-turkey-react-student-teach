@@ -4,22 +4,14 @@ import { FaEllipsisV, FaImage } from 'react-icons/fa';
 import questionPhoto from '../../assets/images/questionImage.png';
 import personPhoto from '../../assets/images/avatar.jpg';
 
-export const data = {
-  id: 1,
-  avatar: personPhoto,
-  questionImage: questionPhoto,
-  name: 'Maria1223',
-  questionTitle: 'Lorem Ipsum is simply dummy ',
-  questionText:
-    'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys 1500s test clamp data classname Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys 1500s test clamp data classname Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys 1500s test clamp data classname',
-};
+export const data = {};
 
 function Question({
-  avatar = data.avatar,
-  questionImage = data.questionImage,
-  userName = data.name,
-  questionTitle = data.questionTitle,
-  questionText = data.questionText,
+  avatar,
+  questionImage,
+  userName,
+  questionTitle,
+  questionText,
 }) {
   const [open, setOpen] = useState(false);
   const sideMenuRef = useRef();
@@ -140,11 +132,20 @@ function Question({
   );
 }
 Question.propTypes = {
-  avatar: PropTypes.string,
-  userName: PropTypes.string,
-  questionTitle: PropTypes.string,
-  questionText: PropTypes.string,
-  questionImage: PropTypes.string,
+  avatar: PropTypes.string.isRequired,
+  userName: PropTypes.string.isRequired,
+  questionTitle: PropTypes.string.isRequired,
+  questionText: PropTypes.string.isRequired,
+  questionImage: PropTypes.string.isRequired,
+};
+Question.defaultProps = {
+  id: 1,
+  avatar: personPhoto,
+  questionImage: questionPhoto,
+  name: 'Maria1223',
+  questionTitle: 'Lorem Ipsum is simply dummy ',
+  questionText:
+    'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys 1500s test clamp data classname Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys 1500s test clamp data classname Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys 1500s test clamp data classname',
 };
 
 export default Question;
