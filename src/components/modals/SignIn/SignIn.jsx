@@ -33,7 +33,7 @@ function SignIn({ open, setOpen, setSignUp }) {
               }),
             );
             setSubmitting(false);
-          }, 2000);
+          }, 1500);
         }}
       >
         {({
