@@ -35,7 +35,7 @@ function HomeContent() {
         >
           <button
             type="button"
-            className="bg-orange rounded-[10px] text-xs w-44 h-10 text-[#FFFFFF] inline-block bottom-[20px] xl:left-[40%] lg:left-[20%] hover:scale-110 ease-in-out transition-all absolute"
+            className="bg-orange rounded-md text-xs w-44 h-10 scale-125 text-[#FFFFFF] inline-block bottom-[20px] xl:left-[40%] lg:left-[20%] hover:scale-[1.35] ease-in-out transition-all absolute"
             onClick={() => setAddQuestionModal(true)}
           >
             Ask Question +
@@ -45,7 +45,8 @@ function HomeContent() {
       </div>
       <button
         type="button"
-        className=" lg:hidden mt-10 text-xs ml-5  sm:text-3xl mx-auto bg-orange rounded-[10px] sm:w-[14rem] sm:h-[4rem] w-[8rem] h-[2rem] text-[#FFFFFF] absolute inline-block  left-[30%]"
+        className=" lg:hidden mt-10 text-xs ml-5 sm:text-3xl mx-auto bg-orange rounded-md sm:w-[14rem] sm:h-[4rem] w-[8rem] h-[2rem] text-[#FFFFFF] absolute inline-block  left-[30%]"
+        onClick={() => setAddQuestionModal(true)}
       >
         Ask Question +
       </button>
