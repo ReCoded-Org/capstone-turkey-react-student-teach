@@ -140,11 +140,11 @@ function Question({
   );
 }
 Question.propTypes = {
-  avatar: PropTypes.string.isRequired,
-  userName: PropTypes.string.isRequired,
-  questionTitle: PropTypes.string.isRequired,
-  questionText: PropTypes.string.isRequired,
-  questionImage: PropTypes.string.isRequired,
+  avatar: PropTypes.string,
+  userName: PropTypes.string,
+  questionTitle: PropTypes.string,
+  questionText: PropTypes.string,
+  questionImage: PropTypes.string,
 };
 
 export default Question;
