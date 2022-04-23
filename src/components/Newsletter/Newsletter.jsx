@@ -2,7 +2,7 @@ import * as Yup from 'yup';
 import { Formik, Field, Form } from 'formik';
 
 function Newsletter() {
-  function validateEmail(value) {
+  const validateEmail = (value) => {
     let error;
     if (!value) {
       error = 'Required!';
@@ -10,11 +10,13 @@ function Newsletter() {
       error = 'Enter a proper email address...';
     }
     return error;
-  }
+  };
 
   const validationSchema = Yup.object().shape({
     email: Yup.string().email('Invalid email address...').required('Required'),
   });
+
+  const handleSubmit = () => {};
 
   return (
     <Formik
@@ -22,10 +24,7 @@ function Newsletter() {
         email: '',
       }}
       validationSchema={validationSchema}
-      onSubmit={async (values) => {
-        await new Promise((r) => setTimeout(r, 500));
-        alert(JSON.stringify(values, null, 0));
-      }}
+      onSubmit={handleSubmit}
       validator={() => ({})}
     >
       {({ errors, touched }) => (
