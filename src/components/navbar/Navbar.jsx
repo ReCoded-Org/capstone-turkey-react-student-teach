@@ -123,11 +123,11 @@ function Navbar({ onBurgerClick }) {
             </label>
           </div>
 
-          <div className="inline-block">
+          <div className="inline-block mt-1.5 ">
             {
               // eslint-disable-next-line
               isSuccess ? (
-                <div className="lg:flex lg:items-center lg:justify-center">
+                <div className="lg:flex lg:items-center lg:justify-center lg:-mt-2">
                   {/* <UserAuth /> */}
                   <UserSection />
                 </div>
