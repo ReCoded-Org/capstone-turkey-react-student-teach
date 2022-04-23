@@ -21,12 +21,16 @@ function SignUp({ open, setOpen, setSignIn }) {
       <Formik
         initialValues={{
           username: '',
+          email: '',
           password: '',
+          passwordConfimation: '',
         }}
         validationSchema={SignInSchema}
-        onSubmit={(values, { setSubmitting }) => {
+        onSubmit={(values, { setSubmitting, resetForm }) => {
           setTimeout(() => {
             setSubmitting(false);
+            resetForm();
+            setOpen(false);
           }, 1000);
         }}
       >

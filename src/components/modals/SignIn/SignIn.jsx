@@ -20,9 +20,11 @@ function SignIn({ open, setOpen, setSignUp }) {
           password: '',
         }}
         validationSchema={SignInSchema}
-        onSubmit={(values, { setSubmitting }) => {
+        onSubmit={(values, { setSubmitting, resetForm }) => {
           setTimeout(() => {
             setSubmitting(false);
+            resetForm();
+            setOpen(false);
           }, 1000);
         }}
       >
