@@ -99,7 +99,7 @@ exports[`renders an Question component correctly 1`] = `
         <img
           alt="question.png"
           className=" rounded-xl transition-transform hover:scale-105 hover:cursor-pointer z-0 "
-          src="https://via.placeholder.co"
+          src="https://via.placeholder.com"
         />
       </button>
     </div>

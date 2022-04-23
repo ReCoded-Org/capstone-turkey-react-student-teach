@@ -3,9 +3,27 @@ import Question from '../../Question/Question';
 function LatestQuestions() {
   return (
     <div>
-      <Question />
-      <Question />
-      <Question />
+      <Question
+        questionTitle="Loeerasdsaasd"
+        userName="hazarcann"
+        avatar="https://via.placeholder.com/150"
+        questionText="questionTexttttw"
+        questionImage="https://via.placeholder.com"
+      />
+      <Question
+        questionTitle="Loeerasdsaasd"
+        userName="hazarcann"
+        avatar="https://via.placeholder.com/150"
+        questionText="questionTexttttw"
+        questionImage="https://via.placeholder.com"
+      />
+      <Question
+        questionTitle="Loeerasdsaasd"
+        userName="hazarcann"
+        avatar="https://via.placeholder.com/150"
+        questionText="questionTexttttw"
+        questionImage="https://via.placeholder.com"
+      />
     </div>
   );
 }

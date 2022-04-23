@@ -10,7 +10,7 @@ it('renders an Question component correctly', () => {
         userName="hazarcann"
         avatar="https://via.placeholder.com/150"
         questionText="questionTexttttw"
-        questionImage="https://via.placeholder.co"
+        questionImage="https://via.placeholder.com"
       />,
     )
     .toJSON();
