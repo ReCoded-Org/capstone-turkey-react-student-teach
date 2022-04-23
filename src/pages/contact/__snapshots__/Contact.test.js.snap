@@ -78,6 +78,7 @@ exports[`Navbar snapshot 1`] = `
           onChange={[Function]}
           placeholder="Tell us about your project"
           rows="5"
+          value=""
         />
       </div>
       <h1

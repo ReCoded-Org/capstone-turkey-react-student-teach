@@ -13,7 +13,7 @@ import {
   QUESTIONS_ROUTE,
 } from '../../routes';
 import AddQuestion from '../modals/AddQuestion/AddQuestion';
-// import UserAuth from '../userSection/UserAuth';
+// import UserAuth from '../profile/userAuth/UserAuth';
 import UserSection from '../profile/userSection/UserSection';
 
 function Navbar({ onBurgerClick }) {
@@ -22,7 +22,11 @@ function Navbar({ onBurgerClick }) {
   const [addQuestionModal, setAddQuestionModal] = useState(false);
 
   return (
-    <nav className="flex flex-col justify-center items-center h-[55px] relative z-10 w-[99%]">
+    <nav
+      className={`flex flex-col justify-center items-center h-[55px] relative ${
+        !burger ? 'z-[100]' : 'z-0'
+      } w-[99%] lg:z-0`}
+    >
       <div className="flex flex-row-reverse justify-around items-center w-screen mt-3 lg:mt-0">
         <div>
           {burger ? (
@@ -53,7 +57,7 @@ function Navbar({ onBurgerClick }) {
             <FaPlus className="inline-block ml-1" />
           </button>
         </div>
-        <SiTailwindcss className="block text-[2rem] lg:hidden " />
+        <SiTailwindcss className="block text-[2rem] lg:hidden" />
       </div>
 
       <div
@@ -88,6 +92,7 @@ function Navbar({ onBurgerClick }) {
           <button
             type="button"
             className="text-sm text-cusOrange lg:text-base p-[7px] rounded-md border-[1px] border-cusOrange lg:p-2 whitespace-nowrap"
+            onClick={() => setAddQuestionModal(true)}
           >
             Ask Question
             <FaPlus className="inline-block ml-1" />
