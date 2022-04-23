@@ -25,7 +25,7 @@ exports[`Navbar snapshot 1`] = `
           className="flex flex-col justify-center items-center"
         >
           <svg
-            className="place-self-end mr-3 text-cusOrange cursor-pointer"
+            className="place-self-end mr-3 text-cusOrange cursor-pointer hover:scale-110 ease-in-out transition-all"
             fill="currentColor"
             height="1em"
             onClick={[Function]}
