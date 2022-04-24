@@ -3,9 +3,8 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { VscChromeClose } from 'react-icons/vsc';
-import { SiTailwindcss } from 'react-icons/si';
 import { FaPlus } from 'react-icons/fa';
-
+import { logoFullScreen, logoMobileScreen } from '../../assets/logo/Logo';
 import {
   ABOUT_ROUTE,
   CONTACT_ROUTE,
@@ -57,7 +56,7 @@ function Navbar({ onBurgerClick }) {
             <FaPlus className="inline-block ml-1" />
           </button>
         </div>
-        <SiTailwindcss className="block text-[2rem] lg:hidden" />
+        <Link to={HOME_ROUTE}>{logoMobileScreen}</Link>
       </div>
 
       <div
@@ -72,7 +71,7 @@ function Navbar({ onBurgerClick }) {
       >
         <div>
           <ul className="inline-block mt-4 text-2xl lg:mt-0 lg:text-base lg:flex lg:items-center text-center">
-            <SiTailwindcss className="hidden mb-3 lg:mb-0 mx-10 text-[2rem] fill-current lg:block" />
+            <Link to={HOME_ROUTE}>{logoFullScreen}</Link>
             <li className="mb-3 lg:mb-0 lg:pr-3 lg:border-r-[1px] lg:border-cusOrange hover:text-cusOrange transition-all ease-in-out">
               <Link to={HOME_ROUTE}>Home</Link>
             </li>

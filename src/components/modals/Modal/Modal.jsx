@@ -13,7 +13,7 @@ function Modal({ children, label, open, setOpen }) {
         initialFocus={cancelButtonRef}
         onClose={setOpen}
       >
-        <div className="flex  items-center justify-center  min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+        <div className="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -43,8 +43,10 @@ function Modal({ children, label, open, setOpen }) {
           >
             <div className="relative inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-sm sm:w-full">
               <div className="bg-white p-4 sm:p-6 sm:pb-4">
-                <div className="flex justify-between items-center mb-4">
-                  <h2 className="text-4xl font-bold">{label}</h2>
+                <div className="flex justify-around items-center mb-5">
+                  <h2 className="w-max font-semibold text-[1.2rem] md:text-2xl lg:text-[1.5rem] ml-5 mb-1">
+                    {label}
+                  </h2>
                   <button
                     type="button"
                     className="rounded-full cursor-pointer hover:bg-gray-200"

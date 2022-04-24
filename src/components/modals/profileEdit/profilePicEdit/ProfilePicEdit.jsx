@@ -10,23 +10,21 @@ import { editProfile } from '../../../../redux/features/editProfileSlice';
 function ProfilePicEdit({ open, setOpen, label }) {
   // eslint-disable-next-line no-unused-vars
   const [newProfilePic, setNewProfilePic] = useState('');
-
   const dispatch = useDispatch();
 
   return (
-    <Modal label="" open={open} setOpen={setOpen}>
+    <Modal label={label} open={open} setOpen={setOpen}>
       <div className="lg:flex lg:flex-row-reverse lg:justify-end lg:w-screen  md:text-base text-sm">
-        <section className="h-[37vh] scale-[.8] lg:h-[27vh] md:scale-100  flex flex-col justify-start items-center ml-2">
-          <h1 className="w-max mb-5 font-semibold text-[1.2rem] md:text-2xl lg:text-[1.5rem] lg:mb-[3.5]">
-            {label}
-          </h1>
+        <section className="min-h-[20vh] scale-[.8] lg:min-h-[20vh] md:scale-100 flex flex-col justify-start items-center ml-2">
           <Formik
             initialValues={{}}
             onSubmit={(_, { setSubmitting }) => {
               setTimeout(() => {
-                dispatch(editProfile({ picture: newProfilePic }));
                 setSubmitting(false);
                 setOpen(false);
+                if (!newProfilePic) return;
+                dispatch(editProfile({ picture: newProfilePic }));
+                setNewProfilePic('');
               }, 1000);
             }}
           >
@@ -35,7 +33,7 @@ function ProfilePicEdit({ open, setOpen, label }) {
 
               isSubmitting,
             }) => (
-              <Form className="flex flex-col w-[15rem] lg:w-[20rem]">
+              <Form className="flex flex-col w-[17rem] lg:w-[20rem]">
                 <Dropzone
                   accept="image/*"
                   onDrop={() => {}}
@@ -82,7 +80,7 @@ function ProfilePicEdit({ open, setOpen, label }) {
                 {isSubmitting ? (
                   <button
                     type="submit"
-                    className="text-lg bg-cusOrange text-white rounded pl-10 pr-5 py-2 mb-10 lg:mb-0 relative"
+                    className="text-lg mt-5 bg-cusOrange text-white rounded pl-10 pr-5 py-2 mb-10 lg:mb-0 relative"
                     disabled
                   >
                     <FaSpinner className="animate-spin h-5 text-white mr-[4rem] lg:mr-[6rem] absolute right-[7rem] top-[0.8rem]" />
@@ -91,7 +89,7 @@ function ProfilePicEdit({ open, setOpen, label }) {
                 ) : (
                   <button
                     type="submit"
-                    className="text-lg text-gray-100 bg-cusOrange transition rounded px-8 py-2 mb-10 lg:mb-0 hover:scale-110 ease-in-out"
+                    className="text-lg mt-5 text-gray-100 bg-cusOrange transition rounded px-8 py-2 mb-10 lg:mb-0 hover:scale-110 ease-in-out"
                   >
                     Update
                   </button>

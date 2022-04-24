@@ -16,12 +16,9 @@ function ProfileSetting({ open, setOpen }) {
   const dispatch = useDispatch();
 
   return (
-    <Modal label="" open={open} setOpen={setOpen}>
-      <div className="lg:flex lg:flex-row-reverse lg:justify-end lg:w-screen  md:text-base text-sm">
-        <section className="h-3/4 md:h-[70vh] lg:h-[50vh] flex flex-col justify-start items-center">
-          <h1 className="mb-10 w-max font-semibold text-[1.2rem] md:text-2xl lg:text-[1.5rem] lg:mb-[3.5]">
-            Update your information
-          </h1>
+    <Modal label="Update information" open={open} setOpen={setOpen}>
+      <div className="lg:flex lg:flex-row-reverse lg:justify-end lg:w-screen  md:text-base text-sm scale-90 lg:scale-100 ml-2">
+        <section className="h-3/4 md:min-h-[70vh] lg:min-h-[40vh] flex flex-col justify-start items-center">
           <Formik
             initialValues={{
               firstName: '',

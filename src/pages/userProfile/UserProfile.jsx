@@ -18,7 +18,7 @@ function UserProfile() {
       <section className="md:min-h-[30vh] mt-10 m-8 lg:min-h-[50vh] lg:mx-[0rem] lg:flex lg:justify-center">
         <div>
           <img
-            className="w-[50rem] h-[8rem] object-fill rounded lg:h-[20rem] cursor-pointer"
+            className="w-[50rem] h-[8rem] object-fill rounded-md lg:h-[20rem] cursor-pointer"
             src={coverPlaceholder}
             alt="cover"
             onClick={() => setOpenCoverEdit(true)}
@@ -53,12 +53,12 @@ function UserProfile() {
       <ProfilePicEdit
         open={openCoverEdit}
         setOpen={setOpenCoverEdit}
-        label="Update your cover picture"
+        label="Update cover picture"
       />
       <section className="text-sm md:min-h-[50vh] m-7 lg:min-h-[70vh] lg:text-base">
         <div className="flex justify-around items-center lg:justify-center lg:mr-7">
           <button
-            className={`px-5 py-3 hover:scale-110 ease-in-out transition-all hover:text-cusOrange ${
+            className={`px-3 py-2 lg:px-5 lg:py-3 lg:mr-10 hover:scale-110 ease-in-out transition-all hover:text-cusOrange ${
               !latestSection
                 ? 'text-white rounded bg-cusOrange hover:text-white '
                 : null
@@ -70,7 +70,7 @@ function UserProfile() {
           </button>
 
           <button
-            className={`px-5 py-3 hover:scale-110 ease-in-out transition-all hover:text-cusOrange ${
+            className={`px-3 py-2 lg:px-5 lg:py-3 hover:scale-110 ease-in-out transition-all hover:text-cusOrange lg:ml-10 ${
               latestSection
                 ? 'text-white rounded bg-cusOrange hover:text-white'
                 : null
