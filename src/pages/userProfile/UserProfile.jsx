@@ -4,26 +4,35 @@ import coverPlaceholder from '../../assets/images/cover-placeholder.png';
 import userProfilePlaceholder from '../../assets/images/Profile_placeholer.png';
 import LatestAnswers from '../../components/profile/latestAnswers/LatestAnswers';
 import LatestQuestions from '../../components/profile/latestQuestions/LatestQuestions';
-import ProfileSetting from '../../components/modals/profileSetting/ProfileSetting';
+import ProfileSetting from '../../components/modals/profileEdit/profilePersonalInfoEdit/ProfilePersonalInfoEdit';
+import ProfilePicEdit from '../../components/modals/profileEdit/profilePicEdit/ProfilePicEdit';
 
 function UserProfile() {
   const [latestSection, setLatestSection] = useState(false);
   const [open, setOpen] = useState(false);
+  const [openPicEdit, setOpenPicEdit] = useState(false);
+  const [openCoverEdit, setOpenCoverEdit] = useState(false);
+
   return (
-    <div className="">
-      <section className="md:h-[30vh] mt-10 m-8 lg:min-h-[50vh] lg:mx-[0rem] lg:flex lg:justify-center">
+    <div>
+      <section className="md:min-h-[30vh] mt-10 m-8 lg:min-h-[50vh] lg:mx-[0rem] lg:flex lg:justify-center">
         <div>
           <img
-            className="w-[50rem] h-[8rem] object-fill rounded lg:h-[20rem] relative"
+            className="w-[50rem] h-[8rem] object-fill rounded lg:h-[20rem] cursor-pointer"
             src={coverPlaceholder}
             alt="cover"
+            onClick={() => setOpenCoverEdit(true)}
+            aria-hidden="true"
           />
           <div className="mt-3">
             <img
-              className="h-[4rem] w-[4rem] object-cover ml-5 rounded-full absolute border-[2px] border-white top-[11.3rem] lg:top-[21rem] lg:h-[7rem] lg:w-[7rem] lg:ml-[3rem]"
+              className="h-[4rem] w-[4rem] object-cover ml-5 rounded-full absolute border-[2px] border-white top-[11.3rem] lg:top-[21rem] lg:h-[7rem] lg:w-[7rem] lg:ml-[3rem] cursor-pointer"
+              onClick={() => setOpenPicEdit(true)}
               src={userProfilePlaceholder}
               alt="profile"
+              aria-hidden="true"
             />
+
             <div className="flex flex-col justify-center items-center">
               <IoSettingsOutline
                 onClick={() => setOpen(true)}
@@ -36,8 +45,17 @@ function UserProfile() {
         </div>
       </section>
       <ProfileSetting open={open} setOpen={setOpen} />
-
-      <section className="text-sm md:h-[50vh] m-7 lg:min-h-[70vh] lg:text-base">
+      <ProfilePicEdit
+        open={openPicEdit}
+        setOpen={setOpenPicEdit}
+        label="Update your picture"
+      />
+      <ProfilePicEdit
+        open={openCoverEdit}
+        setOpen={setOpenCoverEdit}
+        label="Update your cover picture"
+      />
+      <section className="text-sm md:min-h-[50vh] m-7 lg:min-h-[70vh] lg:text-base">
         <div className="flex justify-around items-center lg:justify-center lg:mr-7">
           <button
             className={`px-5 py-3 hover:scale-110 ease-in-out transition-all hover:text-cusOrange ${

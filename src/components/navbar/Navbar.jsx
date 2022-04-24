@@ -130,7 +130,7 @@ function Navbar({ onBurgerClick }) {
 }
 
 Navbar.propTypes = {
-  onBurgerClick: PropTypes.bool,
+  onBurgerClick: PropTypes.func,
 };
 
 Navbar.defaultProps = {
