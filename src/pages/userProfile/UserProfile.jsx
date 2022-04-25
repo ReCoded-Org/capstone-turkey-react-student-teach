@@ -27,7 +27,7 @@ function UserProfile() {
             <div className="flex flex-col justify-center items-center">
               <IoSettingsOutline
                 onClick={() => setOpen(true)}
-                className="place-self-end mr-3 text-cusOrange cursor-pointer"
+                className="place-self-end mr-3 text-cusOrange cursor-pointer hover:scale-110 ease-in-out transition-all"
               />
               <h1 className="mt-2 ">Username</h1>
               <h1 className="mt-2 ">Web Developer</h1>
