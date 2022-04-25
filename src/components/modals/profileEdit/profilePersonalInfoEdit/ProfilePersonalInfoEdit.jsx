@@ -17,8 +17,8 @@ function ProfileSetting({ open, setOpen }) {
 
   return (
     <Modal label="Update information" open={open} setOpen={setOpen}>
-      <div className="lg:flex lg:flex-row-reverse lg:justify-end lg:w-screen  md:text-base text-sm scale-90 lg:scale-100 ml-2">
-        <section className="h-3/4 md:min-h-[70vh] lg:min-h-[40vh] flex flex-col justify-start items-center">
+      <div className="lg:flex lg:flex-row-reverse lg:justify-end lg:w-screen  md:text-base text-sm scale-90 lg:scale-100 lg:ml-2 min-w-[70vw] lg:min-w-[20vw]">
+        <section className="min-h-[40vh] flex flex-col justify-start items-center">
           <Formik
             initialValues={{
               firstName: '',
@@ -92,24 +92,25 @@ function ProfileSetting({ open, setOpen }) {
                   type="email"
                   placeholder="Your Email"
                 />
-
-                {isSubmitting ? (
-                  <button
-                    type="submit"
-                    className="text-lg bg-cusOrange text-white rounded pl-10 pr-5 py-2 mb-10 lg:mb-0 relative"
-                    disabled
-                  >
-                    <FaSpinner className="animate-spin h-5 text-white mr-[4rem] lg:mr-[6rem] absolute right-[7rem] top-[0.8rem]" />
-                    Updating...
-                  </button>
-                ) : (
-                  <button
-                    type="submit"
-                    className="text-lg text-gray-100 bg-cusOrange transition rounded px-8 py-2 mb-10 lg:mb-0 hover:scale-110 ease-in-out"
-                  >
-                    Update
-                  </button>
-                )}
+                <div className="w-full mt-5">
+                  {isSubmitting ? (
+                    <button
+                      type="submit"
+                      className="text-lg bg-cusOrange text-white rounded pl-10 pr-5 py-2 mb-10 lg:mb-0 relative w-full"
+                      disabled
+                    >
+                      <FaSpinner className="animate-spin h-5 text-white mr-[4rem] lg:mr-[6rem] absolute right-[7rem] top-[0.8rem] " />
+                      Updating...
+                    </button>
+                  ) : (
+                    <button
+                      type="submit"
+                      className="text-lg text-gray-100 bg-cusOrange transition rounded px-8 py-2 mb-10 lg:mb-0 hover:scale-110 ease-in-out w-full"
+                    >
+                      Update
+                    </button>
+                  )}
+                </div>
               </Form>
             )}
           </Formik>
