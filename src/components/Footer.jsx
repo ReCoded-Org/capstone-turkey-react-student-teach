@@ -14,7 +14,7 @@ export const Footer = () => {
       >
         <div className="flex flex-col xs:justify-items-center xs:align-middle sm:justify-items-center md:justify-items-center lg:justify-center">
           <img
-            src="recoded-logo.png"
+            src="logo-studenteach.svg"
             className="w-[72px] h-[72px] rounded-full mr-96 ml-[10px] xs:ml-28"
             alt="logo of recoded"
           />
