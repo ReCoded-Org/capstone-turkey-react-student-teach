@@ -9,7 +9,7 @@ function UserSection() {
       className="flex justify-center items-center my-1 lg:my-0 lg:mr-10"
     >
       <img
-        className="h-10 rounded-3xl"
+        className="h-10 rounded-3xl select-none"
         src={UserPicPlaceholder}
         alt="user pic"
       />

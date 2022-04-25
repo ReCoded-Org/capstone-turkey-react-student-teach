@@ -18,7 +18,7 @@ function UserProfile() {
       <section className="md:min-h-[30vh] mt-10 m-8 lg:min-h-[50vh] lg:mx-[0rem] lg:flex lg:justify-center">
         <div>
           <img
-            className="w-[50rem] h-[8rem] object-fill rounded-md lg:h-[20rem] cursor-pointer"
+            className="w-[50rem] h-[8rem] object-fill rounded-md lg:h-[20rem] cursor-pointer select-none"
             src={coverPlaceholder}
             alt="cover"
             onClick={() => setOpenCoverEdit(true)}
@@ -26,7 +26,7 @@ function UserProfile() {
           />
           <div className="mt-3">
             <img
-              className="h-[4rem] w-[4rem] object-cover ml-5 rounded-full absolute border-[2px] border-white top-[11.3rem] lg:top-[21rem] lg:h-[7rem] lg:w-[7rem] lg:ml-[3rem] cursor-pointer"
+              className="h-[4rem] w-[4rem] object-cover ml-5 rounded-full absolute border-[2px] border-white top-[11.3rem] lg:top-[21rem] lg:h-[7rem] lg:w-[7rem] lg:ml-[3rem] cursor-pointer select-none"
               onClick={() => setOpenPicEdit(true)}
               src={userProfilePlaceholder}
               alt="profile"

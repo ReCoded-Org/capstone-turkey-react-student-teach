@@ -47,7 +47,7 @@ function AddQuestion({ open, setOpen }) {
           errors,
           isSubmitting,
         }) => (
-          <Form className="min-h-[40vh] scale-90 lg:scale-100 min-w-[70vw] lg:min-w-[20vw]">
+          <Form className="min-h-[40vh] scale-90 lg:scale-100 min-w-[70vw] lg:min-w-[15vw]">
             <FormField
               className="mb-3"
               errors={errors}
