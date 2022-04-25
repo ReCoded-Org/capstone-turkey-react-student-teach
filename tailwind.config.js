@@ -23,9 +23,7 @@ module.exports = {
         'secondary-color': '#C4C4C4',
         'font-color': '#424242',
         'cusOrange': '#CA7560',
-        'primary-color': 'var(--primary-color)',
-				'secondary-color': 'var(--secondary-color)',
-				'card-background': 'var(--card-background)'
+				'card-background': 'var(--card-background)',
         transparent: 'transparent',
         current: 'currentColor',
         orange: 'rgba(202, 117, 96, 1)',
