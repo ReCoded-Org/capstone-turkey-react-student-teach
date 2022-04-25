@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { FaEllipsisV, FaImage } from 'react-icons/fa';
+import { FaEllipsisV } from 'react-icons/fa';
 import questionPhoto from '../../assets/images/questionImage.png';
 import personPhoto from '../../assets/images/avatar.jpg';
 
@@ -16,7 +16,6 @@ export const data = {
 
 function Question({
   avatar = data.avatar,
-  questionImage = data.questionImage,
   userName = data.name,
   questionTitle = data.questionTitle,
   questionText = data.questionText,
@@ -46,8 +45,8 @@ function Question({
   }, [open]);
 
   return (
-    <div className=" relative max-w-3xl mx-auto">
-      <div className=" mx-auto my-8 max-w-3xl px-6 pt-4 pb-6 bg-[#F0F0F0]">
+    <div className=" relative max-w-3xl mx-auto ">
+      <div className=" mx-auto my-8 max-w-3xl px-6 pt-4 pb-6 bg-[#F0F0F0] rounded-md">
         <div className="flex mb-5">
           <img src={avatar} className="w-10 h-10 rounded-full" alt="user.png" />
           <p className="pl-2 font-semibold self-center text-sm mr-auto">
@@ -106,16 +105,6 @@ function Question({
               : 'hover:scale-105 transition-transform mx-auto w-1/2 '
           }
         >
-          <button
-            onClick={() => setFullImageSize(!fullImageSize)}
-            type="button"
-          >
-            <img
-              className=" rounded-xl transition-transform hover:scale-105 hover:cursor-pointer z-0 "
-              src={questionImage}
-              alt="question.png"
-            />
-          </button>
           {fullImageSize && (
             <button
               onClick={() => setFullImageSize(false)}
@@ -134,7 +123,6 @@ function Question({
           type="text"
           placeholder="Answer the question..."
         />
-        <FaImage className="absolute top-[19px] text-gray-600 cursor-pointer text-lg right-8 md:right-12 lg:right-28 hover:scale-105" />
       </div>
     </div>
   );
@@ -144,7 +132,6 @@ Question.propTypes = {
   userName: PropTypes.string.isRequired,
   questionTitle: PropTypes.string.isRequired,
   questionText: PropTypes.string.isRequired,
-  questionImage: PropTypes.string.isRequired,
 };
 
 export default Question;

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 function Question({ profileImage, question, answer }) {
   return (
     <div className="flex flex-col lg:even:float-right mb-4 xl:mb-12 w-12/12 lg:w-10/12 h-20 sm:h-28 truncate">
-      <div className="bg-[#F0F0F0] group relative bg-gray-100  rounded-lg px-5 py-4">
+      <div className="group relative bg-gray-100  rounded-lg px-5 py-4">
         <div className="flex justify-between items-center mb-2">
           <div className="flex items-center  ">
             <a href="/user-profile">

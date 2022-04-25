@@ -17,6 +17,10 @@
     --card-background: #F0F0F0;
 } 
 
+html {
+  font-family: Roboto, sans-serif;
+}
+
 @layer components {
   .burger-icons {
     @apply cursor-pointer text-xl font-light select-none lg:hidden;

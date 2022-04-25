@@ -2,7 +2,7 @@
 
 exports[`renders an answer component 1`] = `
 <div
-  className="flex flex-col"
+  className="flex flex-col mt-8 max-w-[50rem]"
 >
   <div
     className="group relative bg-gray-100 rounded-lg px-5 py-4"
