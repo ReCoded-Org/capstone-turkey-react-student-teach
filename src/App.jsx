@@ -8,6 +8,7 @@ import Contact from './pages/contact/Contact';
 import About from './pages/about/About';
 import UserProfile from './pages/userProfile/UserProfile';
 import OverlayCard from './components/cards/overlayCard/OverlayCard';
+import Footer from './components/Footer/Footer';
 import {
   ABOUT_ROUTE,
   CONTACT_ROUTE,
@@ -29,6 +30,7 @@ function App() {
         <Route path={ABOUT_ROUTE} element={<About />} />
         <Route path={USERPROFILE_ROUTE} element={<UserProfile />} />
       </Routes>
+      <Footer />
     </div>
   );
 }
