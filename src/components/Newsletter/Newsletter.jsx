@@ -36,13 +36,15 @@ function Newsletter() {
             validate={validateEmail}
             placeholder="Your Email Address"
             className=" w-[312px] h-auto text-base font-semibold transition ease-in-out outline outline-1 outline-secondary-color rounded-md text-font-color px-2 py-2 mb-3 ml-[85px] text-center border-secondary-color
-            focus:invalid:border-primary-color focus:border-2 focus:border-primary-color xs:w-[270px] xs-justify-center xs:ml-[100px]"
+            focus:invalid:border-primary-color focus:border-2 focus:border-primary-color xs:w-[270px] xs-justify-center xs:justify-center xs:text-center xs:align-middle xs:mx-auto"
           />
-          {errors.email && touched.email ? <div>{errors.email}</div> : null}
-          <a href="!#" className="w-[468px]">
+          {errors.email && touched.email ? (
+            <div className="text-center mb-4">{errors.email}</div>
+          ) : null}
+          <a href="!#">
             <button
               type="submit"
-              className="w-[468px] h-auto text-base border border-transparent font-semibold text-white bg-primary-color hover:bg-white hover:text-primary-color hover:border-primary-color rounded-md px-5 py-3 xs:w-[auto]"
+              className="w-[468px] h-auto text-base border border-transparent font-semibold text-white bg-primary-color hover:bg-white hover:text-primary-color hover:border-primary-color rounded-md px-5 py-3 xs:w-[auto] xs:justify-center xs:align-middle xs:ml-[84px]"
             >
               Submit
             </button>
