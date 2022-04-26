@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { IoSettingsOutline } from 'react-icons/io5';
-import coverPlaceholder from '../../assets/images/cover-placeholder.png';
-import userProfilePlaceholder from '../../assets/images/Profile_placeholer.png';
+import { MdOutlineModeEditOutline } from 'react-icons/md';
+import coverPlaceholder from '../../assets/images/coverPlaceholder.jpg';
+import userProfilePlaceholder from '../../assets/images/profilePlaceholer.png';
 import LatestAnswers from '../../components/profile/latestAnswers/LatestAnswers';
 import LatestQuestions from '../../components/profile/latestQuestions/LatestQuestions';
 import ProfileSetting from '../../components/modals/profileEdit/profilePersonalInfoEdit/ProfilePersonalInfoEdit';
@@ -15,28 +16,42 @@ function UserProfile() {
 
   return (
     <div>
-      <section className="md:min-h-[30vh] mt-10 m-8 lg:min-h-[50vh] lg:mx-[0rem] lg:flex lg:justify-center">
+      <section className="min-h-[30vh] mt-10 m-8 lg:min-h-[50vh] lg:mx-[0rem] lg:flex lg:justify-center">
         <div>
-          <img
-            className="w-[50rem] h-[8rem] object-fill rounded-md lg:h-[20rem] cursor-pointer select-none"
-            src={coverPlaceholder}
-            alt="cover"
-            onClick={() => setOpenCoverEdit(true)}
-            aria-hidden="true"
-          />
-          <div className="mt-3">
+          <div className="relative">
             <img
-              className="h-[4rem] w-[4rem] object-cover ml-5 rounded-full absolute border-[2px] border-white top-[11.3rem] lg:top-[21rem] lg:h-[7rem] lg:w-[7rem] lg:ml-[3rem] cursor-pointer select-none"
-              onClick={() => setOpenPicEdit(true)}
-              src={userProfilePlaceholder}
-              alt="profile"
+              className="w-[50rem] h-[8rem] object-fill rounded-md lg:h-[20rem] cursor-pointer select-none"
+              src={coverPlaceholder}
+              alt="cover"
+              onClick={() => setOpenCoverEdit(true)}
               aria-hidden="true"
             />
+            <MdOutlineModeEditOutline
+              onClick={() => setOpenCoverEdit(true)}
+              className="text-white text-3xl p-1  absolute top-[1rem] right-[1rem]  hover:bg-white hover:text-cusOrange rounded-full cursor-pointer transition-all ease-in-out duration-300"
+            />
+          </div>
+          <div className="mt-3">
+            <div className="relative bg-red-400">
+              <img
+                className="h-[4rem] w-[4rem] object-cover ml-5 rounded-full absolute border-[2px] border-white top-[-3.3rem] lg:top-[-5rem] lg:h-[7rem] lg:w-[7rem] lg:ml-[3rem] cursor-pointer select-none"
+                onClick={() => setOpenPicEdit(true)}
+                src={userProfilePlaceholder}
+                alt="profile"
+                aria-hidden="true"
+              />
+              <spa
+                onClick={() => setOpenPicEdit(true)}
+                className="h-[6.9rem] w-[6.9rem] top-[-5rem] left-[3.1rem] bg-white absolute rounded-full opacity-0 hover:opacity-60 font-bold cursor-pointer transition-all ease-in-out duration-300 lg:flex justify-center items-center hidden"
+              >
+                <h1 className="opacity-100">Edit</h1>
+              </spa>
+            </div>
 
-            <div className="flex flex-col justify-center items-center">
+            <div className="flex flex-col justify-center items-center relative">
               <IoSettingsOutline
                 onClick={() => setOpen(true)}
-                className="place-self-end mr-3 text-cusOrange cursor-pointer hover:scale-110 ease-in-out transition-all"
+                className="place-self-end mr-3 p-1 text-2xl lg:text-3xl  rounded-full text-cusOrange cursor-pointer hover:bg-cusOrange hover:text-white hover:opacity-90 ease-in-out transition-all duration-300 absolute top-[-.6rem]"
               />
               <h1 className="mt-2 ">Username</h1>
               <h1 className="mt-2 ">Web Developer</h1>
