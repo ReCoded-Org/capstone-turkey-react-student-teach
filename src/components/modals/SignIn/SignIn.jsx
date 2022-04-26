@@ -66,7 +66,7 @@ function SignIn({ open, setOpen, setSignUp }) {
               {isSubmitting ? (
                 <button
                   type="submit"
-                  className="text-lg bg-red-700 text-gray-200 rounded flex items-center px-5 py-2"
+                  className="text-lg bg-cusOrange text-gray-200 rounded flex items-center px-5 py-2"
                   disabled
                 >
                   <FaSpinner className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" />
@@ -75,7 +75,7 @@ function SignIn({ open, setOpen, setSignUp }) {
               ) : (
                 <button
                   type="submit"
-                  className="text-lg text-gray-100 bg-red-600 hover:bg-red-700 transition rounded px-5 py-2"
+                  className="text-lg text-gray-100 bg-cusOrange hover:scale-110 ease-in-out transition-all rounded px-5 py-2"
                 >
                   Sign in
                 </button>
@@ -85,7 +85,7 @@ function SignIn({ open, setOpen, setSignUp }) {
                 <br />
                 <button
                   type="button"
-                  className="text-sm text-red-600 hover:text-red-700 transition"
+                  className="text-sm text-cusOrange hover:scale-110 transition"
                   onClick={() => {
                     setOpen(false);
                     setSignUp(true);

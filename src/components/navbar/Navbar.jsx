@@ -30,7 +30,11 @@ function Navbar({ onBurgerClick }) {
   const isFailed = signIn.user.status === 400;
 
   return (
-    <nav className="flex flex-col justify-center items-center h-[55px] relative z-10 w-[99%]">
+    <nav
+      className={`flex flex-col justify-center items-center h-[55px] relative ${
+        !burger ? 'z-[100]' : 'z-0'
+      } w-[99%] lg:z-0`}
+    >
       <div className="flex flex-row-reverse justify-around items-center w-screen mt-3 lg:mt-0">
         <div>
           {burger ? (
@@ -61,7 +65,7 @@ function Navbar({ onBurgerClick }) {
             <FaPlus className="inline-block ml-1" />
           </button>
         </div>
-        <SiTailwindcss className="block text-[2rem] lg:hidden " />
+        <SiTailwindcss className="block text-[2rem] lg:hidden" />
       </div>
 
       <div
@@ -96,6 +100,7 @@ function Navbar({ onBurgerClick }) {
           <button
             type="button"
             className="text-sm text-cusOrange lg:text-base p-[7px] rounded-md border-[1px] border-cusOrange lg:p-2 whitespace-nowrap"
+            onClick={() => setAddQuestionModal(true)}
           >
             Ask Question
             <FaPlus className="inline-block ml-1" />

@@ -28,7 +28,7 @@ function Contact() {
           initialValues={{
             name: '',
             email: '',
-            textarea: '',
+            message: '',
             service: [],
           }}
           validationSchema={ContactSchema}

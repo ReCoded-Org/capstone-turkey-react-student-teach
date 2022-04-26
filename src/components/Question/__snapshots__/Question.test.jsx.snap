@@ -2,10 +2,10 @@
 
 exports[`renders an Question component correctly 1`] = `
 <div
-  className=" relative max-w-3xl mx-auto"
+  className=" relative max-w-3xl mx-auto "
 >
   <div
-    className=" mx-auto my-8 max-w-3xl px-6 pt-4 pb-6 bg-[#F0F0F0]"
+    className=" mx-auto my-8 max-w-3xl px-6 pt-4 pb-6 bg-[#F0F0F0] rounded-md"
   >
     <div
       className="flex mb-5"
@@ -91,18 +91,7 @@ exports[`renders an Question component correctly 1`] = `
     </p>
     <div
       className="hover:scale-105 transition-transform mx-auto w-1/2 "
-    >
-      <button
-        onClick={[Function]}
-        type="button"
-      >
-        <img
-          alt="question.png"
-          className=" rounded-xl transition-transform hover:scale-105 hover:cursor-pointer z-0 "
-          src="https://via.placeholder.com"
-        />
-      </button>
-    </div>
+    />
   </div>
   <div
     className="relative w-full px-2 lg:px-20 "
@@ -112,25 +101,6 @@ exports[`renders an Question component correctly 1`] = `
       placeholder="Answer the question..."
       type="text"
     />
-    <svg
-      className="absolute top-[19px] text-gray-600 cursor-pointer text-lg right-8 md:right-12 lg:right-28 hover:scale-105"
-      fill="currentColor"
-      height="1em"
-      stroke="currentColor"
-      strokeWidth="0"
-      style={
-        Object {
-          "color": undefined,
-        }
-      }
-      viewBox="0 0 512 512"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M464 448H48c-26.51 0-48-21.49-48-48V112c0-26.51 21.49-48 48-48h416c26.51 0 48 21.49 48 48v288c0 26.51-21.49 48-48 48zM112 120c-30.928 0-56 25.072-56 56s25.072 56 56 56 56-25.072 56-56-25.072-56-56-56zM64 384h384V272l-87.515-87.515c-4.686-4.686-12.284-4.686-16.971 0L208 320l-55.515-55.515c-4.686-4.686-12.284-4.686-16.971 0L64 336v48z"
-      />
-    </svg>
   </div>
 </div>
 `;
