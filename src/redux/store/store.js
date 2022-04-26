@@ -7,6 +7,10 @@ const store = configureStore({
     addQuestionReducer: addQuestionSlice,
     signIn: userSlice,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });
 
 export default store;
