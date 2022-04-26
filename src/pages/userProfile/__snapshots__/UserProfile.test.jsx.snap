@@ -177,18 +177,7 @@ exports[`Navbar snapshot 1`] = `
             </p>
             <div
               className="hover:scale-105 transition-transform mx-auto w-1/2 "
-            >
-              <button
-                onClick={[Function]}
-                type="button"
-              >
-                <img
-                  alt="question.png"
-                  className=" rounded-xl transition-transform hover:scale-105 hover:cursor-pointer z-0 "
-                  src="https://via.placeholder.com"
-                />
-              </button>
-            </div>
+            />
           </div>
           <div
             className="relative w-full px-2 lg:px-20 "
@@ -290,18 +279,7 @@ exports[`Navbar snapshot 1`] = `
             </p>
             <div
               className="hover:scale-105 transition-transform mx-auto w-1/2 "
-            >
-              <button
-                onClick={[Function]}
-                type="button"
-              >
-                <img
-                  alt="question.png"
-                  className=" rounded-xl transition-transform hover:scale-105 hover:cursor-pointer z-0 "
-                  src="https://via.placeholder.com"
-                />
-              </button>
-            </div>
+            />
           </div>
           <div
             className="relative w-full px-2 lg:px-20 "
@@ -403,18 +381,7 @@ exports[`Navbar snapshot 1`] = `
             </p>
             <div
               className="hover:scale-105 transition-transform mx-auto w-1/2 "
-            >
-              <button
-                onClick={[Function]}
-                type="button"
-              >
-                <img
-                  alt="question.png"
-                  className=" rounded-xl transition-transform hover:scale-105 hover:cursor-pointer z-0 "
-                  src="https://via.placeholder.com"
-                />
-              </button>
-            </div>
+            />
           </div>
           <div
             className="relative w-full px-2 lg:px-20 "
