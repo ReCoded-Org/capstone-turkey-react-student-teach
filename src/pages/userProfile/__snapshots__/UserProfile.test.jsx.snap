@@ -99,12 +99,12 @@ exports[`Navbar snapshot 1`] = `
               <img
                 alt="user.png"
                 className="w-10 h-10 rounded-full"
-                src="avatar.jpg"
+                src="https://via.placeholder.com/150"
               />
               <p
                 className="pl-2 font-semibold self-center text-sm mr-auto"
               >
-                Maria1223
+                hazarcann
               </p>
               <div
                 className="text-xl   self-center cursor-pointer"
@@ -168,12 +168,12 @@ exports[`Navbar snapshot 1`] = `
                 Q
               </span>
               : 
-              Lorem Ipsum is simply dummy 
+              Loeerasdsaasd
             </h3>
             <p
               className="text-sm mb-7 pl-7 line-clamp-3"
             >
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys 1500s test clamp data classname Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys 1500s test clamp data classname Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys 1500s test clamp data classname
+              questionTexttttw
             </p>
             <div
               className="hover:scale-105 transition-transform mx-auto w-1/2 "
@@ -201,12 +201,12 @@ exports[`Navbar snapshot 1`] = `
               <img
                 alt="user.png"
                 className="w-10 h-10 rounded-full"
-                src="avatar.jpg"
+                src="https://via.placeholder.com/150"
               />
               <p
                 className="pl-2 font-semibold self-center text-sm mr-auto"
               >
-                Maria1223
+                hazarcann
               </p>
               <div
                 className="text-xl   self-center cursor-pointer"
@@ -270,12 +270,12 @@ exports[`Navbar snapshot 1`] = `
                 Q
               </span>
               : 
-              Lorem Ipsum is simply dummy 
+              Loeerasdsaasd
             </h3>
             <p
               className="text-sm mb-7 pl-7 line-clamp-3"
             >
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys 1500s test clamp data classname Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys 1500s test clamp data classname Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys 1500s test clamp data classname
+              questionTexttttw
             </p>
             <div
               className="hover:scale-105 transition-transform mx-auto w-1/2 "
@@ -303,12 +303,12 @@ exports[`Navbar snapshot 1`] = `
               <img
                 alt="user.png"
                 className="w-10 h-10 rounded-full"
-                src="avatar.jpg"
+                src="https://via.placeholder.com/150"
               />
               <p
                 className="pl-2 font-semibold self-center text-sm mr-auto"
               >
-                Maria1223
+                hazarcann
               </p>
               <div
                 className="text-xl   self-center cursor-pointer"
@@ -372,12 +372,12 @@ exports[`Navbar snapshot 1`] = `
                 Q
               </span>
               : 
-              Lorem Ipsum is simply dummy 
+              Loeerasdsaasd
             </h3>
             <p
               className="text-sm mb-7 pl-7 line-clamp-3"
             >
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys 1500s test clamp data classname Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys 1500s test clamp data classname Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys 1500s test clamp data classname
+              questionTexttttw
             </p>
             <div
               className="hover:scale-105 transition-transform mx-auto w-1/2 "

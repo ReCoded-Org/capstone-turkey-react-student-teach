@@ -5,11 +5,11 @@ it('renders an Question component correctly', () => {
   const tree = renderer
     .create(
       <Question
-        questionTitle="Loeerasdsa"
-        userName="hazarcan"
+        questionTitle="Loeerasdsaasd"
+        userName="hazarcann"
         avatar="https://via.placeholder.com/150"
-        questionText="questionText"
-        questionImage="https://via.placeholder.co"
+        questionText="questionTexttttw"
+        questionImage="https://via.placeholder.com"
       />,
     )
     .toJSON();

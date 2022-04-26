@@ -11,12 +11,10 @@ function HomeContent() {
   }, [question]);
 
   return (
-    <div className="container mx-auto w-10/12 mt-8 pr-2 outline outline-2 outline-gray-100 rounded-md transition-all ease-in-out duration-300  text-center lg:text-left">
-      <div className="flex">
-        <div className="w-full z-20 mx-auto place-self-center w-12/12 sm:w-10/12  xl:w-7/12 mt-10">
-          <h2 className="text-5xl sm:text-7xl text-orange mb-5 lg:mb-0">
-            Student Teach
-          </h2>
+    <div className="container sm:mx-auto w-10/12  mt-8 pr-2">
+      <div className="flex ">
+        <div className="w-full z-10 mx-auto place-self-center w-12/12 sm:w-10/12  xl:w-7/12">
+          <h2 className="text-5xl sm:text-7xl text-orange">Student Teach</h2>
           <h4 className="font-semibold text-base sm:text-2xl text-black mt-2 sm:mt-9 py-0.5">
             We grow up by helping each other.
           </h4>
@@ -30,7 +28,7 @@ function HomeContent() {
           </p>
         </div>
         <div
-          className="hidden w-5/12  bg-cover lg:flex  bg-right z-10 relative mr-10"
+          className="hidden w-5/12 bg-cover lg:flex bg-right scale-150 -z-10"
           style={{ backgroundImage: 'url("./images/home.png")' }}
         >
           <button

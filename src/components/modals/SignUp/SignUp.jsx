@@ -17,7 +17,7 @@ const SignInSchema = Yup.object().shape({
 
 function SignUp({ open, setOpen, setSignIn }) {
   return (
-    <Modal label="Sign up" open={open} setOpen={setOpen}>
+    <Modal className="z-99" label="Sign up" open={open} setOpen={setOpen}>
       <Formik
         initialValues={{
           username: '',
