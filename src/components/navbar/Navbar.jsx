@@ -26,8 +26,8 @@ function Navbar({ onBurgerClick }) {
   const [signInModal, setSignInModal] = useState(false);
   const [signUpModal, setSignUpModal] = useState(false);
   const signIn = useSelector((state) => state.signIn);
-  const isSuccess = signIn.user.status === 200;
-  const isFailed = signIn.user.status === 400;
+  const isSuccess = signIn.user.status;
+  const isNotFoundUser = signIn.user.userInfo.error;
 
   return (
     <nav className="flex flex-col justify-center items-center h-[55px] relative z-10 w-[99%]">
@@ -126,13 +126,10 @@ function Navbar({ onBurgerClick }) {
           <div className="inline-block mt-1.5 ">
             {
               // eslint-disable-next-line
-              isSuccess ? (
+              isSuccess === 'success' && !isNotFoundUser ? (
                 <div className="lg:flex lg:items-center lg:justify-center lg:-mt-2">
-                  {/* <UserAuth /> */}
                   <UserSection />
                 </div>
-              ) : isFailed ? (
-                <p>something went wrong</p>
               ) : (
                 <ul className="flex justify-center items-center mt-2 ml-10 text-2xl lg:text-base lg:mt-0">
                   <li>

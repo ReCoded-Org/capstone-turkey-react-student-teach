@@ -1,9 +1,9 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { FaSpinner } from 'react-icons/fa';
-
+import { useState, useEffect } from 'react';
 import Modal from '../Modal/Modal';
 import FormField from '../../FormField/FormField';
 import { login } from '../../../redux/features/userSlice';
@@ -15,6 +15,23 @@ const SignInSchema = Yup.object().shape({
 
 function SignIn({ open, setOpen, setSignUp }) {
   const dispatch = useDispatch();
+  const isSuccess = useSelector((state) => state.signIn.user.status);
+  const error = useSelector((state) => state.signIn.user.userInfo.error);
+  const [showMessage, setShowMessage] = useState(false);
+
+  useEffect(() => {
+    if (error) {
+      setShowMessage(true);
+    }
+    // hide wrong email response
+    const timeout = setTimeout(() => {
+      setShowMessage(false);
+    }, 3000);
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [error]);
 
   return (
     <Modal className="z-99" label="Sign in" open={open} setOpen={setOpen}>
@@ -25,15 +42,18 @@ function SignIn({ open, setOpen, setSignUp }) {
         }}
         validationSchema={SignInSchema}
         onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            dispatch(
-              login({
-                email: values.username,
-                password: values.password,
-              }),
-            );
-            setSubmitting(false);
-          }, 1500);
+          dispatch(
+            login({
+              email: values.username,
+              password: values.password,
+            }),
+          );
+          if (isSuccess === 'success') {
+            const timeout = setTimeout(() => {
+              setSubmitting(false);
+            }, 2000);
+            clearTimeout(timeout, 2500);
+          }
         }}
       >
         {({
@@ -63,7 +83,7 @@ function SignIn({ open, setOpen, setSignUp }) {
             />
 
             <div className="flex justify-between items-center mt-7">
-              {isSubmitting ? (
+              {isSubmitting && !error ? (
                 <button
                   type="submit"
                   className="text-lg bg-red-700 text-gray-200 rounded flex items-center px-5 py-2"
@@ -95,6 +115,11 @@ function SignIn({ open, setOpen, setSignUp }) {
                 </button>
               </p>
             </div>
+            {error && showMessage && (
+              <p className="red text-sm text-red-400 block text-center mt-2">
+                {error}
+              </p>
+            )}
           </Form>
         )}
       </Formik>

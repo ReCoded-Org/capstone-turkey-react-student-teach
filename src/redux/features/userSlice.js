@@ -13,7 +13,7 @@ export const login = createAsyncThunk(
         headers: {
           'Content-type': 'application/json; charset=UTF-8',
         },
-      });
+      }).then((res) => res.json());
     } catch (err) {
       return rejectWithValue(err);
     }
@@ -30,8 +30,8 @@ const userSlice = createSlice({
       state.user.status = 'loading';
     },
     [login.fulfilled]: (state, action) => {
-      state.user.status = action.payload.status;
-      state.user.userInfo = action.payload.statusText;
+      state.user.status = 'success';
+      state.user.userInfo = action.payload;
     },
     [login.rejected]: (state, action) => {
       state.user.status = 'error';
