@@ -77,7 +77,7 @@ function UserProfile() {
         setOpen={setOpenCoverEdit}
         label="Update cover picture"
       />
-      <section className="text-sm md:min-h-[50vh] m-7 lg:min-h-[70vh] lg:text-base">
+      <section className="text-sm md:min-h-[50vh] m-7 mb-0 lg:min-h-[70vh] lg:text-base">
         <div className="flex justify-around items-center lg:justify-center lg:mr-7">
           <button
             className={`px-3 py-2 lg:px-5 lg:py-3 lg:mr-10 hover:scale-110 ease-in-out transition-all hover:text-cusOrange ${
@@ -103,7 +103,7 @@ function UserProfile() {
             Latest Answers
           </button>
         </div>
-        <div className="flex flex-col items-center justify-center lg:pb-10 text-black">
+        <div className="flex flex-col items-center justify-center pb-10 text-black">
           {!latestSection ? <LatestQuestions /> : <LatestAnswers />}
         </div>
       </section>
