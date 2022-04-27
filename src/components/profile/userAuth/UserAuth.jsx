@@ -11,10 +11,11 @@ function UserAuth() {
   const signIn = useSelector((state) => state.signIn);
   const isSuccess = signIn.user.status;
   const isNotFoundUser = signIn.user.userInfo.error;
+  const isUser = signIn.user.userInfo;
 
   return (
     // eslint-disable-next-line
-    isSuccess === 'success' && !isNotFoundUser ? (
+    (isSuccess === 'success' && !isNotFoundUser) || isUser.firstName ? (
       <div className="lg:flex lg:items-center lg:justify-center lg:-mt-2">
         <UserSection />
       </div>
