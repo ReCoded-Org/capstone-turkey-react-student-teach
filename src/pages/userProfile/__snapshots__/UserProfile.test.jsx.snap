@@ -141,12 +141,12 @@ exports[`Navbar snapshot 1`] = `
               <img
                 alt="user.png"
                 className="w-10 h-10 rounded-full"
-                src="https://via.placeholder.com/150"
+                src="avatar.jpg"
               />
               <p
                 className="pl-2 font-semibold self-center text-sm mr-auto"
               >
-                hazarcann
+                Maria1223
               </p>
               <div
                 className="text-xl   self-center cursor-pointer"
@@ -210,12 +210,12 @@ exports[`Navbar snapshot 1`] = `
                 Q
               </span>
               : 
-              Loeerasdsaasd
+              Lorem Ipsum is simply dummy 
             </h3>
             <p
               className="text-sm mb-7 pl-7 line-clamp-3"
             >
-              questionTexttttw
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys 1500s test clamp data classname Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys 1500s test clamp data classname Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys 1500s test clamp data classname
             </p>
           </div>
           <div
@@ -240,12 +240,12 @@ exports[`Navbar snapshot 1`] = `
               <img
                 alt="user.png"
                 className="w-10 h-10 rounded-full"
-                src="https://via.placeholder.com/150"
+                src="avatar.jpg"
               />
               <p
                 className="pl-2 font-semibold self-center text-sm mr-auto"
               >
-                hazarcann
+                Maria1223
               </p>
               <div
                 className="text-xl   self-center cursor-pointer"
@@ -309,12 +309,12 @@ exports[`Navbar snapshot 1`] = `
                 Q
               </span>
               : 
-              Loeerasdsaasd
+              Lorem Ipsum is simply dummy 
             </h3>
             <p
               className="text-sm mb-7 pl-7 line-clamp-3"
             >
-              questionTexttttw
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys 1500s test clamp data classname Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys 1500s test clamp data classname Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys 1500s test clamp data classname
             </p>
           </div>
           <div
@@ -339,12 +339,12 @@ exports[`Navbar snapshot 1`] = `
               <img
                 alt="user.png"
                 className="w-10 h-10 rounded-full"
-                src="https://via.placeholder.com/150"
+                src="avatar.jpg"
               />
               <p
                 className="pl-2 font-semibold self-center text-sm mr-auto"
               >
-                hazarcann
+                Maria1223
               </p>
               <div
                 className="text-xl   self-center cursor-pointer"
@@ -408,12 +408,12 @@ exports[`Navbar snapshot 1`] = `
                 Q
               </span>
               : 
-              Loeerasdsaasd
+              Lorem Ipsum is simply dummy 
             </h3>
             <p
               className="text-sm mb-7 pl-7 line-clamp-3"
             >
-              questionTexttttw
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys 1500s test clamp data classname Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys 1500s test clamp data classname Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys 1500s test clamp data classname
             </p>
           </div>
           <div

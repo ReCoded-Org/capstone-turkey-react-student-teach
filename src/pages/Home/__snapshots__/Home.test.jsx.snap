@@ -37,7 +37,6 @@ exports[`Render when text of no HomePage found removes 1`] = `
       <div
         className=" hidden min-w-[50vw] lg:flex flex-col items-center"
       >
-<<<<<<< HEAD
         <div>
           <svg
             className="h-[20rem] w-fit  fill-black"
@@ -68,23 +67,6 @@ exports[`Render when text of no HomePage found removes 1`] = `
       className=" lg:hidden mt-10 text-xs ml-5 sm:text-3xl mx-auto bg-orange rounded-md sm:w-[14rem] sm:h-[4rem] w-[8rem] h-[2rem] text-[#FFFFFF] absolute inline-block  left-[30%]"
       onClick={[Function]}
       type="button"
-=======
-        This is a platform where you can ask your questions and help people find answers.
-      </p>
-      <p
-        className="mt-2 sm:mt-9 text-sm sm:text-xl  py-0.5 w-12/12 lg:w-10/12 "
-      >
-        There are hundreds of categories in which you can ask your questions and you can learn by traveling through them.
-      </p>
-    </div>
-    <div
-      className="hidden w-5/12 bg-cover lg:flex bg-right scale-150 -z-10"
-      style={
-        Object {
-          "backgroundImage": "url(\\"./images/home.png\\")",
-        }
-      }
->>>>>>> 8a94529f72a840b8963453688f353929f46b3f16
     >
       Ask Question +
     </button>

@@ -5,11 +5,7 @@ exports[`Render when text of no Question found removes 1`] = `
   className="flex flex-col lg:even:float-right mb-4 xl:mb-12 w-12/12 lg:w-10/12 h-20 sm:h-28 truncate"
 >
   <div
-<<<<<<< HEAD
     className="group relative  rounded-lg px-5 py-4 bg-gray-100 "
-=======
-    className="bg-[#F0F0F0] group relative  rounded-lg px-5 py-4"
->>>>>>> 8a94529f72a840b8963453688f353929f46b3f16
   >
     <div
       className="flex justify-between items-center mb-2 "
@@ -63,11 +59,7 @@ exports[`Render when text of no Question found removes 2`] = `
   className="flex flex-col lg:even:float-right mb-4 xl:mb-12 w-12/12 lg:w-10/12 h-20 sm:h-28 truncate"
 >
   <div
-<<<<<<< HEAD
     className="group relative  rounded-lg px-5 py-4 bg-gray-100 "
-=======
-    className="bg-[#F0F0F0] group relative  rounded-lg px-5 py-4"
->>>>>>> 8a94529f72a840b8963453688f353929f46b3f16
   >
     <div
       className="flex justify-between items-center mb-2 "
