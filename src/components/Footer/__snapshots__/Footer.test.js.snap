@@ -5,7 +5,7 @@ exports[`Initial test for Footer.jsx 1`] = `
   className="container mx-auto justify-center grid"
 >
   <h2
-    className="mb-6 text-2xl font-semibold text-font-color tracking-[.75px]"
+    className="mb-6 text-2xl font-semibold text-center text-font-color tracking-[.75px]"
   >
     Subscribe to Our Newsletter
   </h2>
@@ -16,7 +16,8 @@ exports[`Initial test for Footer.jsx 1`] = `
     onSubmit={[Function]}
   >
     <input
-      className=" w-[312px] h-auto text-base font-semibold transition ease-in-out outline outline-1 outline-secondary-color rounded-md text-font-color px-2 py-2 mb-3 ml-[85px] text-center border-secondary-color focus:invalid:border-primary-color focus:border-2 focus:border-primary-color xs:w-[270px] xs-justify-center xs:ml-[100px]"
+
+      className=" w-[275px] mx-0 h-auto text-base font-semibold transition ease-in-out outline outline-1 outline-secondary-color rounded-md text-font-color px-2 py-2 mb-3  text-center border-secondary-color focus:invalid:border-primary-color focus:border-2 focus:border-primary-color  xs-justify-center "
       id="email"
       name="email"
       onBlur={[Function]}
@@ -26,11 +27,11 @@ exports[`Initial test for Footer.jsx 1`] = `
       value=""
     />
     <a
-      className="w-[468px]"
+      className="text-center"
       href="!#"
     >
       <button
-        className="w-[468px] h-auto text-base border border-transparent font-semibold text-white bg-primary-color hover:bg-white hover:text-primary-color hover:border-primary-color rounded-md px-5 py-3 xs:w-[auto]"
+        className="w-[275px] lg:w-full  border border-transparent font-semibold text-white bg-primary-color hover:bg-white hover:text-primary-color hover:border-primary-color rounded-md px-5 py-3 "
         type="submit"
       >
         Submit
@@ -133,7 +134,7 @@ exports[`Initial test for Footer.jsx 1`] = `
       </a>
     </ul>
     <ul
-      className="flex flex-col align-middle m-6 xs:mb-1 sm:m-1"
+      className=" ml-0 mr-0 flex flex-col align-middle m-6 xs:mb-1 sm:m-1"
     >
       <span
         className="p-1 font-semibold text-2xl"
