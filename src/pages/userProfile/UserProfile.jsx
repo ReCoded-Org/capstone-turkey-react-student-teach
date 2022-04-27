@@ -40,12 +40,13 @@ function UserProfile() {
                 alt="profile"
                 aria-hidden="true"
               />
-              <spa
+              <span
                 onClick={() => setOpenPicEdit(true)}
                 className="h-[6.9rem] w-[6.9rem] top-[-5rem] left-[3.1rem] bg-white absolute rounded-full opacity-0 hover:opacity-60 font-bold cursor-pointer transition-all ease-in-out duration-300 lg:flex justify-center items-center hidden"
+                aria-hidden
               >
                 <h1 className="opacity-100">Edit</h1>
-              </spa>
+              </span>
             </div>
 
             <div className="flex flex-col justify-center items-center relative">

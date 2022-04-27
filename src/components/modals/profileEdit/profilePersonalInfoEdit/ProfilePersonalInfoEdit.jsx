@@ -8,9 +8,9 @@ import Modal from '../../Modal/Modal';
 import { editProfile } from '../../../../redux/features/editProfileSlice';
 
 const ContactSchema = Yup.object().shape({
-  firstName: Yup.string().min(2).max(10).required(),
-  lastName: Yup.string().min(2).max(10).required(),
-  title: Yup.string().min(2).max(24),
+  firstName: Yup.string().min(2).max(10),
+  lastName: Yup.string().min(2).max(10),
+  email: Yup.string().email(),
 });
 function ProfileSetting({ open, setOpen }) {
   const dispatch = useDispatch();
@@ -18,12 +18,11 @@ function ProfileSetting({ open, setOpen }) {
   return (
     <Modal label="Update information" open={open} setOpen={setOpen}>
       <div className="lg:flex lg:flex-row-reverse lg:justify-end lg:w-screen  md:text-base text-sm scale-90 lg:scale-100 lg:ml-2 min-w-[70vw] lg:min-w-[20vw]">
-        <section className="min-h-[40vh] flex flex-col justify-start items-center">
+        <section className="min-h-[35vh] flex flex-col justify-start items-center">
           <Formik
             initialValues={{
               firstName: '',
               lastName: '',
-              title: '',
               email: '',
             }}
             validationSchema={ContactSchema}
@@ -33,7 +32,6 @@ function ProfileSetting({ open, setOpen }) {
                   editProfile({
                     editFirstName: values.firstName,
                     editLastName: values.lastName,
-                    editTitle: values.title,
                     editEmail: values.email,
                   }),
                 );
@@ -69,17 +67,6 @@ function ProfileSetting({ open, setOpen }) {
                   touched={touched}
                   type="text"
                   placeholder="You@company.com"
-                />
-
-                <FormField
-                  autoComplete="title"
-                  className="mb-2 lg:text-left"
-                  errors={errors}
-                  label="Title"
-                  name="title"
-                  touched={touched}
-                  type="text"
-                  placeholder="Your Title"
                 />
 
                 <FormField
