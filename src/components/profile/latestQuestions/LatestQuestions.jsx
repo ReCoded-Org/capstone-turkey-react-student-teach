@@ -30,6 +30,12 @@ function LatestQuestions() {
         questionTitle={data.questionTitle}
         questionText={data.questionText}
       />
+      <Question
+        avatar={data.avatar}
+        userName={data.name}
+        questionTitle={data.questionTitle}
+        questionText={data.questionText}
+      />
     </div>
   );
 }

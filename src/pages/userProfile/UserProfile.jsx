@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { IoSettingsOutline } from 'react-icons/io5';
 import { MdOutlineModeEditOutline } from 'react-icons/md';
+import { useSelector } from 'react-redux';
 import coverPlaceholder from '../../assets/images/coverPlaceholder.jpg';
 import userProfilePlaceholder from '../../assets/images/profilePlaceholer.png';
 import LatestAnswers from '../../components/profile/latestAnswers/LatestAnswers';
@@ -13,10 +14,15 @@ function UserProfile() {
   const [open, setOpen] = useState(false);
   const [openPicEdit, setOpenPicEdit] = useState(false);
   const [openCoverEdit, setOpenCoverEdit] = useState(false);
+  const darkMode = useSelector((state) => state.darkModeReducer.darkMode);
 
   return (
-    <div>
-      <section className="min-h-[30vh] mt-10 m-8 lg:min-h-[50vh] lg:mx-[0rem] lg:flex lg:justify-center">
+    <div
+      className={`${darkMode ? 'bg-primaryDark' : 'bg-white'}  ${
+        darkMode ? 'text-white' : 'text-black'
+      }`}
+    >
+      <section className="min-h-[30vh] pt-10 lg:min-h-[50vh] lg:mx-[0rem] lg:flex lg:justify-center">
         <div>
           <div className="relative">
             <img
@@ -40,12 +46,13 @@ function UserProfile() {
                 alt="profile"
                 aria-hidden="true"
               />
-              <spa
+              <span
                 onClick={() => setOpenPicEdit(true)}
-                className="h-[6.9rem] w-[6.9rem] top-[-5rem] left-[3.1rem] bg-white absolute rounded-full opacity-0 hover:opacity-60 font-bold cursor-pointer transition-all ease-in-out duration-300 lg:flex justify-center items-center hidden"
+                className="h-[6.9rem] w-[6.9rem] top-[-5rem] left-[3.1rem] bg-white absolute rounded-full opacity-0 hover:opacity-60 font-bold cursor-pointer transition-all ease-in-out duration-300 lg:flex justify-center items-center hidden text-black"
+                aria-hidden
               >
                 <h1 className="opacity-100">Edit</h1>
-              </spa>
+              </span>
             </div>
 
             <div className="flex flex-col justify-center items-center relative">
@@ -96,7 +103,7 @@ function UserProfile() {
             Latest Answers
           </button>
         </div>
-        <div className="flex flex-col items-center justify-center lg:pb-10">
+        <div className="flex flex-col items-center justify-center lg:pb-10 text-black">
           {!latestSection ? <LatestQuestions /> : <LatestAnswers />}
         </div>
       </section>

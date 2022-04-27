@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import UserPicPlaceholder from '../../../assets/images/Profile_placeholer.png';
+import UserPicPlaceholder from '../../../assets/images/profilePlaceholer.png';
 import { USERPROFILE_ROUTE } from '../../../routes';
 
 function UserSection() {

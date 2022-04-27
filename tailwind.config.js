@@ -14,6 +14,8 @@ module.exports = {
     extend: {
       colors: {
         cusOrange: '#CA7560',
+        primaryDark: 'rgb(31 41 55)',
+        secondaryDark:'rgb(55 65 81)',
         transparent: 'transparent',
         current: 'currentColor',
         orange: 'rgba(202, 117, 96, 1)',

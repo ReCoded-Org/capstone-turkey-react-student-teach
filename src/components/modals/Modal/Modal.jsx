@@ -1,9 +1,11 @@
 import { Fragment, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Dialog, Transition } from '@headlessui/react';
+import { useSelector } from 'react-redux';
 
 function Modal({ children, label, open, setOpen }) {
   const cancelButtonRef = useRef(null);
+  const darkMode = useSelector((state) => state.darkModeReducer.darkMode);
 
   return (
     <Transition.Root show={open} as={Fragment}>
@@ -41,15 +43,23 @@ function Modal({ children, label, open, setOpen }) {
             leaveFrom="opacity-100 translate-y-0 sm:scale-100"
             leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
           >
-            <div className="relative inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-sm sm:w-full">
-              <div className="bg-white p-4 sm:p-6 sm:pb-4">
+            <div
+              className={`relative inline-block align-bottom bg-gray-500 rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-sm sm:w-full ${
+                darkMode ? 'text-white' : 'bg-black'
+              }`}
+            >
+              <div
+                className={`p-4 sm:p-6 sm:pb-4 ${
+                  darkMode ? 'bg-primaryDark' : 'bg-white'
+                }`}
+              >
                 <div className="flex justify-around items-center mb-5">
                   <h2 className="w-max font-semibold text-[1.2rem] md:text-2xl lg:text-[1.5rem] ml-5 mb-1">
                     {label}
                   </h2>
                   <button
                     type="button"
-                    className="rounded-full cursor-pointer hover:bg-gray-200"
+                    className="rounded-full cursor-pointer hover:bg-cusOrange hover:text-white"
                     onClick={() => setOpen(false)}
                     ref={cancelButtonRef}
                   >
