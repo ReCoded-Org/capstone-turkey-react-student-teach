@@ -17,16 +17,20 @@ const SignInSchema = Yup.object().shape({
 
 function SignUp({ open, setOpen, setSignIn }) {
   return (
-    <Modal label="Sign up" open={open} setOpen={setOpen}>
+    <Modal className="z-99" label="Sign up" open={open} setOpen={setOpen}>
       <Formik
         initialValues={{
           username: '',
+          email: '',
           password: '',
+          passwordConfimation: '',
         }}
         validationSchema={SignInSchema}
-        onSubmit={(values, { setSubmitting }) => {
+        onSubmit={(values, { setSubmitting, resetForm }) => {
           setTimeout(() => {
             setSubmitting(false);
+            resetForm();
+            setOpen(false);
           }, 1000);
         }}
       >
@@ -77,7 +81,7 @@ function SignUp({ open, setOpen, setSignIn }) {
               {isSubmitting ? (
                 <button
                   type="submit"
-                  className="text-lg bg-red-700 text-gray-200 rounded flex items-center px-5 py-2"
+                  className="text-lg bg-cusOrange text-gray-200 rounded flex items-center px-5 py-2"
                   disabled
                 >
                   <FaSpinner className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" />
@@ -86,7 +90,7 @@ function SignUp({ open, setOpen, setSignIn }) {
               ) : (
                 <button
                   type="submit"
-                  className="text-lg text-gray-100 bg-red-600 hover:bg-red-700 transition rounded px-5 py-2"
+                  className="text-lg text-gray-100 bg-cusOrange hover:scale-110 ease-in-out transition-all rounded px-5 py-2"
                 >
                   Sign up
                 </button>
@@ -96,7 +100,7 @@ function SignUp({ open, setOpen, setSignIn }) {
                 <br />
                 <button
                   type="button"
-                  className="text-sm text-red-600 hover:text-red-700 transition"
+                  className="text-sm text-cusOrange hover:scale-110 transition"
                   onClick={() => {
                     setOpen(false);
                     setSignIn(true);

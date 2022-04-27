@@ -1,13 +1,14 @@
-import { MemoryRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
 import renderer from 'react-test-renderer';
 import Contact from './Contact';
+import store from '../../redux/store/store';
 
 it('Navbar snapshot', () => {
   const tree = renderer
     .create(
-      <MemoryRouter>
+      <Provider store={store}>
         <Contact />
-      </MemoryRouter>,
+      </Provider>,
     )
     .toJSON();
   expect(tree).toMatchSnapshot();

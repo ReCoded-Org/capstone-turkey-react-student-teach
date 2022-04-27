@@ -1,11 +1,13 @@
+/* eslint no-nested-ternary:1 */
+
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { VscChromeClose } from 'react-icons/vsc';
-import { SiTailwindcss } from 'react-icons/si';
 import { FaPlus } from 'react-icons/fa';
-
+import { useSelector } from 'react-redux';
+import { logoFullScreen, logoMobileScreen } from '../../assets/logo/Logo';
 import {
   ABOUT_ROUTE,
   CONTACT_ROUTE,
@@ -13,16 +15,26 @@ import {
   QUESTIONS_ROUTE,
 } from '../../routes';
 import AddQuestion from '../modals/AddQuestion/AddQuestion';
-// import UserAuth from '../userSection/UserAuth';
 import UserSection from '../profile/userSection/UserSection';
+import SignIn from '../modals/SignIn/SignIn';
+import SignUp from '../modals/SignUp/SignUp';
 
 function Navbar({ onBurgerClick }) {
   const [dark, setDark] = useState(false);
   const [burger, setBurger] = useState(true);
   const [addQuestionModal, setAddQuestionModal] = useState(false);
+  const [signInModal, setSignInModal] = useState(false);
+  const [signUpModal, setSignUpModal] = useState(false);
+  const signIn = useSelector((state) => state.signIn);
+  const isSuccess = signIn.user.status;
+  const isNotFoundUser = signIn.user.userInfo.error;
 
   return (
-    <nav className="flex flex-col justify-center items-center h-[55px] relative z-10 w-[99%]">
+    <nav
+      className={`flex flex-col justify-center items-center h-[55px] relative ${
+        !burger ? 'z-[100]' : 'z-0'
+      } w-[99%] lg:z-0`}
+    >
       <div className="flex flex-row-reverse justify-around items-center w-screen mt-3 lg:mt-0">
         <div>
           {burger ? (
@@ -53,7 +65,7 @@ function Navbar({ onBurgerClick }) {
             <FaPlus className="inline-block ml-1" />
           </button>
         </div>
-        <SiTailwindcss className="block text-[2rem] lg:hidden " />
+        <Link to={HOME_ROUTE}>{logoMobileScreen}</Link>
       </div>
 
       <div
@@ -68,7 +80,7 @@ function Navbar({ onBurgerClick }) {
       >
         <div>
           <ul className="inline-block mt-4 text-2xl lg:mt-0 lg:text-base lg:flex lg:items-center text-center">
-            <SiTailwindcss className="hidden mb-3 lg:mb-0 mx-10 text-[2rem] fill-current lg:block" />
+            <Link to={HOME_ROUTE}>{logoFullScreen}</Link>
             <li className="mb-3 lg:mb-0 lg:pr-3 lg:border-r-[1px] lg:border-cusOrange hover:text-cusOrange transition-all ease-in-out">
               <Link to={HOME_ROUTE}>Home</Link>
             </li>
@@ -88,6 +100,7 @@ function Navbar({ onBurgerClick }) {
           <button
             type="button"
             className="text-sm text-cusOrange lg:text-base p-[7px] rounded-md border-[1px] border-cusOrange lg:p-2 whitespace-nowrap"
+            onClick={() => setAddQuestionModal(true)}
           >
             Ask Question
             <FaPlus className="inline-block ml-1" />
@@ -114,9 +127,47 @@ function Navbar({ onBurgerClick }) {
               </div>
             </label>
           </div>
-          <div className="lg:flex lg:items-center lg:justify-center">
-            {/* <UserAuth /> */}
-            <UserSection />
+
+          <div className="inline-block mt-1.5 ">
+            {
+              // eslint-disable-next-line
+              isSuccess === 'success' && !isNotFoundUser ? (
+                <div className="lg:flex lg:items-center lg:justify-center lg:-mt-2">
+                  <UserSection />
+                </div>
+              ) : (
+                <ul className="flex justify-center items-center mt-2 ml-10 text-2xl lg:text-base lg:mt-0">
+                  <li>
+                    <button
+                      type="button"
+                      className="pr-3 border-r-[2px] border-cusOrange lg:border-r-[1px] hover:text-cusOrange transition-all ease-in-out inline-block"
+                      onClick={() => setSignUpModal(true)}
+                    >
+                      Sign Up
+                    </button>
+                    <SignUp
+                      open={signUpModal}
+                      setOpen={setSignUpModal}
+                      setSignIn={setSignInModal}
+                    />
+                  </li>
+                  <li>
+                    <button
+                      type="button"
+                      className="pl-3 mr-10 hover:text-cusOrange transition-all ease-in-out inline-block"
+                      onClick={() => setSignInModal(true)}
+                    >
+                      Sign In
+                    </button>
+                    <SignIn
+                      open={signInModal}
+                      setOpen={setSignInModal}
+                      setSignUp={setSignUpModal}
+                    />
+                  </li>
+                </ul>
+              )
+            }
           </div>
         </div>
       </div>
@@ -125,7 +176,7 @@ function Navbar({ onBurgerClick }) {
 }
 
 Navbar.propTypes = {
-  onBurgerClick: PropTypes.bool,
+  onBurgerClick: PropTypes.func,
 };
 
 Navbar.defaultProps = {

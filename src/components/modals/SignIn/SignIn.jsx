@@ -1,10 +1,12 @@
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { FaSpinner } from 'react-icons/fa';
-
+import { useState, useEffect } from 'react';
 import Modal from '../Modal/Modal';
 import FormField from '../../FormField/FormField';
+import { login } from '../../../redux/features/userSlice';
 
 const SignInSchema = Yup.object().shape({
   username: Yup.string().min(3).max(24).required(),
@@ -12,8 +14,27 @@ const SignInSchema = Yup.object().shape({
 });
 
 function SignIn({ open, setOpen, setSignUp }) {
+  const dispatch = useDispatch();
+  const isSuccess = useSelector((state) => state.signIn.user.status);
+  const error = useSelector((state) => state.signIn.user.userInfo.error);
+  const [showMessage, setShowMessage] = useState(false);
+
+  useEffect(() => {
+    if (error) {
+      setShowMessage(true);
+    }
+    // hide wrong email response
+    const timeout = setTimeout(() => {
+      setShowMessage(false);
+    }, 3000);
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [error]);
+
   return (
-    <Modal label="Sign in" open={open} setOpen={setOpen}>
+    <Modal className="z-99" label="Sign in" open={open} setOpen={setOpen}>
       <Formik
         initialValues={{
           username: '',
@@ -21,9 +42,18 @@ function SignIn({ open, setOpen, setSignUp }) {
         }}
         validationSchema={SignInSchema}
         onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            setSubmitting(false);
-          }, 1000);
+          dispatch(
+            login({
+              email: values.username,
+              password: values.password,
+            }),
+          );
+          if (isSuccess === 'success') {
+            const timeout = setTimeout(() => {
+              setSubmitting(false);
+            }, 2000);
+            clearTimeout(timeout, 2500);
+          }
         }}
       >
         {({
@@ -37,7 +67,7 @@ function SignIn({ open, setOpen, setSignUp }) {
               autoComplete="username"
               className="mb-3"
               errors={errors}
-              label="Username"
+              label="Email"
               name="username"
               touched={touched}
               type="text"
@@ -51,11 +81,12 @@ function SignIn({ open, setOpen, setSignUp }) {
               touched={touched}
               type="password"
             />
+
             <div className="flex justify-between items-center mt-7">
-              {isSubmitting ? (
+              {isSubmitting && !error ? (
                 <button
                   type="submit"
-                  className="text-lg bg-red-700 text-gray-200 rounded flex items-center px-5 py-2"
+                  className="text-lg bg-cusOrange text-gray-200 rounded flex items-center px-5 py-2"
                   disabled
                 >
                   <FaSpinner className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" />
@@ -64,7 +95,7 @@ function SignIn({ open, setOpen, setSignUp }) {
               ) : (
                 <button
                   type="submit"
-                  className="text-lg text-gray-100 bg-red-600 hover:bg-red-700 transition rounded px-5 py-2"
+                  className="text-lg text-gray-100 bg-cusOrange hover:scale-110 ease-in-out transition-all rounded px-5 py-2"
                 >
                   Sign in
                 </button>
@@ -74,7 +105,7 @@ function SignIn({ open, setOpen, setSignUp }) {
                 <br />
                 <button
                   type="button"
-                  className="text-sm text-red-600 hover:text-red-700 transition"
+                  className="text-sm text-cusOrange hover:scale-110 transition"
                   onClick={() => {
                     setOpen(false);
                     setSignUp(true);
@@ -84,6 +115,11 @@ function SignIn({ open, setOpen, setSignUp }) {
                 </button>
               </p>
             </div>
+            {error && showMessage && (
+              <p className="red text-sm text-red-400 block text-center mt-2">
+                {error}
+              </p>
+            )}
           </Form>
         )}
       </Formik>

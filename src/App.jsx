@@ -1,6 +1,5 @@
-import { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
-
+import { useState, useEffect } from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/navbar/Navbar';
 import Home from './pages/Home/Home';
@@ -9,6 +8,8 @@ import Contact from './pages/contact/Contact';
 import About from './pages/about/About';
 import UserProfile from './pages/userProfile/UserProfile';
 import OverlayCard from './components/cards/overlayCard/OverlayCard';
+import NotFoundPage from './pages/notFoundPage/NotFoundPage';
+import Footer from './components/Footer/Footer';
 import {
   ABOUT_ROUTE,
   CONTACT_ROUTE,
@@ -19,6 +20,14 @@ import {
 
 function App() {
   const [burger, setBurger] = useState(true);
+
+  const [timeOut, setTimeOut] = useState(false);
+  useEffect(() => {
+    setInterval(() => {
+      return setTimeOut(true);
+    }, 5000);
+  }, [timeOut]);
+
   return (
     <div className="App">
       <Navbar onBurgerClick={(e) => setBurger(e)} />
@@ -29,7 +38,12 @@ function App() {
         <Route path={CONTACT_ROUTE} element={<Contact />} />
         <Route path={ABOUT_ROUTE} element={<About />} />
         <Route path={USERPROFILE_ROUTE} element={<UserProfile />} />
+        <Route
+          path="*"
+          element={timeOut ? <Navigate to="/" /> : <NotFoundPage />}
+        />
       </Routes>
+      <Footer />
     </div>
   );
 }
