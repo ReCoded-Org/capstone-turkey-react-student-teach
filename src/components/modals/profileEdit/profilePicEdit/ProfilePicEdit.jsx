@@ -11,7 +11,6 @@ function ProfilePicEdit({ open, setOpen, label }) {
   // eslint-disable-next-line no-unused-vars
   const [newProfilePic, setNewProfilePic] = useState('');
   const dispatch = useDispatch();
-  console.log(newProfilePic);
 
   return (
     <Modal label={label} open={open} setOpen={setOpen}>
