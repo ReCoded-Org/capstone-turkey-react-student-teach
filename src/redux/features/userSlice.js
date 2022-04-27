@@ -19,6 +19,12 @@ export const login = createAsyncThunk(
     }
   },
 );
+export const passToLocalStorage = (state, action) => {
+  return (
+    !state.user.userInfo.error &&
+    localStorage.setItem('userInfo', JSON.stringify(action.payload))
+  );
+};
 
 const userSlice = createSlice({
   name: 'signIn',
@@ -32,6 +38,7 @@ const userSlice = createSlice({
     [login.fulfilled]: (state, action) => {
       state.user.status = 'success';
       state.user.userInfo = action.payload;
+      passToLocalStorage(state, action);
     },
     [login.rejected]: (state, action) => {
       state.user.status = 'error';
