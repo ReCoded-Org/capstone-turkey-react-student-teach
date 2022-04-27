@@ -1,3 +1,5 @@
+/* eslint no-nested-ternary:1 */
+
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
@@ -13,7 +15,6 @@ import {
   QUESTIONS_ROUTE,
 } from '../../routes';
 import AddQuestion from '../modals/AddQuestion/AddQuestion';
-// import UserAuth from '../profile/userAuth/UserAuth';
 import UserSection from '../profile/userSection/UserSection';
 import { setDarkMode } from '../../redux/features/darkModeSlice';
 
