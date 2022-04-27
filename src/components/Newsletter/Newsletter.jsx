@@ -35,14 +35,14 @@ function Newsletter() {
             type="email"
             validate={validateEmail}
             placeholder="Your Email Address"
-            className=" w-[312px] h-auto text-base font-semibold transition ease-in-out outline outline-1 outline-secondary-color rounded-md text-font-color px-2 py-2 mb-3 ml-[85px] text-center border-secondary-color
-            focus:invalid:border-primary-color focus:border-2 focus:border-primary-color xs:w-[270px] xs-justify-center xs:ml-[100px]"
+            className=" w-[275px] mx-0 h-auto text-base font-semibold transition ease-in-out outline outline-1 outline-secondary-color rounded-md text-font-color px-2 py-2 mb-3  text-center border-secondary-color
+            focus:invalid:border-primary-color focus:border-2 focus:border-primary-color  xs-justify-center "
           />
           {errors.email && touched.email ? <div>{errors.email}</div> : null}
-          <a href="!#" className="w-[468px]">
+          <a href="!#" className="text-center">
             <button
               type="submit"
-              className="w-[468px] h-auto text-base border border-transparent font-semibold text-white bg-primary-color hover:bg-white hover:text-primary-color hover:border-primary-color rounded-md px-5 py-3 xs:w-[auto]"
+              className="w-[275px] lg:w-full  border border-transparent font-semibold text-white bg-primary-color hover:bg-white hover:text-primary-color hover:border-primary-color rounded-md px-5 py-3 "
             >
               Submit
             </button>

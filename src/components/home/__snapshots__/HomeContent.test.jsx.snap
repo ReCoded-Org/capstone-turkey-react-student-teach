@@ -2,21 +2,21 @@
 
 exports[`Render when text of no HomeContent found removes 1`] = `
 <div
-  className="container sm:mx-auto w-10/12  mt-8 pr-2"
+  className="container sm:mx-auto w-full  mt-16 pr-2 md:md-0 md:mx-auto lg:mr-1 lg:ml-0 xs:mx-auto"
 >
   <div
     className="flex "
   >
     <div
-      className="w-full z-10 mx-auto place-self-center w-12/12 sm:w-10/12  xl:w-7/12"
+      className="w-full z-10 mx-auto place-self-center md:w-full xl:w-7/12"
     >
       <h2
-        className="text-5xl sm:text-7xl text-orange"
+        className="text-5xl xs:text-4xl sm:text-6xl text-orange"
       >
         Student Teach
       </h2>
       <h4
-        className="font-semibold text-base sm:text-2xl text-black mt-2 sm:mt-9 py-0.5"
+        className="font-semibold text-base xs:text-[15px] sm:text-2xl text-black mt-2 sm:mt-9 py-0.5"
       >
         We grow up by helping each other.
       </h4>
@@ -32,7 +32,7 @@ exports[`Render when text of no HomeContent found removes 1`] = `
       </p>
     </div>
     <div
-      className="hidden w-5/12 bg-cover lg:flex bg-right scale-150 -z-10"
+      className="hidden w-5/12 bg-cover lg:flex bg-right scale-150 mr-32 -z-10"
       style={
         Object {
           "backgroundImage": "url(\\"./images/home.png\\")",
@@ -40,7 +40,7 @@ exports[`Render when text of no HomeContent found removes 1`] = `
       }
     >
       <button
-        className="bg-orange rounded-md text-xs w-44 h-10 scale-125 text-[#FFFFFF] inline-block bottom-[20px] xl:left-[40%] lg:left-[20%] hover:scale-[1.35] ease-in-out transition-all absolute"
+        className="bg-orange rounded-md text-xs w-44  h-10 scale-125 text-[#FFFFFF] inline-block bottom-[20px] xl:left-[40%] lg:left-[20%] hover:scale-[1.35] ease-in-out transition-all absolute"
         onClick={[Function]}
         type="button"
       >
