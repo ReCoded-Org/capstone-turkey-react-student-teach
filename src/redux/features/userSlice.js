@@ -20,7 +20,6 @@ export const login = createAsyncThunk(
   },
 );
 export const passToLocalStorage = (state, action) => {
-  console.log(state, action, 'aaa');
   return (
     !state.user.userInfo.error &&
     localStorage.setItem('userInfo', JSON.stringify(action.payload))
