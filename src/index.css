@@ -58,7 +58,7 @@ input:checked ~ .dot {
 }
 
 input:checked ~ .bgColor {
-  background-color: white;
+  background-color: rgb(31 41 55);
 }
 
 input ~ .bgColor {

@@ -2,30 +2,77 @@
 
 exports[`Navbar snapshot 1`] = `
 <div
-  className=""
+  className="bg-white  text-black"
 >
   <section
-    className="md:h-[30vh] mt-10 m-8 lg:min-h-[50vh] lg:mx-[0rem] lg:flex lg:justify-center"
+    className="min-h-[30vh] pt-10 lg:min-h-[50vh] lg:mx-[0rem] lg:flex lg:justify-center"
   >
     <div>
-      <img
-        alt="cover"
-        className="w-[50rem] h-[8rem] object-fill rounded lg:h-[20rem] relative"
-        src="cover-placeholder.png"
-      />
+      <div
+        className="relative"
+      >
+        <img
+          alt="cover"
+          aria-hidden="true"
+          className="w-[50rem] h-[8rem] object-fill rounded-md lg:h-[20rem] cursor-pointer select-none"
+          onClick={[Function]}
+          src="coverPlaceholder.jpg"
+        />
+        <svg
+          className="text-white text-3xl p-1  absolute top-[1rem] right-[1rem]  hover:bg-white hover:text-cusOrange rounded-full cursor-pointer transition-all ease-in-out duration-300"
+          fill="currentColor"
+          height="1em"
+          onClick={[Function]}
+          stroke="currentColor"
+          strokeWidth="0"
+          style={
+            Object {
+              "color": undefined,
+            }
+          }
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0 0h24v24H0z"
+            fill="none"
+          />
+          <path
+            d="M3 21h3.75L17.81 9.94l-3.75-3.75L3 17.25V21zm2-2.92l9.06-9.06.92.92L5.92 19H5v-.92zM18.37 3.29a.996.996 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83a.996.996 0 000-1.41l-2.34-2.34z"
+          />
+        </svg>
+      </div>
       <div
         className="mt-3"
       >
-        <img
-          alt="profile"
-          className="h-[4rem] w-[4rem] object-cover ml-5 rounded-full absolute border-[2px] border-white top-[11.3rem] lg:top-[21rem] lg:h-[7rem] lg:w-[7rem] lg:ml-[3rem]"
-          src="Profile_placeholer.png"
-        />
         <div
-          className="flex flex-col justify-center items-center"
+          className="relative bg-red-400"
+        >
+          <img
+            alt="profile"
+            aria-hidden="true"
+            className="h-[4rem] w-[4rem] object-cover ml-5 rounded-full absolute border-[2px] border-white top-[-3.3rem] lg:top-[-5rem] lg:h-[7rem] lg:w-[7rem] lg:ml-[3rem] cursor-pointer select-none"
+            onClick={[Function]}
+            src="profilePlaceholer.png"
+          />
+          <span
+            aria-hidden={true}
+            className="h-[6.9rem] w-[6.9rem] top-[-5rem] left-[3.1rem] bg-white absolute rounded-full opacity-0 hover:opacity-60 font-bold cursor-pointer transition-all ease-in-out duration-300 lg:flex justify-center items-center hidden text-black"
+            onClick={[Function]}
+          >
+            <h1
+              className="opacity-100"
+            >
+              Edit
+            </h1>
+          </span>
+        </div>
+        <div
+          className="flex flex-col justify-center items-center relative"
         >
           <svg
-            className="place-self-end mr-3 text-cusOrange cursor-pointer hover:scale-110 ease-in-out transition-all"
+            className="place-self-end mr-3 p-1 text-2xl lg:text-3xl  rounded-full text-cusOrange cursor-pointer hover:bg-cusOrange hover:text-white hover:opacity-90 ease-in-out transition-all duration-300 absolute top-[-.6rem]"
             fill="currentColor"
             height="1em"
             onClick={[Function]}
@@ -53,30 +100,25 @@ exports[`Navbar snapshot 1`] = `
           >
             Username
           </h1>
-          <h1
-            className="mt-2 "
-          >
-            Web Developer
-          </h1>
         </div>
       </div>
     </div>
   </section>
   <section
-    className="text-sm md:h-[50vh] m-7 lg:min-h-[70vh] lg:text-base"
+    className="text-sm md:min-h-[50vh] m-7 mb-0 lg:min-h-[70vh] lg:text-base"
   >
     <div
       className="flex justify-around items-center lg:justify-center lg:mr-7"
     >
       <button
-        className="px-5 py-3 hover:scale-110 ease-in-out transition-all hover:text-cusOrange text-white rounded bg-cusOrange hover:text-white "
+        className="px-3 py-2 lg:px-5 lg:py-3 lg:mr-10 hover:scale-110 ease-in-out transition-all hover:text-cusOrange text-white rounded bg-cusOrange hover:text-white "
         onClick={[Function]}
         type="button"
       >
         Latest Questions
       </button>
       <button
-        className="px-5 py-3 hover:scale-110 ease-in-out transition-all hover:text-cusOrange null"
+        className="px-3 py-2 lg:px-5 lg:py-3 hover:scale-110 ease-in-out transition-all hover:text-cusOrange lg:ml-10 null"
         onClick={[Function]}
         type="button"
       >
@@ -84,14 +126,14 @@ exports[`Navbar snapshot 1`] = `
       </button>
     </div>
     <div
-      className="flex flex-col items-center justify-center lg:pb-10"
+      className="flex flex-col items-center justify-center pb-10 text-black"
     >
       <div>
         <div
-          className=" relative max-w-3xl mx-auto "
+          className="relative max-w-3xl mx-auto"
         >
           <div
-            className=" mx-auto my-8 max-w-3xl px-6 pt-4 pb-6 bg-[#F0F0F0] rounded-md"
+            className="mx-auto my-8 max-w-3xl px-6 pt-4 pb-6 rounded-md bg-[#F0F0F0] text-black"
           >
             <div
               className="flex mb-5"
@@ -99,12 +141,12 @@ exports[`Navbar snapshot 1`] = `
               <img
                 alt="user.png"
                 className="w-10 h-10 rounded-full"
-                src="https://via.placeholder.com/150"
+                src="avatar.jpg"
               />
               <p
                 className="pl-2 font-semibold self-center text-sm mr-auto"
               >
-                hazarcann
+                Maria1223
               </p>
               <div
                 className="text-xl   self-center cursor-pointer"
@@ -130,23 +172,23 @@ exports[`Navbar snapshot 1`] = `
                 </svg>
               </div>
               <div
-                className="absolute -right-0 top-12 lg:-right-48 lg:top-0 z-10 w-44 rounded-lg shadow-lg  border-[#CA7560] border-[4px]  border-opacity-50 bg-white transition  py-1 lg:py-3 hidden opacity-0"
+                className="absolute -right-0 top-12 lg:-right-48 lg:top-0 z-10 w-44 rounded-lg shadow-lg  border-opacity-50transition  py-1 lg:py-3 border-[1px]  hidden opacity-0  bg-[#F0F0F0]"
                 id="dropdown"
               >
                 <button
-                  className=" w-full lg:w-full text-sm text-left text-gray-800 hover:text-gray-900 hover:bg-gray-200 transition px-2 lg:px-4 py-1"
+                  className="w-full lg:w-full text-sm text-left hover:text-black hover:bg-gray-200 transition px-2 lg:px-4 py-1"
                   type="button"
                 >
                   Edit Question
                 </button>
                 <button
-                  className="w-full lg:w-full text-sm text-left hover:bg-gray-200 transition px-2 lg:px-4 py-1"
+                  className="w-full lg:w-full text-sm text-left hover:bg-gray-200 hover:text-black transition px-2 lg:px-4 py-1"
                   type="button"
                 >
                   Add to Bookmark
                 </button>
                 <button
-                  className="w-full lg:w-full text-sm text-left  hover:bg-gray-200 transition px-2 lg:px-4 py-1"
+                  className="w-full lg:w-full text-sm text-left  hover:bg-gray-200 hover:text-black transition px-2 lg:px-4 py-1"
                   type="button"
                 >
                   Share
@@ -168,32 +210,29 @@ exports[`Navbar snapshot 1`] = `
                 Q
               </span>
               : 
-              Loeerasdsaasd
+              Lorem Ipsum is simply dummy 
             </h3>
             <p
               className="text-sm mb-7 pl-7 line-clamp-3"
             >
-              questionTexttttw
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys 1500s test clamp data classname Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys 1500s test clamp data classname Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys 1500s test clamp data classname
             </p>
-            <div
-              className="hover:scale-105 transition-transform mx-auto w-1/2 "
-            />
           </div>
           <div
-            className="relative w-full px-2 lg:px-20 "
+            className="relative w-full px-2 lg:px-20  "
           >
             <input
-              className=" line-clamp-5 pr-14 md:pr-16 lg:pr-14 focus:outline-none border-[#CA7560] border-[3px] border-opacity-50 rounded-lg py-4 pl-5 text-xs w-full "
+              className="line-clamp-5 pr-14 md:pr-16 lg:pr-14 focus:outline-none border-[#CA7560] border-[3px] border-opacity-50 rounded-lg py-4 pl-5 text-xs w-full bg-[#F0F0F0] placeholder-slate-400"
               placeholder="Answer the question..."
               type="text"
             />
           </div>
         </div>
         <div
-          className=" relative max-w-3xl mx-auto "
+          className="relative max-w-3xl mx-auto"
         >
           <div
-            className=" mx-auto my-8 max-w-3xl px-6 pt-4 pb-6 bg-[#F0F0F0] rounded-md"
+            className="mx-auto my-8 max-w-3xl px-6 pt-4 pb-6 rounded-md bg-[#F0F0F0] text-black"
           >
             <div
               className="flex mb-5"
@@ -201,12 +240,12 @@ exports[`Navbar snapshot 1`] = `
               <img
                 alt="user.png"
                 className="w-10 h-10 rounded-full"
-                src="https://via.placeholder.com/150"
+                src="avatar.jpg"
               />
               <p
                 className="pl-2 font-semibold self-center text-sm mr-auto"
               >
-                hazarcann
+                Maria1223
               </p>
               <div
                 className="text-xl   self-center cursor-pointer"
@@ -232,23 +271,23 @@ exports[`Navbar snapshot 1`] = `
                 </svg>
               </div>
               <div
-                className="absolute -right-0 top-12 lg:-right-48 lg:top-0 z-10 w-44 rounded-lg shadow-lg  border-[#CA7560] border-[4px]  border-opacity-50 bg-white transition  py-1 lg:py-3 hidden opacity-0"
+                className="absolute -right-0 top-12 lg:-right-48 lg:top-0 z-10 w-44 rounded-lg shadow-lg  border-opacity-50transition  py-1 lg:py-3 border-[1px]  hidden opacity-0  bg-[#F0F0F0]"
                 id="dropdown"
               >
                 <button
-                  className=" w-full lg:w-full text-sm text-left text-gray-800 hover:text-gray-900 hover:bg-gray-200 transition px-2 lg:px-4 py-1"
+                  className="w-full lg:w-full text-sm text-left hover:text-black hover:bg-gray-200 transition px-2 lg:px-4 py-1"
                   type="button"
                 >
                   Edit Question
                 </button>
                 <button
-                  className="w-full lg:w-full text-sm text-left hover:bg-gray-200 transition px-2 lg:px-4 py-1"
+                  className="w-full lg:w-full text-sm text-left hover:bg-gray-200 hover:text-black transition px-2 lg:px-4 py-1"
                   type="button"
                 >
                   Add to Bookmark
                 </button>
                 <button
-                  className="w-full lg:w-full text-sm text-left  hover:bg-gray-200 transition px-2 lg:px-4 py-1"
+                  className="w-full lg:w-full text-sm text-left  hover:bg-gray-200 hover:text-black transition px-2 lg:px-4 py-1"
                   type="button"
                 >
                   Share
@@ -270,32 +309,29 @@ exports[`Navbar snapshot 1`] = `
                 Q
               </span>
               : 
-              Loeerasdsaasd
+              Lorem Ipsum is simply dummy 
             </h3>
             <p
               className="text-sm mb-7 pl-7 line-clamp-3"
             >
-              questionTexttttw
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys 1500s test clamp data classname Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys 1500s test clamp data classname Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys 1500s test clamp data classname
             </p>
-            <div
-              className="hover:scale-105 transition-transform mx-auto w-1/2 "
-            />
           </div>
           <div
-            className="relative w-full px-2 lg:px-20 "
+            className="relative w-full px-2 lg:px-20  "
           >
             <input
-              className=" line-clamp-5 pr-14 md:pr-16 lg:pr-14 focus:outline-none border-[#CA7560] border-[3px] border-opacity-50 rounded-lg py-4 pl-5 text-xs w-full "
+              className="line-clamp-5 pr-14 md:pr-16 lg:pr-14 focus:outline-none border-[#CA7560] border-[3px] border-opacity-50 rounded-lg py-4 pl-5 text-xs w-full bg-[#F0F0F0] placeholder-slate-400"
               placeholder="Answer the question..."
               type="text"
             />
           </div>
         </div>
         <div
-          className=" relative max-w-3xl mx-auto "
+          className="relative max-w-3xl mx-auto"
         >
           <div
-            className=" mx-auto my-8 max-w-3xl px-6 pt-4 pb-6 bg-[#F0F0F0] rounded-md"
+            className="mx-auto my-8 max-w-3xl px-6 pt-4 pb-6 rounded-md bg-[#F0F0F0] text-black"
           >
             <div
               className="flex mb-5"
@@ -303,12 +339,12 @@ exports[`Navbar snapshot 1`] = `
               <img
                 alt="user.png"
                 className="w-10 h-10 rounded-full"
-                src="https://via.placeholder.com/150"
+                src="avatar.jpg"
               />
               <p
                 className="pl-2 font-semibold self-center text-sm mr-auto"
               >
-                hazarcann
+                Maria1223
               </p>
               <div
                 className="text-xl   self-center cursor-pointer"
@@ -334,23 +370,23 @@ exports[`Navbar snapshot 1`] = `
                 </svg>
               </div>
               <div
-                className="absolute -right-0 top-12 lg:-right-48 lg:top-0 z-10 w-44 rounded-lg shadow-lg  border-[#CA7560] border-[4px]  border-opacity-50 bg-white transition  py-1 lg:py-3 hidden opacity-0"
+                className="absolute -right-0 top-12 lg:-right-48 lg:top-0 z-10 w-44 rounded-lg shadow-lg  border-opacity-50transition  py-1 lg:py-3 border-[1px]  hidden opacity-0  bg-[#F0F0F0]"
                 id="dropdown"
               >
                 <button
-                  className=" w-full lg:w-full text-sm text-left text-gray-800 hover:text-gray-900 hover:bg-gray-200 transition px-2 lg:px-4 py-1"
+                  className="w-full lg:w-full text-sm text-left hover:text-black hover:bg-gray-200 transition px-2 lg:px-4 py-1"
                   type="button"
                 >
                   Edit Question
                 </button>
                 <button
-                  className="w-full lg:w-full text-sm text-left hover:bg-gray-200 transition px-2 lg:px-4 py-1"
+                  className="w-full lg:w-full text-sm text-left hover:bg-gray-200 hover:text-black transition px-2 lg:px-4 py-1"
                   type="button"
                 >
                   Add to Bookmark
                 </button>
                 <button
-                  className="w-full lg:w-full text-sm text-left  hover:bg-gray-200 transition px-2 lg:px-4 py-1"
+                  className="w-full lg:w-full text-sm text-left  hover:bg-gray-200 hover:text-black transition px-2 lg:px-4 py-1"
                   type="button"
                 >
                   Share
@@ -372,22 +408,118 @@ exports[`Navbar snapshot 1`] = `
                 Q
               </span>
               : 
-              Loeerasdsaasd
+              Lorem Ipsum is simply dummy 
             </h3>
             <p
               className="text-sm mb-7 pl-7 line-clamp-3"
             >
-              questionTexttttw
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys 1500s test clamp data classname Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys 1500s test clamp data classname Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys 1500s test clamp data classname
             </p>
-            <div
-              className="hover:scale-105 transition-transform mx-auto w-1/2 "
-            />
           </div>
           <div
-            className="relative w-full px-2 lg:px-20 "
+            className="relative w-full px-2 lg:px-20  "
           >
             <input
-              className=" line-clamp-5 pr-14 md:pr-16 lg:pr-14 focus:outline-none border-[#CA7560] border-[3px] border-opacity-50 rounded-lg py-4 pl-5 text-xs w-full "
+              className="line-clamp-5 pr-14 md:pr-16 lg:pr-14 focus:outline-none border-[#CA7560] border-[3px] border-opacity-50 rounded-lg py-4 pl-5 text-xs w-full bg-[#F0F0F0] placeholder-slate-400"
+              placeholder="Answer the question..."
+              type="text"
+            />
+          </div>
+        </div>
+        <div
+          className="relative max-w-3xl mx-auto"
+        >
+          <div
+            className="mx-auto my-8 max-w-3xl px-6 pt-4 pb-6 rounded-md bg-[#F0F0F0] text-black"
+          >
+            <div
+              className="flex mb-5"
+            >
+              <img
+                alt="user.png"
+                className="w-10 h-10 rounded-full"
+                src="avatar.jpg"
+              />
+              <p
+                className="pl-2 font-semibold self-center text-sm mr-auto"
+              >
+                Maria1223
+              </p>
+              <div
+                className="text-xl   self-center cursor-pointer"
+              >
+                <svg
+                  fill="currentColor"
+                  height="1em"
+                  onClick={[Function]}
+                  stroke="currentColor"
+                  strokeWidth="0"
+                  style={
+                    Object {
+                      "color": undefined,
+                    }
+                  }
+                  viewBox="0 0 192 512"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
+                  />
+                </svg>
+              </div>
+              <div
+                className="absolute -right-0 top-12 lg:-right-48 lg:top-0 z-10 w-44 rounded-lg shadow-lg  border-opacity-50transition  py-1 lg:py-3 border-[1px]  hidden opacity-0  bg-[#F0F0F0]"
+                id="dropdown"
+              >
+                <button
+                  className="w-full lg:w-full text-sm text-left hover:text-black hover:bg-gray-200 transition px-2 lg:px-4 py-1"
+                  type="button"
+                >
+                  Edit Question
+                </button>
+                <button
+                  className="w-full lg:w-full text-sm text-left hover:bg-gray-200 hover:text-black transition px-2 lg:px-4 py-1"
+                  type="button"
+                >
+                  Add to Bookmark
+                </button>
+                <button
+                  className="w-full lg:w-full text-sm text-left  hover:bg-gray-200 hover:text-black transition px-2 lg:px-4 py-1"
+                  type="button"
+                >
+                  Share
+                </button>
+                <button
+                  className="w-full lg:w-full text-sm text-left text-red-600 hover:text-red-700 hover:bg-gray-200 transition px-2 lg:px-4 py-1"
+                  type="button"
+                >
+                  Delete Question
+                </button>
+              </div>
+            </div>
+            <h3
+              className="text-2xl mb-5"
+            >
+              <span
+                className="text-[#CA7560] "
+              >
+                Q
+              </span>
+              : 
+              Lorem Ipsum is simply dummy 
+            </h3>
+            <p
+              className="text-sm mb-7 pl-7 line-clamp-3"
+            >
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys 1500s test clamp data classname Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys 1500s test clamp data classname Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys 1500s test clamp data classname
+            </p>
+          </div>
+          <div
+            className="relative w-full px-2 lg:px-20  "
+          >
+            <input
+              className="line-clamp-5 pr-14 md:pr-16 lg:pr-14 focus:outline-none border-[#CA7560] border-[3px] border-opacity-50 rounded-lg py-4 pl-5 text-xs w-full bg-[#F0F0F0] placeholder-slate-400"
               placeholder="Answer the question..."
               type="text"
             />

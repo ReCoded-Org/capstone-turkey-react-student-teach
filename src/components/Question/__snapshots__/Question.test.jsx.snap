@@ -2,10 +2,10 @@
 
 exports[`renders an Question component correctly 1`] = `
 <div
-  className=" relative max-w-3xl mx-auto "
+  className="relative max-w-3xl mx-auto"
 >
   <div
-    className=" mx-auto my-8 max-w-3xl px-6 pt-4 pb-6 bg-[#F0F0F0] rounded-md"
+    className="mx-auto my-8 max-w-3xl px-6 pt-4 pb-6 rounded-md bg-[#F0F0F0] text-black"
   >
     <div
       className="flex mb-5"
@@ -18,7 +18,7 @@ exports[`renders an Question component correctly 1`] = `
       <p
         className="pl-2 font-semibold self-center text-sm mr-auto"
       >
-        hazarcann
+        hazarcan
       </p>
       <div
         className="text-xl   self-center cursor-pointer"
@@ -44,23 +44,23 @@ exports[`renders an Question component correctly 1`] = `
         </svg>
       </div>
       <div
-        className="absolute -right-0 top-12 lg:-right-48 lg:top-0 z-10 w-44 rounded-lg shadow-lg  border-[#CA7560] border-[4px]  border-opacity-50 bg-white transition  py-1 lg:py-3 hidden opacity-0"
+        className="absolute -right-0 top-12 lg:-right-48 lg:top-0 z-10 w-44 rounded-lg shadow-lg  border-opacity-50transition  py-1 lg:py-3 border-[1px]  hidden opacity-0  bg-[#F0F0F0]"
         id="dropdown"
       >
         <button
-          className=" w-full lg:w-full text-sm text-left text-gray-800 hover:text-gray-900 hover:bg-gray-200 transition px-2 lg:px-4 py-1"
+          className="w-full lg:w-full text-sm text-left hover:text-black hover:bg-gray-200 transition px-2 lg:px-4 py-1"
           type="button"
         >
           Edit Question
         </button>
         <button
-          className="w-full lg:w-full text-sm text-left hover:bg-gray-200 transition px-2 lg:px-4 py-1"
+          className="w-full lg:w-full text-sm text-left hover:bg-gray-200 hover:text-black transition px-2 lg:px-4 py-1"
           type="button"
         >
           Add to Bookmark
         </button>
         <button
-          className="w-full lg:w-full text-sm text-left  hover:bg-gray-200 transition px-2 lg:px-4 py-1"
+          className="w-full lg:w-full text-sm text-left  hover:bg-gray-200 hover:text-black transition px-2 lg:px-4 py-1"
           type="button"
         >
           Share
@@ -82,22 +82,19 @@ exports[`renders an Question component correctly 1`] = `
         Q
       </span>
       : 
-      Loeerasdsaasd
+      Loeerasdsa
     </h3>
     <p
       className="text-sm mb-7 pl-7 line-clamp-3"
     >
-      questionTexttttw
+      questionText
     </p>
-    <div
-      className="hover:scale-105 transition-transform mx-auto w-1/2 "
-    />
   </div>
   <div
-    className="relative w-full px-2 lg:px-20 "
+    className="relative w-full px-2 lg:px-20  "
   >
     <input
-      className=" line-clamp-5 pr-14 md:pr-16 lg:pr-14 focus:outline-none border-[#CA7560] border-[3px] border-opacity-50 rounded-lg py-4 pl-5 text-xs w-full "
+      className="line-clamp-5 pr-14 md:pr-16 lg:pr-14 focus:outline-none border-[#CA7560] border-[3px] border-opacity-50 rounded-lg py-4 pl-5 text-xs w-full bg-[#F0F0F0] placeholder-slate-400"
       placeholder="Answer the question..."
       type="text"
     />
