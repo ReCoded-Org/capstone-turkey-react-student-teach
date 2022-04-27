@@ -1,8 +1,17 @@
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import UserPicPlaceholder from '../../../assets/images/Profile_placeholer.png';
 import { USERPROFILE_ROUTE } from '../../../routes';
 
 function UserSection() {
+  const { firstName } = useSelector((state) => state.signIn.user.userInfo);
+  const { lastName } = useSelector((state) => state.signIn.user.userInfo);
+
+  const formattedFirstName =
+    firstName && firstName.charAt(0).toUpperCase() + firstName.slice(1);
+  const formattedLastName =
+    lastName && lastName.charAt(0).toUpperCase() + lastName.slice(1);
+
   return (
     <Link
       to={USERPROFILE_ROUTE}
@@ -14,7 +23,9 @@ function UserSection() {
         alt="user pic"
       />
       <div>
-        <h1 className="ml-3">Username</h1>
+        <h1 className="ml-3">
+          {formattedFirstName} {formattedLastName}
+        </h1>
       </div>
     </Link>
   );

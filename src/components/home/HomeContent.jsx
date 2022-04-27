@@ -30,7 +30,7 @@ function HomeContent() {
           </p>
         </div>
         <div
-          className="hidden w-5/12  bg-cover lg:flex  bg-right z-10 relative mr-10"
+          className="hidden w-5/12 bg-cover lg:flex bg-right scale-150 -z-10"
           style={{ backgroundImage: 'url("./images/home.png")' }}
         >
           <button

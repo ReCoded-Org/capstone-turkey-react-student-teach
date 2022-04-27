@@ -9,6 +9,7 @@ import About from './pages/about/About';
 import UserProfile from './pages/userProfile/UserProfile';
 import OverlayCard from './components/cards/overlayCard/OverlayCard';
 import NotFoundPage from './pages/notFoundPage/NotFoundPage';
+import Footer from './components/Footer/Footer';
 import {
   ABOUT_ROUTE,
   CONTACT_ROUTE,
@@ -42,6 +43,7 @@ function App() {
           element={timeOut ? <Navigate to="/" /> : <NotFoundPage />}
         />
       </Routes>
+      <Footer />
     </div>
   );
 }
