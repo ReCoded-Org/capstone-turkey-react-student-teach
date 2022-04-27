@@ -5,7 +5,7 @@ exports[`renders an answer component 1`] = `
   className="flex flex-col mt-8 max-w-[50rem]"
 >
   <div
-    className="group relative bg-gray-100 rounded-lg px-5 py-4"
+    className="group relative  rounded-lg px-5 py-4 bg-gray-100 text-black "
   >
     <div
       className="flex justify-between items-center mb-2"
@@ -33,7 +33,7 @@ exports[`renders an answer component 1`] = `
         </a>
       </div>
       <button
-        className=" opacity-0 group-hover:opacity-100 text-gray-500 hover:text-gray-600 hover:bg-gray-200 transition rounded-full p-2"
+        className="lg:opacity-0 lg:group-hover:opacity-100 hover:text-gray-600 hover:bg-gray-200 transition rounded-full p-2  text-gray-500 "
         data-dropdown-toggle="dropdown"
         id="dropdown"
         onClick={[Function]}
@@ -59,11 +59,11 @@ exports[`renders an answer component 1`] = `
         </svg>
       </button>
       <div
-        className="absolute top-16 right-5 z-10 w-44 border rounded shadow-lg bg-white transition py-1 hidden opacity-0"
+        className="absolute top-16 right-5 z-10 w-44 border rounded shadow-lg transition py-1 hidden opacity-0 bg-white"
         id="dropdown"
       >
         <button
-          className="w-full text-left text-gray-800 hover:text-gray-900 hover:bg-gray-200 transition px-4 py-1"
+          className="w-full text-left  hover:text-gray-900 hover:bg-gray-200 transition px-4 py-1 text-gray-800"
           type="button"
         >
           Edit answer
@@ -75,7 +75,7 @@ exports[`renders an answer component 1`] = `
           Delete answer
         </button>
         <button
-          className="w-full text-left text-green-700 hover:text-green-800 hover:bg-gray-200 transition px-4 py-1"
+          className="w-full text-left text-green-600 hover:text-green-800 hover:bg-gray-200 transition px-4 py-1"
           type="button"
         >
           Mark as correct answer
@@ -85,6 +85,7 @@ exports[`renders an answer component 1`] = `
     <p>
       Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
     </p>
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto reprehenderit a facere eum adipisci dolorum consequatur quae esse? Saepe ex obcaecati maxime quisquam corrupti veritatis, ipsam voluptas omnis at autem.
   </div>
   <div
     className="flex justify-end px-5 py-3"

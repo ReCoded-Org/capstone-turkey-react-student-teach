@@ -66,10 +66,6 @@ function Answer({ children, image, username }) {
           </div>
         </div>
         {children}
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto
-        reprehenderit a facere eum adipisci dolorum consequatur quae esse? Saepe
-        ex obcaecati maxime quisquam corrupti veritatis, ipsam voluptas omnis at
-        autem.
       </div>
       <div className="flex justify-end px-5 py-3">
         <BelowButton className="text-gray-500 hover:text-gray-600">
