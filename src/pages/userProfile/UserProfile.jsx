@@ -55,7 +55,6 @@ function UserProfile() {
                 className="place-self-end mr-3 p-1 text-2xl lg:text-3xl  rounded-full text-cusOrange cursor-pointer hover:bg-cusOrange hover:text-white hover:opacity-90 ease-in-out transition-all duration-300 absolute top-[-.6rem]"
               />
               <h1 className="mt-2 ">Username</h1>
-              <h1 className="mt-2 ">Web Developer</h1>
             </div>
           </div>
         </div>
