@@ -96,9 +96,9 @@ exports[`Navbar snapshot 1`] = `
             />
           </svg>
           <h1
-            className="mt-2 "
+            className="mt-2 font-semibold text-xl"
           >
-            Username
+             
           </h1>
         </div>
       </div>

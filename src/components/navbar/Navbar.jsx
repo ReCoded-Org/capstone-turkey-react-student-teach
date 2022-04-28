@@ -2,11 +2,11 @@
 
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { VscChromeClose } from 'react-icons/vsc';
 import { FaPlus } from 'react-icons/fa';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { logoFullScreen, logoMobileScreen } from '../../assets/logo/Logo';
 import {
   ABOUT_ROUTE,
@@ -15,27 +15,28 @@ import {
   QUESTIONS_ROUTE,
 } from '../../routes';
 import AddQuestion from '../modals/AddQuestion/AddQuestion';
-import UserSection from '../profile/userSection/UserSection';
-import SignIn from '../modals/SignIn/SignIn';
-import SignUp from '../modals/SignUp/SignUp';
+import { setDarkMode } from '../../redux/features/darkModeSlice';
+import UserAuth from '../profile/userAuth/UserAuth';
 
 function Navbar({ onBurgerClick }) {
   const [dark, setDark] = useState(false);
   const [burger, setBurger] = useState(true);
   const [addQuestionModal, setAddQuestionModal] = useState(false);
-  const [signInModal, setSignInModal] = useState(false);
-  const [signUpModal, setSignUpModal] = useState(false);
-  const signIn = useSelector((state) => state.signIn);
-  const isSuccess = signIn.user.status;
-  const isNotFoundUser = signIn.user.userInfo.error;
+  const dispatch = useDispatch();
+  const darkMode = useSelector((state) => state.darkModeReducer.darkMode);
 
+  useEffect(() => {
+    dispatch(setDarkMode(dark));
+  }, [dark, dispatch]);
   return (
     <nav
-      className={`flex flex-col justify-center items-center h-[55px] relative ${
+      className={`flex flex-col justify-center items-center max-h-[10vh] min-h-[7vh] relative ${
         !burger ? 'z-[100]' : 'z-0'
-      } w-[99%] lg:z-0`}
+      } lg:z-0 ${darkMode ? 'bg-cusOrange' : 'bg-white'} ${
+        darkMode ? 'text-white' : 'text-black'
+      } shadow-sm`}
     >
-      <div className="flex flex-row-reverse justify-around items-center w-screen mt-3 lg:mt-0">
+      <div className="flex flex-row-reverse justify-around items-center w-screen">
         <div>
           {burger ? (
             <GiHamburgerMenu
@@ -58,7 +59,9 @@ function Navbar({ onBurgerClick }) {
         <div className="inline-block lg:hidden lg:mr-[6rem] hover:scale-110 ease-in-out transition-all">
           <button
             type="button"
-            className="text-sm text-cusOrange lg:text-base p-[7px] rounded-md border-[1px] border-cusOrange lg:p-2 whitespace-nowrap"
+            className={`text-sm  lg:text-base p-[7px] rounded-md border-[1px]  lg:p-2 whitespace-nowrap ${
+              darkMode ? 'text-white' : 'text-cusOrange'
+            } ${darkMode ? 'border-white' : 'border-cusOrange'}`}
             onClick={() => setAddQuestionModal(true)}
           >
             Ask Question
@@ -74,23 +77,39 @@ function Navbar({ onBurgerClick }) {
           onBurgerClick(true);
         }}
         aria-hidden="true"
-        className={`ml-2 w-screen top-[4rem] flex flex-col justify-center items-center lg:ml-0 lg:flex lg:flex-row lg:justify-between lg:items-center lg:h-[4rem] lg:top-[1px] absolute ${
+        className={`ml-2 w-[100%] top-[4rem] flex flex-col justify-center items-center lg:ml-0 lg:flex lg:flex-row lg:justify-between lg:items-center lg:h-[4rem] lg:top-[1px] absolute ${
           burger ? 'hidden' : null
         }`}
       >
         <div>
           <ul className="inline-block mt-4 text-2xl lg:mt-0 lg:text-base lg:flex lg:items-center text-center">
             <Link to={HOME_ROUTE}>{logoFullScreen}</Link>
-            <li className="mb-3 lg:mb-0 lg:pr-3 lg:border-r-[1px] lg:border-cusOrange hover:text-cusOrange transition-all ease-in-out">
+            <li
+              className={`mb-3 lg:mb-0 lg:pr-3 text-black lg:text-inherit lg:border-r-[1px]  transition-all ease-in-out ${
+                darkMode ? 'hover:text-black' : 'lg:hover:text-cusOrange'
+              } ${darkMode ? 'lg:border-white' : 'lg:lg:border-cusOrange'}`}
+            >
               <Link to={HOME_ROUTE}>Home</Link>
             </li>
-            <li className="mb-3 lg:mb-0 lg:px-3 lg:border-r-[1px] lg:border-cusOrange hover:text-cusOrange transition-all ease-in-out">
+            <li
+              className={`mb-3 lg:mb-0 lg:px-3 text-black lg:text-inherit lg:border-r-[1px]   transition-all ease-in-out ${
+                darkMode ? 'hover:text-black' : 'lg:hover:text-cusOrange'
+              } ${darkMode ? 'lg:border-white' : 'lg:lg:border-cusOrange'}`}
+            >
               <Link to={QUESTIONS_ROUTE}>Questions</Link>
             </li>
-            <li className="mb-3 lg:mb-0 lg:px-3 lg:border-r-[1px] lg:border-cusOrange hover:text-cusOrange transition-all ease-in-out">
+            <li
+              className={`mb-3 lg:mb-0 lg:px-3 text-black lg:text-inherit lg:border-r-[1px]   transition-all ease-in-out ${
+                darkMode ? 'hover:text-black' : 'lg:hover:text-cusOrange'
+              } ${darkMode ? 'lg:border-white' : 'lg:lg:border-cusOrange'}`}
+            >
               <Link to={CONTACT_ROUTE}>Contact</Link>
             </li>
-            <li className="mb-3 lg:mb-0 lg:px-3 hover:text-cusOrange transition-all ease-in-out">
+            <li
+              className={`mb-3 lg:mb-0 lg:px-3 text-black lg:text-inherit transition-all ease-in-out ${
+                darkMode ? 'hover:text-black' : 'lg:hover:text-cusOrange'
+              }`}
+            >
               <Link to={ABOUT_ROUTE}>About</Link>
             </li>
           </ul>
@@ -99,7 +118,9 @@ function Navbar({ onBurgerClick }) {
         <div className="hidden mt-5 lg:mt-0 lg:mr-[6rem] lg:inline-block hover:scale-110 ease-in-out transition-all">
           <button
             type="button"
-            className="text-sm text-cusOrange lg:text-base p-[7px] rounded-md border-[1px] border-cusOrange lg:p-2 whitespace-nowrap"
+            className={`text-sm  lg:text-base p-[7px] rounded-md border-[1px] lg:p-2 whitespace-nowrap ${
+              darkMode ? 'text-white' : 'text-cusOrange'
+            } ${darkMode ? 'border-white' : 'border-cusOrange'}`}
             onClick={() => setAddQuestionModal(true)}
           >
             Ask Question
@@ -109,65 +130,26 @@ function Navbar({ onBurgerClick }) {
 
         <AddQuestion open={addQuestionModal} setOpen={setAddQuestionModal} />
 
-        <div className="flex flex-col-reverse lg:flex lg:flex-row lg:item-center lg:h-10">
-          <div className="flex justify-center item-center mt-5 ml-[3rem] mr-10 lg:mt-0">
+        <div className="flex flex-col-reverse lg:flex lg:flex-row lg:item-center lg:h-10 ">
+          <div className="flex justify-center item-center mt-5 ml-[3rem] mr-[3rem] lg:mt-0">
             <label
               htmlFor="toggleB"
               className="flex item-center cursor-pointer"
             >
-              <div className="relative lg:flex lg:items-center">
+              <div className="relative lg:flex lg:items-center ">
                 <input
                   type="checkbox"
                   onClick={() => setDark(!dark)}
                   id="toggleB"
                   className="sr-only"
                 />
-                <div className="bgColor block border-[2px] rounded-md border-cusOrange w-[4rem] h-6 lg:border-[1px] lg:w-[3rem]" />
-                <div className="dot left-1 top-1 bg-no-repeat w-9 h-4 rounded-3xl lg:w-6 transition absolute lg:top-3" />
+                <div className="bgColor block border-[2px] rounded-md  border-cusOrange w-[4rem] h-6 lg:border-[1px] lg:w-[3rem]  " />
+                <div className="dot left-1 top-1 bg-no-repeat w-9 h-4 rounded-3xl lg:w-6 transition absolute lg:top-3 " />
               </div>
             </label>
           </div>
-
-          <div className="inline-block mt-1.5 ">
-            {
-              // eslint-disable-next-line
-              isSuccess === 'success' && !isNotFoundUser ? (
-                <div className="lg:flex lg:items-center lg:justify-center lg:-mt-2">
-                  <UserSection />
-                </div>
-              ) : (
-                <ul className="flex justify-center items-center mt-2 ml-10 text-2xl lg:text-base lg:mt-0">
-                  <li>
-                    <button
-                      type="button"
-                      className="pr-3 border-r-[2px] border-cusOrange lg:border-r-[1px] hover:text-cusOrange transition-all ease-in-out inline-block"
-                      onClick={() => setSignUpModal(true)}
-                    >
-                      Sign Up
-                    </button>
-                    <SignUp
-                      open={signUpModal}
-                      setOpen={setSignUpModal}
-                      setSignIn={setSignInModal}
-                    />
-                  </li>
-                  <li>
-                    <button
-                      type="button"
-                      className="pl-3 mr-10 hover:text-cusOrange transition-all ease-in-out inline-block"
-                      onClick={() => setSignInModal(true)}
-                    >
-                      Sign In
-                    </button>
-                    <SignIn
-                      open={signInModal}
-                      setOpen={setSignInModal}
-                      setSignUp={setSignUpModal}
-                    />
-                  </li>
-                </ul>
-              )
-            }
+          <div className="lg:flex lg:items-center lg:justify-center w-fit text-black lg:text-inherit text-xl lg:text-base lg:ml-0">
+            <UserAuth />
           </div>
         </div>
       </div>
