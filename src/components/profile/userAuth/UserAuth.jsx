@@ -7,7 +7,6 @@ import UserSection from '../userSection/UserSection';
 function UserAuth() {
   const [signInModal, setSignInModal] = useState(false);
   const [signUpModal, setSignUpModal] = useState(false);
-  // const darkMode = useSelector((state) => state.darkModeReducer.darkMode);
   const signIn = useSelector((state) => state.signIn);
   const isSuccess = signIn.user.status;
   const isNotFoundUser = signIn.user.userInfo.error;

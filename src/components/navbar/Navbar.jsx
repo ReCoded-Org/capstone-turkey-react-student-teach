@@ -15,7 +15,6 @@ import {
   QUESTIONS_ROUTE,
 } from '../../routes';
 import AddQuestion from '../modals/AddQuestion/AddQuestion';
-// import UserSection from '../profile/userSection/UserSection';
 import { setDarkMode } from '../../redux/features/darkModeSlice';
 import UserAuth from '../profile/userAuth/UserAuth';
 
@@ -151,7 +150,6 @@ function Navbar({ onBurgerClick }) {
           </div>
           <div className="lg:flex lg:items-center lg:justify-center w-fit text-black lg:text-inherit text-xl lg:text-base lg:ml-0">
             <UserAuth />
-            {/* <UserSection /> */}
           </div>
         </div>
       </div>

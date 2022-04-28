@@ -4,7 +4,7 @@ export const login = createAsyncThunk(
   'user/logIn',
   async ({ email, password }, { rejectWithValue }) => {
     try {
-      return fetch('https://studentsteach.re-coded.com/api/auth/signin', {
+      const data = fetch('https://studentsteach.re-coded.com/api/auth/signin', {
         method: 'POST',
         body: JSON.stringify({
           email,
@@ -14,6 +14,7 @@ export const login = createAsyncThunk(
           'Content-type': 'application/json; charset=UTF-8',
         },
       }).then((res) => res.json());
+      return data;
     } catch (err) {
       return rejectWithValue(err);
     }
