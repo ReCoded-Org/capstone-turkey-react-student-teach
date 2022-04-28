@@ -20,6 +20,28 @@ export const login = createAsyncThunk(
     }
   },
 );
+
+export const signUp = createAsyncThunk(
+  'user/signUp',
+  async ({ firstName, lastName, email, password }, { rejectWithValue }) => {
+    try {
+      const data = fetch('https://studentsteach.re-coded.com/api/auth/signup', {
+        method: 'POST',
+        body: JSON.stringify({
+          firstName,
+          lastName,
+          email,
+          password,
+        }),
+        headers: { 'Content-Type': 'application/json' },
+      }).then((res) => res.json());
+      return data;
+    } catch (err) {
+      return rejectWithValue(err);
+    }
+  },
+);
+
 export const passToLocalStorage = (state, action) => {
   return (
     !state.user.userInfo.error &&
@@ -27,11 +49,20 @@ export const passToLocalStorage = (state, action) => {
   );
 };
 
+export const passSignedUpUserToStorage = (state, action) => {
+  return (
+    !state.signUp.isSignedUp.error &&
+    localStorage.setItem('signedUser', JSON.stringify(action.payload))
+  );
+};
+
 const userSlice = createSlice({
   name: 'signIn',
   initialState: {
     user: { status: '', userInfo: {} },
+    signUp: { status: '', isSignedUp: {} },
   },
+  reducers: {},
   extraReducers: {
     [login.pending]: (state) => {
       state.user.status = 'loading';
@@ -44,6 +75,18 @@ const userSlice = createSlice({
     [login.rejected]: (state, action) => {
       state.user.status = 'error';
       state.user.userInfo = action.payload;
+    },
+    [signUp.pending]: (state) => {
+      state.signUp.status = 'loading';
+    },
+    [signUp.fulfilled]: (state, action) => {
+      state.signUp.status = 'success';
+      state.signUp.isSignedUp = action.payload;
+      passSignedUpUserToStorage(state, action);
+    },
+    [signUp.rejected]: (state, action) => {
+      state.signUp.status = 'error';
+      state.signUp.isSignedUp = action.payload;
     },
   },
 });

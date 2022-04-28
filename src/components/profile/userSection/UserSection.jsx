@@ -5,12 +5,23 @@ import { USERPROFILE_ROUTE } from '../../../routes';
 
 function UserSection() {
   const { firstName } = useSelector((state) => state.signIn.user.userInfo);
+  const signedUpUserFirstName = useSelector(
+    (state) => state.signIn.signUp.isSignedUp.firstName,
+  );
   const { lastName } = useSelector((state) => state.signIn.user.userInfo);
+  const signedUpUserLastName = useSelector(
+    (state) => state.signIn.signUp.isSignedUp.lastName,
+  );
 
-  const formattedFirstName =
-    firstName && firstName.charAt(0).toUpperCase() + firstName.slice(1);
-  const formattedLastName =
-    lastName && lastName.charAt(0).toUpperCase() + lastName.slice(1);
+  const formatName = (input) => {
+    return input && input.charAt(0).toUpperCase() + input.slice(1);
+  };
+
+  const formattedFirstName = formatName(firstName);
+  const formattedLastName = formatName(lastName);
+
+  const formattedSignedUpfName = formatName(signedUpUserFirstName);
+  const formattedSignedUplName = formatName(signedUpUserLastName);
 
   return (
     <Link
@@ -24,7 +35,8 @@ function UserSection() {
       />
       <div>
         <h1 className="ml-3">
-          {formattedFirstName} {formattedLastName}
+          {formattedFirstName || formattedSignedUpfName}{' '}
+          {formattedLastName || formattedSignedUplName}
         </h1>
       </div>
     </Link>
