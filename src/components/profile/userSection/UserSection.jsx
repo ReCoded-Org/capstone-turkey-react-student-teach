@@ -31,7 +31,7 @@ function UserSection() {
           {formattedFirstName} {formattedLastName}
         </h1>
       </div>
-      <div className="">
+      <div className="hidden lg:block">
         <UserDropdownMenu openModal={openModal} />
       </div>
     </div>

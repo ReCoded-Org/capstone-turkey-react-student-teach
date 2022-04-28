@@ -112,6 +112,15 @@ function Navbar({ onBurgerClick }) {
             >
               <Link to={ABOUT_ROUTE}>About</Link>
             </li>
+            <li
+              className={`mb-3 mx-5 transition-all ease-in-out ${
+                darkMode ? 'hover:text-black' : 'lg:hover:text-cusOrange'
+              }`}
+            >
+              <button className="block text-red-600 lg:hidden" type="button">
+                Sign Out
+              </button>
+            </li>
           </ul>
         </div>
 
