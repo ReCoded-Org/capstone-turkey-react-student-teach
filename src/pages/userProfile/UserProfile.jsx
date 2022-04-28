@@ -15,7 +15,13 @@ function UserProfile() {
   const [openPicEdit, setOpenPicEdit] = useState(false);
   const [openCoverEdit, setOpenCoverEdit] = useState(false);
   const darkMode = useSelector((state) => state.darkModeReducer.darkMode);
+  const { firstName } = useSelector((state) => state.signIn.user.userInfo);
+  const { lastName } = useSelector((state) => state.signIn.user.userInfo);
 
+  const formattedFirstName =
+    firstName && firstName.charAt(0).toUpperCase() + firstName.slice(1);
+  const formattedLastName =
+    lastName && lastName.charAt(0).toUpperCase() + lastName.slice(1);
   return (
     <div
       className={`${darkMode ? 'bg-primaryDark' : 'bg-white'}  ${
@@ -60,7 +66,9 @@ function UserProfile() {
                 onClick={() => setOpen(true)}
                 className="place-self-end mr-3 p-1 text-2xl lg:text-3xl  rounded-full text-cusOrange cursor-pointer hover:bg-cusOrange hover:text-white hover:opacity-90 ease-in-out transition-all duration-300 absolute top-[-.6rem]"
               />
-              <h1 className="mt-2 ">Username</h1>
+              <h1 className="mt-2 font-semibold text-xl">
+                {formattedFirstName} {formattedLastName}
+              </h1>
             </div>
           </div>
         </div>

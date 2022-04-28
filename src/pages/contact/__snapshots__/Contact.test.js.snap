@@ -22,14 +22,14 @@ exports[`Navbar snapshot 1`] = `
         className="mb-10 lg:text-left"
       >
         <label
-          className="block text-sm font-medium placeholder-slate-400 text-secondaryDark"
+          className="block text-sm font-medium placeholder-slate-400 text-black"
           htmlFor="name"
         >
           Name
         </label>
         <input
           autoComplete="name"
-          className=" my-1 focus:ring-cusOrange focus:border-cusOrange block w-full shadow-sm sm:text-sm border-gray-300 rounded-md placeholder-slate-400 text-white"
+          className=" my-1 focus:ring-cusOrange focus:border-cusOrange block w-full shadow-sm sm:text-sm border-gray-300 rounded-md placeholder-slate-400 bg-white"
           id="name"
           name="name"
           onBlur={[Function]}
@@ -43,14 +43,14 @@ exports[`Navbar snapshot 1`] = `
         className="mb-10 lg:text-left"
       >
         <label
-          className="block text-sm font-medium placeholder-slate-400 text-secondaryDark"
+          className="block text-sm font-medium placeholder-slate-400 text-black"
           htmlFor="email"
         >
           Email
         </label>
         <input
           autoComplete="email"
-          className=" my-1 focus:ring-cusOrange focus:border-cusOrange block w-full shadow-sm sm:text-sm border-gray-300 rounded-md placeholder-slate-400 text-white"
+          className=" my-1 focus:ring-cusOrange focus:border-cusOrange block w-full shadow-sm sm:text-sm border-gray-300 rounded-md placeholder-slate-400 bg-white"
           id="email"
           name="email"
           onBlur={[Function]}
@@ -64,14 +64,14 @@ exports[`Navbar snapshot 1`] = `
         className="mb-3 lg:text-left"
       >
         <label
-          className="block text-sm font-medium text-gray-700"
+          className="block text-sm font-medium text-black"
           htmlFor="message"
         >
           How can we help?
         </label>
         <textarea
           autoComplete="name"
-          className="my-1 focus:ring-cusOrange focus:border-cusOrange block w-full shadow-sm sm:text-sm border-gray-300 rounded-md placeholder-slate-400 lg:pb-[7rem] text-white"
+          className="my-1 focus:ring-cusOrange focus:border-cusOrange block w-full shadow-sm sm:text-sm border-gray-300 rounded-md placeholder-slate-400 lg:pb-[7rem] bg-white"
           id="message"
           name="message"
           onBlur={[Function]}
@@ -96,14 +96,14 @@ exports[`Navbar snapshot 1`] = `
             className="contact-checkbox-field"
           >
             <label
-              className="text-sm font-medium text-gray-700"
+              className="text-sm font-medium text-black"
               htmlFor="service"
             >
               Web Design
             </label>
             <input
               checked={false}
-              className="mr-2 text-cusOrange focus:ring-0 text-white"
+              className="mr-2 text-cusOrange focus:ring-0 bg-white"
               id="service"
               name="service"
               onBlur={[Function]}
@@ -116,14 +116,14 @@ exports[`Navbar snapshot 1`] = `
             className="contact-checkbox-field"
           >
             <label
-              className="text-sm font-medium text-gray-700"
+              className="text-sm font-medium text-black"
               htmlFor="service"
             >
               Content Creation
             </label>
             <input
               checked={false}
-              className="mr-2 text-cusOrange focus:ring-0 text-white"
+              className="mr-2 text-cusOrange focus:ring-0 bg-white"
               id="service"
               name="service"
               onBlur={[Function]}
@@ -140,14 +140,14 @@ exports[`Navbar snapshot 1`] = `
             className="contact-checkbox-field"
           >
             <label
-              className="text-sm font-medium text-gray-700"
+              className="text-sm font-medium text-black"
               htmlFor="service"
             >
               UX Desgin
             </label>
             <input
               checked={false}
-              className="mr-2 text-cusOrange focus:ring-0 text-white"
+              className="mr-2 text-cusOrange focus:ring-0 bg-white"
               id="service"
               name="service"
               onBlur={[Function]}
@@ -160,14 +160,14 @@ exports[`Navbar snapshot 1`] = `
             className="contact-checkbox-field"
           >
             <label
-              className="text-sm font-medium text-gray-700"
+              className="text-sm font-medium text-black"
               htmlFor="service"
             >
               Other
             </label>
             <input
               checked={false}
-              className="mr-2 text-cusOrange focus:ring-0 text-white"
+              className="mr-2 text-cusOrange focus:ring-0 bg-white"
               id="service"
               name="service"
               onBlur={[Function]}

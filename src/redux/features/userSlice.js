@@ -20,7 +20,6 @@ export const login = createAsyncThunk(
     }
   },
 );
-
 export const passToLocalStorage = (state, action) => {
   return (
     !state.user.userInfo.error &&

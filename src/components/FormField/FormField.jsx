@@ -23,7 +23,7 @@ function FormField({
         <label
           htmlFor={name}
           className={`block text-sm font-medium ${
-            darkMode ? 'text-white' : 'text-gray-700'
+            darkMode ? 'text-white' : 'text-black'
           }`}
         >
           {label}
@@ -32,7 +32,7 @@ function FormField({
           as="textarea"
           autoComplete={autoComplete}
           className={`my-1 focus:ring-cusOrange focus:border-cusOrange block w-full shadow-sm sm:text-sm border-gray-300 rounded-md placeholder-slate-400 ${textfieldClass} ${
-            darkMode ? 'bg-secondaryDark' : 'text-white'
+            darkMode ? 'bg-secondaryDark' : 'bg-white'
           }`}
           id={name}
           name={name}
@@ -54,7 +54,7 @@ function FormField({
         <label
           htmlFor={name}
           className={`text-sm font-medium ${
-            darkMode ? 'text-white' : 'text-gray-700'
+            darkMode ? 'text-white' : 'text-black'
           }`}
         >
           {label}
@@ -62,7 +62,7 @@ function FormField({
         <Field
           type="checkbox"
           className={`mr-2 text-cusOrange focus:ring-0 ${
-            darkMode ? 'bg-secondaryDark' : 'text-white'
+            darkMode ? 'bg-secondaryDark' : 'bg-white'
           }`}
           id={name}
           name={name}
@@ -81,7 +81,7 @@ function FormField({
       <label
         htmlFor={name}
         className={`block text-sm font-medium placeholder-slate-400 ${
-          darkMode ? 'text-white' : 'text-secondaryDark'
+          darkMode ? 'text-white' : 'text-black'
         }`}
       >
         {label}
@@ -89,7 +89,7 @@ function FormField({
       <Field
         autoComplete={autoComplete}
         className={` my-1 focus:ring-cusOrange focus:border-cusOrange block w-full shadow-sm sm:text-sm border-gray-300 rounded-md placeholder-slate-400 ${
-          darkMode ? 'bg-secondaryDark' : 'text-white'
+          darkMode ? 'bg-secondaryDark' : 'bg-white'
         }`}
         id={name}
         name={name}
