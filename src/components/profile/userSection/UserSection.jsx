@@ -28,7 +28,7 @@ function UserSection() {
   return (
     <div
       to={USERPROFILE_ROUTE}
-      className="flex justify-center items-center my-1 lg:my-0 lg:mr-10 lg:mt-2 select-none cursor-pointer"
+      className="flex justify-center items-center my-1 lg:my-0 lg:mr-10 lg:mt-1 select-none cursor-pointer"
       onClick={() => setOpenModal(!openModal)}
       aria-hidden
     >
