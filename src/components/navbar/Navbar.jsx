@@ -28,12 +28,9 @@ function Navbar({ onBurgerClick }) {
   const dispatch = useDispatch();
   const darkMode = useSelector((state) => state.darkModeReducer.darkMode);
   const signIn = useSelector((state) => state.signIn);
-  console.log(signIn.signUp.status);
-
   const isSuccess = signIn.user.status;
   const isNotFoundUser = signIn.user.userInfo.error;
   const isUser = signIn.user.userInfo;
-  console.log(isSuccess, isNotFoundUser, isUser, 'aaa');
 
   useEffect(() => {
     dispatch(setDarkMode(dark));
