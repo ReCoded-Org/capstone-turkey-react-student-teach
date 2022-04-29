@@ -17,13 +17,20 @@ import {
 import AddQuestion from '../modals/AddQuestion/AddQuestion';
 import { setDarkMode } from '../../redux/features/darkModeSlice';
 import UserAuth from '../profile/userAuth/UserAuth';
+import SignOut from '../modals/signOut/SignOut';
+import CheckAuth from '../modals/checkAuth/CheckAuth';
 
 function Navbar({ onBurgerClick }) {
   const [dark, setDark] = useState(false);
   const [burger, setBurger] = useState(true);
   const [addQuestionModal, setAddQuestionModal] = useState(false);
+  const [signOutOpen, setSignOutOpen] = useState(false);
   const dispatch = useDispatch();
   const darkMode = useSelector((state) => state.darkModeReducer.darkMode);
+  const signIn = useSelector((state) => state.signIn);
+  const isSuccess = signIn.user.status;
+  const isNotFoundUser = signIn.user.userInfo.error;
+  const isUser = signIn.user.userInfo;
 
   useEffect(() => {
     dispatch(setDarkMode(dark));
@@ -112,6 +119,29 @@ function Navbar({ onBurgerClick }) {
             >
               <Link to={ABOUT_ROUTE}>About</Link>
             </li>
+            <li
+              className={`mb-3 mx-5 transition-all ease-in-out ${
+                darkMode ? 'hover:text-black' : 'lg:hover:text-cusOrange'
+              }`}
+            >
+              <div
+                className={`text-white ${
+                  (isSuccess === 'success' && !isNotFoundUser) ||
+                  isUser.firstName
+                    ? 'block'
+                    : 'hidden'
+                }`}
+              >
+                <button
+                  className="block text-red-600 lg:hidden"
+                  type="button"
+                  aria-hidden
+                  onClick={() => setSignOutOpen(true)}
+                >
+                  Sign Out
+                </button>
+              </div>
+            </li>
           </ul>
         </div>
 
@@ -127,9 +157,6 @@ function Navbar({ onBurgerClick }) {
             <FaPlus className="inline-block ml-1" />
           </button>
         </div>
-
-        <AddQuestion open={addQuestionModal} setOpen={setAddQuestionModal} />
-
         <div className="flex flex-col-reverse lg:flex lg:flex-row lg:item-center lg:h-10 ">
           <div className="flex justify-center item-center mt-5 ml-[3rem] mr-[3rem] lg:mt-0">
             <label
@@ -150,6 +177,20 @@ function Navbar({ onBurgerClick }) {
           </div>
           <div className="lg:flex lg:items-center lg:justify-center w-fit text-black lg:text-inherit text-xl lg:text-base lg:ml-0">
             <UserAuth />
+            <SignOut open={signOutOpen} setOpen={setSignOutOpen} />
+            {(isSuccess === 'success' && !isNotFoundUser) ||
+            isUser.firstName ? (
+              <AddQuestion
+                open={addQuestionModal}
+                setOpen={setAddQuestionModal}
+              />
+            ) : (
+              <CheckAuth
+                label="Sign in to add question."
+                open={addQuestionModal}
+                setOpen={setAddQuestionModal}
+              />
+            )}
           </div>
         </div>
       </div>
