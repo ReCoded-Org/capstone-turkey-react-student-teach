@@ -45,7 +45,9 @@ function App() {
         <Route
           path={USERPROFILE_ROUTE}
           element={
-            (isSuccess === 'success' && !isNotFoundUser) || isUser.firstName ? (
+            isSuccess === 'success' ||
+            (signIn.signUp.status === 'success' && !isNotFoundUser) ||
+            isUser.firstName ? (
               <UserProfile />
             ) : (
               <Navigate to="/" />
