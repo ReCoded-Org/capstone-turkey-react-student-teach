@@ -148,7 +148,7 @@ function Navbar({ onBurgerClick }) {
         <div className="hidden mt-5 lg:mt-0 lg:mr-[6rem] lg:inline-block hover:scale-110 ease-in-out transition-all">
           <button
             type="button"
-            className={`text-sm  lg:text-base p-[7px] rounded-md border-[1px] lg:p-2 whitespace-nowrap ${
+            className={`text-sm mr-10 lg:text-base p-[7px] rounded-md border-[1px] lg:p-2 whitespace-nowrap ${
               darkMode ? 'text-white' : 'text-cusOrange'
             } ${darkMode ? 'border-white' : 'border-cusOrange'}`}
             onClick={() => setAddQuestionModal(true)}
