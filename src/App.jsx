@@ -32,7 +32,7 @@ function App() {
   const isSuccess = signIn.user.status;
   const isNotFoundUser = signIn.user.userInfo.error;
   const isUser = signIn.user.userInfo;
-
+  console.log(signIn.signUp.isSignedUp.token);
   return (
     <div className="App">
       <Navbar onBurgerClick={(e) => setBurger(e)} />
