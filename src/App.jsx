@@ -28,7 +28,7 @@ function App() {
         <Route path={HOME_ROUTE} element={<Home />} />
         <Route path={QUESTIONS_ROUTE}>
           <Route path="all" element={<Questions />} />
-          <Route path=":questionID" element={<SingleQuestion />} />
+          <Route path=":questionID" element={<SingleQuestion questionID />} />
         </Route>
         <Route path={CONTACT_ROUTE} element={<Contact />} />
         <Route path={ABOUT_ROUTE} element={<About />} />
