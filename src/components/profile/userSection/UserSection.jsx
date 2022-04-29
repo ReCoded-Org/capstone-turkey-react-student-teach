@@ -17,7 +17,7 @@ function UserSection() {
   return (
     <div
       to={USERPROFILE_ROUTE}
-      className="flex justify-center items-center my-1 lg:my-0 lg:mr-10 select-none cursor-pointer"
+      className="flex justify-center items-center my-1 lg:my-0 lg:mr-10 lg:mt-2 select-none cursor-pointer"
       onClick={() => setOpenModal(!openModal)}
       aria-hidden
     >
@@ -27,7 +27,7 @@ function UserSection() {
         alt="user pic"
       />
       <div>
-        <h1 className="ml-3 hover:text-black">
+        <h1 className="ml-3 hover:text-black transition-all ease-in-out">
           {formattedFirstName} {formattedLastName}
         </h1>
       </div>

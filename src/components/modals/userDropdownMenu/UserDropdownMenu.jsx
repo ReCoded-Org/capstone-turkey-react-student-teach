@@ -1,10 +1,13 @@
 import PropTypes from 'prop-types';
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { USERPROFILE_ROUTE } from '../../../routes';
+import SignOut from '../signOut/SignOut';
 
 function UserDropdownMenu({ openModal }) {
   const darkMode = useSelector((state) => state.darkModeReducer.darkMode);
+  const [open, setOpen] = useState(false);
 
   return (
     <div className="flex mb-5 ">
@@ -25,9 +28,11 @@ function UserDropdownMenu({ openModal }) {
         <button
           className="w-full lg:w-full text-sm text-red-600 hover:text-red-700 hover:bg-gray-200 transition px-2 lg:px-4 py-1 text-center"
           type="button"
+          onClick={() => setOpen(true)}
         >
           Sign Out
         </button>
+        <SignOut open={open} setOpen={setOpen} />
       </div>
     </div>
   );
