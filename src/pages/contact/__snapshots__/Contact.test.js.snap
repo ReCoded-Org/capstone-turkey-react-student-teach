@@ -72,7 +72,6 @@ exports[`Navbar snapshot 1`] = `
         <textarea
           autoComplete="name"
           className="my-1 focus:ring-cusOrange focus:border-cusOrange block w-full shadow-sm sm:text-sm border-gray-300 rounded-md placeholder-slate-400 lg:pb-[7rem] bg-white"
-          id="message"
           name="message"
           onBlur={[Function]}
           onChange={[Function]}

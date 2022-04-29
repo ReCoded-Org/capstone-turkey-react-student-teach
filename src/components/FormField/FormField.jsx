@@ -34,7 +34,6 @@ function FormField({
           className={`my-1 focus:ring-cusOrange focus:border-cusOrange block w-full shadow-sm sm:text-sm border-gray-300 rounded-md placeholder-slate-400 ${textfieldClass} ${
             darkMode ? 'bg-secondaryDark' : 'bg-white'
           }`}
-          id={name}
           name={name}
           rows={rows}
           placeholder={placeholder}
