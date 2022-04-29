@@ -8,11 +8,23 @@ function UserSection() {
   const [openModal, setOpenModal] = useState(false);
 
   const { firstName } = useSelector((state) => state.signIn.user.userInfo);
+  const signedUpUserFirstName = useSelector(
+    (state) => state.signIn.signUp.isSignedUp.firstName,
+  );
   const { lastName } = useSelector((state) => state.signIn.user.userInfo);
-  const formattedFirstName =
-    firstName && firstName.charAt(0).toUpperCase() + firstName.slice(1);
-  const formattedLastName =
-    lastName && lastName.charAt(0).toUpperCase() + lastName.slice(1);
+  const signedUpUserLastName = useSelector(
+    (state) => state.signIn.signUp.isSignedUp.lastName,
+  );
+
+  const formatName = (input) => {
+    return input && input.charAt(0).toUpperCase() + input.slice(1);
+  };
+
+  const formattedFirstName = formatName(firstName);
+  const formattedLastName = formatName(lastName);
+
+  const formattedSignedUpfName = formatName(signedUpUserFirstName);
+  const formattedSignedUplName = formatName(signedUpUserLastName);
 
   return (
     <div
@@ -27,8 +39,9 @@ function UserSection() {
         alt="user pic"
       />
       <div>
-        <h1 className="ml-3 hover:text-black transition-all ease-in-out">
-          {formattedFirstName} {formattedLastName}
+        <h1 className="ml-3">
+          {formattedFirstName || formattedSignedUpfName}{' '}
+          {formattedLastName || formattedSignedUplName}
         </h1>
       </div>
       <div className="hidden lg:block">

@@ -13,10 +13,14 @@ function UserAuth() {
   const isNotFoundUser = signIn.user.userInfo.error;
   const isUser = signIn.user.userInfo;
   const darkMode = useSelector((state) => state.darkModeReducer.darkMode);
-
+  const isSignedUpUser = useSelector(
+    (state) => state.signIn.signUp.isSignedUp.firstName,
+  );
   return (
     // eslint-disable-next-line
-    (isSuccess === 'success' && !isNotFoundUser) || isUser.firstName ? (
+    (isSuccess === 'success' && !isNotFoundUser) ||
+      isUser.firstName ||
+      isSignedUpUser ? (
       <div className="lg:flex lg:items-center lg:justify-center lg:-mt-2">
         <UserSection />
       </div>

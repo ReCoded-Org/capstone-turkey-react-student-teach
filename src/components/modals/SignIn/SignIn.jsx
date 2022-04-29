@@ -20,7 +20,7 @@ function SignIn({ open, setOpen, setSignUp }) {
   const [showMessage, setShowMessage] = useState(false);
 
   useEffect(() => {
-    if (error) {
+    if (error || isSuccess === 'success') {
       setShowMessage(true);
     }
     // hide wrong email response
@@ -31,7 +31,7 @@ function SignIn({ open, setOpen, setSignUp }) {
     return () => {
       clearTimeout(timeout);
     };
-  }, [error]);
+  }, [error, isSuccess]);
 
   return (
     <Modal className="z-99" label="Sign in" open={open} setOpen={setOpen}>
@@ -51,6 +51,7 @@ function SignIn({ open, setOpen, setSignUp }) {
           if (isSuccess === 'success') {
             const timeout = setTimeout(() => {
               setSubmitting(false);
+              setShowMessage(false);
             }, 2000);
             clearTimeout(timeout, 2500);
           }
@@ -60,7 +61,6 @@ function SignIn({ open, setOpen, setSignUp }) {
           // Unused props: handleSubmit, handleChange, handleBlur, values, isValid,
           touched,
           errors,
-          isSubmitting,
         }) => (
           <Form>
             <FormField
@@ -83,7 +83,7 @@ function SignIn({ open, setOpen, setSignUp }) {
             />
 
             <div className="flex justify-between items-center mt-7">
-              {isSubmitting && !error ? (
+              {isSuccess === 'loading' ? (
                 <button
                   type="submit"
                   className="text-lg bg-cusOrange text-gray-200 rounded flex items-center px-5 py-2"
@@ -115,7 +115,7 @@ function SignIn({ open, setOpen, setSignUp }) {
                 </button>
               </p>
             </div>
-            {error && showMessage && (
+            {showMessage && (
               <p className="red text-sm text-red-400 block text-center mt-2">
                 {error}
               </p>
