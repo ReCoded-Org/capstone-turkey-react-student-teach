@@ -46,6 +46,7 @@ function HomeContent() {
       <div className="mt-32">
         {question?.map((q) => (
           <Question
+            key={Math.random()}
             username={q.username}
             profileImage={q.profileImage}
             question={q.question}
