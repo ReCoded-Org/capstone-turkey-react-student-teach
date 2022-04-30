@@ -13,35 +13,9 @@ exports[`Navbar snapshot 1`] = `
       >
         <img
           alt="cover"
-          aria-hidden="true"
-          className="w-[50rem] h-[8rem] object-fill rounded-md lg:h-[20rem] cursor-pointer select-none"
-          onClick={[Function]}
+          className="w-[50rem] h-[8rem] object-fill rounded-md lg:h-[20rem] select-none"
           src="coverPlaceholder.jpg"
         />
-        <svg
-          className="text-white text-3xl p-1  absolute top-[1rem] right-[1rem]  hover:bg-white hover:text-cusOrange rounded-full cursor-pointer transition-all ease-in-out duration-300"
-          fill="currentColor"
-          height="1em"
-          onClick={[Function]}
-          stroke="currentColor"
-          strokeWidth="0"
-          style={
-            Object {
-              "color": undefined,
-            }
-          }
-          viewBox="0 0 24 24"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M0 0h24v24H0z"
-            fill="none"
-          />
-          <path
-            d="M3 21h3.75L17.81 9.94l-3.75-3.75L3 17.25V21zm2-2.92l9.06-9.06.92.92L5.92 19H5v-.92zM18.37 3.29a.996.996 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83a.996.996 0 000-1.41l-2.34-2.34z"
-          />
-        </svg>
       </div>
       <div
         className="mt-3"

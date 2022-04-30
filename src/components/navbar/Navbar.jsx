@@ -29,8 +29,8 @@ function Navbar({ onBurgerClick }) {
   const darkMode = useSelector((state) => state.darkModeReducer.darkMode);
   const signIn = useSelector((state) => state.signIn);
   const isSuccess = signIn.user.status;
-  const isNotFoundUser = signIn.user.userInfo.error;
   const isUser = signIn.user.userInfo;
+  const isUserSignedUp = signIn.signUp.isSignedUp;
 
   useEffect(() => {
     dispatch(setDarkMode(dark));
@@ -126,8 +126,10 @@ function Navbar({ onBurgerClick }) {
             >
               <div
                 className={`text-white ${
-                  (isSuccess === 'success' && !isNotFoundUser) ||
-                  isUser.firstName
+                  isSuccess === 'success' ||
+                  signIn.signUp.status === 'success' ||
+                  isUser.firstName ||
+                  isUserSignedUp.firstName
                     ? 'block'
                     : 'hidden'
                 }`}
@@ -148,7 +150,7 @@ function Navbar({ onBurgerClick }) {
         <div className="hidden mt-5 lg:mt-0 lg:mr-[6rem] lg:inline-block hover:scale-110 ease-in-out transition-all">
           <button
             type="button"
-            className={`text-sm  lg:text-base p-[7px] rounded-md border-[1px] lg:p-2 whitespace-nowrap ${
+            className={`text-sm mr-10 lg:text-base p-[7px] rounded-md border-[1px] lg:p-2 whitespace-nowrap ${
               darkMode ? 'text-white' : 'text-cusOrange'
             } ${darkMode ? 'border-white' : 'border-cusOrange'}`}
             onClick={() => setAddQuestionModal(true)}
@@ -178,8 +180,10 @@ function Navbar({ onBurgerClick }) {
           <div className="lg:flex lg:items-center lg:justify-center w-fit text-black lg:text-inherit text-xl lg:text-base lg:ml-0">
             <UserAuth />
             <SignOut open={signOutOpen} setOpen={setSignOutOpen} />
-            {(isSuccess === 'success' && !isNotFoundUser) ||
-            isUser.firstName ? (
+            {isSuccess === 'success' ||
+            signIn.signUp.status === 'success' ||
+            isUser.firstName ||
+            isUserSignedUp.firstName ? (
               <AddQuestion
                 open={addQuestionModal}
                 setOpen={setAddQuestionModal}
