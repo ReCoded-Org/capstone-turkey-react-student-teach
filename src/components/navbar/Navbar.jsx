@@ -13,7 +13,6 @@ import {
   QUESTIONS_ROUTE,
 } from '../../routes';
 import AddQuestion from '../modals/AddQuestion/AddQuestion';
-// import UserAuth from '../userSection/UserAuth';
 import UserSection from '../profile/userSection/UserSection';
 
 function Navbar({ onBurgerClick }) {
@@ -125,7 +124,7 @@ function Navbar({ onBurgerClick }) {
 }
 
 Navbar.propTypes = {
-  onBurgerClick: PropTypes.bool,
+  onBurgerClick: PropTypes.func,
 };
 
 Navbar.defaultProps = {
