@@ -18,7 +18,7 @@ const SignInSchema = Yup.object().shape({
 function AddQuestion({ open, setOpen }) {
   const dispatch = useDispatch();
   return (
-    <Modal label="Ask question" open={open} setOpen={setOpen}>
+    <Modal label="Ask your question" open={open} setOpen={setOpen}>
       <Formik
         initialValues={{
           title: '',
@@ -47,7 +47,7 @@ function AddQuestion({ open, setOpen }) {
           errors,
           isSubmitting,
         }) => (
-          <Form>
+          <Form className="min-h-[40vh] scale-90 lg:scale-100 min-w-[70vw] lg:min-w-[15vw]">
             <FormField
               className="mb-3"
               errors={errors}
@@ -81,18 +81,18 @@ function AddQuestion({ open, setOpen }) {
               {isSubmitting ? (
                 <button
                   type="submit"
-                  className="text-lg bg-cusOrange text-gray-200 rounded flex items-center px-5 py-2"
+                  className="text-lg w-full bg-cusOrange text-white rounded pl-10 pr-5 py-2 mb-10 lg:mb-0 relative"
                   disabled
                 >
-                  <FaSpinner className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" />
-                  Publishing...
+                  <FaSpinner className="animate-spin h-5 text-white mr-[4rem] lg:mr-[6rem] absolute right-[7rem] top-[0.8rem]" />
+                  Updating...
                 </button>
               ) : (
                 <button
                   type="submit"
-                  className="text-lg text-gray-100 bg-cusOrange hover:scale-110 ease-in-out transition-all rounded px-5 py-2"
+                  className="text-lg w-full text-gray-100 bg-cusOrange transition rounded px-8 py-2 mb-10 lg:mb-0 hover:scale-110 ease-in-out"
                 >
-                  Publish
+                  Submit
                 </button>
               )}
             </div>

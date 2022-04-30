@@ -1,10 +1,12 @@
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { FaSpinner } from 'react-icons/fa';
-
+import { useState, useEffect } from 'react';
 import Modal from '../Modal/Modal';
 import FormField from '../../FormField/FormField';
+import { login } from '../../../redux/features/userSlice';
 
 const SignInSchema = Yup.object().shape({
   username: Yup.string().min(3).max(24).required(),
@@ -12,34 +14,60 @@ const SignInSchema = Yup.object().shape({
 });
 
 function SignIn({ open, setOpen, setSignUp }) {
+  const dispatch = useDispatch();
+  const isSuccess = useSelector((state) => state.signIn.user.status);
+  const error = useSelector((state) => state.signIn.user.userInfo.error);
+  const [showMessage, setShowMessage] = useState(false);
+
+  useEffect(() => {
+    if (error || isSuccess === 'success') {
+      setShowMessage(true);
+    }
+    // hide wrong email response
+    const timeout = setTimeout(() => {
+      setShowMessage(false);
+    }, 3000);
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [error, isSuccess]);
+
   return (
-    <Modal label="Sign in" open={open} setOpen={setOpen}>
+    <Modal className="z-99" label="Sign in" open={open} setOpen={setOpen}>
       <Formik
         initialValues={{
           username: '',
           password: '',
         }}
         validationSchema={SignInSchema}
-        onSubmit={(values, { setSubmitting, resetForm }) => {
-          setTimeout(() => {
-            setSubmitting(false);
-            resetForm();
-            setOpen(false);
-          }, 1000);
+        onSubmit={(values, { setSubmitting }) => {
+          dispatch(
+            login({
+              email: values.username,
+              password: values.password,
+            }),
+          );
+          if (isSuccess === 'success') {
+            const timeout = setTimeout(() => {
+              setSubmitting(false);
+              setShowMessage(false);
+            }, 2000);
+            clearTimeout(timeout, 2500);
+          }
         }}
       >
         {({
           // Unused props: handleSubmit, handleChange, handleBlur, values, isValid,
           touched,
           errors,
-          isSubmitting,
         }) => (
           <Form>
             <FormField
               autoComplete="username"
               className="mb-3"
               errors={errors}
-              label="Username"
+              label="Email"
               name="username"
               touched={touched}
               type="text"
@@ -53,8 +81,9 @@ function SignIn({ open, setOpen, setSignUp }) {
               touched={touched}
               type="password"
             />
+
             <div className="flex justify-between items-center mt-7">
-              {isSubmitting ? (
+              {isSuccess === 'loading' ? (
                 <button
                   type="submit"
                   className="text-lg bg-cusOrange text-gray-200 rounded flex items-center px-5 py-2"
@@ -86,6 +115,11 @@ function SignIn({ open, setOpen, setSignUp }) {
                 </button>
               </p>
             </div>
+            {showMessage && (
+              <p className="red text-sm text-red-400 block text-center mt-2">
+                {error}
+              </p>
+            )}
           </Form>
         )}
       </Formik>

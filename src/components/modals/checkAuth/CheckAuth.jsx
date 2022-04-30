@@ -4,14 +4,13 @@ import Modal from '../Modal/Modal';
 import SignIn from '../SignIn/SignIn';
 import SignUp from '../SignUp/SignUp';
 
-function CheckAuth({ open, setOpen }) {
+function CheckAuth({ open, setOpen, label }) {
   const [signInModal, setSignInModal] = useState(false);
   const [signUpModal, setSignUpModal] = useState(false);
   return (
     <div>
-      <Modal className="" label="" open={open} setOpen={setOpen} set>
+      <Modal className="" label={label} open={open} setOpen={setOpen} set>
         <div>
-          <h1 className="">You must Sign In to add new question.</h1>
           <h3>
             Have an account?
             <button
@@ -62,6 +61,7 @@ function CheckAuth({ open, setOpen }) {
 CheckAuth.propTypes = {
   open: PropTypes.bool.isRequired,
   setOpen: PropTypes.func.isRequired,
+  label: PropTypes.string.isRequired,
 };
 
 export default CheckAuth;

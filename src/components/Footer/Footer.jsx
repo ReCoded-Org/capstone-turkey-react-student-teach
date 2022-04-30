@@ -3,7 +3,7 @@ import Newsletter from '../Newsletter/Newsletter';
 function Footer() {
   return (
     <div className="container mx-auto justify-center grid">
-      <h2 className="mb-6 text-2xl font-semibold text-font-color tracking-[.75px]">
+      <h2 className="mb-6 text-2xl font-semibold text-center text-font-color tracking-[.75px]">
         Subscribe to Our Newsletter
       </h2>
       <Newsletter />
@@ -55,6 +55,7 @@ function Footer() {
             </li>
           </a>
         </ul>
+
         <ul className="flex flex-col align-middle m-6 xs:m-1 sm:m-1">
           <span className="p-1 font-semibold text-2xl">Useful Links</span>
           <a
@@ -82,7 +83,8 @@ function Footer() {
             </li>
           </a>
         </ul>
-        <ul className="flex flex-col align-middle m-6 xs:mb-1 sm:m-1">
+
+        <ul className=" ml-0 mr-0 flex flex-col align-middle m-6 xs:mb-1 sm:m-1">
           <span className="p-1 font-semibold text-2xl">Useful Links</span>
           <a href="https://dev.to/" className="mt-9 mb-3 xs:mt-3 inline-block">
             <li className="text-secondary-color text-base hover:text-font-color">

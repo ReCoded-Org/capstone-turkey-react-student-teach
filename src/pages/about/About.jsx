@@ -5,7 +5,7 @@ import about from '../../assets/images/about.png';
 function About() {
   return (
     <div className="max-w-6xl container mx-auto px-2 md:px-2 lg:px-2 grid items-center mt-14">
-      <div className="grid xs:grid-cols-1 sm:grid-rows-2 grid-cols-2 lg:grid-rows-1 md:grid-rows-1 mx-auto mb-8 justify-center ml-8">
+      <div className="grid xs:grid-cols-1 sm:grid-rows-1 grid-cols-2 lg:grid-rows-1 md:grid-rows-1 mx-auto mb-8 justify-center ml-8">
         <div className="flex flex-col">
           <h2 className="text-2xl font-color-primary-color items-baseline text-primary-color font-bold mb-4">
             Who We Are
@@ -19,8 +19,7 @@ function About() {
         <img
           src={about}
           alt="hands reaching each other"
-          width={500}
-          height={400}
+          className="self-center lg:w-[500px] lg:h-[400px] md:w-[300px] md:h-[200px]"
         />
       </div>
       <h2 className="font-medium text-2xl md:text-3xl lg:text-4xl mb-4 font-heading text-[color:var(--font-color)] text-center">
