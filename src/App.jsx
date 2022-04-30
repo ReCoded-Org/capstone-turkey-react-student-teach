@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import './App.css';
 import Navbar from './components/navbar/Navbar';
 import Home from './pages/Home/Home';
@@ -28,10 +28,10 @@ function App() {
     }, 5000);
   }, [timeOut]);
 
-  const signIn = useSelector((state) => state.signIn);
-  const isSuccess = signIn.user.status;
-  const isNotFoundUser = signIn.user.userInfo.error;
-  const isUser = signIn.user.userInfo;
+  // const signIn = useSelector((state) => state.signIn);
+  // const isSuccess = signIn.user.status;
+  // const isNotFoundUser = signIn.user.userInfo.error;
+  // const isUser = signIn.user.userInfo;
 
   return (
     <div className="App">
@@ -42,18 +42,7 @@ function App() {
         <Route path={QUESTIONS_ROUTE} element={<Questions />} />
         <Route path={CONTACT_ROUTE} element={<Contact />} />
         <Route path={ABOUT_ROUTE} element={<About />} />
-        <Route
-          path={USERPROFILE_ROUTE}
-          element={
-            isSuccess === 'success' ||
-            (signIn.signUp.status === 'success' && !isNotFoundUser) ||
-            isUser.firstName ? (
-              <UserProfile />
-            ) : (
-              <Navigate to="/" />
-            )
-          }
-        />
+        <Route path={USERPROFILE_ROUTE} element={<UserProfile />} />
         <Route
           path="*"
           element={timeOut ? <Navigate to="/" /> : <NotFoundPage />}

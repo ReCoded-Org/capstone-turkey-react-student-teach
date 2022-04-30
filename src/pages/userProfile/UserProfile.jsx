@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import { IoSettingsOutline } from 'react-icons/io5';
-import { MdOutlineModeEditOutline } from 'react-icons/md';
 import { useSelector } from 'react-redux';
 import coverPlaceholder from '../../assets/images/coverPlaceholder.jpg';
-import userProfilePlaceholder from '../../assets/images/profilePlaceholer.png';
+// import userProfilePlaceholder from '../../assets/images/profilePlaceholer.png';
 import LatestAnswers from '../../components/profile/latestAnswers/LatestAnswers';
 import LatestQuestions from '../../components/profile/latestQuestions/LatestQuestions';
 import ProfileSetting from '../../components/modals/profileEdit/profilePersonalInfoEdit/ProfilePersonalInfoEdit';
@@ -13,15 +12,15 @@ function UserProfile() {
   const [latestSection, setLatestSection] = useState(false);
   const [open, setOpen] = useState(false);
   const [openPicEdit, setOpenPicEdit] = useState(false);
-  const [openCoverEdit, setOpenCoverEdit] = useState(false);
   const darkMode = useSelector((state) => state.darkModeReducer.darkMode);
+  const avatar = useSelector((state) => state.signIn.userPic);
   const { firstName } = useSelector((state) => state.signIn.user.userInfo);
   const { lastName } = useSelector((state) => state.signIn.user.userInfo);
-
   const formattedFirstName =
     firstName && firstName.charAt(0).toUpperCase() + firstName.slice(1);
   const formattedLastName =
     lastName && lastName.charAt(0).toUpperCase() + lastName.slice(1);
+
   return (
     <div
       className={`${darkMode ? 'bg-primaryDark' : 'bg-white'}  ${
@@ -32,15 +31,9 @@ function UserProfile() {
         <div>
           <div className="relative">
             <img
-              className="w-[50rem] h-[8rem] object-fill rounded-md lg:h-[20rem] cursor-pointer select-none"
+              className="w-[50rem] h-[8rem] object-fill rounded-md lg:h-[20rem] select-none"
               src={coverPlaceholder}
               alt="cover"
-              onClick={() => setOpenCoverEdit(true)}
-              aria-hidden="true"
-            />
-            <MdOutlineModeEditOutline
-              onClick={() => setOpenCoverEdit(true)}
-              className="text-white text-3xl p-1  absolute top-[1rem] right-[1rem]  hover:bg-white hover:text-cusOrange rounded-full cursor-pointer transition-all ease-in-out duration-300"
             />
           </div>
           <div className="mt-3">
@@ -48,7 +41,7 @@ function UserProfile() {
               <img
                 className="h-[4rem] w-[4rem] object-cover ml-5 rounded-full absolute border-[2px] border-white top-[-3.3rem] lg:top-[-5rem] lg:h-[7rem] lg:w-[7rem] lg:ml-[3rem] cursor-pointer select-none"
                 onClick={() => setOpenPicEdit(true)}
-                src={userProfilePlaceholder}
+                src={avatar.pic}
                 alt="profile"
                 aria-hidden="true"
               />
@@ -79,11 +72,7 @@ function UserProfile() {
         setOpen={setOpenPicEdit}
         label="Update your picture"
       />
-      <ProfilePicEdit
-        open={openCoverEdit}
-        setOpen={setOpenCoverEdit}
-        label="Update cover picture"
-      />
+
       <section className="text-sm md:min-h-[50vh] m-7 mb-0 lg:min-h-[70vh] lg:text-base">
         <div className="flex justify-around items-center lg:justify-center lg:mr-7">
           <button

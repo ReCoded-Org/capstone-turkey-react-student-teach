@@ -5,6 +5,9 @@ import darkModeSlice from '../features/darkModeSlice';
 import userSlice from '../features/userSlice';
 import fetchAllTutorsSlice from '../features/fetchAllTutorsSlice';
 
+const userAvatar = localStorage.getItem('userPic')
+  ? JSON.parse(localStorage.getItem('userPic'))
+  : {};
 const userInfoFromStorage = localStorage.getItem('userInfo')
   ? JSON.parse(localStorage.getItem('userInfo'))
   : {};
@@ -17,6 +20,7 @@ const initialState = {
   signIn: {
     user: { userInfo: userInfoFromStorage },
     signUp: { isSignedUp: userInfoFromSignUp },
+    userPic: { pic: userAvatar },
   },
 };
 

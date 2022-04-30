@@ -9,6 +9,7 @@ export const fetchAllTutorSlice = createAsyncThunk(
       const wantedUser = data.filter((user) =>
         user.email === userEmail ? user : false,
       );
+
       return wantedUser[0];
     } catch (err) {
       return rejectWithValue(err);
@@ -30,6 +31,7 @@ const fetchAllTutorSliceSlice = createSlice({
     [fetchAllTutorSlice.fulfilled]: (state, { payload }) => {
       state.status = 'success';
       state.user = payload;
+      localStorage.setItem('userPic', JSON.stringify(payload.avatar));
     },
     [fetchAllTutorSlice.rejected]: (state, { payload }) => {
       state.status = 'failed';

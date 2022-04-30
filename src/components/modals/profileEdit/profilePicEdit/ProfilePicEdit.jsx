@@ -3,7 +3,7 @@ import { FaSpinner, FaFileUpload } from 'react-icons/fa';
 import { Formik, Form } from 'formik';
 import Dropzone from 'react-dropzone';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Modal from '../../Modal/Modal';
 import { editProfile } from '../../../../redux/features/editProfileSlice';
 
@@ -11,7 +11,10 @@ function ProfilePicEdit({ open, setOpen, label }) {
   // eslint-disable-next-line no-unused-vars
   const [newProfilePic, setNewProfilePic] = useState('');
   const dispatch = useDispatch();
-
+  const userInfoSignedIn = useSelector((state) => state.signIn.user.userInfo);
+  const userInfoSignedUp = useSelector(
+    (state) => state.signIn.signUp.isSignedUp,
+  );
   return (
     <Modal label={label} open={open} setOpen={setOpen}>
       <div className="lg:flex lg:flex-row-reverse lg:justify-end lg:w-screen  md:text-base text-sm">
@@ -23,7 +26,23 @@ function ProfilePicEdit({ open, setOpen, label }) {
                 setSubmitting(false);
                 setOpen(false);
                 if (!newProfilePic) return;
-                dispatch(editProfile({ picture: newProfilePic }));
+                dispatch(
+                  editProfile({
+                    editFirstName:
+                      userInfoSignedIn?.firstName ||
+                      userInfoSignedUp?.firstName,
+                    editLastName:
+                      userInfoSignedIn?.lastName || userInfoSignedUp?.lastName,
+                    editEmail:
+                      userInfoSignedIn?.email || userInfoSignedUp?.email,
+                    // eslint-disable-next-line no-unneeded-ternary
+                    pic: newProfilePic
+                      ? newProfilePic
+                      : userInfoSignedIn?.avatar || userInfoSignedUp?.avatar,
+                    id: userInfoSignedIn?.id || userInfoSignedUp?.id,
+                    jwt: userInfoSignedIn?.token || userInfoSignedUp?.token,
+                  }),
+                );
                 setNewProfilePic('');
               }, 1000);
             }}
