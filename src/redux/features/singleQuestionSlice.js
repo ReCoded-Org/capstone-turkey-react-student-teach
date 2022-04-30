@@ -1,33 +1,37 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
 
 export const getQuestion = createAsyncThunk(
   'singleQuestionSlice/getQuestion',
   async (questionID) => {
-    const question = await Promise([
-      axios(
-        `https://studentsteach.re-coded.com/api/question?questionID=${questionID}`,
-      ).then((res) => {
-        console.log(res.data);
-        return res.data;
-      }),
-    ]);
-    return question;
+    return fetch(
+      `https://studentsteach.re-coded.com/api/questions/${questionID}`,
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        return fetch(
+          `https://studentsteach.re-coded.com/api/tutors/${data.student}`,
+        )
+          .then((response) => response.json())
+          .then((stdata) => {
+            return { ...data, student: stdata };
+          });
+      });
   },
 );
 
 const singleQuestionSlice = createSlice({
-  name: 'single-question',
+  name: 'singleQuestion',
   initialState: {
     question: null,
+    status: 'loading',
   },
   extraReducers: {
     [getQuestion.pending]: (state) => {
       state.status = 'loading';
     },
-    [getQuestion.fulfilled]: (state, { payload }) => {
-      console.log(payload);
-      state.question = payload;
+    [getQuestion.fulfilled]: (state, action) => {
+      console.log('there', action.payload);
+      state.question = action.payload;
       state.status = 'success';
     },
     [getQuestion.rejected]: (state) => {
