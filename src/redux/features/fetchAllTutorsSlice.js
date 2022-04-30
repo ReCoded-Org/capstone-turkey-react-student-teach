@@ -2,12 +2,12 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 export const fetchAllTutorSlice = createAsyncThunk(
   'fetchAllTutorSliceSlice/question-post',
-  async ({ userEmail }, { rejectWithValue }) => {
+  async ({ userId }, { rejectWithValue }) => {
     try {
       const users = fetch('https://studentsteach.re-coded.com/api/tutors');
       const data = await (await users).json();
       const wantedUser = data.filter((user) =>
-        user.email === userEmail ? user : false,
+        user.id === userId ? user : false,
       );
 
       return wantedUser[0];

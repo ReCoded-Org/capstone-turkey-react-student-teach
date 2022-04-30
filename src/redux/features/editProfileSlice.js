@@ -38,7 +38,6 @@ const editProfileSlice = createSlice({
       state.status = 'loading';
     },
     [editProfile.fulfilled]: (state, { payload }) => {
-      console.log(payload);
       state.status = 'success';
       state.message = payload;
     },

@@ -3,19 +3,19 @@ import { FaSpinner, FaFileUpload } from 'react-icons/fa';
 import { Formik, Form } from 'formik';
 import Dropzone from 'react-dropzone';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Modal from '../../Modal/Modal';
-import { uploadPicCloudnary } from '../../../../redux/features/uploadPicCloudinarySlice';
+import { uploadPicCloudinary } from '../../../../redux/features/uploadPicCloudinarySlice';
 // import { editProfile } from '../../../../redux/features/editProfileSlice';
 
 function ProfilePicEdit({ open, setOpen, label }) {
   // eslint-disable-next-line no-unused-vars
   const [newProfilePic, setNewProfilePic] = useState('');
   const dispatch = useDispatch();
-  // const userInfoSignedIn = useSelector((state) => state.signIn.user.userInfo);
-  // const userInfoSignedUp = useSelector(
-  //   (state) => state.signIn.signUp.isSignedUp,
-  // );
+  const userInfoSignedIn = useSelector((state) => state.signIn.user.userInfo);
+  const userInfoSignedUp = useSelector(
+    (state) => state.signIn.signUp.isSignedUp,
+  );
   return (
     <Modal label={label} open={open} setOpen={setOpen}>
       <div className="lg:flex lg:flex-row-reverse lg:justify-end lg:w-screen  md:text-base text-sm">
@@ -27,7 +27,13 @@ function ProfilePicEdit({ open, setOpen, label }) {
                 setSubmitting(false);
                 setOpen(false);
                 if (!newProfilePic) return;
-                dispatch(uploadPicCloudnary(newProfilePic));
+                dispatch(
+                  uploadPicCloudinary({
+                    files: newProfilePic,
+                    id: userInfoSignedIn?.id || userInfoSignedUp?.id,
+                    jwt: userInfoSignedIn?.token || userInfoSignedUp?.token,
+                  }),
+                );
                 setNewProfilePic('');
               }, 1000);
             }}
@@ -43,6 +49,7 @@ function ProfilePicEdit({ open, setOpen, label }) {
                   onDrop={() => {}}
                   maxFiles={4}
                   maxSize={4194304} // 4MB
+                  onDropAccepted={(e) => setNewProfilePic(e)}
                 >
                   {({ acceptedFiles, getRootProps, getInputProps }) => (
                     <section>
@@ -65,15 +72,6 @@ function ProfilePicEdit({ open, setOpen, label }) {
                         {acceptedFiles.length ? (
                           <aside className="mt-4">
                             <h4 className="text-red-600">Files</h4>
-                            <ul className="list-disc text-sm">
-                              {acceptedFiles.map((file) => {
-                                const reader = new FileReader();
-                                reader.onload = () => {
-                                  setNewProfilePic(reader.result);
-                                };
-                                return reader.readAsDataURL(file);
-                              })}
-                            </ul>
                           </aside>
                         ) : null}
                       </div>

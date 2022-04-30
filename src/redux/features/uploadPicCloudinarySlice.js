@@ -1,14 +1,27 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
+import { editProfilePic } from './editProfilePicSlice';
 
 export const uploadPicCloudinary = createAsyncThunk(
   'uploadPicCloudinarySlice/question-post',
-  async () => {
+  async ({ files, id, jwt }, { dispatch }) => {
+    const formData = new FormData();
+    formData.append('file', files[0]);
+    formData.append('upload_preset', 'ly6xe3sk');
     try {
-      return fetch(
-        'CLOUDINARY_URL=cloudinary://878744763289972:_svcS4LdCpSAYv2Zg3a2hzXbdYk@eyeblinded',
-      )
-        .then((res) => res.json())
-        .then((data) => data);
+      const data = axios.post(
+        'https://api.cloudinary.com/v1_1/eyeblinded/image/upload',
+        formData,
+      );
+      const res = await data;
+      dispatch(
+        editProfilePic({
+          picUrl: res?.data.url,
+          userId: id,
+          userJwt: jwt,
+        }),
+      );
+      return res;
     } catch (err) {
       return err;
     }
@@ -18,7 +31,7 @@ export const uploadPicCloudinary = createAsyncThunk(
 const uploadPicCloudinarySlice = createSlice({
   name: 'question-post',
   initialState: {
-    message: '',
+    data: [],
     error: '',
     status: null,
   },
@@ -27,9 +40,8 @@ const uploadPicCloudinarySlice = createSlice({
       state.status = 'loading';
     },
     [uploadPicCloudinary.fulfilled]: (state, { payload }) => {
-      console.log(payload);
       state.status = 'success';
-      state.message = payload;
+      state.data = payload;
     },
     [uploadPicCloudinary.rejected]: (state, { payload }) => {
       state.status = 'failed';

@@ -14,7 +14,9 @@ function UserSection() {
   const signedUpUserLastName = useSelector(
     (state) => state.signIn.signUp.isSignedUp.lastName,
   );
-
+  const avatar = useSelector(
+    (state) => state.fetchAllTutorReducer.user?.avatar,
+  );
   const formatName = (input) => {
     return input && input.charAt(0).toUpperCase() + input.slice(1);
   };
@@ -33,8 +35,8 @@ function UserSection() {
       aria-hidden
     >
       <img
-        className="h-10 rounded-3xl select-none"
-        src={UserPicPlaceholder}
+        className="h-10 w-10 rounded-full"
+        src={avatar || UserPicPlaceholder}
         alt="user pic"
       />
       <div>
