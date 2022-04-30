@@ -1,9 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { fetchAllTutorSlice } from './fetchAllTutorsSlice';
 
 export const login = createAsyncThunk(
   'user/logIn',
-  async ({ email, password }, { rejectWithValue, dispatch }) => {
+  async ({ email, password }, { rejectWithValue }) => {
     try {
       const data = fetch('https://studentsteach.re-coded.com/api/auth/signin', {
         method: 'POST',
@@ -15,7 +14,6 @@ export const login = createAsyncThunk(
           'Content-type': 'application/json; charset=UTF-8',
         },
       }).then((res) => res.json());
-      dispatch(fetchAllTutorSlice({ userEmail: email }));
       return data;
     } catch (err) {
       return rejectWithValue(err);
@@ -27,7 +25,7 @@ export const signUp = createAsyncThunk(
   'user/signUp',
   async (
     { firstName, lastName, email, password, isTutor = true },
-    { rejectWithValue, dispatch },
+    { rejectWithValue },
   ) => {
     try {
       const data = fetch('https://studentsteach.re-coded.com/api/auth/signup', {
@@ -41,9 +39,6 @@ export const signUp = createAsyncThunk(
         }),
         headers: { 'Content-Type': 'application/json' },
       }).then((res) => res.json());
-      setTimeout(() => {
-        dispatch(fetchAllTutorSlice({ userEmail: email }));
-      }, 1000);
       return data;
     } catch (err) {
       return rejectWithValue(err);

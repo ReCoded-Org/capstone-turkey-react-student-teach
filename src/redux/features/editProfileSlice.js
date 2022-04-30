@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 export const editProfile = createAsyncThunk(
   'editProfileSlice/question-post',
-  async ({ jwt, id, editFirstName, editLastName, editEmail, picture }) => {
+  async ({ jwt, id, editFirstName, editLastName, editEmail, pic }) => {
     try {
       return fetch(`https://studentsteach.re-coded.com/api/tutors/${id}/edit`, {
         method: 'PUT',
@@ -11,7 +11,7 @@ export const editProfile = createAsyncThunk(
           lastName: editLastName,
           email: editEmail,
           isTutor: true,
-          avatar: picture,
+          avatar: pic,
         }),
         headers: {
           'Content-type': 'application/json; charset=UTF-8',
