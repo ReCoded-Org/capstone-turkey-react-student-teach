@@ -36,7 +36,7 @@ function SignOut({ open, setOpen }) {
 
 SignOut.propTypes = {
   open: PropTypes.bool.isRequired,
-  setOpen: PropTypes.bool.isRequired,
+  setOpen: PropTypes.func.isRequired,
 };
 
 export default SignOut;
