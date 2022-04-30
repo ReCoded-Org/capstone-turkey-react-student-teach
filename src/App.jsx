@@ -22,13 +22,13 @@ function App() {
   const [burger, setBurger] = useState(true);
   return (
     <div className="App">
-      <Navbar onBurgerClick={(e) => setBurger(e)} />
+      <Navbar onBurgerClick={() => setBurger(true)} />
       {burger ? null : <OverlayCard />}
       <Routes>
         <Route path={HOME_ROUTE} element={<Home />} />
         <Route path={QUESTIONS_ROUTE}>
-          <Route path="all" element={<Questions />} />
-          <Route path=":questionID" element={<SingleQuestion questionID />} />
+          <Route path=":questionID" element={<SingleQuestion />} />
+          <Route index element={<Questions />} />
         </Route>
         <Route path={CONTACT_ROUTE} element={<Contact />} />
         <Route path={ABOUT_ROUTE} element={<About />} />
