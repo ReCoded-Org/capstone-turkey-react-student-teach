@@ -3,34 +3,31 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 export const getQuestion = createAsyncThunk(
   'singleQuestionSlice/getQuestion',
   async (questionID) => {
-    return fetch(
+    const getQuestionById = await fetch(
       `https://studentsteach.re-coded.com/api/questions/${questionID}`,
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        return fetch(
-          `https://studentsteach.re-coded.com/api/tutors/${data.student}`,
-        )
-          .then((response) => response.json())
-          .then((stdata) => {
-            return { ...data, student: stdata };
-          });
-      });
+    ).then((res) => res.json());
+    const getStudentById = await fetch(
+      `https://studentsteach.re-coded.com/api/tutors/${getQuestionById.student}`,
+    ).then((res) => res.json());
+    const getStudentOnComments = await fetch(
+      `https://studentsteach.re-coded.com/api/tutors/${getQuestionById.comments[0].creator}`,
+    ).then((res) => res.json());
+    return { getQuestionById, getStudentById, getStudentOnComments };
   },
 );
 
 const singleQuestionSlice = createSlice({
   name: 'singleQuestion',
   initialState: {
-    question: null,
-    status: 'loading',
+    question: '',
+
+    status: '',
   },
   extraReducers: {
     [getQuestion.pending]: (state) => {
       state.status = 'loading';
     },
     [getQuestion.fulfilled]: (state, action) => {
-      console.log('there', action.payload);
       state.question = action.payload;
       state.status = 'success';
     },

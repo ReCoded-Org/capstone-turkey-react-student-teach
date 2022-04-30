@@ -13,15 +13,15 @@ exports[`renders an Question component correctly 1`] = `
       <img
         alt="user.png"
         className="w-10 h-10 rounded-full"
-        src="https://via.placeholder.com/150"
+        src={null}
       />
       <p
         className="pl-2 font-semibold self-center text-sm mr-auto"
       >
-        hazarcan
+         
       </p>
       <div
-        className="text-xl   self-center cursor-pointer"
+        className="text-xl self-center cursor-pointer"
       >
         <svg
           fill="currentColor"
@@ -82,33 +82,16 @@ exports[`renders an Question component correctly 1`] = `
         Q
       </span>
       : 
-      Loeerasdsa
     </h3>
     <p
       className="text-sm mb-7 pl-7 line-clamp-3"
-    >
-      questionText
-    </p>
-    <div
-      className="hover:scale-105 transition-transform mx-auto w-1/2 "
-    >
-      <button
-        onClick={[Function]}
-        type="button"
-      >
-        <img
-          alt="question.png"
-          className=" rounded-xl transition-transform hover:scale-105 hover:cursor-pointer z-0 "
-          src="https://via.placeholder.co"
-        />
-      </button>
-    </div>
+    />
   </div>
   <div
     className="relative w-full px-2 lg:px-20 "
   >
     <input
-      className=" line-clamp-5 pr-14 md:pr-16 lg:pr-14 focus:outline-none border-[#CA7560] border-[3px] border-opacity-50 rounded-lg py-4 pl-5 text-xs w-full "
+      className=" line-clamp-6 pr-14 md:pr-16 lg:pr-14 focus:outline-none border-[#CA7560] border-[3px] border-opacity-50 rounded-lg py-4 pl-5 text-xs w-full "
       placeholder="Answer the question..."
       type="text"
     />

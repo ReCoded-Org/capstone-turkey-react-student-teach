@@ -4,15 +4,7 @@ import Question from './Question';
 
 it('renders an Question component correctly', () => {
   const tree = renderer
-    .create(
-      <Question
-        questionTitle="Loeerasdsa"
-        userName="hazarcan"
-        avatar="https://via.placeholder.com/150"
-        questionText="questionText"
-        questionImage="https://via.placeholder.co"
-      />,
-    )
+    .create(<Question question="questionassfasfas" studentInfo="Hazarcan" />)
     .toJSON();
   expect(tree).toMatchSnapshot();
 });

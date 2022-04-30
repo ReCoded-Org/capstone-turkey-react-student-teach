@@ -7,24 +7,35 @@ import Question from '../../components/Question/Question';
 export default function SingleQuestion() {
   const dispatch = useDispatch();
   const { questionID } = useParams();
+  const status = useSelector((state) => state.singleQuestionReducer.status);
+  const question = useSelector(
+    (state) => state.singleQuestionReducer.question.getQuestionById,
+  );
+  const studentInfo = useSelector(
+    (state) => state.singleQuestionReducer.question.getStudentById,
+  );
+
   useEffect(() => {
     dispatch(getQuestion(questionID));
-    console.log(questionID);
   }, [dispatch, questionID]);
-
-  const status = useSelector((state) => state.singleQuestionReducer.status);
-  const question = useSelector((state) => state.singleQuestionReducer.question);
-
-  useEffect(() => {
-    console.log('id', questionID);
-    console.log('quesiton', question);
-  }, [question, questionID]);
 
   return (
     <div className="container sm:mx-auto w-10/12 mt-8 pr-2">
       <div className="flex content-center">
         <div className="w-full mx-auto w-12/12 sm:w-10/12  xl:w-7/12">
-          <Question status={status} question={question} />
+          {status === 'loading' ? (
+            <p>loading....</p>
+          ) : (
+            <div>
+              <Question question={question} studentInfo={studentInfo} />
+              {question?.comments?.map((comment) => (
+                <div className="flex">
+                  <h2 className="mr-2">{comment.creator}</h2>
+                  <p>{comment.content}</p>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>
