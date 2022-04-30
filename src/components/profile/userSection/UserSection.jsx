@@ -6,7 +6,6 @@ import UserDropdownMenu from '../../modals/userDropdownMenu/UserDropdownMenu';
 
 function UserSection() {
   const [openModal, setOpenModal] = useState(false);
-
   const { firstName } = useSelector((state) => state.signIn.user.userInfo);
   const signedUpUserFirstName = useSelector(
     (state) => state.signIn.signUp.isSignedUp.firstName,

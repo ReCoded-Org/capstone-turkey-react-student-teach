@@ -178,7 +178,8 @@ function Navbar({ onBurgerClick }) {
           <div className="lg:flex lg:items-center lg:justify-center w-fit text-black lg:text-inherit text-xl lg:text-base lg:ml-0">
             <UserAuth />
             <SignOut open={signOutOpen} setOpen={setSignOutOpen} />
-            {(isSuccess === 'success' && !isNotFoundUser) ||
+            {isSuccess === 'success' ||
+            (signIn.signUp.status === 'success' && !isNotFoundUser) ||
             isUser.firstName ? (
               <AddQuestion
                 open={addQuestionModal}
