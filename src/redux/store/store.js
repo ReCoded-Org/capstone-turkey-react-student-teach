@@ -4,6 +4,7 @@ import editProfileSlice from '../features/editProfileSlice';
 import darkModeSlice from '../features/darkModeSlice';
 import userSlice from '../features/userSlice';
 import fetchAllTutorsSlice from '../features/fetchAllTutorsSlice';
+import uploadPicCloudinarySlice from '../features/uploadPicCloudinarySlice';
 
 const userAvatar = localStorage.getItem('userPic')
   ? JSON.parse(localStorage.getItem('userPic'))
@@ -30,6 +31,7 @@ const store = configureStore({
     editProfileReducer: editProfileSlice,
     darkModeReducer: darkModeSlice,
     fetchAllTutorReducer: fetchAllTutorsSlice,
+    uploadPicCloudinaryReducer: uploadPicCloudinarySlice,
     signIn: userSlice,
   },
   preloadedState: initialState,
