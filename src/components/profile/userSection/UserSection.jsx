@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import UserPicPlaceholder from '../../../assets/images/profilePlaceholer.png';
 import { USERPROFILE_ROUTE } from '../../../routes';
 import UserDropdownMenu from '../../modals/userDropdownMenu/UserDropdownMenu';
@@ -28,26 +29,50 @@ function UserSection() {
   const formattedSignedUplName = formatName(signedUpUserLastName);
 
   return (
-    <div
-      to={USERPROFILE_ROUTE}
-      className="flex justify-center items-center my-1 lg:my-0 lg:mr-10 lg:mt-1 select-none cursor-pointer"
-      onClick={() => setOpenModal(!openModal)}
-      aria-hidden
-    >
-      <img
-        className="h-10 w-10 rounded-full"
-        src={avatar || UserPicPlaceholder}
-        alt="user pic"
-      />
-      <div>
-        <h1 className="ml-3">
-          {formattedFirstName || formattedSignedUpfName}{' '}
-          {formattedLastName || formattedSignedUplName}
-        </h1>
+    <div>
+      <div
+        to={USERPROFILE_ROUTE}
+        className="lg:flex justify-center items-center my-1 lg:my-0 lg:mr-10 lg:mt-1 select-none cursor-pointer hidden"
+        onClick={() => setOpenModal(!openModal)}
+        aria-hidden
+      >
+        <img
+          className="h-10 w-10 rounded-full"
+          src={avatar || UserPicPlaceholder}
+          alt="user pic"
+        />
+        <div>
+          <h1 className="ml-3">
+            {formattedFirstName || formattedSignedUpfName}{' '}
+            {formattedLastName || formattedSignedUplName}
+          </h1>
+        </div>
+        <div className="hidden lg:block">
+          <UserDropdownMenu openModal={openModal} />
+        </div>
       </div>
-      <div className="hidden lg:block">
-        <UserDropdownMenu openModal={openModal} />
-      </div>
+
+      <Link
+        to={USERPROFILE_ROUTE}
+        className="lg:hidden flex justify-center items-center my-1 lg:my-0 lg:mr-10 lg:mt-1 select-none cursor-pointer"
+        onClick={() => setOpenModal(!openModal)}
+        aria-hidden
+      >
+        <img
+          className="h-10 w-10 rounded-full"
+          src={avatar || UserPicPlaceholder}
+          alt="user pic"
+        />
+        <div>
+          <h1 className="ml-3">
+            {formattedFirstName || formattedSignedUpfName}{' '}
+            {formattedLastName || formattedSignedUplName}
+          </h1>
+        </div>
+        <div className="hidden lg:block">
+          <UserDropdownMenu openModal={openModal} />
+        </div>
+      </Link>
     </div>
   );
 }

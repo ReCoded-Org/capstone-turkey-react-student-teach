@@ -29,8 +29,8 @@ function Navbar({ onBurgerClick }) {
   const darkMode = useSelector((state) => state.darkModeReducer.darkMode);
   const signIn = useSelector((state) => state.signIn);
   const isSuccess = signIn.user.status;
-  const isNotFoundUser = signIn.user.userInfo.error;
   const isUser = signIn.user.userInfo;
+  const isUserSignedUp = signIn.signUp.isSignedUp;
 
   useEffect(() => {
     dispatch(setDarkMode(dark));
@@ -126,8 +126,10 @@ function Navbar({ onBurgerClick }) {
             >
               <div
                 className={`text-white ${
-                  (isSuccess === 'success' && !isNotFoundUser) ||
-                  isUser.firstName
+                  isSuccess === 'success' ||
+                  signIn.signUp.status === 'success' ||
+                  isUser.firstName ||
+                  isUserSignedUp.firstName
                     ? 'block'
                     : 'hidden'
                 }`}
@@ -179,8 +181,9 @@ function Navbar({ onBurgerClick }) {
             <UserAuth />
             <SignOut open={signOutOpen} setOpen={setSignOutOpen} />
             {isSuccess === 'success' ||
-            (signIn.signUp.status === 'success' && !isNotFoundUser) ||
-            isUser.firstName ? (
+            signIn.signUp.status === 'success' ||
+            isUser.firstName ||
+            isUserSignedUp.firstName ? (
               <AddQuestion
                 open={addQuestionModal}
                 setOpen={setAddQuestionModal}

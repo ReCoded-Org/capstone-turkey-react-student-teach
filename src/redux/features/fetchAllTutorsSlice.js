@@ -31,7 +31,6 @@ const fetchAllTutorSliceSlice = createSlice({
     [fetchAllTutorSlice.fulfilled]: (state, { payload }) => {
       state.status = 'success';
       state.user = payload;
-      localStorage.setItem('userPic', JSON.stringify(payload.avatar));
     },
     [fetchAllTutorSlice.rejected]: (state, { payload }) => {
       state.status = 'failed';
