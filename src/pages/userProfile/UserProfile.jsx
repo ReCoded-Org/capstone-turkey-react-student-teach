@@ -38,7 +38,7 @@ function UserProfile() {
     <div
       className={`${darkMode ? 'bg-primaryDark' : 'bg-white'}  ${
         darkMode ? 'text-white' : 'text-black'
-      }`}
+      } lg:pb-[5rem]`}
     >
       <section className="min-h-[30vh] pt-10 lg:min-h-[50vh] lg:mx-[0rem] lg:flex lg:justify-center">
         <div>

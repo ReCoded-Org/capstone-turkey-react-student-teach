@@ -9,7 +9,7 @@ function About() {
     <div
       className={`${darkMode ? 'bg-primaryDark ' : 'bg-white'} ${
         darkMode ? 'text-white ' : 'text-black'
-      }`}
+      } pb-10 lg:pb-[5rem]`}
     >
       <div className="max-w-6xl container mx-auto px-2 md:px-2 lg:px-2 grid items-center pt-14 ">
         <div className="flex flex-col lg:flex-row items-center justify-center pb-10">
