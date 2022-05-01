@@ -55,7 +55,6 @@ function UserSection() {
       <Link
         to={USERPROFILE_ROUTE}
         className="lg:hidden flex justify-center items-center my-1 lg:my-0 lg:mr-10 lg:mt-1 select-none cursor-pointer"
-        onClick={() => setOpenModal(!openModal)}
         aria-hidden
       >
         <img
@@ -68,9 +67,6 @@ function UserSection() {
             {formattedFirstName || formattedSignedUpfName}{' '}
             {formattedLastName || formattedSignedUplName}
           </h1>
-        </div>
-        <div className="hidden lg:block">
-          <UserDropdownMenu openModal={openModal} />
         </div>
       </Link>
     </div>

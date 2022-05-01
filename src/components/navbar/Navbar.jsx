@@ -171,8 +171,9 @@ function Navbar({ onBurgerClick }) {
                   onClick={() => setDark(!dark)}
                   id="toggleB"
                   className="sr-only"
+                  checked={`${dark ? 'true' : ''}`}
                 />
-                <div className="bgColor block border-[2px] rounded-md  border-cusOrange w-[4rem] h-6 lg:border-[1px] lg:w-[3rem]  " />
+                <div className=" block border-[2px] rounded-md  border-cusOrange w-[4rem] h-6 lg:border-[1px] lg:w-[3rem] bgColor" />
                 <div className="dot left-1 top-1 bg-no-repeat w-9 h-4 rounded-3xl lg:w-6 transition absolute lg:top-3 " />
               </div>
             </label>
