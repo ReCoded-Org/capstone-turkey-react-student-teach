@@ -11,8 +11,13 @@ function About() {
             Who We Are
           </h2>
           <p className="leading-relaxed mr-4">
-            We are a group of 5 people who gathered to develop our skills through React.js. There are some students, working proffesionals and also people who are looking for their new journeys through React.js in the group, however, aim is always to master at React.js.
-            Different skills and backgrounds yielded Studenteach. A lot of time is spent to launch it. We also sharpened our soft skills of communication and collaboration beside developing our coding skills.
+            We are a group of 5 people who gathered to develop our skills
+            through React.js. There are some students, working proffesionals and
+            also people who are looking for their new journeys through React.js
+            in the group, however, aim is always to master at React.js.
+            Different skills and backgrounds yielded Studenteach. A lot of time
+            is spent to launch it. We also sharpened our soft skills of
+            communication and collaboration beside developing our coding skills.
             Finally, Studenteach is out.
           </p>
         </div>
