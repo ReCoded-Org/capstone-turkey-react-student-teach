@@ -4,6 +4,9 @@ import editProfileSlice from '../features/editProfileSlice';
 import darkModeSlice from '../features/darkModeSlice';
 import userSlice from '../features/userSlice';
 import questionsSlice from '../features/questionsSlice';
+import fetchAllTutorsSlice from '../features/fetchAllTutorsSlice';
+import uploadPicCloudinarySlice from '../features/uploadPicCloudinarySlice';
+import editProfilePicSlice from '../features/editProfilePicSlice';
 
 const userInfoFromStorage = localStorage.getItem('userInfo')
   ? JSON.parse(localStorage.getItem('userInfo'))
@@ -24,7 +27,10 @@ const store = configureStore({
   reducer: {
     addQuestionReducer: addQuestionSlice,
     editProfileReducer: editProfileSlice,
+    editProfilePicReudcer: editProfilePicSlice,
     darkModeReducer: darkModeSlice,
+    fetchAllTutorReducer: fetchAllTutorsSlice,
+    uploadPicCloudinaryReducer: uploadPicCloudinarySlice,
     signIn: userSlice,
     questions: questionsSlice,
   },

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { FaSpinner } from 'react-icons/fa';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Modal from '../Modal/Modal';
 import FormField from '../../FormField/FormField';
 import { addQuestion } from '../../../redux/features/addQuestionSlice';
@@ -12,18 +12,20 @@ import { addQuestion } from '../../../redux/features/addQuestionSlice';
 const SignInSchema = Yup.object().shape({
   title: Yup.string().min(3).max(24).required(),
   question: Yup.string().required(),
-  subject: Yup.string().min(3).max(24).required(),
 });
 
 function AddQuestion({ open, setOpen }) {
   const dispatch = useDispatch();
+  const signInToken = useSelector((state) => state.signIn.user.userInfo.token);
+  const signUpToken = useSelector(
+    (state) => state.signIn.signUp.isSignedUp.token,
+  );
   return (
     <Modal label="Ask your question" open={open} setOpen={setOpen}>
       <Formik
         initialValues={{
           title: '',
           question: '',
-          subject: '',
         }}
         validationSchema={SignInSchema}
         onSubmit={(values, { setSubmitting, resetForm }) => {
@@ -32,7 +34,7 @@ function AddQuestion({ open, setOpen }) {
               addQuestion({
                 questionTitle: values.title,
                 questionContnet: values.question,
-                subject: values.subject,
+                jwt: signInToken || signUpToken,
               }),
             );
             setSubmitting(false);
@@ -47,7 +49,7 @@ function AddQuestion({ open, setOpen }) {
           errors,
           isSubmitting,
         }) => (
-          <Form className="min-h-[40vh] scale-90 lg:scale-100 min-w-[70vw] lg:min-w-[15vw]">
+          <Form className="min-h-[35vh] scale-90 lg:scale-100 min-w-[70vw] lg:min-w-[15vw]">
             <FormField
               className="mb-3"
               errors={errors}
@@ -58,15 +60,6 @@ function AddQuestion({ open, setOpen }) {
               placeholder="Question title"
             />
 
-            <FormField
-              className="mb-3"
-              errors={errors}
-              label="Subject"
-              name="subject"
-              touched={touched}
-              type="text"
-              placeholder="What is the subject of your question? e.g Math "
-            />
             <FormField
               className="mb-3"
               errors={errors}
