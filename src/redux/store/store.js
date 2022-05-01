@@ -3,6 +3,7 @@ import addQuestionSlice from '../features/addQuestionSlice';
 import editProfileSlice from '../features/editProfileSlice';
 import darkModeSlice from '../features/darkModeSlice';
 import userSlice from '../features/userSlice';
+import questionsSlice from '../features/questionsSlice';
 
 const userInfoFromStorage = localStorage.getItem('userInfo')
   ? JSON.parse(localStorage.getItem('userInfo'))
@@ -25,6 +26,7 @@ const store = configureStore({
     editProfileReducer: editProfileSlice,
     darkModeReducer: darkModeSlice,
     signIn: userSlice,
+    questions: questionsSlice,
   },
   preloadedState: initialState,
   middleware: (getDefaultMiddleware) =>

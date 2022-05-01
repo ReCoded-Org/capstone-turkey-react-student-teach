@@ -1,18 +1,21 @@
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import Question from './Question';
-import allQuestions from './questions.json';
+// eslint-disable-next-line import/no-named-as-default
+import { fetchQuestions } from '../../redux/features/questionsSlice';
 import AddQuestion from '../modals/AddQuestion/AddQuestion';
 import Hands from '../../assets/hands/Hands';
+import Avatar from '../../assets/images/avatar.jpg';
 
 function HomeContent() {
   const [addQuestionModal, setAddQuestionModal] = useState(false);
-  const [question, setQuestion] = useState();
-  useEffect(() => {
-    setQuestion(allQuestions.allQuestions);
-  }, [question]);
-  const darkMode = useSelector((state) => state.darkModeReducer.darkMode);
+  const allQuestions = useSelector((state) => state.questions);
+  const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(fetchQuestions());
+  }, [dispatch]);
+  const darkMode = useSelector((state) => state.darkModeReducer.darkMode);
   return (
     <div className={`${darkMode ? 'bg-secondaryDark' : 'bg-zinc-100 '} pt-5`}>
       <div
@@ -60,15 +63,29 @@ function HomeContent() {
         >
           Ask Question +
         </button>
-        <div className="mt-32 md:mr-7 lg:mr-10 pb-10">
-          {question?.map((q) => (
-            <Question
-              username={q.username}
-              profileImage={q.profileImage}
-              question={q.question}
-              answer={q.answer}
-            />
-          ))}
+        <div className="mt-16 md:mr-7 lg:mr-10 pb-10">
+          {allQuestions.questions
+            ?.slice(
+              allQuestions.questions.length - 10,
+              allQuestions.questions.length,
+            )
+            .reverse()
+            .map((q) => (
+              <Question
+                // eslint-disable-next-line no-underscore-dangle
+                key={q._id}
+                // eslint-disable-next-line no-underscore-dangle
+                id={q._id}
+                question={q.title}
+                student={q.student}
+                profileImage={Avatar}
+                answer={
+                  q.comments[0]
+                    ? q.comments[0]
+                    : 'Give an answer to the question'
+                }
+              />
+            ))}
         </div>
       </div>
     </div>

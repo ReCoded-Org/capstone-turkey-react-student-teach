@@ -1,9 +1,26 @@
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
 
-function Question({ profileImage, question, answer }) {
+function Question({ id, profileImage, question, answer, student }) {
   const darkMode = useSelector((state) => state.darkModeReducer.darkMode);
+  const [user, setUser] = useState();
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          `https://studentsteach.re-coded.com/api/tutors/${student}`,
+        );
+        const json = await response.json();
+        setUser(json);
+      } catch (error) {
+        console.log('error', error);
+      }
+    };
+    fetchData();
+  }, []);
+  console.log(user);
   return (
     <div className="flex flex-col lg:even:float-right mb-4 xl:mb-12 w-12/12 lg:w-10/12 h-20 sm:h-28 truncate">
       <div
@@ -16,11 +33,11 @@ function Question({ profileImage, question, answer }) {
             <a href="/user-profile">
               <img
                 className=" w-8 sm:w-10 xl:w-16 rounded-full mr-8 sm:mr-10 xl:mr-20"
-                src={profileImage}
+                src={user?.avatar === undefined ? profileImage : user.avatar}
                 alt="s profile pic"
               />
             </a>
-            <a href="/question:id">
+            <a href={`/question/${id}`}>
               <div className="text-sm sm:text-base xl:text-xl  truncate w-[15rem] sm:w-[30rem] lg:w-[40rem] xl:w-[50rem] 2xl:w-[60rem]">
                 <span className="text-orange">Q</span>: {question}
               </div>
@@ -40,9 +57,13 @@ Question.propTypes = {
   profileImage: PropTypes.string,
   question: PropTypes.string,
   answer: PropTypes.string,
+  student: PropTypes.string,
+  id: PropTypes.string,
 };
 Question.defaultProps = {
   profileImage: '',
   question: '',
   answer: '',
+  student: '',
+  id: '',
 };

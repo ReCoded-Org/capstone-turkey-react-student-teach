@@ -11,10 +11,12 @@ import UserProfile from './pages/userProfile/UserProfile';
 import OverlayCard from './components/cards/overlayCard/OverlayCard';
 import NotFoundPage from './pages/notFoundPage/NotFoundPage';
 import Footer from './components/Footer/Footer';
+import Question from './pages/singleQuestions/question';
 import {
   ABOUT_ROUTE,
   CONTACT_ROUTE,
   QUESTIONS_ROUTE,
+  QUESTION_ROUTE,
   HOME_ROUTE,
   USERPROFILE_ROUTE,
 } from './routes';
@@ -39,6 +41,7 @@ function App() {
       {burger ? null : <OverlayCard />}
       <Routes>
         <Route path={HOME_ROUTE} element={<Home />} />
+        <Route path={QUESTION_ROUTE} element={<Question />} />
         <Route path={QUESTIONS_ROUTE} element={<Questions />} />
         <Route path={CONTACT_ROUTE} element={<Contact />} />
         <Route path={ABOUT_ROUTE} element={<About />} />

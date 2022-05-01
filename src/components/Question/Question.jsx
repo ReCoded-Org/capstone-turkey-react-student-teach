@@ -15,16 +15,10 @@ export const data = {
     'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys 1500s test clamp data classname Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys 1500s test clamp data classname Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys 1500s test clamp data classname',
 };
 
-function Question({
-  avatar = data.avatar,
-  userName = data.name,
-  questionTitle = data.questionTitle,
-  questionText = data.questionText,
-}) {
+function Question({ avatar, userName, questionTitle, questionText }) {
   const [open, setOpen] = useState(false);
   const sideMenuRef = useRef();
   const ellipsisIconRef = useRef();
-
   useEffect(() => {
     const checkIfClickedOutsideOfSideMenu = (e) => {
       if (
