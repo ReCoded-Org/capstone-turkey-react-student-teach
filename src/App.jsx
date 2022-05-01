@@ -30,8 +30,8 @@ function App() {
 
   const signIn = useSelector((state) => state.signIn);
   const isSuccess = signIn.user.status;
-  const isNotFoundUser = signIn.user.userInfo.error;
   const isUser = signIn.user.userInfo;
+  const isUserSignedUp = signIn.signUp.isSignedUp;
 
   return (
     <div className="App">
@@ -45,7 +45,10 @@ function App() {
         <Route
           path={USERPROFILE_ROUTE}
           element={
-            (isSuccess === 'success' && !isNotFoundUser) || isUser.firstName ? (
+            isSuccess === 'success' ||
+            signIn.signUp.status === 'success' ||
+            isUser.firstName ||
+            isUserSignedUp.firstName ? (
               <UserProfile />
             ) : (
               <Navigate to="/" />

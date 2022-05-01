@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { FaSpinner } from 'react-icons/fa';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import FormField from '../../../FormField/FormField';
 import Modal from '../../Modal/Modal';
 import { editProfile } from '../../../../redux/features/editProfileSlice';
@@ -14,6 +14,10 @@ const ContactSchema = Yup.object().shape({
 });
 function ProfileSetting({ open, setOpen }) {
   const dispatch = useDispatch();
+  const userInfoSignedIn = useSelector((state) => state.signIn.user.userInfo);
+  const userInfoSignedUp = useSelector(
+    (state) => state.signIn.signUp.isSignedUp,
+  );
 
   return (
     <Modal label="Update information" open={open} setOpen={setOpen}>
@@ -30,9 +34,23 @@ function ProfileSetting({ open, setOpen }) {
               setTimeout(() => {
                 dispatch(
                   editProfile({
-                    editFirstName: values.firstName,
-                    editLastName: values.lastName,
-                    editEmail: values.email,
+                    editFirstName:
+                      values.firstName.length !== 0
+                        ? values.firstName
+                        : userInfoSignedIn?.firstName ||
+                          userInfoSignedUp?.firstName,
+                    editLastName:
+                      values.lastName.length !== 0
+                        ? values.lastName
+                        : userInfoSignedIn?.lastName ||
+                          userInfoSignedUp?.lastName,
+                    editEmail:
+                      values.email.length !== 0
+                        ? values.email
+                        : userInfoSignedIn?.email || userInfoSignedUp?.email,
+                    pic: userInfoSignedIn?.avatar || userInfoSignedUp?.avatar,
+                    id: userInfoSignedIn?.id || userInfoSignedUp?.id,
+                    jwt: userInfoSignedIn?.token || userInfoSignedUp?.token,
                   }),
                 );
                 setSubmitting(false);

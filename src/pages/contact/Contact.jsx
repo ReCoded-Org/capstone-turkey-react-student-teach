@@ -3,7 +3,6 @@ import {
   FaGithub,
   FaLinkedinIn,
   FaYoutube,
-  FaMapMarker,
   FaPhoneAlt,
   FaMediumM,
   FaSpinner,
@@ -181,17 +180,19 @@ function Contact() {
             <h3>552-555-5555</h3>
           </div>
         </div>
-        <div className="contact-info-icon-container">
-          <div className="contact-info-icon">
-            <FaMapMarker className="lg:mt-1" />
-            <h2 className="font-bold ml-2 lg:m-0 block lg:hidden">Location</h2>
+        <section className="text-gray-600 body-font relative">
+          <div className="absolute inset-0 bg-gray-300">
+            <div id='map' style="width: 100%">
+              <iframe
+              scrolling="no"
+              marginHeight="0"
+              marginWidth="0"
+              src={'https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Malet%20St,%20London%20WC1E%207HU,%20United%20Kingdom+(Your%20Business%20Name)&amp;t=p&amp;z=8&amp;ie=UTF8&amp;iwloc=B&amp;output=embed'} width="100%" height="600" frameBorder="0">
+                <a href="https://www.gps.ie/sport-gps/">fitness tracker</a>
+              </iframe>
+            </div>
           </div>
-          <div className="lg:flex lg:flex-col lg:items-start">
-            <h2 className="font-bold ml-2 lg:m-0 lg:block hidden">Location</h2>
-            <h3 className="lg:mt-1">Turkey, Ankara</h3>
-            <h3>36 Street, Bahcelievler</h3>
-          </div>
-        </div>
+        </section>
         <div className="flex justify-center items-center p-3 lg:mt-[16rem] lg:ml-[1rem]">
           <FaInstagram className="contact-social-icons" />
           <FaGithub className="contact-social-icons" />
