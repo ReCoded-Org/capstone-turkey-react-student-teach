@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
 import Question from './Question';
 import allQuestions from './questions.json';
 import AddQuestion from '../modals/AddQuestion/AddQuestion';
@@ -14,7 +15,7 @@ function HomeContent() {
   const darkMode = useSelector((state) => state.darkModeReducer.darkMode);
 
   return (
-    <div className={`${darkMode ? 'bg-secondaryDark' : 'bg-zinc-100 '} pt-5`}>
+    <div className={`${darkMode ? 'bg-secondaryDark' : 'bg-zinc-100 '} py-5`}>
       <div
         className={` container mx-auto w-full pt-8 rounded-md transition-all ease-in-out duration-300  text-center lg:text-left ${
           darkMode ? 'bg-primaryDark' : 'bg-white'
@@ -63,6 +64,7 @@ function HomeContent() {
         <div className="mt-32 md:mr-7 lg:mr-10 pb-10">
           {question?.map((q) => (
             <Question
+              key={uuidv4()}
               username={q.username}
               profileImage={q.profileImage}
               question={q.question}
