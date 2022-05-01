@@ -1,7 +1,10 @@
 import * as Yup from 'yup';
 import { Formik, Field, Form } from 'formik';
+import { useSelector } from 'react-redux';
 
 function Newsletter() {
+  const darkMode = useSelector((state) => state.darkModeReducer.darkMode);
+
   const validateEmail = (value) => {
     let error;
     if (!value) {
@@ -28,15 +31,15 @@ function Newsletter() {
       validator={() => ({})}
     >
       {({ errors, touched }) => (
-        <Form className="flex flex-col justify-self-center md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 2xl:grid-cols-1 grid-cols-1">
+        <Form className="flex flex-col justify-center items-center md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 2xl:grid-cols-1 grid-cols-1">
           <Field
             id="email"
             name="email"
             type="email"
             validate={validateEmail}
             placeholder="Your Email Address"
-            className=" w-[312px] h-auto text-base font-semibold transition ease-in-out outline outline-1 outline-secondary-color rounded-md text-font-color px-2 py-2 mb-3 ml-[85px] text-center border-secondary-color
-            focus:invalid:border-primary-color focus:border-2 focus:border-primary-color xs:w-[270px] xs-justify-center xs:justify-center xs:text-center xs:align-middle xs:mx-auto"
+            className=" lg:w-[312px] h-auto text-base font-semibold transition ease-in-out outline outline-1 outline-secondary-color rounded-md text-font-color px-2 py-2 mb-3  text-center border-secondary-color
+            focus:invalid:border-primary-color focus:border-2 focus:border-primary-color xs:w-[270px] xs-justify-center xs:justify-center xs:text-center xs:align-middle mx-auto"
           />
           {errors.email && touched.email ? (
             <div className="text-center mb-4">{errors.email}</div>
@@ -44,7 +47,13 @@ function Newsletter() {
           <a href="!#">
             <button
               type="submit"
-              className="w-[468px] h-auto text-base border border-transparent font-semibold text-white bg-primary-color hover:bg-white hover:text-primary-color hover:border-primary-color rounded-md px-5 py-3 xs:w-[auto] xs:justify-center xs:align-middle xs:ml-[84px]"
+              className={`lg:w-[468px] h-auto text-base border border-transparent font-semibold text-white  hover:bg-white rounded-md px-5 py-3 w-[auto] xs:justify-center xs:align-middle ${
+                darkMode ? 'hover:text-cusOrange' : 'hover:text-primary-color'
+              } ${
+                darkMode ? 'hover:border-white' : 'hover:border-primary-color'
+              } ${darkMode ? 'bg-cusOrange' : 'bg-primary-color'} ${
+                darkMode ? 'border-white' : 'bg-primary-color'
+              }`}
             >
               Submit
             </button>
