@@ -71,7 +71,7 @@ exports[`Render when text of no HomePage found removes 1`] = `
       Ask Question +
     </button>
     <div
-      className="mt-32 md:mr-7 lg:mr-10 pb-10"
+      className="mt-16 md:mr-7 lg:mr-10 pb-10"
     />
   </div>
 </div>

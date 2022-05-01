@@ -23,7 +23,7 @@ exports[`Render when text of no Question found removes 1`] = `
           />
         </a>
         <a
-          href="/question:id"
+          href="/question/"
         >
           <div
             className="text-sm sm:text-base xl:text-xl  truncate w-[15rem] sm:w-[30rem] lg:w-[40rem] xl:w-[50rem] 2xl:w-[60rem]"
@@ -77,7 +77,7 @@ exports[`Render when text of no Question found removes 2`] = `
           />
         </a>
         <a
-          href="/question:id"
+          href="/question/"
         >
           <div
             className="text-sm sm:text-base xl:text-xl  truncate w-[15rem] sm:w-[30rem] lg:w-[40rem] xl:w-[50rem] 2xl:w-[60rem]"

@@ -8,7 +8,8 @@ exports[`Initial test 1`] = `
   onSubmit={[Function]}
 >
   <input
-    className=" w-[275px] mx-0 h-auto text-base font-semibold transition ease-in-out outline outline-1 outline-secondary-color rounded-md text-font-color px-2 py-2 mb-3  text-center border-secondary-color focus:invalid:border-primary-color focus:border-2 focus:border-primary-color  xs-justify-center "
+    className=" w-[275px] mx-0 h-auto text-base font-semibold transition ease-in-out outline outline-1 outline-secondary-color rounded-md text-font-color px-2 py-2 mb-3  text-center border-secondary-color
+ focus:invalid:border-primary-color focus:border-2 focus:border-primary-color  xs-justify-center "
     id="email"
     name="email"
     onBlur={[Function]}
