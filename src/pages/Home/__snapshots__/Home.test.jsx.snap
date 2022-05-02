@@ -16,7 +16,7 @@ exports[`Render when text of no HomePage found removes 1`] = `
         <h2
           className="text-5xl sm:text-7xl text-orange mb-5 lg:mb-0"
         >
-          Student Teach
+          Students Teach
         </h2>
         <h4
           className="font-semibold text-base sm:text-2xl mt-2 sm:mt-9 py-0.5"
@@ -55,7 +55,7 @@ exports[`Render when text of no HomePage found removes 1`] = `
           </svg>
         </div>
         <button
-          className="bg-orange rounded-md text-xs w-44 h-10 scale-125 text-[#FFFFFF] inline-block bottom-[20px] xl:left-[40%] lg:left-[20%] hover:scale-[1.35] ease-in-out transition-all"
+          className="w-[16rem] h-auto text-base border border-transparent text-white  hover:bg-white rounded-md px-5 py-3 hover:text-primary-color hover:border-primary-color bg-primary-color border-primary-color"
           onClick={[Function]}
           type="button"
         >
@@ -64,7 +64,7 @@ exports[`Render when text of no HomePage found removes 1`] = `
       </div>
     </section>
     <button
-      className=" lg:hidden mt-10 text-xs ml-5 sm:text-3xl mx-auto bg-orange rounded-md sm:w-[14rem] sm:h-[4rem] w-[8rem] h-[2rem] text-[#FFFFFF] absolute inline-block  left-[30%]"
+      className=" lg:hidden mt-5 text-xs bg-orange rounded-md  w-[10rem] h-[2.5rem] text-[#FFFFFF] "
       onClick={[Function]}
       type="button"
     >

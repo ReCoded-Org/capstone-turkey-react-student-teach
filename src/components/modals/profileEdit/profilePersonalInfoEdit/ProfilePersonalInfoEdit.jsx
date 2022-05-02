@@ -14,6 +14,7 @@ const ContactSchema = Yup.object().shape({
   email: Yup.string().email(),
 });
 function ProfileSetting({ open, setOpen }) {
+  const darkMode = useSelector((state) => state.darkModeReducer.darkMode);
   const [status, setStatus] = useState([]);
   const dispatch = useDispatch();
   const userInfoSignedIn = useSelector((state) => state.signIn.user.userInfo);
@@ -77,37 +78,37 @@ function ProfileSetting({ open, setOpen }) {
               errors,
               isSubmitting,
             }) => (
-              <Form className="flex flex-col w-[15rem] lg:w-[20rem]">
+              <Form className="min-w-[17rem] lg:min-w-[20rem]">
                 <FormField
                   autoComplete="firstName"
-                  className="mb-2 lg:text-left"
+                  className="mb-2"
                   errors={errors}
                   label="First Name"
                   name="firstName"
                   touched={touched}
                   type="text"
-                  placeholder="Your first name"
+                  placeholder="Your Name"
                 />
                 <FormField
                   autoComplete="lastName"
-                  className="mb-2 lg:text-left"
+                  className="mb-2"
                   errors={errors}
                   label="Last Name"
                   name="lastName"
                   touched={touched}
                   type="text"
-                  placeholder="Your last name"
+                  placeholder="You@company.com"
                 />
 
                 <FormField
                   autoComplete="email"
-                  className="mb-2 lg:text-left"
+                  className="mb-2"
                   errors={errors}
                   label="Email"
                   name="email"
                   touched={touched}
                   type="email"
-                  placeholder="You@company.com"
+                  placeholder="Your Email"
                 />
                 {status?.message ? (
                   <h1 className="text-center text-green-500">
@@ -126,7 +127,7 @@ function ProfileSetting({ open, setOpen }) {
                   {isSubmitting ? (
                     <button
                       type="submit"
-                      className="text-lg bg-cusOrange text-white rounded pl-10 pr-5 py-2 mb-10 lg:mb-0 relative w-full"
+                      className="text-lg bg-cusOrange text-white rounded pl-10 pr-5 py-2 mb-10 lg:mb-0 relative w-full border-[1px]"
                       disabled
                     >
                       <FaSpinner className="animate-spin h-5 text-white mr-[4rem] lg:mr-[6rem] absolute right-[7rem] top-[0.8rem] " />
@@ -135,7 +136,17 @@ function ProfileSetting({ open, setOpen }) {
                   ) : (
                     <button
                       type="submit"
-                      className="text-lg text-gray-100 bg-cusOrange transition rounded px-8 py-2 mb-10 lg:mb-0 hover:scale-110 ease-in-out w-full"
+                      className={`text-lg w-full text-gray-100 bg-cusOrange transition rounded px-8 py-2 mb-10 lg:mb-0   hover:bg-white border-[1px] ${
+                        darkMode
+                          ? 'hover:text-cusOrange'
+                          : 'hover:text-primary-color'
+                      } ${
+                        darkMode
+                          ? 'hover:border-white'
+                          : 'hover:border-primary-color'
+                      } ${darkMode ? 'bg-cusOrange' : 'bg-primary-color'} ${
+                        darkMode ? 'border-white' : 'border-primary-color'
+                      }`}
                     >
                       Update
                     </button>

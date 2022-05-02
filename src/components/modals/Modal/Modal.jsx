@@ -44,12 +44,12 @@ function Modal({ children, label, open, setOpen }) {
             leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
           >
             <div
-              className={`relative inline-block align-bottom bg-gray-500 rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-sm sm:w-full ${
+              className={`relative inline-block align-bottom bg-primaryDark rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-sm sm:w-full ${
                 darkMode ? 'text-white' : 'bg-black'
               }`}
             >
               <div
-                className={`p-4 sm:p-6 sm:pb-4 ${
+                className={`p-4 sm:p-6 sm:pb-4 w-full ${
                   darkMode ? 'bg-primaryDark' : 'bg-white'
                 }`}
               >

@@ -10,6 +10,7 @@ import { uploadPicCloudinary } from '../../../../redux/features/uploadPicCloudin
 function ProfilePicEdit({ open, setOpen, label }) {
   // eslint-disable-next-line no-unused-vars
   const [newProfilePic, setNewProfilePic] = useState('');
+  const darkMode = useSelector((state) => state.darkModeReducer.darkMode);
   const dispatch = useDispatch();
   const userInfoSignedIn = useSelector((state) => state.signIn.user.userInfo);
   const userInfoSignedUp = useSelector(
@@ -81,7 +82,7 @@ function ProfilePicEdit({ open, setOpen, label }) {
                 {isSubmitting ? (
                   <button
                     type="submit"
-                    className="text-lg mt-5 bg-cusOrange text-white rounded pl-10 pr-5 py-2 mb-10 lg:mb-0 relative"
+                    className="text-lg mt-5 bg-cusOrange text-white rounded pl-10 pr-5 py-2 mb-10 lg:mb-0 relative border-[1px]"
                     disabled
                   >
                     <FaSpinner className="animate-spin h-5 text-white mr-[4rem] lg:mr-[6rem] absolute right-[7rem] top-[0.8rem]" />
@@ -90,7 +91,17 @@ function ProfilePicEdit({ open, setOpen, label }) {
                 ) : (
                   <button
                     type="submit"
-                    className="text-lg mt-5 text-gray-100 bg-cusOrange transition rounded px-8 py-2 mb-10 lg:mb-0 hover:scale-110 ease-in-out"
+                    className={`text-lg w-full text-gray-100 bg-cusOrange transition rounded px-8 py-2 mb-10 lg:mb-0   hover:bg-white border-[1px] ${
+                      darkMode
+                        ? 'hover:text-cusOrange'
+                        : 'hover:text-primary-color'
+                    } ${
+                      darkMode
+                        ? 'hover:border-white'
+                        : 'hover:border-primary-color'
+                    } ${darkMode ? 'bg-cusOrange' : 'bg-primary-color'} ${
+                      darkMode ? 'border-white' : 'border-primary-color'
+                    }`}
                   >
                     Update
                   </button>

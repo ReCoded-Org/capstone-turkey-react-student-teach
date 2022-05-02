@@ -27,6 +27,7 @@ function SignUp({ open, setOpen, setSignIn }) {
   );
   const isLoading = useSelector((state) => state.signIn.signUp.status);
   const [showWrongMessage, setShowWrongMessage] = useState(false);
+  const darkMode = useSelector((state) => state.darkModeReducer.darkMode);
 
   useEffect(() => {
     if (isLoading === 'success' && isError) {
@@ -125,7 +126,7 @@ function SignUp({ open, setOpen, setSignIn }) {
               {isLoading === 'loading' ? (
                 <button
                   type="submit"
-                  className="text-lg bg-cusOrange text-gray-200 rounded flex items-center px-5 py-2"
+                  className="text-lg bg-cusOrange text-gray-200 rounded flex items-center px-5 py-2 border-[1px]"
                   disabled
                 >
                   <FaSpinner className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" />
@@ -134,7 +135,17 @@ function SignUp({ open, setOpen, setSignIn }) {
               ) : (
                 <button
                   type="submit"
-                  className="text-lg text-gray-100 bg-cusOrange hover:scale-110 ease-in-out transition-all rounded px-5 py-2"
+                  className={`text-lg w-[50wh] text-gray-100 bg-cusOrange transition rounded px-8 py-2 mb-10 lg:mb-0   hover:bg-white border-[1px] ${
+                    darkMode
+                      ? 'hover:text-cusOrange'
+                      : 'hover:text-primary-color'
+                  } ${
+                    darkMode
+                      ? 'hover:border-white'
+                      : 'hover:border-primary-color'
+                  } ${darkMode ? 'bg-cusOrange' : 'bg-primary-color'} ${
+                    darkMode ? 'border-white' : 'border-primary-color'
+                  }`}
                 >
                   Sign up
                 </button>

@@ -10,16 +10,18 @@ function UserDropdownMenu({ openModal }) {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="flex mb-5 ">
+    <div className="flex mb-5">
       <div
-        className={`absolute right-3 top-[5rem] lg:top-14 z-10 w-34 rounded-lg shadow-lg  border-opacity-50transition  py-1 lg:py-3 border-[1px]  ${
+        className={`absolute right-3 top-[5rem] lg:top-14 z-10 w-34 rounded-lg shadow-lg  transition-all ease-in-out  py-1 lg:py-3  ${
           openModal ? 'show opacity-100' : 'hidden opacity-0 '
         } ${darkMode ? 'bg-secondaryDark' : 'bg-[#F0F0F0]'}`}
         id="dropdown"
       >
         <Link
           to={USERPROFILE_ROUTE}
-          className="w-full lg:w-full text-sm hover:text-black hover:bg-gray-200 transition px-2 lg:px-4 py-1 text-center "
+          className={`w-full lg:w-full text-sm hover:text-black hover:bg-gray-200 transition px-2 lg:px-4 py-1 text-center ${
+            darkMode ? 'text-white' : 'text-black'
+          }`}
           type="button"
         >
           Profile
