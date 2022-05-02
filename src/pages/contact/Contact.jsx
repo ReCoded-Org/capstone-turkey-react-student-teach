@@ -135,42 +135,33 @@ function Contact() {
           </div>
           <div className="lg:flex lg:flex-col lg:items-start">
             <h2 className="font-bold ml-2 lg:m-0 lg:block hidden">Phone</h2>
-            <h3 className="lg:mt-1">
-              You don't need to contact us via phone.
-            </h3>
+            <h3 className="lg:mt-1">You don't need to contact us via phone.</h3>
             <h3>XXX-XXX-XXXX-XXX</h3>
           </div>
         </div>
         <section className="text-gray-600 body-font ml-[50px]">
           <div id="map" className="inset-0 flex flex-row justify-center">
-            <MapContainer center={[39.9035662, 32.4825694]} zoom={4} style={{'width': '356px', 'height': '200px'}} className="border-2 rounded">
-              <TileLayer
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              />
+            <MapContainer
+              center={[39.9035662, 32.4825694]}
+              zoom={4}
+              style={{ width: '356px', height: '200px' }}
+              className="border-2 rounded"
+            >
+              <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
               <Marker position={[39.8951569, 32.7609327]}>
-                <Popup>
-                  'One of us studies here.'
-                </Popup>
+                <Popup>'One of us studies here.'</Popup>
               </Marker>
               <Marker position={[39.8742115, 32.7371888]}>
-                <Popup>
-                  'One of us studies here.'
-                </Popup>
+                <Popup>'One of us studies here.'</Popup>
               </Marker>
               <Marker position={[38.7101807, 35.5316106]}>
-                <Popup>
-                  'One of us studied here.'
-                </Popup>
+                <Popup>'One of us studied here.'</Popup>
               </Marker>
               <Marker position={[36.8843927, 30.6689809]}>
-                <Popup>
-                  'One of us lives here.'
-                </Popup>
+                <Popup>'One of us lives here.'</Popup>
               </Marker>
               <Marker position={[38.4189042, 27.1265113]}>
-                <Popup>
-                  'One of us lives here.'
-                </Popup>
+                <Popup>'One of us lives here.'</Popup>
               </Marker>
             </MapContainer>
           </div>
