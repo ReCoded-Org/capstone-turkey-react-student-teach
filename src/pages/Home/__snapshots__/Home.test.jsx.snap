@@ -55,11 +55,7 @@ exports[`Render when text of no HomePage found removes 1`] = `
           </svg>
         </div>
         <button
-<<<<<<< HEAD
           className="w-[16rem] h-auto border border-transparent text-white  hover:bg-white rounded-md px-5 py-3 hover:text-primary-color hover:border-primary-color bg-primary-color border-primary-color"
-=======
-          className="w-[16rem] h-auto text-base border border-transparent text-white  hover:bg-white rounded-md px-5 py-3 hover:text-primary-color hover:border-primary-color bg-primary-color border-primary-color"
->>>>>>> 0509db32ed44eefdb847c7274135c243ed09a590
           onClick={[Function]}
           type="button"
         >
@@ -87,11 +83,7 @@ exports[`Render when text of no HomePage found removes 1`] = `
       </div>
     </section>
     <button
-<<<<<<< HEAD
       className=" lg:hidden mt-5 bg-orange rounded-md  w-[10rem] h-[3rem] text-[#FFFFFF] "
-=======
-      className=" lg:hidden mt-5 text-xs bg-orange rounded-md  w-[10rem] h-[2.5rem] text-[#FFFFFF] "
->>>>>>> 0509db32ed44eefdb847c7274135c243ed09a590
       onClick={[Function]}
       type="button"
     >
