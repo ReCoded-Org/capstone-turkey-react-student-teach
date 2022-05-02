@@ -53,8 +53,8 @@ function Modal({ children, label, open, setOpen }) {
                   darkMode ? 'bg-primaryDark' : 'bg-white'
                 }`}
               >
-                <div className="flex justify-around items-center mb-5">
-                  <h2 className="w-max font-semibold text-[1.2rem] md:text-2xl lg:text-[1.5rem] ml-5 mb-1">
+                <div className="flex justify-between mb-5">
+                  <h2 className="w-max font-semibold text-[1.2rem] md:text-2xl lg:text-[1.5rem]  mb-1">
                     {label}
                   </h2>
                   <button
