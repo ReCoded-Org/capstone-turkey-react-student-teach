@@ -60,7 +60,7 @@ function UserSection() {
           alt="user pic"
         />
         <div>
-          <h1 className="mt-1 rounded-md px-2 py-1 text-primaryDark self-center">
+          <h1 className="mt-1 rounded-md px-2 py-1 text-primaryDark self-center text-xl lg:text-[1.5rem]">
             {formattedFirstName || formattedSignedUpfName}{' '}
             {formattedLastName || formattedSignedUplName}
           </h1>

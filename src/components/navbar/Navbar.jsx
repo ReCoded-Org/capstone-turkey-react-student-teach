@@ -90,14 +90,14 @@ function Navbar() {
           burger ? 'hidden' : null
         }`}
       >
-        <div className="block lg:hidden">
+        <div className="block lg:hidden text-xl text-primaryDark">
           <UserAuth />
         </div>
         <div>
           <ul className="inline-block mt-1 lg:mt-0 lg:text-base lg:flex lg:items-center text-center ">
             <Link to={HOME_ROUTE}>{logoFullScreen}</Link>
             <li
-              className={`mb-3 border-b- lg:mb-0 lg:pr-3 text-primaryDark  lg:text-inherit lg:border-r-[1px]  transition-all ease-in-out  text-[1.1rem] ${
+              className={`mb-3 text-xl lg:mb-0 lg:pr-3 text-primaryDark  lg:text-inherit lg:border-r-[1px]  transition-all ease-in-out lg:text-[1.1rem] ${
                 darkMode
                   ? 'lg:hover:text-secondaryDark'
                   : 'lg:hover:text-cusOrange'
@@ -108,7 +108,7 @@ function Navbar() {
               <Link to={HOME_ROUTE}>Home</Link>
             </li>
             <li
-              className={`mb-3 lg:mb-0 lg:px-3 text-primaryDark lg:text-inherit lg:border-r-[1px]   transition-all ease-in-out text-[1.1rem] ${
+              className={`mb-3 lg:mb-0 text-xl lg:px-3 text-primaryDark lg:text-inherit lg:border-r-[1px]   transition-all ease-in-out lg:text-[1.1rem] ${
                 darkMode
                   ? 'hover:text-secondaryDark'
                   : 'lg:hover:text-cusOrange'
@@ -119,7 +119,7 @@ function Navbar() {
               <Link to={QUESTIONS_ROUTE}>Questions</Link>
             </li>
             <li
-              className={`mb-3 lg:mb-0 lg:px-3 text-primaryDark lg:text-inherit lg:border-r-[1px]   transition-all ease-in-out text-[1.1rem] ${
+              className={`mb-3 lg:mb-0 text-xl lg:px-3 text-primaryDark lg:text-inherit lg:border-r-[1px]   transition-all ease-in-out lg:text-[1.1rem] ${
                 darkMode
                   ? 'hover:text-secondaryDark'
                   : 'lg:hover:text-cusOrange'
@@ -130,7 +130,7 @@ function Navbar() {
               <Link to={CONTACT_ROUTE}>Contact</Link>
             </li>
             <li
-              className={`mb-3 lg:mb-0 lg:px-3 text-primaryDark lg:text-inherit transition-all ease-in-out text-[1.1rem] ${
+              className={`mb-3 lg:mb-0 text-xl lg:px-3 text-primaryDark lg:text-inherit transition-all ease-in-out lg:text-[1.1rem] ${
                 darkMode
                   ? 'hover:text-secondaryDark'
                   : 'lg:hover:text-cusOrange'
