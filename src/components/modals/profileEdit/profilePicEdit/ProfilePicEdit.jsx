@@ -82,7 +82,7 @@ function ProfilePicEdit({ open, setOpen, label }) {
                 {isSubmitting ? (
                   <button
                     type="submit"
-                    className="text-lg mt-5 bg-cusOrange text-white rounded pl-10 pr-5 py-2 mb-10 lg:mb-0 relative border-[1px]"
+                    className="text-lg bg-cusOrange text-white rounded pl-10 pr-5 py-2 mb-10 lg:mb-0 relative border-[1px]"
                     disabled
                   >
                     <FaSpinner className="animate-spin h-5 text-white mr-[4rem] lg:mr-[6rem] absolute right-[7rem] top-[0.8rem]" />

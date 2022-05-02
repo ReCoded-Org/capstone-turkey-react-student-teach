@@ -28,11 +28,17 @@ function AddQuestion({ open, setOpen }) {
     (state) => state.addQuestionReducer.message,
   );
   useEffect(() => {
-    setStatus(addQuestionStatus[addQuestionStatus.length - 1]?.status);
-
-    setTimeout(() => {
-      return setStatus('');
+    let cancel = true;
+    if (cancel) {
+      setStatus(addQuestionStatus[addQuestionStatus.length - 1]?.status);
+    }
+    const timer = setTimeout(() => {
+      setStatus('');
     }, 3000);
+    return () => {
+      cancel = false;
+      clearTimeout(timer);
+    };
   }, [addQuestionStatus]);
 
   return (

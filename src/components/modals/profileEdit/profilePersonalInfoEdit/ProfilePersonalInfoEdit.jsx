@@ -26,10 +26,18 @@ function ProfileSetting({ open, setOpen }) {
   );
 
   useEffect(() => {
-    setStatus(editProfileStatus[editProfileStatus.length - 1]);
-    setTimeout(() => {
+    let cancel = true;
+    if (cancel) {
+      setStatus(editProfileStatus[editProfileStatus.length - 1]);
+    }
+    const timer = setTimeout(() => {
       return setStatus([]);
     }, 3000);
+
+    return () => {
+      cancel = false;
+      clearTimeout(timer);
+    };
   }, [editProfileStatus]);
 
   return (

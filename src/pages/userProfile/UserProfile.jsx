@@ -45,15 +45,23 @@ function UserProfile() {
   );
 
   useEffect(() => {
-    setPicStatus(editProfilePicStatus[editProfilePicStatus.length - 1]);
-    setCloudinaryStatus(
-      uploadPicCloudinaryStatus[uploadPicCloudinaryStatus.length - 1]?.status,
-    );
+    let cancel = true;
+    if (cancel) {
+      setPicStatus(editProfilePicStatus[editProfilePicStatus.length - 1]);
+      setCloudinaryStatus(
+        uploadPicCloudinaryStatus[uploadPicCloudinaryStatus.length - 1]?.status,
+      );
+    }
 
-    return setTimeout(() => {
+    const timer = setTimeout(() => {
       setPicStatus([]);
       setCloudinaryStatus([]);
     }, 3000);
+
+    return () => {
+      cancel = false;
+      clearTimeout(timer);
+    };
   }, [editProfilePicStatus, uploadPicCloudinaryStatus]);
 
   return (
