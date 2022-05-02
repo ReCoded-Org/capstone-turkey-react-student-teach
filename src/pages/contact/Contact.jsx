@@ -140,7 +140,10 @@ function Contact() {
           </div>
         </div>
         <section className="text-gray-600 body-font ml-[50px]">
-          <div id="map" className="inset-0 flex flex-row justify-center">
+          <div
+            id="map"
+            className="inset-0 flex flex-row justify-center shadow-black"
+          >
             <MapContainer
               center={[39.9035662, 32.4825694]}
               zoom={4}
