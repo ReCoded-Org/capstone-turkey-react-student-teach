@@ -55,20 +55,58 @@ exports[`Render when text of no HomeContent found removes 1`] = `
           </svg>
         </div>
         <button
-          className="w-[16rem] h-auto text-base border border-transparent text-white  hover:bg-white rounded-md px-5 py-3 hover:text-primary-color hover:border-primary-color bg-primary-color border-primary-color"
+          className="w-[16rem] h-auto border border-transparent text-white  hover:bg-white rounded-md px-5 py-3 hover:text-primary-color hover:border-primary-color bg-primary-color border-primary-color"
           onClick={[Function]}
           type="button"
         >
-          Ask Question +
+          Ask Question
+          <svg
+            className="inline-block font-thin ml-1 mb-[2px]"
+            fill="currentColor"
+            height="1em"
+            stroke="currentColor"
+            strokeWidth="0"
+            style={
+              Object {
+                "color": undefined,
+              }
+            }
+            viewBox="0 0 448 512"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
+            />
+          </svg>
         </button>
       </div>
     </section>
     <button
-      className=" lg:hidden mt-5 text-xs bg-orange rounded-md  w-[10rem] h-[2.5rem] text-[#FFFFFF] "
+      className=" lg:hidden mt-5 bg-orange rounded-md  w-[10rem] h-[3rem] text-[#FFFFFF] "
       onClick={[Function]}
       type="button"
     >
-      Ask Question +
+      Ask Question
+      <svg
+        className="inline-block font-thin ml-1 mb-[2px]"
+        fill="currentColor"
+        height="1em"
+        stroke="currentColor"
+        strokeWidth="0"
+        style={
+          Object {
+            "color": undefined,
+          }
+        }
+        viewBox="0 0 448 512"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
+        />
+      </svg>
     </button>
     <div
       className="mt-32 md:mr-7 lg:mr-10 pb-10"

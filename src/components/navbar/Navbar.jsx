@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { VscChromeClose } from 'react-icons/vsc';
 import { FaPlus } from 'react-icons/fa';
+import { RiLogoutCircleLine } from 'react-icons/ri';
 import { useDispatch, useSelector } from 'react-redux';
 import { logoFullScreen, logoMobileScreen } from '../../assets/logo/Logo';
 import {
@@ -43,7 +44,7 @@ function Navbar() {
         darkMode ? 'bg-cusOrange' : 'bg-white'
       } ${darkMode ? 'text-primaryDark' : 'text-black'} shadow-sm  `}
     >
-      <div className="flex flex-row-reverse justify-around items-center w-screen  ">
+      <div className="flex flex-row-reverse justify-around items-center w-[100%]">
         <div>
           {burger ? (
             <GiHamburgerMenu
@@ -64,7 +65,7 @@ function Navbar() {
         <div className="inline-block lg:hidden">
           <button
             type="button"
-            className={`text-sm rounded-md whitespace-nowrap border border-transparent text-white py-2 w-[8rem] ${
+            className={`text-sm mr-2 rounded-md whitespace-nowrap border border-transparent text-white py-2 w-[8rem] ${
               darkMode ? 'hover:text-cusOrange' : 'hover:text-primary-color'
             } ${
               darkMode ? 'hover:border-white' : 'hover:border-primary-color'
@@ -74,7 +75,7 @@ function Navbar() {
             onClick={() => setAddQuestionModal(true)}
           >
             Ask Question
-            <FaPlus className="inline-block ml-1" />
+            <FaPlus className="inline-block font-thin ml-1 mb-[2px]" />
           </button>
         </div>
         <Link to={HOME_ROUTE}>{logoMobileScreen}</Link>
@@ -89,8 +90,11 @@ function Navbar() {
           burger ? 'hidden' : null
         }`}
       >
+        <div className="block lg:hidden">
+          <UserAuth />
+        </div>
         <div>
-          <ul className="inline-block mt-4 lg:mt-0 lg:text-base lg:flex lg:items-center text-center ">
+          <ul className="inline-block mt-1 lg:mt-0 lg:text-base lg:flex lg:items-center text-center ">
             <Link to={HOME_ROUTE}>{logoFullScreen}</Link>
             <li
               className={`mb-3 border-b- lg:mb-0 lg:pr-3 text-primaryDark  lg:text-inherit lg:border-r-[1px]  transition-all ease-in-out  text-[1.1rem] ${
@@ -140,7 +144,7 @@ function Navbar() {
         <div className="hidden mt-5 lg:mt-0 lg:mr-[6rem] lg:inline-block">
           <button
             type="button"
-            className={`text-sm mr-10 p-[7px] rounded-md whitespace-nowrap border border-transparent  px-5 py-3 w-[10rem] xs:justify-center xs:align-middle ${
+            className={`text-sm  p-[7px] rounded-md whitespace-nowrap border border-transparent  px-5 py-3 w-[10rem] xs:justify-center xs:align-middle ${
               darkMode ? 'text-white' : 'text-cusOrange'
             } ${darkMode ? 'bg-cusOrange' : 'bg-white'} ${
               darkMode ? 'hover:text-cusOrange' : 'hover:text-primary-color'
@@ -154,7 +158,7 @@ function Navbar() {
             onClick={() => setAddQuestionModal(true)}
           >
             Ask Question
-            <FaPlus className="inline-block ml-1" />
+            <FaPlus className="inline-block ml-1 mb-[2px]" />
           </button>
         </div>
         <div className="flex flex-col-reverse lg:flex lg:flex-row lg:item-center lg:h-10 ">
@@ -177,15 +181,17 @@ function Navbar() {
               </div>
             </label>
           </div>
-          <div className="lg:flex lg:items-center lg:justify-center text-primaryDark lg:text-inherit lg:text-lg flex justify-center items-center lg:mt-1 lg:ml-0 ">
-            <UserAuth />
+          <div className="lg:flex lg:items-center lg:justify-center text-primaryDark lg:text-inherit lg:text-lg flex flex-col justify-around items-center lg:mt-1 lg:ml-0 w-[100wh] ">
             <li
-              className={`ml-5 border-l-2 border-secondaryDark pr-[2.9rem] pl-5 lg:px-0 lg:m-0 transition-all ease-in-out list-none ${
+              className={`lg:px-0 lg:m-0 transition-all ease-in-out list-none self-center mt-3 ${
                 darkMode ? 'hover:text-black' : 'lg:hover:text-cusOrange'
               }`}
             >
+              <div className="hidden lg:block">
+                <UserAuth />
+              </div>
               <div
-                className={`text-white ${
+                className={`text-white  ${
                   isSuccess === 'success' ||
                   signIn.signUp.status === 'success' ||
                   isUser.firstName ||
@@ -195,12 +201,12 @@ function Navbar() {
                 }`}
               >
                 <button
-                  className="block text-red-700 lg:hidden"
+                  className="block text-red-700 lg:hidden "
                   type="button"
                   aria-hidden
                   onClick={() => setSignOutOpen(true)}
                 >
-                  Sign Out
+                  <RiLogoutCircleLine className="text-primaryDark h-8 w-8 " />
                 </button>
               </div>
             </li>

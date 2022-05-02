@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Navbar snapshot 1`] = `
+exports[`Contact page snapshot 1`] = `
 <div
   className="lg:flex lg:flex-row-reverse lg:justify-end lg:w-[100%] lg:text-base md:text-base text-sm"
 >

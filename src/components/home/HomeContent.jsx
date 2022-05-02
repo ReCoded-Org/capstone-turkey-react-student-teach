@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
+import { FaPlus } from 'react-icons/fa';
 import Question from './Question';
 import allQuestions from './questions.json';
 import AddQuestion from '../modals/AddQuestion/AddQuestion';
@@ -55,7 +56,7 @@ function HomeContent() {
             />
             <button
               type="button"
-              className={`w-[16rem] h-auto text-base border border-transparent text-white  hover:bg-white rounded-md px-5 py-3 ${
+              className={`w-[16rem] h-auto border border-transparent text-white  hover:bg-white rounded-md px-5 py-3 ${
                 darkMode ? 'hover:text-cusOrange' : 'hover:text-primary-color'
               } ${
                 darkMode ? 'hover:border-white' : 'hover:border-primary-color'
@@ -64,16 +65,18 @@ function HomeContent() {
               }`}
               onClick={() => setAddQuestionModal(true)}
             >
-              Ask Question +
+              Ask Question
+              <FaPlus className="inline-block font-thin ml-1 mb-[2px]" />
             </button>
           </div>
         </section>
         <button
           type="button"
-          className=" lg:hidden mt-5 text-xs bg-orange rounded-md  w-[10rem] h-[2.5rem] text-[#FFFFFF] "
+          className=" lg:hidden mt-5 bg-orange rounded-md  w-[10rem] h-[3rem] text-[#FFFFFF] "
           onClick={() => setAddQuestionModal(true)}
         >
-          Ask Question +
+          Ask Question
+          <FaPlus className="inline-block font-thin ml-1 mb-[2px]" />
         </button>
         <div className="mt-32 md:mr-7 lg:mr-10 pb-10">
           {question?.map((q) => (

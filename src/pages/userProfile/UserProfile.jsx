@@ -117,7 +117,7 @@ function UserProfile() {
                 onClick={() => setOpen(true)}
                 className="place-self-end mr-3 p-1 text-2xl lg:text-3xl  rounded-full text-cusOrange cursor-pointer hover:bg-cusOrange hover:text-white hover:opacity-90 ease-in-out transition-all duration-300 absolute top-[-.6rem]"
               />
-              <h1 className="mt-10 font-semibold text-xl">
+              <h1 className="mt-5 font-semibold text-xl">
                 {formattedFirstName || formattedFirstNameSignUp}{' '}
                 {formattedLastName || formattedLastSignUp}
               </h1>
