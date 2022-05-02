@@ -21,7 +21,10 @@ import SignOut from '../modals/signOut/SignOut';
 import CheckAuth from '../modals/checkAuth/CheckAuth';
 
 function Navbar({ onBurgerClick }) {
-  const [dark, setDark] = useState(false);
+  const darkModeStorage = localStorage.getItem('darkMode')
+    ? JSON.parse(localStorage.getItem('darkMode'))
+    : {};
+  const [dark, setDark] = useState(true && darkModeStorage);
   const [burger, setBurger] = useState(true);
   const [addQuestionModal, setAddQuestionModal] = useState(false);
   const [signOutOpen, setSignOutOpen] = useState(false);
@@ -31,6 +34,7 @@ function Navbar({ onBurgerClick }) {
   const isSuccess = signIn.user.status;
   const isUser = signIn.user.userInfo;
   const isUserSignedUp = signIn.signUp.isSignedUp;
+  localStorage.setItem('darkMode', JSON.stringify(dark));
 
   useEffect(() => {
     dispatch(setDarkMode(dark));
@@ -171,8 +175,10 @@ function Navbar({ onBurgerClick }) {
                   onClick={() => setDark(!dark)}
                   id="toggleB"
                   className="sr-only"
+                  checked={dark || false}
+                  readOnly
                 />
-                <div className="bgColor block border-[2px] rounded-md  border-cusOrange w-[4rem] h-6 lg:border-[1px] lg:w-[3rem]  " />
+                <div className=" block border-[2px] rounded-md  border-cusOrange w-[4rem] h-6 lg:border-[1px] lg:w-[3rem] bgColor" />
                 <div className="dot left-1 top-1 bg-no-repeat w-9 h-4 rounded-3xl lg:w-6 transition absolute lg:top-3 " />
               </div>
             </label>

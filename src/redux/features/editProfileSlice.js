@@ -29,7 +29,7 @@ export const editProfile = createAsyncThunk(
 const editProfileSlice = createSlice({
   name: 'question-post',
   initialState: {
-    message: '',
+    message: [],
     error: '',
     status: null,
   },
@@ -39,7 +39,7 @@ const editProfileSlice = createSlice({
     },
     [editProfile.fulfilled]: (state, { payload }) => {
       state.status = 'success';
-      state.message = payload;
+      state.message.push(payload);
     },
     [editProfile.rejected]: (state, { payload }) => {
       state.status = 'failed';

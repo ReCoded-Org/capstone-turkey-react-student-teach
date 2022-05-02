@@ -26,7 +26,7 @@ function Contact() {
       <section
         className={`h-screen lg:h-[93vh] flex flex-col justify-center items-center lg:w-[100%]  ${
           darkMode ? 'text-white' : 'text-black'
-        }  ${darkMode ? 'bg-primaryDark' : 'bg-white'}`}
+        }  ${darkMode ? 'bg-primaryDark' : 'bg-zinc-100'}`}
       >
         <h1 className="mb-10 font-semibold text-2xl md:text-3xl lg:text-[2.3rem] lg:mb-[3.5]">
           Level up Your brand

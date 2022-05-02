@@ -3,6 +3,7 @@ import { FaSpinner } from 'react-icons/fa';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
+import { useState, useEffect } from 'react';
 import FormField from '../../../FormField/FormField';
 import Modal from '../../Modal/Modal';
 import { editProfile } from '../../../../redux/features/editProfileSlice';
@@ -13,11 +14,22 @@ const ContactSchema = Yup.object().shape({
   email: Yup.string().email(),
 });
 function ProfileSetting({ open, setOpen }) {
+  const [status, setStatus] = useState([]);
   const dispatch = useDispatch();
   const userInfoSignedIn = useSelector((state) => state.signIn.user.userInfo);
   const userInfoSignedUp = useSelector(
     (state) => state.signIn.signUp.isSignedUp,
   );
+  const editProfileStatus = useSelector(
+    (state) => state.editProfileReducer.message,
+  );
+
+  useEffect(() => {
+    setStatus(editProfileStatus[editProfileStatus.length - 1]);
+    setTimeout(() => {
+      return setStatus([]);
+    }, 3000);
+  }, [editProfileStatus]);
 
   return (
     <Modal label="Update information" open={open} setOpen={setOpen}>
@@ -31,32 +43,32 @@ function ProfileSetting({ open, setOpen }) {
             }}
             validationSchema={ContactSchema}
             onSubmit={(values, { setSubmitting, resetForm }) => {
+              dispatch(
+                editProfile({
+                  editFirstName:
+                    values.firstName.length !== 0
+                      ? values.firstName
+                      : userInfoSignedIn?.firstName ||
+                        userInfoSignedUp?.firstName,
+                  editLastName:
+                    values.lastName.length !== 0
+                      ? values.lastName
+                      : userInfoSignedIn?.lastName ||
+                        userInfoSignedUp?.lastName,
+                  editEmail:
+                    values.email.length !== 0
+                      ? values.email
+                      : userInfoSignedIn?.email || userInfoSignedUp?.email,
+                  pic: userInfoSignedIn?.avatar || userInfoSignedUp?.avatar,
+                  id: userInfoSignedIn?.id || userInfoSignedUp?.id,
+                  jwt: userInfoSignedIn?.token || userInfoSignedUp?.token,
+                }),
+              );
               setTimeout(() => {
-                dispatch(
-                  editProfile({
-                    editFirstName:
-                      values.firstName.length !== 0
-                        ? values.firstName
-                        : userInfoSignedIn?.firstName ||
-                          userInfoSignedUp?.firstName,
-                    editLastName:
-                      values.lastName.length !== 0
-                        ? values.lastName
-                        : userInfoSignedIn?.lastName ||
-                          userInfoSignedUp?.lastName,
-                    editEmail:
-                      values.email.length !== 0
-                        ? values.email
-                        : userInfoSignedIn?.email || userInfoSignedUp?.email,
-                    pic: userInfoSignedIn?.avatar || userInfoSignedUp?.avatar,
-                    id: userInfoSignedIn?.id || userInfoSignedUp?.id,
-                    jwt: userInfoSignedIn?.token || userInfoSignedUp?.token,
-                  }),
-                );
                 setSubmitting(false);
                 setOpen(false);
                 resetForm();
-              }, 1000);
+              }, 1500);
             }}
           >
             {({
@@ -74,7 +86,7 @@ function ProfileSetting({ open, setOpen }) {
                   name="firstName"
                   touched={touched}
                   type="text"
-                  placeholder="Your Name"
+                  placeholder="Your first name"
                 />
                 <FormField
                   autoComplete="lastName"
@@ -84,7 +96,7 @@ function ProfileSetting({ open, setOpen }) {
                   name="lastName"
                   touched={touched}
                   type="text"
-                  placeholder="You@company.com"
+                  placeholder="Your last name"
                 />
 
                 <FormField
@@ -95,8 +107,21 @@ function ProfileSetting({ open, setOpen }) {
                   name="email"
                   touched={touched}
                   type="email"
-                  placeholder="Your Email"
+                  placeholder="You@company.com"
                 />
+                {status?.message ? (
+                  <h1 className="text-center text-green-500">
+                    Updated Successfuly
+                  </h1>
+                ) : (
+                  ''
+                )}
+
+                {status?.error ? (
+                  <h1 className="text-center text-red-500">Failed to update</h1>
+                ) : (
+                  ''
+                )}
                 <div className="w-full mt-5">
                   {isSubmitting ? (
                     <button

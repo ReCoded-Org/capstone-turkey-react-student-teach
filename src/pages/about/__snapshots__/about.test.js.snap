@@ -1,7 +1,466 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Navbar snapshot 1`] = `
-<div>
-  About
+<div
+  className="bg-white text-black pb-10 lg:pb-[5rem]"
+>
+  <div
+    className="max-w-6xl container mx-auto px-2 md:px-2 lg:px-2 grid items-center pt-14 "
+  >
+    <div
+      className="flex flex-col lg:flex-row items-center justify-center pb-10"
+    >
+      <div
+        className="flex flex-col text-center lg:text-left pb-10 lg:mb-0"
+      >
+        <h2
+          className="text-2xl font-color-primary-color items-baseline text-primary-color font-bold mb-4"
+        >
+          Who We Are
+        </h2>
+        <p
+          className="leading-relaxed lg:text-xl"
+        >
+          We are a group of 5 people who gathered to develop our\`skills through React.js. There are some students, working proffesionals and also people who are looking for their new journeys through React.js in the group, however, aim is always to master at React.js. Different skills and backgrounds yielded Studenteach. A lot of time is spent to launch it. We also sharpened our soft skills of communication and collaboration beside developing our coding skills. Finally, Studenteach is out.
+        </p>
+      </div>
+      <img
+        alt="hands reaching each other"
+        className="self-center lg:w-[500px] lg:h-[300px] md:w-[300px] md:h-[200px] lg:ml-[4rem]"
+        src="about.png"
+      />
+    </div>
+    <h2
+      className="font-medium text-2xl md:text-3xl lg:text-4xl mb-4 font-heading text-cusOrange text-center"
+    >
+      Team
+    </h2>
+    <hr
+      style={
+        Object {
+          "color": "var(--primary-color)",
+          "height": 12,
+        }
+      }
+    />
+    <div
+      className="grid sm:grid-cols-2 sm:gap-12 md:grid-cols-2 md:gap-12 mx-auto lg:grid-cols-3 lg:gap-12 xl:gap-18"
+    >
+      <div
+        className="max-w-md bg-white rounded overflow-hidden border-gray-200 shadow-md   my-4 grid content-center"
+      >
+        <img
+          alt="profilePicture"
+          className="object-center w-[305px] h-[300px]"
+          src="pp-enes.png"
+        />
+        <div
+          className="p-2  w-full object-fit bg-zinc-100"
+        >
+          <p
+            className="mb-3 font-normal  text-sm dark:text-gray-400"
+          >
+            <span
+              className="text-gray-400 font-medium text-sm"
+            >
+              Name: 
+            </span>
+            Suat Enes Koç
+          </p>
+          <p
+            className="mb-3 font-normal  text-sm dark:text-gray-400"
+          >
+            <span
+              className="text-gray-400 font-medium text-sm"
+            >
+              Title: 
+            </span>
+            Front-end Developer
+          </p>
+          <p
+            className="mb-3 font-normal  text-sm dark:text-gray-400"
+          >
+            <span
+              className="text-gray-400 font-medium text-sm"
+            >
+              Email Address:
+            </span>
+            suateneskoc@gmail.com
+          </p>
+          <div
+            className="flex flex-row justify-start"
+          >
+            <a
+              className="mr-1"
+              href="https://github.com/suateneskoc"
+            >
+              <img
+                alt="logo of github"
+                height={18}
+                src="github-logo.png"
+                width={18}
+              />
+            </a>
+            <a
+              className="ml-1"
+              href="https://www.linkedin.com/in/suateneskoc/"
+            >
+              <img
+                alt="logo of linkedin"
+                height={18}
+                src="linkedin-logo.png"
+                width={18}
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        className="max-w-md bg-white rounded overflow-hidden border-gray-200 shadow-md   my-4 grid content-center"
+      >
+        <img
+          alt="profilePicture"
+          className="object-center w-[305px] h-[300px]"
+          src="pp-hazar.png"
+        />
+        <div
+          className="p-2  w-full object-fit bg-zinc-100"
+        >
+          <p
+            className="mb-3 font-normal  text-sm dark:text-gray-400"
+          >
+            <span
+              className="text-gray-400 font-medium text-sm"
+            >
+              Name: 
+            </span>
+            Hazar Can Nas
+          </p>
+          <p
+            className="mb-3 font-normal  text-sm dark:text-gray-400"
+          >
+            <span
+              className="text-gray-400 font-medium text-sm"
+            >
+              Title: 
+            </span>
+            Front-end Developer
+          </p>
+          <p
+            className="mb-3 font-normal  text-sm dark:text-gray-400"
+          >
+            <span
+              className="text-gray-400 font-medium text-sm"
+            >
+              Email Address:
+            </span>
+            hazarcan.nas@gmail.com
+          </p>
+          <div
+            className="flex flex-row justify-start"
+          >
+            <a
+              className="mr-1"
+              href="https://github.com/hazar-nas"
+            >
+              <img
+                alt="logo of github"
+                height={18}
+                src="github-logo.png"
+                width={18}
+              />
+            </a>
+            <a
+              className="ml-1"
+              href="https://www.linkedin.com/in/hazarcan-nas/"
+            >
+              <img
+                alt="logo of linkedin"
+                height={18}
+                src="linkedin-logo.png"
+                width={18}
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        className="max-w-md bg-white rounded overflow-hidden border-gray-200 shadow-md   my-4 grid content-center"
+      >
+        <img
+          alt="profilePicture"
+          className="object-center w-[305px] h-[300px]"
+          src="pp-yusuf.png"
+        />
+        <div
+          className="p-2  w-full object-fit bg-zinc-100"
+        >
+          <p
+            className="mb-3 font-normal  text-sm dark:text-gray-400"
+          >
+            <span
+              className="text-gray-400 font-medium text-sm"
+            >
+              Name: 
+            </span>
+            Muhammed Yusuf Adıyaman
+          </p>
+          <p
+            className="mb-3 font-normal  text-sm dark:text-gray-400"
+          >
+            <span
+              className="text-gray-400 font-medium text-sm"
+            >
+              Title: 
+            </span>
+            Front-end Developer
+          </p>
+          <p
+            className="mb-3 font-normal  text-sm dark:text-gray-400"
+          >
+            <span
+              className="text-gray-400 font-medium text-sm"
+            >
+              Email Address:
+            </span>
+            myusufadiyaman@gmail.com
+          </p>
+          <div
+            className="flex flex-row justify-start"
+          >
+            <a
+              className="mr-1"
+              href="www.github.com/muhammed-yusuf-adiyaman"
+            >
+              <img
+                alt="logo of github"
+                height={18}
+                src="github-logo.png"
+                width={18}
+              />
+            </a>
+            <a
+              className="ml-1"
+              href="https://www.linkedin.com/in/muhammed-yusuf-adiyaman/"
+            >
+              <img
+                alt="logo of linkedin"
+                height={18}
+                src="linkedin-logo.png"
+                width={18}
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        className="max-w-md bg-white rounded overflow-hidden border-gray-200 shadow-md   my-4 grid content-center"
+      >
+        <img
+          alt="profilePicture"
+          className="object-center w-[305px] h-[300px]"
+          src="pp-ali.png"
+        />
+        <div
+          className="p-2  w-full object-fit bg-zinc-100"
+        >
+          <p
+            className="mb-3 font-normal  text-sm dark:text-gray-400"
+          >
+            <span
+              className="text-gray-400 font-medium text-sm"
+            >
+              Name: 
+            </span>
+            Ali Saleh
+          </p>
+          <p
+            className="mb-3 font-normal  text-sm dark:text-gray-400"
+          >
+            <span
+              className="text-gray-400 font-medium text-sm"
+            >
+              Title: 
+            </span>
+            Front-end Developer
+          </p>
+          <p
+            className="mb-3 font-normal  text-sm dark:text-gray-400"
+          >
+            <span
+              className="text-gray-400 font-medium text-sm"
+            >
+              Email Address:
+            </span>
+            iqalisalehiq@gmail.com
+          </p>
+          <div
+            className="flex flex-row justify-start"
+          >
+            <a
+              className="mr-1"
+              href="https://github.com/aliSalehAbdulhadi"
+            >
+              <img
+                alt="logo of github"
+                height={18}
+                src="github-logo.png"
+                width={18}
+              />
+            </a>
+            <a
+              className="ml-1"
+              href="https://www.linkedin.com/in/ali-saleh-85aaba233/"
+            >
+              <img
+                alt="logo of linkedin"
+                height={18}
+                src="linkedin-logo.png"
+                width={18}
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        className="max-w-md bg-white rounded overflow-hidden border-gray-200 shadow-md   my-4 grid content-center"
+      >
+        <img
+          alt="profilePicture"
+          className="object-center w-[305px] h-[300px]"
+          src="pp-oguz.jpg"
+        />
+        <div
+          className="p-2  w-full object-fit bg-zinc-100"
+        >
+          <p
+            className="mb-3 font-normal  text-sm dark:text-gray-400"
+          >
+            <span
+              className="text-gray-400 font-medium text-sm"
+            >
+              Name: 
+            </span>
+            Oğuz Yılmaz
+          </p>
+          <p
+            className="mb-3 font-normal  text-sm dark:text-gray-400"
+          >
+            <span
+              className="text-gray-400 font-medium text-sm"
+            >
+              Title: 
+            </span>
+            Front-end Developer
+          </p>
+          <p
+            className="mb-3 font-normal  text-sm dark:text-gray-400"
+          >
+            <span
+              className="text-gray-400 font-medium text-sm"
+            >
+              Email Address:
+            </span>
+            yilmazoguz@outlook.com
+          </p>
+          <div
+            className="flex flex-row justify-start"
+          >
+            <a
+              className="mr-1"
+              href="www.github.com/oguzdashyilmaz"
+            >
+              <img
+                alt="logo of github"
+                height={18}
+                src="github-logo.png"
+                width={18}
+              />
+            </a>
+            <a
+              className="ml-1"
+              href="wwww.linkedin.com/in/oguzdashyilmaz"
+            >
+              <img
+                alt="logo of linkedin"
+                height={18}
+                src="linkedin-logo.png"
+                width={18}
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        className="max-w-md bg-white rounded overflow-hidden border-gray-200 shadow-md   my-4 grid content-center"
+      >
+        <img
+          alt="profilePicture"
+          className="object-center w-[305px] h-[300px]"
+          src="pp-muhanned.jpg"
+        />
+        <div
+          className="p-2  w-full object-fit bg-zinc-100"
+        >
+          <p
+            className="mb-3 font-normal  text-sm dark:text-gray-400"
+          >
+            <span
+              className="text-gray-400 font-medium text-sm"
+            >
+              Name: 
+            </span>
+            Muhanned Noman
+          </p>
+          <p
+            className="mb-3 font-normal  text-sm dark:text-gray-400"
+          >
+            <span
+              className="text-gray-400 font-medium text-sm"
+            >
+              Title: 
+            </span>
+            Software Developer
+          </p>
+          <p
+            className="mb-3 font-normal  text-sm dark:text-gray-400"
+          >
+            <span
+              className="text-gray-400 font-medium text-sm"
+            >
+              Email Address:
+            </span>
+            muhanned.noman@gmail.com
+          </p>
+          <div
+            className="flex flex-row justify-start"
+          >
+            <a
+              className="mr-1"
+              href="https://github.com/MuhannedNoman"
+            >
+              <img
+                alt="logo of github"
+                height={18}
+                src="github-logo.png"
+                width={18}
+              />
+            </a>
+            <a
+              className="ml-1"
+              href="https://www.linkedin.com/in/muhannednoman/"
+            >
+              <img
+                alt="logo of linkedin"
+                height={18}
+                src="linkedin-logo.png"
+                width={18}
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;

@@ -27,7 +27,7 @@ const store = configureStore({
   reducer: {
     addQuestionReducer: addQuestionSlice,
     editProfileReducer: editProfileSlice,
-    editProfilePicReudcer: editProfilePicSlice,
+    editProfilePicReducer: editProfilePicSlice,
     darkModeReducer: darkModeSlice,
     fetchAllTutorReducer: fetchAllTutorsSlice,
     uploadPicCloudinaryReducer: uploadPicCloudinarySlice,

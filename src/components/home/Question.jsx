@@ -32,7 +32,7 @@ function Question({ id, profileImage, question, answer, student }) {
           <div className="flex items-center  ">
             <a href="/user-profile">
               <img
-                className=" w-8 sm:w-10 xl:w-16 rounded-full mr-8 sm:mr-10 xl:mr-20"
+                className=" w-8 h-8 sm:w-10 xl:w-16 sm:h-10 xl:h-16 rounded-full mr-8 sm:mr-10 xl:mr-20"
                 src={user?.avatar === undefined ? profileImage : user.avatar}
                 alt="s profile pic"
               />

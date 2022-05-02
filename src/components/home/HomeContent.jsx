@@ -6,9 +6,14 @@ import { fetchQuestions } from '../../redux/features/questionsSlice';
 import AddQuestion from '../modals/AddQuestion/AddQuestion';
 import Hands from '../../assets/hands/Hands';
 import Avatar from '../../assets/images/avatar.jpg';
+import CheckAuth from '../modals/checkAuth/CheckAuth';
 
 function HomeContent() {
   const [addQuestionModal, setAddQuestionModal] = useState(false);
+  const signIn = useSelector((state) => state.signIn);
+  const isSuccess = signIn.user.status;
+  const isUser = signIn.user.userInfo;
+  const isUserSignedUp = signIn.signUp.isSignedUp;
   const allQuestions = useSelector((state) => state.questions);
   const dispatch = useDispatch();
 
@@ -17,7 +22,11 @@ function HomeContent() {
   }, [dispatch]);
   const darkMode = useSelector((state) => state.darkModeReducer.darkMode);
   return (
-    <div className={`${darkMode ? 'bg-secondaryDark' : 'bg-zinc-100 '} pt-5`}>
+    <div
+      className={`${
+        darkMode ? 'bg-secondaryDark' : 'bg-zinc-100 '
+      } pt-5 pb-[5rem]`}
+    >
       <div
         className={` container mx-auto w-full pt-8 rounded-md transition-all ease-in-out duration-300  text-center lg:text-left ${
           darkMode ? 'bg-primaryDark' : 'bg-white'
@@ -53,8 +62,6 @@ function HomeContent() {
               Ask Question +
             </button>
           </div>
-
-          <AddQuestion open={addQuestionModal} setOpen={setAddQuestionModal} />
         </section>
         <button
           type="button"
@@ -63,7 +70,7 @@ function HomeContent() {
         >
           Ask Question +
         </button>
-        <div className="mt-16 md:mr-7 lg:mr-10 pb-10">
+        <div className="mt-32 md:mr-7 lg:mr-10 pb-10">
           {allQuestions.questions
             ?.slice(
               allQuestions.questions.length - 10,
@@ -87,6 +94,18 @@ function HomeContent() {
               />
             ))}
         </div>
+        {isSuccess === 'success' ||
+        signIn.signUp.status === 'success' ||
+        isUser.firstName ||
+        isUserSignedUp.firstName ? (
+          <AddQuestion open={addQuestionModal} setOpen={setAddQuestionModal} />
+        ) : (
+          <CheckAuth
+            label="Sign in to add question."
+            open={addQuestionModal}
+            setOpen={setAddQuestionModal}
+          />
+        )}
       </div>
     </div>
   );

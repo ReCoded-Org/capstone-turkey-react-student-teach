@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { IoSettingsOutline } from 'react-icons/io5';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Image } from 'cloudinary-react';
 import coverPlaceholder from '../../assets/images/coverPlaceholder.jpg';
 import userProfilePlaceholder from '../../assets/images/profilePlaceholer.png';
@@ -8,20 +8,16 @@ import LatestAnswers from '../../components/profile/latestAnswers/LatestAnswers'
 import LatestQuestions from '../../components/profile/latestQuestions/LatestQuestions';
 import ProfileSetting from '../../components/modals/profileEdit/profilePersonalInfoEdit/ProfilePersonalInfoEdit';
 import ProfilePicEdit from '../../components/modals/profileEdit/profilePicEdit/ProfilePicEdit';
-import { fetchAllTutorSlice } from '../../redux/features/fetchAllTutorsSlice';
 
 function UserProfile() {
   const [latestSection, setLatestSection] = useState(false);
   const [open, setOpen] = useState(false);
   const [openPicEdit, setOpenPicEdit] = useState(false);
-  const dispatch = useDispatch();
+  const [picStatus, setPicStatus] = useState([]);
+  const [cloudinaryStatus, setCloudinaryStatus] = useState([]);
   const darkMode = useSelector((state) => state.darkModeReducer.darkMode);
   const avatar = useSelector(
     (state) => state.fetchAllTutorReducer.user?.avatar,
-  );
-  const userSignedIn = useSelector((state) => state.signIn.user.userInfo.id);
-  const userSignedUp = useSelector(
-    (state) => state.signIn.signUp.isSignedUp.id,
   );
   const { firstName } = useSelector((state) => state.signIn.user.userInfo);
   const { lastName } = useSelector((state) => state.signIn.user.userInfo);
@@ -29,16 +25,30 @@ function UserProfile() {
     firstName && firstName.charAt(0).toUpperCase() + firstName.slice(1);
   const formattedLastName =
     lastName && lastName.charAt(0).toUpperCase() + lastName.slice(1);
+  const editProfilePicStatus = useSelector(
+    (state) => state.editProfilePicReducer?.message,
+  );
+  const uploadPicCloudinaryStatus = useSelector(
+    (state) => state.uploadPicCloudinaryReducer?.data,
+  );
 
   useEffect(() => {
-    dispatch(fetchAllTutorSlice({ userId: userSignedIn || userSignedUp }));
-  }, [userSignedIn, userSignedUp, dispatch]);
+    setPicStatus(editProfilePicStatus[editProfilePicStatus.length - 1]);
+    setCloudinaryStatus(
+      uploadPicCloudinaryStatus[uploadPicCloudinaryStatus.length - 1]?.status,
+    );
+
+    return setTimeout(() => {
+      setPicStatus([]);
+      setCloudinaryStatus([]);
+    }, 3000);
+  }, [editProfilePicStatus, uploadPicCloudinaryStatus]);
 
   return (
     <div
       className={`${darkMode ? 'bg-primaryDark' : 'bg-white'}  ${
         darkMode ? 'text-white' : 'text-black'
-      }`}
+      } lg:pb-[5rem]`}
     >
       <section className="min-h-[30vh] pt-10 lg:min-h-[50vh] lg:mx-[0rem] lg:flex lg:justify-center">
         <div>
@@ -69,11 +79,25 @@ function UserProfile() {
             </div>
 
             <div className="flex flex-col justify-center items-center relative">
+              {picStatus?.error && cloudinaryStatus === 400 ? (
+                <h1 className="text-red-500 top-[-5px] absolute">
+                  Failed to update picture
+                </h1>
+              ) : (
+                ''
+              )}
+              {picStatus?.message && cloudinaryStatus === 200 ? (
+                <h1 className="text-green-500 top-[-5px] absolute">
+                  Updated successfully
+                </h1>
+              ) : (
+                ''
+              )}
               <IoSettingsOutline
                 onClick={() => setOpen(true)}
                 className="place-self-end mr-3 p-1 text-2xl lg:text-3xl  rounded-full text-cusOrange cursor-pointer hover:bg-cusOrange hover:text-white hover:opacity-90 ease-in-out transition-all duration-300 absolute top-[-.6rem]"
               />
-              <h1 className="mt-2 font-semibold text-xl">
+              <h1 className="mt-10 font-semibold text-xl">
                 {formattedFirstName} {formattedLastName}
               </h1>
             </div>

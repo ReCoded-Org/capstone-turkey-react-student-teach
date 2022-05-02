@@ -28,7 +28,7 @@ export const editProfilePic = createAsyncThunk(
 const editProfilePicSlice = createSlice({
   name: 'question-post',
   initialState: {
-    message: '',
+    message: [],
     error: '',
     status: null,
   },
@@ -38,7 +38,7 @@ const editProfilePicSlice = createSlice({
     },
     [editProfilePic.fulfilled]: (state, { payload }) => {
       state.status = 'success';
-      state.message = payload;
+      state.message.push(payload);
     },
     [editProfilePic.rejected]: (state, { payload }) => {
       state.status = 'failed';

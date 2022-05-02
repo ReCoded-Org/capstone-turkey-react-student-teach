@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
@@ -7,22 +8,14 @@ import { fetchQuestions } from '../../redux/features/questionsSlice';
 import Avatar from '../../assets/images/avatar.jpg';
 
 const question = () => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const [user, setUser] = useState();
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const { id } = useParams();
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const data = useSelector(
-    // eslint-disable-next-line no-underscore-dangle
-    (state) => state.questions.questions,
-  );
+  const data = useSelector((state) => state.questions.questions);
   // eslint-disable-next-line no-underscore-dangle
   const ques = data.filter((q) => q._id === id);
 
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const dispatch = useDispatch();
 
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     dispatch(fetchQuestions());
     const fetchData = async () => {

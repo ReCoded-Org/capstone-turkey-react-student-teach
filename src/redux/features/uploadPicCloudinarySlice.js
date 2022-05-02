@@ -41,7 +41,7 @@ const uploadPicCloudinarySlice = createSlice({
     },
     [uploadPicCloudinary.fulfilled]: (state, { payload }) => {
       state.status = 'success';
-      state.data = payload;
+      state.data.push(payload);
     },
     [uploadPicCloudinary.rejected]: (state, { payload }) => {
       state.status = 'failed';
