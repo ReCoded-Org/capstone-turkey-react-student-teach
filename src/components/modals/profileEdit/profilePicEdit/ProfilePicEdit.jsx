@@ -6,7 +6,6 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Modal from '../../Modal/Modal';
 import { uploadPicCloudinary } from '../../../../redux/features/uploadPicCloudinarySlice';
-// import { editProfile } from '../../../../redux/features/editProfileSlice';
 
 function ProfilePicEdit({ open, setOpen, label }) {
   // eslint-disable-next-line no-unused-vars

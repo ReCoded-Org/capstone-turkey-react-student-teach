@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import './App.css';
 import Navbar from './components/navbar/Navbar';
 import Home from './pages/Home/Home';
@@ -18,15 +18,26 @@ import {
   HOME_ROUTE,
   USERPROFILE_ROUTE,
 } from './routes';
+import { fetchAllTutorSlice } from './redux/features/fetchAllTutorsSlice';
 
 function App() {
+  const userSignedIn = useSelector((state) => state.signIn.user.userInfo.id);
+  const userSignedUp = useSelector(
+    (state) => state.signIn.signUp.isSignedUp.id,
+  );
   const [burger, setBurger] = useState(true);
   const [timeOut, setTimeOut] = useState(false);
+  const dispatch = useDispatch();
+
   useEffect(() => {
     setInterval(() => {
       return setTimeOut(true);
     }, 5000);
   }, [timeOut]);
+
+  useEffect(() => {
+    dispatch(fetchAllTutorSlice({ userId: userSignedIn || userSignedUp }));
+  }, [userSignedIn, userSignedUp, dispatch]);
 
   const signIn = useSelector((state) => state.signIn);
   const isSuccess = signIn.user.status;

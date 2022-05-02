@@ -5,6 +5,8 @@ import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { FaSpinner } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
+
+import { useEffect, useState } from 'react';
 import Modal from '../Modal/Modal';
 import FormField from '../../FormField/FormField';
 import { addQuestion } from '../../../redux/features/addQuestionSlice';
@@ -15,11 +17,22 @@ const SignInSchema = Yup.object().shape({
 });
 
 function AddQuestion({ open, setOpen }) {
+  const [status, setStatus] = useState([]);
   const dispatch = useDispatch();
   const signInToken = useSelector((state) => state.signIn.user.userInfo.token);
   const signUpToken = useSelector(
     (state) => state.signIn.signUp.isSignedUp.token,
   );
+  const addQuestionStatus = useSelector(
+    (state) => state.addQuestionReducer.message,
+  );
+  useEffect(() => {
+    setStatus(addQuestionStatus[addQuestionStatus.length - 1]?.status);
+    setTimeout(() => {
+      return setStatus([]);
+    }, 3000);
+  }, [addQuestionStatus]);
+
   return (
     <Modal label="Ask your question" open={open} setOpen={setOpen}>
       <Formik
@@ -29,18 +42,18 @@ function AddQuestion({ open, setOpen }) {
         }}
         validationSchema={SignInSchema}
         onSubmit={(values, { setSubmitting, resetForm }) => {
+          dispatch(
+            addQuestion({
+              questionTitle: values.title,
+              questionContnet: values.question,
+              jwt: signInToken || signUpToken,
+            }),
+          );
           setTimeout(() => {
-            dispatch(
-              addQuestion({
-                questionTitle: values.title,
-                questionContnet: values.question,
-                jwt: signInToken || signUpToken,
-              }),
-            );
             setSubmitting(false);
             resetForm();
             setOpen(false);
-          }, 1000);
+          }, 1500);
         }}
       >
         {({
@@ -69,6 +82,12 @@ function AddQuestion({ open, setOpen }) {
               type="textarea"
               placeholder="Question content"
             />
+            {status === 201 ? (
+              <h1 className="text-center text-green-500">Posted successfuly</h1>
+            ) : null}
+            {status === 403 || status === 422 ? (
+              <h1 className="text-center text-red-500">Failed to post</h1>
+            ) : null}
 
             <div className="flex justify-between items-center mt-7">
               {isSubmitting ? (
