@@ -141,10 +141,10 @@ function Navbar() {
           </ul>
         </div>
 
-        <div className="hidden mt-5 lg:mt-0 lg:mr-[6rem] lg:inline-block">
+        <div className="hidden mr-[3rem] lg:flex">
           <button
             type="button"
-            className={`text-sm  p-[7px] rounded-md whitespace-nowrap border border-transparent  px-5 py-3 w-[10rem] xs:justify-center xs:align-middle ${
+            className={`text-sm p-[7px] rounded-md whitespace-nowrap border border-transparent   px-5 py-3 w-[10rem]  ${
               darkMode ? 'text-white' : 'text-cusOrange'
             } ${darkMode ? 'bg-cusOrange' : 'bg-white'} ${
               darkMode ? 'hover:text-cusOrange' : 'hover:text-primary-color'
