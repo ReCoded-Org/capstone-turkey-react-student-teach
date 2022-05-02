@@ -31,7 +31,7 @@ export const addQuestion = createAsyncThunk(
 const addQuestionSlice = createSlice({
   name: 'question-post',
   initialState: {
-    message: '',
+    message: [],
     error: '',
     status: null,
   },
@@ -41,7 +41,7 @@ const addQuestionSlice = createSlice({
     },
     [addQuestion.fulfilled]: (state, { payload }) => {
       state.status = 'success';
-      state.message = payload;
+      state.message.push(payload);
     },
     [addQuestion.rejected]: (state, { payload }) => {
       state.status = 'failed';

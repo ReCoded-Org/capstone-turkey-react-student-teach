@@ -5,10 +5,16 @@ import Question from './Question';
 import allQuestions from './questions.json';
 import AddQuestion from '../modals/AddQuestion/AddQuestion';
 import Hands from '../../assets/hands/Hands';
+import CheckAuth from '../modals/checkAuth/CheckAuth';
 
 function HomeContent() {
   const [addQuestionModal, setAddQuestionModal] = useState(false);
   const [question, setQuestion] = useState();
+  const signIn = useSelector((state) => state.signIn);
+  const isSuccess = signIn.user.status;
+  const isUser = signIn.user.userInfo;
+  const isUserSignedUp = signIn.signUp.isSignedUp;
+
   useEffect(() => {
     setQuestion(allQuestions.allQuestions);
   }, [question]);
@@ -55,8 +61,6 @@ function HomeContent() {
               Ask Question +
             </button>
           </div>
-
-          <AddQuestion open={addQuestionModal} setOpen={setAddQuestionModal} />
         </section>
         <button
           type="button"
@@ -76,6 +80,18 @@ function HomeContent() {
             />
           ))}
         </div>
+        {isSuccess === 'success' ||
+        signIn.signUp.status === 'success' ||
+        isUser.firstName ||
+        isUserSignedUp.firstName ? (
+          <AddQuestion open={addQuestionModal} setOpen={setAddQuestionModal} />
+        ) : (
+          <CheckAuth
+            label="Sign in to add question."
+            open={addQuestionModal}
+            setOpen={setAddQuestionModal}
+          />
+        )}
       </div>
     </div>
   );
