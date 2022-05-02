@@ -10,6 +10,7 @@ import {
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { useSelector } from 'react-redux';
+import { MapContainer, TileLayer, Popup, Marker } from 'react-leaflet';
 import FormField from '../../components/FormField/FormField';
 
 const ContactSchema = Yup.object().shape({
@@ -17,6 +18,7 @@ const ContactSchema = Yup.object().shape({
   email: Yup.string().max(24).required(),
   message: Yup.string(),
 });
+
 function Contact() {
   const darkMode = useSelector((state) => state.darkModeReducer.darkMode);
 
@@ -83,54 +85,11 @@ function Contact() {
                 type="textarea"
                 placeholder="Tell us about your project"
               />
-              <h1 className="text-left font-medium">Services</h1>
-              <div className="flex my-5 w-max lg:ml-5">
-                <div className="flex flex-col items-start mr-5 w-max">
-                  <FormField
-                    className="contact-checkbox-field"
-                    errors={errors}
-                    name="service"
-                    label="Web Design"
-                    value="WebDesign"
-                    id="WebDesign"
-                    type="checkbox"
-                  />
-                  <FormField
-                    className="contact-checkbox-field"
-                    errors={errors}
-                    name="service"
-                    label="Content Creation"
-                    value="ContentCreation"
-                    id="UxDesgin"
-                    type="checkbox"
-                  />
-                </div>
-                <div className="flex flex-col items-start w-max">
-                  <FormField
-                    className="contact-checkbox-field"
-                    errors={errors}
-                    name="service"
-                    label="UX Desgin"
-                    value="UxDesgin"
-                    id="UxDesgin"
-                    type="checkbox"
-                  />
-                  <FormField
-                    className="contact-checkbox-field"
-                    errors={errors}
-                    name="service"
-                    label="Other"
-                    value="Other"
-                    id="UxDesgin"
-                    type="checkbox"
-                  />
-                </div>
-              </div>
 
               {isSubmitting ? (
                 <button
                   type="submit"
-                  className="text-lg bg-cusOrange text-white rounded pl-10 pr-5 py-2 mb-10 lg:mb-0 relative"
+                  className="text-lg bg-primary-color text-white rounded pl-10 pr-5 py-2 mb-10 lg:mb-0 relative"
                   disabled
                 >
                   <FaSpinner className="animate-spin h-5 text-white mr-[4rem] lg:mr-[6rem] absolute right-[7rem] top-[0.8rem]" />
@@ -139,7 +98,7 @@ function Contact() {
               ) : (
                 <button
                   type="submit"
-                  className="text-lg text-gray-100 bg-cusOrange transition rounded px-8 py-2 mb-10 lg:mb-0 hover:scale-110 ease-in-out"
+                  className="text-lg text-gray-100 bg-primary-color transition rounded px-8 py-2 mb-10 lg:mb-0 hover:scale-110 ease-in-out"
                 >
                   Submit
                 </button>
@@ -149,8 +108,8 @@ function Contact() {
         </Formik>
       </section>
 
-      <section className="bg-cusOrange pt-10 md:h-3/4 lg:h-[93vh] lg:pt-0 lg:flex lg:flex-col lg:items-start lg:pr-[2rem]">
-        <div className="p-4 flex flex-col items-center text-center lg:flex lg:items-start lg:mt-[5rem] lg:text-left lg:ml-10">
+      <section className="bg-primary-color pt-10 md:h-3/4 lg:h-3/4 lg:pt-0 lg:flex lg:flex-col lg:items-start lg:pr-[2rem]">
+        <div className="p-4 flex flex-col items-center text-center lg:flex lg:items-start lg:mt-[3rem] lg:text-left lg:ml-10">
           <h1 className="font-bold lg:text-xl">Get in touch</h1>
           <h4 className="mt-2 lg:mt-1">
             We love to hear from you,
@@ -164,7 +123,7 @@ function Contact() {
           </div>
           <div className="lg:flex lg:flex-col lg:items-start">
             <h2 className="font-bold ml-2 lg:m-0 lg:block hidden">Email</h2>
-            <h3 className="lg:mt-1">Contact us via email</h3>
+            <h3 className="lg:mt-1">Contact us via email!</h3>
             <h3>hi@untitiledui.com</h3>
           </div>
         </div>
@@ -176,24 +135,47 @@ function Contact() {
           </div>
           <div className="lg:flex lg:flex-col lg:items-start">
             <h2 className="font-bold ml-2 lg:m-0 lg:block hidden">Phone</h2>
-            <h3 className="lg:mt-1">Contact us via phone</h3>
-            <h3>552-555-5555</h3>
+            <h3 className="lg:mt-1">
+              You don't need to contact us via phone.
+            </h3>
+            <h3>XXX-XXX-XXXX-XXX</h3>
           </div>
         </div>
-        <section className="text-gray-600 body-font relative">
-          <div className="absolute inset-0 bg-gray-300">
-            <div id='map' style="width: 100%">
-              <iframe
-              scrolling="no"
-              marginHeight="0"
-              marginWidth="0"
-              src={'https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Malet%20St,%20London%20WC1E%207HU,%20United%20Kingdom+(Your%20Business%20Name)&amp;t=p&amp;z=8&amp;ie=UTF8&amp;iwloc=B&amp;output=embed'} width="100%" height="600" frameBorder="0">
-                <a href="https://www.gps.ie/sport-gps/">fitness tracker</a>
-              </iframe>
-            </div>
+        <section className="text-gray-600 body-font ml-[50px]">
+          <div id="map" className="inset-0 flex flex-row justify-center">
+            <MapContainer center={[39.9035662, 32.4825694]} zoom={4} style={{"width": "356px", "height": "200px"}} className="border-2 rounded">
+              <TileLayer
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              />
+              <Marker position={[39.8951569, 32.7609327]}>
+                <Popup>
+                  One of us studies here.
+                </Popup>
+              </Marker>
+              <Marker position={[39.8742115, 32.7371888]}>
+                <Popup>
+                  One of us studies here.
+                </Popup>
+              </Marker>
+              <Marker position={[38.7101807, 35.5316106]}>
+                <Popup>
+                  One of us studied here.
+                </Popup>
+              </Marker>
+              <Marker position={[36.8843927, 30.6689809]}>
+                <Popup>
+                  One of us lives here.
+                </Popup>
+              </Marker>
+              <Marker position={[38.4189042, 27.1265113]}>
+                <Popup>
+                  One of us lives here.
+                </Popup>
+              </Marker>
+            </MapContainer>
           </div>
         </section>
-        <div className="flex justify-center items-center p-3 lg:mt-[16rem] lg:ml-[1rem]">
+        <div className="flex justify-center items-center p-3 lg:mt-2 lg:ml-[1rem]">
           <FaInstagram className="contact-social-icons" />
           <FaGithub className="contact-social-icons" />
           <FaLinkedinIn className="contact-social-icons" />

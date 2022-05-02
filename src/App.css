@@ -3,3 +3,8 @@ html {
   padding: 0;
   box-sizing: border-box;
 }
+
+.leaflet-container {
+  height: 200px;
+  width: 300px;
+}
