@@ -42,17 +42,17 @@ function Newsletter() {
             focus:invalid:border-primary-color focus:border-2 focus:border-primary-color xs:w-[270px] xs-justify-center xs:justify-center xs:text-center xs:align-middle mx-auto"
           />
           {errors.email && touched.email ? (
-            <div className="text-center mb-4">{errors.email}</div>
+            <div className="text-center text-red-600 mb-4">{errors.email}</div>
           ) : null}
           <a href="!#">
             <button
               type="submit"
-              className={`lg:w-[468px] h-auto text-base border border-transparent font-semibold text-white  hover:bg-white rounded-md px-5 py-3 w-[auto] xs:justify-center xs:align-middle ${
+              className={`lg:w-[468px] h-auto text-base border border-transparent font-semibold text-white  hover:bg-white rounded-md px-5 py-3 w-[10rem] xs:justify-center xs:align-middle ${
                 darkMode ? 'hover:text-cusOrange' : 'hover:text-primary-color'
               } ${
                 darkMode ? 'hover:border-white' : 'hover:border-primary-color'
               } ${darkMode ? 'bg-cusOrange' : 'bg-primary-color'} ${
-                darkMode ? 'border-white' : 'bg-primary-color'
+                darkMode ? 'border-white' : 'border-primary-color'
               }`}
             >
               Submit

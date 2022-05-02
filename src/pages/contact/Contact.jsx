@@ -24,7 +24,7 @@ function Contact() {
   return (
     <div className="lg:flex lg:flex-row-reverse lg:justify-end lg:w-[100%] lg:text-base md:text-base text-sm">
       <section
-        className={`h-screen lg:h-[93vh] flex flex-col justify-center items-center lg:w-[100%]  ${
+        className={`h-screen lg:h-[94vh] flex flex-col justify-center items-center lg:w-[100%]  ${
           darkMode ? 'text-white' : 'text-black'
         }  ${darkMode ? 'bg-primaryDark' : 'bg-zinc-100'}`}
       >
@@ -150,7 +150,7 @@ function Contact() {
         </Formik>
       </section>
 
-      <section className="bg-cusOrange pt-10 md:h-3/4 lg:h-[93vh] lg:pt-0 lg:flex lg:flex-col lg:items-start lg:pr-[2rem]">
+      <section className="bg-cusOrange pt-10 md:h-3/4 lg:h-[94vh] lg:pt-0 lg:flex lg:flex-col lg:items-start lg:pr-[2rem]">
         <div className="p-4 flex flex-col items-center text-center lg:flex lg:items-start lg:mt-[5rem] lg:text-left lg:ml-10">
           <h1 className="font-bold lg:text-xl">Get in touch</h1>
           <h4 className="mt-2 lg:mt-1">

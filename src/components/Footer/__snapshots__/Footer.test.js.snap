@@ -32,7 +32,7 @@ exports[`Initial test for Footer.jsx 1`] = `
         href="!#"
       >
         <button
-          className="lg:w-[468px] h-auto text-base border border-transparent font-semibold text-white  hover:bg-white rounded-md px-5 py-3 w-[auto] xs:justify-center xs:align-middle hover:text-primary-color hover:border-primary-color bg-primary-color bg-primary-color"
+          className="lg:w-[468px] h-auto text-base border border-transparent font-semibold text-white  hover:bg-white rounded-md px-5 py-3 w-[10rem] xs:justify-center xs:align-middle hover:text-primary-color hover:border-primary-color bg-primary-color border-primary-color"
           type="submit"
         >
           Submit

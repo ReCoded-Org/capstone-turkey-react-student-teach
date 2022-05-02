@@ -5,11 +5,13 @@ exports[`Navbar snapshot 1`] = `
   className="bg-white  text-black lg:pb-[5rem]"
 >
   <section
-    className="min-h-[30vh] pt-10 lg:min-h-[50vh] lg:mx-[0rem] lg:flex lg:justify-center"
+    className="min-h-[30vh] pt-10 lg:min-h-[50vh] flex justify-center"
   >
-    <div>
+    <div
+      className="self-center"
+    >
       <div
-        className="relative"
+        className="relative self-center"
       >
         <img
           alt="cover"
@@ -21,7 +23,7 @@ exports[`Navbar snapshot 1`] = `
         className="mt-3"
       >
         <div
-          className="relative bg-red-400"
+          className="relative "
         >
           <img
             alt="profile"
@@ -84,17 +86,17 @@ exports[`Navbar snapshot 1`] = `
     className="text-sm md:min-h-[50vh] m-7 mb-0 lg:min-h-[70vh] lg:text-base"
   >
     <div
-      className="flex justify-around items-center lg:justify-center lg:mr-7"
+      className="flex justify-around items-center lg:justify-center p-5 lg:mr-7"
     >
       <button
-        className="px-3 py-2 lg:px-5 lg:py-3 lg:mr-10 hover:scale-110 ease-in-out transition-all hover:text-cusOrange text-white rounded bg-cusOrange hover:text-white "
+        className="px-3 py-2 lg:px-5 lg:py-3 lg:mr-10 ease-in-out transition-all hover:text-cusOrange text-white rounded bg-cusOrange hover:text-white "
         onClick={[Function]}
         type="button"
       >
         Latest Questions
       </button>
       <button
-        className="px-3 py-2 lg:px-5 lg:py-3 hover:scale-110 ease-in-out transition-all hover:text-cusOrange lg:ml-10 null"
+        className="px-3 py-2 lg:px-5 lg:py-3 ease-in-out transition-all hover:text-cusOrange lg:ml-10 null"
         onClick={[Function]}
         type="button"
       >
