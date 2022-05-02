@@ -8,7 +8,6 @@ import Questions from './pages/questions/Questions';
 import Contact from './pages/contact/Contact';
 import About from './pages/about/About';
 import UserProfile from './pages/userProfile/UserProfile';
-// import OverlayCard from './components/cards/overlayCard/OverlayCard';
 import NotFoundPage from './pages/notFoundPage/NotFoundPage';
 import Footer from './components/Footer/Footer';
 import {
@@ -25,7 +24,6 @@ function App() {
   const userSignedUp = useSelector(
     (state) => state.signIn.signUp.isSignedUp.id,
   );
-
   const [timeOut, setTimeOut] = useState(false);
   const dispatch = useDispatch();
 
@@ -37,8 +35,6 @@ function App() {
 
   useEffect(() => {
     dispatch(fetchAllTutorSlice({ userId: userSignedIn || userSignedUp }));
-
-    return null;
   }, [userSignedIn, userSignedUp, dispatch]);
 
   const signIn = useSelector((state) => state.signIn);

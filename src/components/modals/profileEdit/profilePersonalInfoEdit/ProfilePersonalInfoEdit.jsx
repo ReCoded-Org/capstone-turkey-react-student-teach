@@ -95,7 +95,7 @@ function ProfileSetting({ open, setOpen }) {
                   name="firstName"
                   touched={touched}
                   type="text"
-                  placeholder="Your Name"
+                  placeholder="Your first name"
                 />
                 <FormField
                   autoComplete="lastName"
@@ -105,7 +105,7 @@ function ProfileSetting({ open, setOpen }) {
                   name="lastName"
                   touched={touched}
                   type="text"
-                  placeholder="You@company.com"
+                  placeholder="Your last name"
                 />
 
                 <FormField
@@ -116,7 +116,7 @@ function ProfileSetting({ open, setOpen }) {
                   name="email"
                   touched={touched}
                   type="email"
-                  placeholder="Your Email"
+                  placeholder="You@company.com"
                 />
                 {status?.message ? (
                   <h1 className="text-center text-green-500">

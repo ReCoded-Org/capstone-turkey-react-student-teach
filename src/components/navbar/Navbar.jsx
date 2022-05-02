@@ -177,7 +177,7 @@ function Navbar() {
               </div>
             </label>
           </div>
-          <div className="lg:flex lg:items-center lg:justify-center w-fit text-black lg:text-inherit lg:text-lg flex justify-center items-center lg:mt-1 lg:ml-0 ">
+          <div className="lg:flex lg:items-center lg:justify-center text-primaryDark lg:text-inherit lg:text-lg flex justify-center items-center lg:mt-1 lg:ml-0 ">
             <UserAuth />
             <li
               className={`ml-5 border-l-2 border-secondaryDark pr-[2.9rem] pl-5 lg:px-0 lg:m-0 transition-all ease-in-out list-none ${

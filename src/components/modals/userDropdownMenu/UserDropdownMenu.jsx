@@ -20,7 +20,7 @@ function UserDropdownMenu({ openModal }) {
         <Link
           to={USERPROFILE_ROUTE}
           className={`w-full lg:w-full text-sm hover:text-black hover:bg-gray-200 transition px-2 lg:px-4 py-1 text-center ${
-            darkMode ? 'text-white' : 'text-black'
+            darkMode ? 'text-zinc-100' : 'text-black'
           }`}
           type="button"
         >

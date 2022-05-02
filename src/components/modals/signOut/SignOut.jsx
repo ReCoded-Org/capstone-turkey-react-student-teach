@@ -18,7 +18,7 @@ function SignOut({ open, setOpen }) {
     <Modal label="You will be signed out" open={open} setOpen={setOpen}>
       <div className="flex items-center justify-center text-white">
         <button
-          className={`text-lg w-[50wh] text-gray-100 bg-red-600 transition rounded px-8 py-2 mb-10 lg:mb-0   hover:bg-white border-[1px] ${
+          className={`text-lg w-[50wh] text-gray-100 bg-red-700 transition rounded px-8 py-2 mb-10 lg:mb-0   hover:bg-white border-[1px] ${
             darkMode ? 'hover:text-cusOrange' : 'hover:text-primary-color'
           } ${darkMode ? 'hover:border-white' : 'hover:border-primary-color'} ${
             darkMode ? 'bg-cusOrange' : 'bg-primary-color'

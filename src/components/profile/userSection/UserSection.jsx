@@ -54,7 +54,7 @@ function UserSection() {
 
       <Link
         to={USERPROFILE_ROUTE}
-        className="lg:hidden flex justify-center items-center my-1 lg:my-0 lg:mr-10 lg:mt-1 select-none cursor-pointer"
+        className="lg:hidden flex justify-center items-center lg:my-0 lg:mr-10 lg:mt-1 select-none cursor-pointer"
         aria-hidden
       >
         <img
