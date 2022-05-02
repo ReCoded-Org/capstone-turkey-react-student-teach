@@ -30,7 +30,7 @@ function Contact() {
         }  ${darkMode ? 'bg-primaryDark' : 'bg-white'}`}
       >
         <h1 className="mb-10 font-semibold text-2xl md:text-3xl lg:text-[2.3rem] lg:mb-[3.5]">
-          Level up Your brand
+          Contact Us
         </h1>
         <Formik
           initialValues={{
@@ -83,7 +83,7 @@ function Contact() {
                 name="message"
                 touched={touched}
                 type="textarea"
-                placeholder="Tell us about your project"
+                placeholder="You can type here as you wish."
               />
 
               {isSubmitting ? (
@@ -98,7 +98,7 @@ function Contact() {
               ) : (
                 <button
                   type="submit"
-                  className="text-lg text-gray-100 bg-primary-color transition rounded px-8 py-2 mb-10 lg:mb-0 hover:scale-110 ease-in-out"
+                  className="bg-primary-color transition px-8 py-3 mb-10 lg:mb-0 hover:bg-white  border border-transparent font-semibold text-white hover:text-primary-color hover:border-primary-color rounded-md"
                 >
                   Submit
                 </button>
