@@ -2,10 +2,9 @@
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-// eslint-disable-next-line import/named
+import { Link } from 'react-router-dom';
 import { fetchAllUsers } from '../../redux/features/fetchAllUsersSlice';
 
-// eslint-disable-next-line no-unused-vars
 function Question({ id, profileImage, question, answer, student }) {
   const darkMode = useSelector((state) => state.darkModeReducer.darkMode);
   const users = useSelector((state) => state.fetchAllUsers.users);
@@ -23,23 +22,22 @@ function Question({ id, profileImage, question, answer, student }) {
       >
         <div className="flex justify-between items-center mb-2 ">
           <div className="flex items-center  ">
-            <a href="/user-profile">
-              <img
-                className="object-cover bg-white w-8 h-8 sm:w-10 xl:w-16 sm:h-10 xl:h-16 rounded-full mr-8 sm:mr-10 xl:mr-20"
-                src={
-                  user[0]?.avatar === undefined ? profileImage : user[0].avatar
-                }
-                alt="s profile pic"
-              />
-            </a>
-            <a href={`/question/${id}`}>
+            <img
+              className="object-cover bg-white w-8 h-8 sm:w-10 xl:w-16 sm:h-10 xl:h-16 rounded-full mr-8 sm:mr-10 xl:mr-20"
+              src={
+                user[0]?.avatar === undefined ? profileImage : user[0].avatar
+              }
+              alt="s profile pic"
+            />
+
+            <Link to={`/question/${id}`}>
               <div className="text-sm sm:text-base xl:text-xl  truncate w-[15rem] sm:w-[30rem] lg:w-[40rem] xl:w-[50rem] 2xl:w-[60rem]">
                 <span className="text-orange">Q</span>: {question}
               </div>
               <div className="text-sm sm:text-base xl:text-xl text-[#7c7b7b] truncate w-[15rem] sm:w-[30rem] lg:w-[40rem] xl:w-[50rem] 2xl:w-[60rem] ">
                 <span className="text-orange ml-4">A</span>: {answer}
               </div>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

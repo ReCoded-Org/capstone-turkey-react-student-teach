@@ -67,10 +67,14 @@ function LatestQuestions() {
             return (
               <Question
                 key={uuidv4()}
+                isLink
+                // eslint-disable-next-line no-underscore-dangle
+                questionId={q._id}
                 avatar={avatar || userProfilePlaceholder}
                 userName={formattedFirstName ? userNameSignIn : userNameSignUp}
                 questionTitle={q.title}
                 questionText={q.content}
+                studentId={q.student}
               />
             );
           }
