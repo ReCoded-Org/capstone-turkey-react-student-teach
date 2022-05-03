@@ -11,7 +11,7 @@ import FormField from '../../FormField/FormField';
 import { addQuestion } from '../../../redux/features/addQuestionSlice';
 
 const SignInSchema = Yup.object().shape({
-  title: Yup.string().min(3).max(24).required(),
+  title: Yup.string().min(3).max(50).required(),
   question: Yup.string().required(),
 });
 
