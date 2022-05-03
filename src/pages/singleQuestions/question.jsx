@@ -28,10 +28,10 @@ const question = () => {
     return <div>looding</div>;
   return (
     <Question
-      avatar={user[0].avatar === undefined ? Avatar : user[0].avatar}
-      userName={user[0].username}
-      questionTitle={ques[0].title}
-      questionText={ques[0].content}
+      avatar={user[0]?.avatar === undefined ? Avatar : user[0].avatar}
+      userName={user[0]?.username}
+      questionTitle={ques[0]?.title}
+      questionText={ques[0]?.content}
     />
   );
 };
