@@ -1,12 +1,10 @@
 import { useSelector } from 'react-redux';
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import UserPicPlaceholder from '../../../assets/images/profilePlaceholer.png';
 import { USERPROFILE_ROUTE } from '../../../routes';
 import UserDropdownMenu from '../../modals/userDropdownMenu/UserDropdownMenu';
 
 function UserSection() {
-  const [openModal, setOpenModal] = useState(false);
   const { firstName } = useSelector((state) => state.signIn.user.userInfo);
   const signedUpUserFirstName = useSelector(
     (state) => state.signIn.signUp.isSignedUp.firstName,
@@ -32,8 +30,7 @@ function UserSection() {
     <div>
       <div
         to={USERPROFILE_ROUTE}
-        className="lg:flex justify-center items-center my-1 lg:my-0 lg:mr-10 lg:mt-1 select-none cursor-pointer hidden"
-        onClick={() => setOpenModal(!openModal)}
+        className="lg:flex justify-center items-center my-1 lg:my-0 lg:mr-10 lg:mt-1 select-none cursor-pointer w-[50%1] hidden"
         aria-hidden
       >
         <img
@@ -48,13 +45,13 @@ function UserSection() {
           </h1>
         </div>
         <div className="hidden lg:block">
-          <UserDropdownMenu openModal={openModal} />
+          <UserDropdownMenu />
         </div>
       </div>
 
       <Link
         to={USERPROFILE_ROUTE}
-        className="lg:hidden flex justify-center items-center lg:my-0 lg:mr-10 lg:mt-1 select-none cursor-pointer"
+        className="lg:hidden flex flex-col justify-center items-center select-none cursor-pointer mt-5"
         aria-hidden
       >
         <img
@@ -63,7 +60,7 @@ function UserSection() {
           alt="user pic"
         />
         <div>
-          <h1 className="ml-3">
+          <h1 className="mt-1 rounded-md px-2 py-1 text-primaryDark self-center text-xl lg:text-[1.5rem]">
             {formattedFirstName || formattedSignedUpfName}{' '}
             {formattedLastName || formattedSignedUplName}
           </h1>

@@ -5,7 +5,6 @@ import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { FaSpinner } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
-
 import { useEffect, useState } from 'react';
 import Modal from '../Modal/Modal';
 import FormField from '../../FormField/FormField';

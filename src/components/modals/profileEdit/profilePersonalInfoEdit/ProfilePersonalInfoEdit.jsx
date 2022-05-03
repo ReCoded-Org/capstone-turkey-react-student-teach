@@ -77,6 +77,23 @@ function ProfileSetting({ open, setOpen }) {
                 setSubmitting(false);
                 setOpen(false);
                 resetForm();
+                localStorage.setItem(
+                  'userInfo',
+                  JSON.stringify({
+                    firstName:
+                      values.firstName.length !== 0
+                        ? values.firstName
+                        : userInfoSignedIn?.firstName ||
+                          userInfoSignedUp?.firstName,
+                    lastName:
+                      values.lastName.length !== 0
+                        ? values.lastName
+                        : userInfoSignedIn?.lastName ||
+                          userInfoSignedUp?.lastName,
+                    token: userInfoSignedIn?.token || userInfoSignedUp?.token,
+                    id: userInfoSignedIn?.id || userInfoSignedUp?.id,
+                  }),
+                );
               }, 1500);
             }}
           >

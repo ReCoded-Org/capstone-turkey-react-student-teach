@@ -8,14 +8,14 @@ function SignOut({ open, setOpen }) {
   const darkMode = useSelector((state) => state.darkModeReducer.darkMode);
 
   function SignOutLogic() {
-    localStorage.clear();
+    localStorage.removeItem('userInfo');
     navigate('/');
     // eslint-disable-next-line no-restricted-globals
     location.reload();
   }
 
   return (
-    <Modal label="You will be signed out" open={open} setOpen={setOpen}>
+    <Modal label="Log Out ?" open={open} setOpen={setOpen}>
       <div className="flex items-center justify-center text-white">
         <button
           className={`text-lg w-[50wh] text-gray-100 bg-red-700 transition rounded px-8 py-2 mb-10 lg:mb-0   hover:bg-white border-[1px] ${

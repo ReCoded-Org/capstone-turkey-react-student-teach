@@ -74,7 +74,7 @@ exports[`Navbar snapshot 1`] = `
             />
           </svg>
           <h1
-            className="mt-10 font-semibold text-xl"
+            className="mt-5 font-semibold text-xl"
           >
              
           </h1>
