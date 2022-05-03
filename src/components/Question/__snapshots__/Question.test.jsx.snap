@@ -8,7 +8,7 @@ exports[`renders an Question component correctly 1`] = `
     className="mx-auto my-8 max-w-3xl px-6 pt-4 pb-6 rounded-md bg-[#F0F0F0] text-black"
   >
     <div
-      className="flex mb-5"
+      className="flex justify-between mb-5"
     >
       <img
         alt="user.png"
@@ -54,18 +54,6 @@ exports[`renders an Question component correctly 1`] = `
           Edit Question
         </button>
         <button
-          className="w-full lg:w-full text-sm text-left hover:bg-gray-200 hover:text-black transition px-2 lg:px-4 py-1"
-          type="button"
-        >
-          Add to Bookmark
-        </button>
-        <button
-          className="w-full lg:w-full text-sm text-left  hover:bg-gray-200 hover:text-black transition px-2 lg:px-4 py-1"
-          type="button"
-        >
-          Share
-        </button>
-        <button
           className="w-full lg:w-full text-sm text-left text-red-600 hover:text-red-700 hover:bg-gray-200 transition px-2 lg:px-4 py-1"
           type="button"
         >
@@ -73,22 +61,27 @@ exports[`renders an Question component correctly 1`] = `
         </button>
       </div>
     </div>
-    <h3
-      className="text-2xl mb-5"
+    <a
+      href="/"
+      onClick={[Function]}
     >
-      <span
-        className="text-[#CA7560] "
+      <h3
+        className="text-2xl mb-5"
       >
-        Q
-      </span>
-      : 
-      Loeerasdsa
-    </h3>
-    <p
-      className="text-sm mb-7 pl-7 line-clamp-3"
-    >
-      questionText
-    </p>
+        <span
+          className="text-[#CA7560] "
+        >
+          Q
+        </span>
+        : 
+        Loeerasdsa
+      </h3>
+      <p
+        className="text-sm mb-7 pl-7 line-clamp-3"
+      >
+        questionText
+      </p>
+    </a>
   </div>
   <div
     className="relative w-full px-2 lg:px-20  "

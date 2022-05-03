@@ -30,9 +30,11 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    setInterval(() => {
+    const timer = setInterval(() => {
       return setTimeOut(true);
     }, 5000);
+
+    return () => clearTimeout(timer);
   }, [timeOut]);
 
   useEffect(() => {

@@ -8,7 +8,9 @@ function SignOut({ open, setOpen }) {
   const darkMode = useSelector((state) => state.darkModeReducer.darkMode);
 
   function SignOutLogic() {
+    localStorage.removeItem('signedUser');
     localStorage.removeItem('userInfo');
+
     navigate('/');
     // eslint-disable-next-line no-restricted-globals
     location.reload();
