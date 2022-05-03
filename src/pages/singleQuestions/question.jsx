@@ -13,12 +13,13 @@ const question = () => {
   const data = useSelector((state) => state.questions);
   // eslint-disable-next-line no-underscore-dangle
   const ques = data.questions?.filter((q) => q?._id === id);
+  const dispatch = useDispatch();
 
   const users = useSelector((state) => state.fetchAllUsers);
   const user = users.users?.filter((u) =>
     u.id === ques[0]?.student ? u : false,
   );
-  const dispatch = useDispatch();
+  const userFullName = `${user[0]?.firstName}  ${user[0]?.lastName}`;
 
   useEffect(() => {
     dispatch(fetchQuestions());
@@ -29,9 +30,11 @@ const question = () => {
   return (
     <Question
       avatar={user[0]?.avatar === undefined ? Avatar : user[0].avatar}
-      userName={user[0]?.username}
+      userName={userFullName}
       questionTitle={ques[0]?.title}
       questionText={ques[0]?.content}
+      studentId={user[0].id}
+      createdAt={ques[0]?.createdAt}
     />
   );
 };

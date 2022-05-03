@@ -1,10 +1,14 @@
+/* eslint-disable no-unused-vars */
 import { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { FaEllipsisV } from 'react-icons/fa';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { format } from 'fecha';
 import questionPhoto from '../../assets/images/questionImage.png';
 import personPhoto from '../../assets/images/avatar.jpg';
+import { deleteQuestionSlice } from '../../redux/features/deleteQuestionSlice';
+import { fetchQuestions } from '../../redux/features/questionsSlice';
 
 export const data = {
   id: 1,
@@ -22,8 +26,12 @@ function Question({
   questionTitle,
   questionText,
   isLink,
-  questionId = '',
+  questionId,
+  studentId,
+  createdAt,
 }) {
+  const darkMode = useSelector((state) => state.darkModeReducer.darkMode);
+  const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const sideMenuRef = useRef();
   const ellipsisIconRef = useRef();
@@ -45,44 +53,91 @@ function Question({
       );
     };
   }, [open]);
-  const darkMode = useSelector((state) => state.darkModeReducer.darkMode);
+  const signInToken = useSelector((state) => state.signIn.user.userInfo.token);
+  const signUpToken = useSelector(
+    (state) => state.signIn.signUp.isSignedUp.token,
+  );
+
+  const userInfoSignedIn = useSelector((state) => state.signIn.user.userInfo);
+  const userInfoSignedUp = useSelector(
+    (state) => state.signIn.signUp.isSignedUp,
+  );
+
+  const deleteQuestion = () => {
+    if (
+      studentId === userInfoSignedIn.id ||
+      studentId === userInfoSignedUp.id
+    ) {
+      dispatch(
+        deleteQuestionSlice({
+          jwt: signInToken || signUpToken,
+          Id: questionId,
+        }),
+      );
+      dispatch(fetchQuestions());
+    }
+    return null;
+  };
 
   return (
     <div className="relative max-w-3xl mx-auto">
       <div
-        className={`mx-auto my-8 max-w-3xl px-6 pt-4 pb-6 rounded-md ${
+        className={`mx-auto my-8 max-w-3xl px-6 pt-4 pb-6 rounded-md ${`${
           darkMode ? 'bg-secondaryDark' : 'bg-[#F0F0F0]'
-        } ${darkMode ? 'text-white' : 'text-black'}`}
+        }`}  ${darkMode ? 'text-white' : 'text-black'}`}
       >
-        <div className="flex justify-between mb-5">
-          <img src={avatar} className="w-10 h-10 rounded-full" alt="user.png" />
-          <p className="pl-2 font-semibold self-center text-sm mr-auto">
-            {userName}
-          </p>
-
+        <div className="flex  justify-between mb-5">
+          <div className="flex whitespace-nowrap">
+            <img
+              src={avatar}
+              className="w-10 h-10 rounded-full"
+              alt="user.png"
+            />
+            <div className="mr-[5rem] lg:mr-0 self-center lg:flex lg:flex-row-reverse">
+              <p
+                className={`text-green-500 ml-4 text-xs  self-center  ${
+                  studentId === userInfoSignedIn.id ||
+                  studentId === userInfoSignedUp.id
+                    ? 'flex'
+                    : 'hidden'
+                } `}
+              >
+                Author
+              </p>
+              <p className="pl-2 font-semibold self-center text-sm mr-auto">
+                {userName}
+              </p>
+            </div>
+          </div>
           <div
             ref={ellipsisIconRef}
-            className="text-xl   self-center cursor-pointer"
+            className="text-xl flex mb-[1px] self-center cursor-pointer whitespace-nowrap"
           >
-            <FaEllipsisV onClick={() => setOpen(!open)} />
+            <p className="mr-3 text-xs  self-center cursor-text">
+              {format(new Date(createdAt), 'dd MMMM, YYYY')}
+            </p>
+            <FaEllipsisV
+              className={`${
+                studentId === userInfoSignedIn.id ||
+                studentId === userInfoSignedUp.id
+                  ? 'flex'
+                  : 'hidden'
+              } `}
+              onClick={() => setOpen(!open)}
+            />
           </div>
 
           <div
             ref={sideMenuRef}
-            className={`absolute -right-0 top-12 lg:-right-48 lg:top-0 z-10 w-44 rounded-lg shadow-lg  border-opacity-50transition  py-1 lg:py-3 border-[1px]  ${
+            className={`absolute -right-0 top-12 lg:-right-48 lg:top-0 z-10 w-44 rounded-lg shadow-lg transition-all ease-in-out  py-1 lg:py-3 border-[1px] lg:border-0 ${
               open ? 'show opacity-100' : 'hidden opacity-0 '
             } ${darkMode ? 'bg-secondaryDark' : 'bg-[#F0F0F0]'}`}
             id="dropdown"
           >
             <button
-              className="w-full lg:w-full text-sm text-left hover:text-black hover:bg-gray-200 transition px-2 lg:px-4 py-1"
+              className="w-full lg:w-full text-sm text-left text-red-600 hover:text-red-700 hover:bg-gray-200 transition px-2 lg:px-4 py-1 "
               type="button"
-            >
-              Edit Question
-            </button>
-            <button
-              className="w-full lg:w-full text-sm text-left text-red-600 hover:text-red-700 hover:bg-gray-200 transition px-2 lg:px-4 py-1"
-              type="button"
+              onClick={() => deleteQuestion()}
             >
               Delete Question
             </button>
@@ -114,11 +169,15 @@ Question.propTypes = {
   questionText: PropTypes.string.isRequired,
   questionId: PropTypes.string,
   isLink: PropTypes.bool,
+  studentId: PropTypes.string,
+  createdAt: PropTypes.string,
 };
 
 Question.defaultProps = {
   isLink: false,
   questionId: '',
+  studentId: '',
+  createdAt: '',
 };
 
 export default Question;

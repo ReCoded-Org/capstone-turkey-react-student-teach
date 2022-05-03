@@ -75,6 +75,7 @@ function LatestQuestions() {
                 questionTitle={q.title}
                 questionText={q.content}
                 studentId={q.student}
+                createdAt={q.createdAt}
               />
             );
           }

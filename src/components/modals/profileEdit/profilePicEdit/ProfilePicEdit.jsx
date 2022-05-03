@@ -6,9 +6,9 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Modal from '../../Modal/Modal';
 import { uploadPicCloudinary } from '../../../../redux/features/uploadPicCloudinarySlice';
+import { fetchAllTutorSlice } from '../../../../redux/features/fetchAllTutorsSlice';
 
 function ProfilePicEdit({ open, setOpen, label }) {
-  // eslint-disable-next-line no-unused-vars
   const [newProfilePic, setNewProfilePic] = useState('');
   const darkMode = useSelector((state) => state.darkModeReducer.darkMode);
   const dispatch = useDispatch();
@@ -23,15 +23,20 @@ function ProfilePicEdit({ open, setOpen, label }) {
           <Formik
             initialValues={{}}
             onSubmit={(_, { setSubmitting }) => {
+              if (!newProfilePic) return;
+              dispatch(
+                uploadPicCloudinary({
+                  files: newProfilePic,
+                  id: userInfoSignedIn?.id || userInfoSignedUp?.id,
+                  jwt: userInfoSignedIn?.token || userInfoSignedUp?.token,
+                }),
+              );
               setTimeout(() => {
                 setSubmitting(false);
                 setOpen(false);
-                if (!newProfilePic) return;
                 dispatch(
-                  uploadPicCloudinary({
-                    files: newProfilePic,
-                    id: userInfoSignedIn?.id || userInfoSignedUp?.id,
-                    jwt: userInfoSignedIn?.token || userInfoSignedUp?.token,
+                  fetchAllTutorSlice({
+                    userId: userInfoSignedIn?.id || userInfoSignedUp?.id,
                   }),
                 );
                 setNewProfilePic('');

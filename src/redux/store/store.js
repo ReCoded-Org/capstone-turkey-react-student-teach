@@ -8,6 +8,8 @@ import fetchAllTutorsSlice from '../features/fetchAllTutorsSlice';
 import fetchAllUsersSlice from '../features/fetchAllUsersSlice';
 import uploadPicCloudinarySlice from '../features/uploadPicCloudinarySlice';
 import editProfilePicSlice from '../features/editProfilePicSlice';
+// eslint-disable-next-line import/no-named-as-default
+import deleteQuestionSlice from '../features/deleteQuestionSlice';
 
 const userInfoFromStorage = localStorage.getItem('userInfo')
   ? JSON.parse(localStorage.getItem('userInfo'))
@@ -33,6 +35,7 @@ const store = configureStore({
     fetchAllTutorReducer: fetchAllTutorsSlice,
     fetchAllUsers: fetchAllUsersSlice,
     uploadPicCloudinaryReducer: uploadPicCloudinarySlice,
+    deleteQuestionReducer: deleteQuestionSlice,
     signIn: userSlice,
     questions: questionsSlice,
   },
