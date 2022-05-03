@@ -18,7 +18,7 @@ exports[`Render when text of no Question found removes 1`] = `
         >
           <img
             alt="s profile pic"
-            className=" w-8 sm:w-10 xl:w-16 rounded-full mr-8 sm:mr-10 xl:mr-20"
+            className="object-cover bg-white w-8 h-8 sm:w-10 xl:w-16 sm:h-10 xl:h-16 rounded-full mr-8 sm:mr-10 xl:mr-20"
             src=""
           />
         </a>
@@ -72,7 +72,7 @@ exports[`Render when text of no Question found removes 2`] = `
         >
           <img
             alt="s profile pic"
-            className=" w-8 sm:w-10 xl:w-16 rounded-full mr-8 sm:mr-10 xl:mr-20"
+            className="object-cover bg-white w-8 h-8 sm:w-10 xl:w-16 sm:h-10 xl:h-16 rounded-full mr-8 sm:mr-10 xl:mr-20"
             src="none"
           />
         </a>
