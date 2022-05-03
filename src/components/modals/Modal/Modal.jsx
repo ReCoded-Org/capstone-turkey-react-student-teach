@@ -44,17 +44,17 @@ function Modal({ children, label, open, setOpen }) {
             leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
           >
             <div
-              className={`relative inline-block align-bottom bg-gray-500 rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-sm sm:w-full ${
+              className={`relative inline-block align-bottom bg-primaryDark rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-sm sm:w-full ${
                 darkMode ? 'text-white' : 'bg-black'
               }`}
             >
               <div
-                className={`p-4 sm:p-6 sm:pb-4 ${
+                className={`p-4 sm:p-6 sm:pb-4 w-full ${
                   darkMode ? 'bg-primaryDark' : 'bg-white'
                 }`}
               >
-                <div className="flex justify-around items-center mb-5">
-                  <h2 className="w-max font-semibold text-[1.2rem] md:text-2xl lg:text-[1.5rem] ml-5 mb-1">
+                <div className="flex justify-between mb-5">
+                  <h2 className="w-max font-semibold text-[1.2rem] md:text-2xl lg:text-[1.5rem]  mb-1">
                     {label}
                   </h2>
                   <button

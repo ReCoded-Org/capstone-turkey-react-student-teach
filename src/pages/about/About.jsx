@@ -15,7 +15,7 @@ function About() {
         <div className="flex flex-col lg:flex-row items-center justify-center pb-10">
           <div className="flex flex-col text-center lg:text-left pb-10 lg:mb-0">
             <h2 className="text-2xl font-color-primary-color items-baseline text-primary-color font-bold mb-4">
-              Who We Are
+              Who Are We
             </h2>
             <p className="leading-relaxed lg:text-xl">
               We are a group of 5 people who gathered to develop our`skills

@@ -1,11 +1,10 @@
 /* eslint no-nested-ternary:1 */
-
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { VscChromeClose } from 'react-icons/vsc';
 import { FaPlus } from 'react-icons/fa';
+import { RiLogoutCircleLine } from 'react-icons/ri';
 import { useDispatch, useSelector } from 'react-redux';
 import { logoFullScreen, logoMobileScreen } from '../../assets/logo/Logo';
 import {
@@ -20,7 +19,7 @@ import UserAuth from '../profile/userAuth/UserAuth';
 import SignOut from '../modals/signOut/SignOut';
 import CheckAuth from '../modals/checkAuth/CheckAuth';
 
-function Navbar({ onBurgerClick }) {
+function Navbar() {
   const darkModeStorage = localStorage.getItem('darkMode')
     ? JSON.parse(localStorage.getItem('darkMode'))
     : {};
@@ -41,18 +40,15 @@ function Navbar({ onBurgerClick }) {
   }, [dark, dispatch]);
   return (
     <nav
-      className={`flex flex-col justify-center items-center max-h-[10vh] min-h-[7vh] relative ${
-        !burger ? 'z-[100]' : 'z-0'
-      } lg:z-0 ${darkMode ? 'bg-cusOrange' : 'bg-white'} ${
-        darkMode ? 'text-white' : 'text-black'
-      } shadow-sm`}
+      className={`flex flex-col justify-center items-center relative  ${
+        darkMode ? 'bg-cusOrange' : 'bg-white'
+      } ${darkMode ? 'text-primaryDark' : 'text-black'} shadow-sm  `}
     >
-      <div className="flex flex-row-reverse justify-around items-center w-screen">
+      <div className="flex flex-row-reverse justify-around items-center w-[100%]">
         <div>
           {burger ? (
             <GiHamburgerMenu
               onClick={() => {
-                onBurgerClick(!burger);
                 setBurger(!burger);
               }}
               className="burger-icons"
@@ -60,23 +56,26 @@ function Navbar({ onBurgerClick }) {
           ) : (
             <VscChromeClose
               onClick={() => {
-                onBurgerClick(!burger);
                 setBurger(!burger);
               }}
               className="burger-icons"
             />
           )}
         </div>
-        <div className="inline-block lg:hidden lg:mr-[6rem] hover:scale-110 ease-in-out transition-all">
+        <div className="inline-block lg:hidden">
           <button
             type="button"
-            className={`text-sm  lg:text-base p-[7px] rounded-md border-[1px]  lg:p-2 whitespace-nowrap ${
-              darkMode ? 'text-white' : 'text-cusOrange'
-            } ${darkMode ? 'border-white' : 'border-cusOrange'}`}
+            className={`text-sm mr-2 rounded-md whitespace-nowrap border border-transparent text-white py-2 w-[8rem] ${
+              darkMode ? 'hover:text-cusOrange' : 'hover:text-primary-color'
+            } ${
+              darkMode ? 'hover:border-white' : 'hover:border-primary-color'
+            } ${darkMode ? 'bg-cusOrange' : 'bg-primary-color'} ${
+              darkMode ? 'border-white' : 'border-primary-color'
+            }`}
             onClick={() => setAddQuestionModal(true)}
           >
             Ask Question
-            <FaPlus className="inline-block ml-1" />
+            <FaPlus className="inline-block font-thin ml-1 mb-[2px]" />
           </button>
         </div>
         <Link to={HOME_ROUTE}>{logoMobileScreen}</Link>
@@ -85,86 +84,85 @@ function Navbar({ onBurgerClick }) {
       <div
         onClick={() => {
           setBurger(true);
-          onBurgerClick(true);
         }}
         aria-hidden="true"
-        className={`ml-2 w-[100%] top-[4rem] flex flex-col justify-center items-center lg:ml-0 lg:flex lg:flex-row lg:justify-between lg:items-center lg:h-[4rem] lg:top-[1px] absolute ${
+        className={`ml-4 w-[100%] top-[4rem] flex flex-col justify-center items-center lg:ml-0 lg:flex lg:flex-row lg:justify-between lg:items-center lg:h-[4rem] lg:top-[1px]  ${
           burger ? 'hidden' : null
         }`}
       >
+        <div className="block lg:hidden text-xl text-primaryDark">
+          <UserAuth />
+        </div>
         <div>
-          <ul className="inline-block mt-4 text-2xl lg:mt-0 lg:text-base lg:flex lg:items-center text-center">
+          <ul className="inline-block mt-1 lg:mt-0 lg:text-base lg:flex lg:items-center text-center ">
             <Link to={HOME_ROUTE}>{logoFullScreen}</Link>
             <li
-              className={`mb-3 lg:mb-0 lg:pr-3 text-black lg:text-inherit lg:border-r-[1px]  transition-all ease-in-out ${
-                darkMode ? 'hover:text-black' : 'lg:hover:text-cusOrange'
-              } ${darkMode ? 'lg:border-white' : 'lg:lg:border-cusOrange'}`}
+              className={`mb-3 text-xl lg:mb-0 lg:pr-3 text-primaryDark  lg:text-inherit lg:border-r-[1px]  transition-all ease-in-out lg:text-[1.1rem] ${
+                darkMode
+                  ? 'lg:hover:text-secondaryDark'
+                  : 'lg:hover:text-cusOrange'
+              } ${
+                darkMode ? 'lg:border-primaryDark' : 'lg:lg:border-cusOrange'
+              }`}
             >
               <Link to={HOME_ROUTE}>Home</Link>
             </li>
             <li
-              className={`mb-3 lg:mb-0 lg:px-3 text-black lg:text-inherit lg:border-r-[1px]   transition-all ease-in-out ${
-                darkMode ? 'hover:text-black' : 'lg:hover:text-cusOrange'
-              } ${darkMode ? 'lg:border-white' : 'lg:lg:border-cusOrange'}`}
+              className={`mb-3 lg:mb-0 text-xl lg:px-3 text-primaryDark lg:text-inherit lg:border-r-[1px]   transition-all ease-in-out lg:text-[1.1rem] ${
+                darkMode
+                  ? 'hover:text-secondaryDark'
+                  : 'lg:hover:text-cusOrange'
+              } ${
+                darkMode ? 'lg:border-primaryDark' : 'lg:lg:border-cusOrange'
+              }`}
             >
               <Link to={QUESTIONS_ROUTE}>Questions</Link>
             </li>
             <li
-              className={`mb-3 lg:mb-0 lg:px-3 text-black lg:text-inherit lg:border-r-[1px]   transition-all ease-in-out ${
-                darkMode ? 'hover:text-black' : 'lg:hover:text-cusOrange'
-              } ${darkMode ? 'lg:border-white' : 'lg:lg:border-cusOrange'}`}
+              className={`mb-3 lg:mb-0 text-xl lg:px-3 text-primaryDark lg:text-inherit lg:border-r-[1px]   transition-all ease-in-out lg:text-[1.1rem] ${
+                darkMode
+                  ? 'hover:text-secondaryDark'
+                  : 'lg:hover:text-cusOrange'
+              } ${
+                darkMode ? 'lg:border-primaryDark' : 'lg:lg:border-cusOrange'
+              }`}
             >
               <Link to={CONTACT_ROUTE}>Contact</Link>
             </li>
             <li
-              className={`mb-3 lg:mb-0 lg:px-3 text-black lg:text-inherit transition-all ease-in-out ${
-                darkMode ? 'hover:text-black' : 'lg:hover:text-cusOrange'
+              className={`mb-3 lg:mb-0 text-xl lg:px-3 text-primaryDark lg:text-inherit transition-all ease-in-out lg:text-[1.1rem] ${
+                darkMode
+                  ? 'hover:text-secondaryDark'
+                  : 'lg:hover:text-cusOrange'
               }`}
             >
               <Link to={ABOUT_ROUTE}>About</Link>
             </li>
-            <li
-              className={`mb-3 mx-5 transition-all ease-in-out ${
-                darkMode ? 'hover:text-black' : 'lg:hover:text-cusOrange'
-              }`}
-            >
-              <div
-                className={`text-white ${
-                  isSuccess === 'success' ||
-                  signIn.signUp.status === 'success' ||
-                  isUser.firstName ||
-                  isUserSignedUp.firstName
-                    ? 'block'
-                    : 'hidden'
-                }`}
-              >
-                <button
-                  className="block text-red-600 lg:hidden"
-                  type="button"
-                  aria-hidden
-                  onClick={() => setSignOutOpen(true)}
-                >
-                  Sign Out
-                </button>
-              </div>
-            </li>
           </ul>
         </div>
 
-        <div className="hidden mt-5 lg:mt-0 lg:mr-[6rem] lg:inline-block hover:scale-110 ease-in-out transition-all">
+        <div className="hidden mr-[3rem] lg:flex">
           <button
             type="button"
-            className={`text-sm mr-10 lg:text-base p-[7px] rounded-md border-[1px] lg:p-2 whitespace-nowrap ${
+            className={`text-sm p-[7px] rounded-md whitespace-nowrap border border-transparent   px-5 py-3 w-[10rem]  ${
               darkMode ? 'text-white' : 'text-cusOrange'
-            } ${darkMode ? 'border-white' : 'border-cusOrange'}`}
+            } ${darkMode ? 'bg-cusOrange' : 'bg-white'} ${
+              darkMode ? 'hover:text-cusOrange' : 'hover:text-primary-color'
+            } ${darkMode ? 'hover:hover:bg-white' : 'hover:bg-cusOrange'} ${
+              darkMode ? 'hover:text-cusOrange' : 'hover:text-white'
+            } ${
+              darkMode ? 'hover:border-white' : 'hover:border-primary-color'
+            } ${darkMode ? 'bg-cusOrange' : 'bg-white'} ${
+              darkMode ? 'border-white' : 'border-primary-color'
+            }`}
             onClick={() => setAddQuestionModal(true)}
           >
             Ask Question
-            <FaPlus className="inline-block ml-1" />
+            <FaPlus className="inline-block ml-1 mb-[2px]" />
           </button>
         </div>
         <div className="flex flex-col-reverse lg:flex lg:flex-row lg:item-center lg:h-10 ">
-          <div className="flex justify-center item-center mt-5 ml-[3rem] mr-[3rem] lg:mt-0">
+          <div className="flex justify-center item-center mt-5 ml-[3rem] mr-[3rem] lg:mt-0 pb-6 lg:pb-0">
             <label
               htmlFor="toggleB"
               className="flex item-center cursor-pointer"
@@ -183,37 +181,56 @@ function Navbar({ onBurgerClick }) {
               </div>
             </label>
           </div>
-          <div className="lg:flex lg:items-center lg:justify-center w-fit text-black lg:text-inherit text-xl lg:text-base lg:ml-0">
-            <UserAuth />
-            <SignOut open={signOutOpen} setOpen={setSignOutOpen} />
-            {isSuccess === 'success' ||
-            signIn.signUp.status === 'success' ||
-            isUser.firstName ||
-            isUserSignedUp.firstName ? (
-              <AddQuestion
-                open={addQuestionModal}
-                setOpen={setAddQuestionModal}
-              />
-            ) : (
-              <CheckAuth
-                label="Sign in to add question."
-                open={addQuestionModal}
-                setOpen={setAddQuestionModal}
-              />
-            )}
+          <div className="lg:flex lg:items-center lg:justify-center text-primaryDark lg:text-inherit lg:text-lg flex flex-col justify-around items-center lg:mt-1 lg:ml-0 w-[100wh] ">
+            <li
+              className={`lg:px-0 lg:m-0 transition-all ease-in-out list-none self-center mt-3 ${
+                darkMode ? 'hover:text-black' : 'lg:hover:text-cusOrange'
+              }`}
+            >
+              <div className="hidden lg:block">
+                <UserAuth />
+              </div>
+              <div
+                className={`text-white  ${
+                  isSuccess === 'success' ||
+                  signIn.signUp.status === 'success' ||
+                  isUser.firstName ||
+                  isUserSignedUp.firstName
+                    ? 'block'
+                    : 'hidden'
+                }`}
+              >
+                <button
+                  className="block text-red-700 lg:hidden "
+                  type="button"
+                  aria-hidden
+                  onClick={() => setSignOutOpen(true)}
+                >
+                  <RiLogoutCircleLine className="text-primaryDark h-8 w-8 " />
+                </button>
+              </div>
+            </li>
           </div>
+          <SignOut open={signOutOpen} setOpen={setSignOutOpen} />
+          {isSuccess === 'success' ||
+          signIn.signUp.status === 'success' ||
+          isUser.firstName ||
+          isUserSignedUp.firstName ? (
+            <AddQuestion
+              open={addQuestionModal}
+              setOpen={setAddQuestionModal}
+            />
+          ) : (
+            <CheckAuth
+              label="Sign in to add question."
+              open={addQuestionModal}
+              setOpen={setAddQuestionModal}
+            />
+          )}
         </div>
       </div>
     </nav>
   );
 }
-
-Navbar.propTypes = {
-  onBurgerClick: PropTypes.func,
-};
-
-Navbar.defaultProps = {
-  onBurgerClick: true,
-};
 
 export default Navbar;

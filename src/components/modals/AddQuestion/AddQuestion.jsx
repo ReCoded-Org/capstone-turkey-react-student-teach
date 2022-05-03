@@ -5,7 +5,6 @@ import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { FaSpinner } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
-
 import { useEffect, useState } from 'react';
 import Modal from '../Modal/Modal';
 import FormField from '../../FormField/FormField';
@@ -17,6 +16,7 @@ const SignInSchema = Yup.object().shape({
 });
 
 function AddQuestion({ open, setOpen }) {
+  const darkMode = useSelector((state) => state.darkModeReducer.darkMode);
   const [status, setStatus] = useState([]);
   const dispatch = useDispatch();
   const signInToken = useSelector((state) => state.signIn.user.userInfo.token);
@@ -27,10 +27,17 @@ function AddQuestion({ open, setOpen }) {
     (state) => state.addQuestionReducer.message,
   );
   useEffect(() => {
-    setStatus(addQuestionStatus[addQuestionStatus.length - 1]?.status);
-    setTimeout(() => {
-      return setStatus([]);
+    let cancel = true;
+    if (cancel) {
+      setStatus(addQuestionStatus[addQuestionStatus.length - 1]?.status);
+    }
+    const timer = setTimeout(() => {
+      setStatus('');
     }, 3000);
+    return () => {
+      cancel = false;
+      clearTimeout(timer);
+    };
   }, [addQuestionStatus]);
 
   return (
@@ -93,16 +100,26 @@ function AddQuestion({ open, setOpen }) {
               {isSubmitting ? (
                 <button
                   type="submit"
-                  className="text-lg w-full bg-cusOrange text-white rounded pl-10 pr-5 py-2 mb-10 lg:mb-0 relative"
+                  className="text-lg w-full bg-cusOrange text-white rounded pl-10 pr-5 py-2 mb-10 lg:mb-0 relative border-[1px]"
                   disabled
                 >
-                  <FaSpinner className="animate-spin h-5 text-white mr-[4rem] lg:mr-[6rem] absolute right-[7rem] top-[0.8rem]" />
+                  <FaSpinner className="animate-spin h-5 text-white mr-[4rem] lg:mr-[6rem] absolute right-[7rem] top-[0.8rem] " />
                   Updating...
                 </button>
               ) : (
                 <button
                   type="submit"
-                  className="text-lg w-full text-gray-100 bg-cusOrange transition rounded px-8 py-2 mb-10 lg:mb-0 hover:scale-110 ease-in-out"
+                  className={`text-lg w-full text-gray-100 bg-cusOrange transition rounded px-8 py-2 mb-10 lg:mb-0   hover:bg-white border-[1px] ${
+                    darkMode
+                      ? 'hover:text-cusOrange'
+                      : 'hover:text-primary-color'
+                  } ${
+                    darkMode
+                      ? 'hover:border-white'
+                      : 'hover:border-primary-color'
+                  } ${darkMode ? 'bg-cusOrange' : 'bg-primary-color'} ${
+                    darkMode ? 'border-white' : 'border-primary-color'
+                  }`}
                 >
                   Submit
                 </button>

@@ -21,10 +21,22 @@ function UserProfile() {
   );
   const { firstName } = useSelector((state) => state.signIn.user.userInfo);
   const { lastName } = useSelector((state) => state.signIn.user.userInfo);
+  const firstNameSignUp = useSelector(
+    (state) => state.signIn.signUp.isSignedUp.firstName,
+  );
+  const lastNameSignUp = useSelector(
+    (state) => state.signIn.signUp.isSignedUp.lastName,
+  );
   const formattedFirstName =
     firstName && firstName.charAt(0).toUpperCase() + firstName.slice(1);
   const formattedLastName =
     lastName && lastName.charAt(0).toUpperCase() + lastName.slice(1);
+  const formattedFirstNameSignUp =
+    firstNameSignUp &&
+    firstNameSignUp.charAt(0).toUpperCase() + firstNameSignUp.slice(1);
+  const formattedLastSignUp =
+    lastNameSignUp &&
+    lastNameSignUp.charAt(0).toUpperCase() + lastNameSignUp.slice(1);
   const editProfilePicStatus = useSelector(
     (state) => state.editProfilePicReducer?.message,
   );
@@ -33,15 +45,23 @@ function UserProfile() {
   );
 
   useEffect(() => {
-    setPicStatus(editProfilePicStatus[editProfilePicStatus.length - 1]);
-    setCloudinaryStatus(
-      uploadPicCloudinaryStatus[uploadPicCloudinaryStatus.length - 1]?.status,
-    );
+    let cancel = true;
+    if (cancel) {
+      setPicStatus(editProfilePicStatus[editProfilePicStatus.length - 1]);
+      setCloudinaryStatus(
+        uploadPicCloudinaryStatus[uploadPicCloudinaryStatus.length - 1]?.status,
+      );
+    }
 
-    return setTimeout(() => {
+    const timer = setTimeout(() => {
       setPicStatus([]);
       setCloudinaryStatus([]);
     }, 3000);
+
+    return () => {
+      cancel = false;
+      clearTimeout(timer);
+    };
   }, [editProfilePicStatus, uploadPicCloudinaryStatus]);
 
   return (
@@ -50,9 +70,9 @@ function UserProfile() {
         darkMode ? 'text-white' : 'text-black'
       } lg:pb-[5rem]`}
     >
-      <section className="min-h-[30vh] pt-10 lg:min-h-[50vh] lg:mx-[0rem] lg:flex lg:justify-center">
-        <div>
-          <div className="relative">
+      <section className="min-h-[30vh] pt-10 lg:min-h-[50vh] flex justify-center">
+        <div className="self-center">
+          <div className="relative self-center">
             <img
               className="w-[50rem] h-[8rem] object-fill rounded-md lg:h-[20rem] select-none"
               src={coverPlaceholder}
@@ -60,7 +80,7 @@ function UserProfile() {
             />
           </div>
           <div className="mt-3">
-            <div className="relative bg-red-400">
+            <div className="relative ">
               <Image
                 cloudName="eyeblinded"
                 src={avatar || userProfilePlaceholder}
@@ -97,8 +117,9 @@ function UserProfile() {
                 onClick={() => setOpen(true)}
                 className="place-self-end mr-3 p-1 text-2xl lg:text-3xl  rounded-full text-cusOrange cursor-pointer hover:bg-cusOrange hover:text-white hover:opacity-90 ease-in-out transition-all duration-300 absolute top-[-.6rem]"
               />
-              <h1 className="mt-10 font-semibold text-xl">
-                {formattedFirstName} {formattedLastName}
+              <h1 className="mt-5 font-semibold text-xl">
+                {formattedFirstName || formattedFirstNameSignUp}{' '}
+                {formattedLastName || formattedLastSignUp}
               </h1>
             </div>
           </div>
@@ -112,9 +133,9 @@ function UserProfile() {
       />
 
       <section className="text-sm md:min-h-[50vh] m-7 mb-0 lg:min-h-[70vh] lg:text-base">
-        <div className="flex justify-around items-center lg:justify-center lg:mr-7">
+        <div className="flex justify-around items-center lg:justify-center p-5 lg:mr-7">
           <button
-            className={`px-3 py-2 lg:px-5 lg:py-3 lg:mr-10 hover:scale-110 ease-in-out transition-all hover:text-cusOrange ${
+            className={`px-3 py-2 lg:px-5 lg:py-3 lg:mr-10 ease-in-out transition-all hover:text-cusOrange ${
               !latestSection
                 ? 'text-white rounded bg-cusOrange hover:text-white '
                 : null
@@ -126,7 +147,7 @@ function UserProfile() {
           </button>
 
           <button
-            className={`px-3 py-2 lg:px-5 lg:py-3 hover:scale-110 ease-in-out transition-all hover:text-cusOrange lg:ml-10 ${
+            className={`px-3 py-2 lg:px-5 lg:py-3 ease-in-out transition-all hover:text-cusOrange lg:ml-10 ${
               latestSection
                 ? 'text-white rounded bg-cusOrange hover:text-white'
                 : null

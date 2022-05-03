@@ -16,7 +16,7 @@ exports[`Navbar snapshot 1`] = `
         <h2
           className="text-2xl font-color-primary-color items-baseline text-primary-color font-bold mb-4"
         >
-          Who We Are
+          Who Are We
         </h2>
         <p
           className="leading-relaxed lg:text-xl"

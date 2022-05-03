@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { FaPlus } from 'react-icons/fa';
 import Question from './Question';
 // eslint-disable-next-line import/no-named-as-default
 import { fetchQuestions } from '../../redux/features/questionsSlice';
@@ -35,7 +36,7 @@ function HomeContent() {
         <section className="flex min-h-[30vh] lg:min-h-[50vh]">
           <div className="min-w-[30vw]">
             <h2 className="text-5xl sm:text-7xl text-orange mb-5 lg:mb-0">
-              Student Teach
+              Students Teach
             </h2>
             <h4 className="font-semibold text-base sm:text-2xl mt-2 sm:mt-9 py-0.5">
               We grow up by helping each other.
@@ -56,19 +57,27 @@ function HomeContent() {
             />
             <button
               type="button"
-              className="bg-orange rounded-md text-xs w-44 h-10 scale-125 text-[#FFFFFF] inline-block bottom-[20px] xl:left-[40%] lg:left-[20%] hover:scale-[1.35] ease-in-out transition-all"
+              className={`w-[16rem] h-auto border border-transparent text-white  hover:bg-white rounded-md px-5 py-3 ${
+                darkMode ? 'hover:text-cusOrange' : 'hover:text-primary-color'
+              } ${
+                darkMode ? 'hover:border-white' : 'hover:border-primary-color'
+              } ${darkMode ? 'bg-cusOrange' : 'bg-primary-color'} ${
+                darkMode ? 'border-white' : 'border-primary-color'
+              }`}
               onClick={() => setAddQuestionModal(true)}
             >
-              Ask Question +
+              Ask Question
+              <FaPlus className="inline-block font-thin ml-1 mb-[2px]" />
             </button>
           </div>
         </section>
         <button
           type="button"
-          className=" lg:hidden mt-10 text-xs ml-5 sm:text-3xl mx-auto bg-orange rounded-md sm:w-[14rem] sm:h-[4rem] w-[8rem] h-[2rem] text-[#FFFFFF] absolute inline-block  left-[30%]"
+          className=" lg:hidden mt-5 bg-orange rounded-md  w-[10rem] h-[3rem] text-[#FFFFFF] "
           onClick={() => setAddQuestionModal(true)}
         >
-          Ask Question +
+          Ask Question
+          <FaPlus className="inline-block font-thin ml-1 mb-[2px]" />
         </button>
         <div className="mt-32 md:mr-7 lg:mr-10 pb-10">
           {allQuestions.questions
