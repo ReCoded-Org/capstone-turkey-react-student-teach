@@ -22,9 +22,6 @@ const question = () => {
     dispatch(fetchQuestions());
     dispatch(fetchAllUsers());
   }, [dispatch]);
-  console.log(user[0]);
-  console.log(1);
-  console.log(ques[0]);
   return (
     <Question
       avatar={user[0]?.avatar === undefined ? Avatar : user[0].avatar}
