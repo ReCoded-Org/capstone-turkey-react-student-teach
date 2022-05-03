@@ -144,7 +144,7 @@ function Navbar() {
         <div className="hidden mr-[3rem] lg:flex">
           <button
             type="button"
-            className={`text-sm p-[7px] rounded-md whitespace-nowrap border border-transparent   px-5 py-3 w-[10rem]  ${
+            className={`text-sm p-[7px] mr-[3rem] rounded-md whitespace-nowrap border border-transparent   px-5 py-3 w-[10rem]  ${
               darkMode ? 'text-white' : 'text-cusOrange'
             } ${darkMode ? 'bg-cusOrange' : 'bg-white'} ${
               darkMode ? 'hover:text-cusOrange' : 'hover:text-primary-color'
