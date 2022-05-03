@@ -1,26 +1,27 @@
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { v4 as uuidv4 } from 'uuid';
+import { useSelector, useDispatch } from 'react-redux';
 import { FaPlus } from 'react-icons/fa';
 import Question from './Question';
-import allQuestions from './questions.json';
+// eslint-disable-next-line import/no-named-as-default
+import { fetchQuestions } from '../../redux/features/questionsSlice';
 import AddQuestion from '../modals/AddQuestion/AddQuestion';
 import Hands from '../../assets/hands/Hands';
+import Avatar from '../../assets/images/avatar.jpg';
 import CheckAuth from '../modals/checkAuth/CheckAuth';
 
 function HomeContent() {
   const [addQuestionModal, setAddQuestionModal] = useState(false);
-  const [question, setQuestion] = useState();
   const signIn = useSelector((state) => state.signIn);
   const isSuccess = signIn.user.status;
   const isUser = signIn.user.userInfo;
   const isUserSignedUp = signIn.signUp.isSignedUp;
+  const allQuestions = useSelector((state) => state.questions);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    setQuestion(allQuestions.allQuestions);
-  }, [question]);
+    dispatch(fetchQuestions());
+  }, [dispatch]);
   const darkMode = useSelector((state) => state.darkModeReducer.darkMode);
-
   return (
     <div
       className={`${
@@ -79,15 +80,28 @@ function HomeContent() {
           <FaPlus className="inline-block font-thin ml-1 mb-[2px]" />
         </button>
         <div className="mt-32 md:mr-7 lg:mr-10 pb-10">
-          {question?.map((q) => (
-            <Question
-              key={uuidv4()}
-              username={q.username}
-              profileImage={q.profileImage}
-              question={q.question}
-              answer={q.answer}
-            />
-          ))}
+          {allQuestions.questions
+            ?.slice(
+              allQuestions.questions.length - 11,
+              allQuestions.questions.length,
+            )
+            .reverse()
+            .map((q) => (
+              <Question
+                // eslint-disable-next-line no-underscore-dangle
+                key={q._id}
+                // eslint-disable-next-line no-underscore-dangle
+                id={q._id}
+                question={q.title}
+                student={q.student}
+                profileImage={Avatar}
+                answer={
+                  q.comments[0]
+                    ? q.comments[0]
+                    : 'Give an answer to the question'
+                }
+              />
+            ))}
         </div>
         {isSuccess === 'success' ||
         signIn.signUp.status === 'success' ||

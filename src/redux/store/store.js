@@ -3,7 +3,9 @@ import addQuestionSlice from '../features/addQuestionSlice';
 import editProfileSlice from '../features/editProfileSlice';
 import darkModeSlice from '../features/darkModeSlice';
 import userSlice from '../features/userSlice';
+import questionsSlice from '../features/questionsSlice';
 import fetchAllTutorsSlice from '../features/fetchAllTutorsSlice';
+import fetchAllUsersSlice from '../features/fetchAllUsersSlice';
 import uploadPicCloudinarySlice from '../features/uploadPicCloudinarySlice';
 import editProfilePicSlice from '../features/editProfilePicSlice';
 
@@ -29,8 +31,10 @@ const store = configureStore({
     editProfilePicReducer: editProfilePicSlice,
     darkModeReducer: darkModeSlice,
     fetchAllTutorReducer: fetchAllTutorsSlice,
+    fetchAllUsers: fetchAllUsersSlice,
     uploadPicCloudinaryReducer: uploadPicCloudinarySlice,
     signIn: userSlice,
+    questions: questionsSlice,
   },
   preloadedState: initialState,
   middleware: (getDefaultMiddleware) =>
