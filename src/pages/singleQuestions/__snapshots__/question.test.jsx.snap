@@ -2,54 +2,97 @@
 
 exports[`Single Question snapshot 1`] = `
 <div
-  className="flex flex-col lg:even:float-right mb-4 xl:mb-12 w-12/12 lg:w-10/12 h-20 sm:h-28 truncate"
+  className="relative max-w-3xl mx-auto"
 >
   <div
-    className="group relative  rounded-lg px-5 py-4 bg-gray-100 "
+    className="mx-auto my-8 max-w-3xl px-6 pt-4 pb-6 rounded-md bg-[#F0F0F0] text-black"
   >
     <div
-      className="flex justify-between items-center mb-2 "
+      className="flex mb-5"
     >
+      <img
+        alt="user.png"
+        className="w-10 h-10 rounded-full"
+        src="avatar.jpg"
+      />
+      <p
+        className="pl-2 font-semibold self-center text-sm mr-auto"
+      />
       <div
-        className="flex items-center  "
+        className="text-xl   self-center cursor-pointer"
       >
-        <a
-          href="/user-profile"
+        <svg
+          fill="currentColor"
+          height="1em"
+          onClick={[Function]}
+          stroke="currentColor"
+          strokeWidth="0"
+          style={
+            Object {
+              "color": undefined,
+            }
+          }
+          viewBox="0 0 192 512"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <img
-            alt="s profile pic"
-            className="object-cover bg-white w-8 h-8 sm:w-10 xl:w-16 sm:h-10 xl:h-16 rounded-full mr-8 sm:mr-10 xl:mr-20"
-            src=""
+          <path
+            d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
           />
-        </a>
-        <a
-          href="/question/"
+        </svg>
+      </div>
+      <div
+        className="absolute -right-0 top-12 lg:-right-48 lg:top-0 z-10 w-44 rounded-lg shadow-lg  border-opacity-50transition  py-1 lg:py-3 border-[1px]  hidden opacity-0  bg-[#F0F0F0]"
+        id="dropdown"
+      >
+        <button
+          className="w-full lg:w-full text-sm text-left hover:text-black hover:bg-gray-200 transition px-2 lg:px-4 py-1"
+          type="button"
         >
-          <div
-            className="text-sm sm:text-base xl:text-xl  truncate w-[15rem] sm:w-[30rem] lg:w-[40rem] xl:w-[50rem] 2xl:w-[60rem]"
-          >
-            <span
-              className="text-orange"
-            >
-              Q
-            </span>
-            : 
-            
-          </div>
-          <div
-            className="text-sm sm:text-base xl:text-xl text-[#7c7b7b] truncate w-[15rem] sm:w-[30rem] lg:w-[40rem] xl:w-[50rem] 2xl:w-[60rem] "
-          >
-            <span
-              className="text-orange ml-4"
-            >
-              A
-            </span>
-            : 
-            
-          </div>
-        </a>
+          Edit Question
+        </button>
+        <button
+          className="w-full lg:w-full text-sm text-left hover:bg-gray-200 hover:text-black transition px-2 lg:px-4 py-1"
+          type="button"
+        >
+          Add to Bookmark
+        </button>
+        <button
+          className="w-full lg:w-full text-sm text-left  hover:bg-gray-200 hover:text-black transition px-2 lg:px-4 py-1"
+          type="button"
+        >
+          Share
+        </button>
+        <button
+          className="w-full lg:w-full text-sm text-left text-red-600 hover:text-red-700 hover:bg-gray-200 transition px-2 lg:px-4 py-1"
+          type="button"
+        >
+          Delete Question
+        </button>
       </div>
     </div>
+    <h3
+      className="text-2xl mb-5"
+    >
+      <span
+        className="text-[#CA7560] "
+      >
+        Q
+      </span>
+      : 
+    </h3>
+    <p
+      className="text-sm mb-7 pl-7 line-clamp-3"
+    />
+  </div>
+  <div
+    className="relative w-full px-2 lg:px-20  "
+  >
+    <input
+      className="line-clamp-5 pr-14 md:pr-16 lg:pr-14 focus:outline-none border-[#CA7560] border-[3px] border-opacity-50 rounded-lg py-4 pl-5 text-xs w-full bg-[#F0F0F0] placeholder-slate-400"
+      placeholder="Answer the question..."
+      type="text"
+    />
   </div>
 </div>
 `;
