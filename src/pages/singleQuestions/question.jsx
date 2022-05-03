@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import Question from '../../components/Question/Question';
+import Question from '../../components/home/Question';
 import { fetchQuestions } from '../../redux/features/questionsSlice';
 // eslint-disable-next-line no-unused-vars
 import Avatar from '../../assets/images/avatar.jpg';
