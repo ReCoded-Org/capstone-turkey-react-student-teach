@@ -1,55 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Single Question snapshot 1`] = `
-<div
-  className="flex flex-col lg:even:float-right mb-4 xl:mb-12 w-12/12 lg:w-10/12 h-20 sm:h-28 truncate"
->
-  <div
-    className="group relative  rounded-lg px-5 py-4 bg-gray-100 "
-  >
-    <div
-      className="flex justify-between items-center mb-2 "
-    >
-      <div
-        className="flex items-center  "
-      >
-        <a
-          href="/user-profile"
-        >
-          <img
-            alt="s profile pic"
-            className="object-cover bg-white w-8 h-8 sm:w-10 xl:w-16 sm:h-10 xl:h-16 rounded-full mr-8 sm:mr-10 xl:mr-20"
-            src=""
-          />
-        </a>
-        <a
-          href="/question/"
-        >
-          <div
-            className="text-sm sm:text-base xl:text-xl  truncate w-[15rem] sm:w-[30rem] lg:w-[40rem] xl:w-[50rem] 2xl:w-[60rem]"
-          >
-            <span
-              className="text-orange"
-            >
-              Q
-            </span>
-            : 
-            
-          </div>
-          <div
-            className="text-sm sm:text-base xl:text-xl text-[#7c7b7b] truncate w-[15rem] sm:w-[30rem] lg:w-[40rem] xl:w-[50rem] 2xl:w-[60rem] "
-          >
-            <span
-              className="text-orange ml-4"
-            >
-              A
-            </span>
-            : 
-            
-          </div>
-        </a>
-      </div>
-    </div>
-  </div>
+<div>
+  looding
 </div>
 `;
