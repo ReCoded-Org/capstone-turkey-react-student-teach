@@ -73,7 +73,7 @@ function HomeContent() {
         <div className="mt-32 md:mr-7 lg:mr-10 pb-10">
           {allQuestions.questions
             ?.slice(
-              allQuestions.questions.length - 10,
+              allQuestions.questions.length - 11,
               allQuestions.questions.length,
             )
             .reverse()

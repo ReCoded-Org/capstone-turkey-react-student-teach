@@ -1,12 +1,22 @@
+/* eslint-disable import/no-unresolved */
 import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+// eslint-disable-next-line import/named
+import { fetchAllUsers } from '../../redux/features/fetchAllUsersSlice';
 
+// eslint-disable-next-line no-unused-vars
 function Question({ id, profileImage, question, answer, student }) {
   const darkMode = useSelector((state) => state.darkModeReducer.darkMode);
-  const [user, setUser] = useState();
-
+  const users = useSelector((state) => state.fetchAllUsers.users);
+  console.log(users);
+  console.log(student);
+  const user = users.filter((u) => (u.id === student ? u : false));
+  const dispatch = useDispatch();
   useEffect(() => {
+    dispatch(fetchAllUsers());
+  }, [dispatch]);
+  /* useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(
@@ -19,7 +29,7 @@ function Question({ id, profileImage, question, answer, student }) {
       }
     };
     fetchData();
-  }, []);
+  }, []); */
   console.log(user);
   return (
     <div className="flex flex-col lg:even:float-right mb-4 xl:mb-12 w-12/12 lg:w-10/12 h-20 sm:h-28 truncate">
@@ -32,8 +42,10 @@ function Question({ id, profileImage, question, answer, student }) {
           <div className="flex items-center  ">
             <a href="/user-profile">
               <img
-                className=" w-8 h-8 sm:w-10 xl:w-16 sm:h-10 xl:h-16 rounded-full mr-8 sm:mr-10 xl:mr-20"
-                src={user?.avatar === undefined ? profileImage : user.avatar}
+                className="object-cover bg-white w-8 h-8 sm:w-10 xl:w-16 sm:h-10 xl:h-16 rounded-full mr-8 sm:mr-10 xl:mr-20"
+                src={
+                  user[0]?.avatar === undefined ? profileImage : user[0].avatar
+                }
                 alt="s profile pic"
               />
             </a>
