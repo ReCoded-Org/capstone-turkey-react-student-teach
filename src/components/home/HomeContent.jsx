@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { FaPlus } from 'react-icons/fa';
+import { v4 as uuidv4 } from 'uuid';
 import Question from './Question';
-// eslint-disable-next-line import/no-named-as-default
 import { fetchQuestions } from '../../redux/features/questionsSlice';
 import AddQuestion from '../modals/AddQuestion/AddQuestion';
 import Hands from '../../assets/hands/Hands';
@@ -17,11 +17,11 @@ function HomeContent() {
   const isUserSignedUp = signIn.signUp.isSignedUp;
   const allQuestions = useSelector((state) => state.questions);
   const dispatch = useDispatch();
+  const darkMode = useSelector((state) => state.darkModeReducer.darkMode);
 
   useEffect(() => {
     dispatch(fetchQuestions());
   }, [dispatch]);
-  const darkMode = useSelector((state) => state.darkModeReducer.darkMode);
   return (
     <div
       className={`${
@@ -88,8 +88,7 @@ function HomeContent() {
             .reverse()
             .map((q) => (
               <Question
-                // eslint-disable-next-line no-underscore-dangle
-                key={q._id}
+                key={uuidv4()}
                 // eslint-disable-next-line no-underscore-dangle
                 id={q._id}
                 question={q.title}
