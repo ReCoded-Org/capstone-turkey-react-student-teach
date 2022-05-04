@@ -47,7 +47,11 @@ function Question({
 
   return (
     <div className=" relative max-w-3xl mx-auto">
-      <div className=" mx-auto my-8 max-w-3xl px-6 pt-4 pb-6 bg-[#F0F0F0]">
+      <div
+        className={`mx-auto my-8 max-w-3xl px-6 pt-4 pb-6 rounded-md ${
+          darkMode ? 'bg-secondaryDark' : 'bg-[#F0F0F0]'
+        } ${darkMode ? 'text-white' : 'text-black'}`}
+      >
         <div className="flex justify-between mb-5">
           {status === 'loading' ? (
             <div />

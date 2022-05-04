@@ -6,9 +6,6 @@ import store from '../../redux/store/store';
 
 it('renders an Question component correctly', () => {
   const tree = renderer
-<<<<<<< HEAD
-    .create(<Question question="questionassfasfas" studentInfo="Hazarcan" />)
-=======
     .create(
       <Provider store={store}>
         <MemoryRouter>
@@ -21,7 +18,6 @@ it('renders an Question component correctly', () => {
         </MemoryRouter>
       </Provider>,
     )
->>>>>>> 65962305ce35a77f77d8fdb5c2edef94f05c7e83
     .toJSON();
   expect(tree).toMatchSnapshot();
 });
