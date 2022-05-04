@@ -41,7 +41,7 @@ function ProfilePicEdit({ open, setOpen, label }) {
                   }),
                 );
                 setNewProfilePic('');
-              }, 2500);
+              }, 3000);
             }}
           >
             {({
