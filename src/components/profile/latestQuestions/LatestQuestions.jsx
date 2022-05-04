@@ -75,13 +75,16 @@ function LatestQuestions() {
                 questionTitle={q.title}
                 questionText={q.content}
                 studentId={q.student}
+                createdAt={q.createdAt}
               />
             );
           }
 
           return null;
         })}
-      {isThereQuestion ? null : <CheckContent label="No question added yet." />}
+      {isThereQuestion ? null : (
+        <CheckContent label="No questions added yet." />
+      )}
     </div>
   );
 }

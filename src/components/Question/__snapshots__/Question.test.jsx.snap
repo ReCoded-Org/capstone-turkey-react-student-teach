@@ -5,25 +5,44 @@ exports[`renders an Question component correctly 1`] = `
   className="relative max-w-3xl mx-auto"
 >
   <div
-    className="mx-auto my-8 max-w-3xl px-6 pt-4 pb-6 rounded-md bg-[#F0F0F0] text-black"
+    className="mx-auto my-8 max-w-3xl px-6 pt-4 pb-6 rounded-md bg-[#F0F0F0]  text-black"
   >
     <div
-      className="flex justify-between mb-5"
+      className="flex  justify-between mb-5"
     >
-      <img
-        alt="user.png"
-        className="w-10 h-10 rounded-full"
-        src="https://via.placeholder.com/150"
-      />
-      <p
-        className="pl-2 font-semibold self-center text-sm mr-auto"
-      >
-        hazarcan
-      </p>
       <div
-        className="text-xl   self-center cursor-pointer"
+        className="flex whitespace-nowrap"
       >
+        <img
+          alt="user.png"
+          className="w-10 h-10 rounded-full"
+          src="https://via.placeholder.com/150"
+        />
+        <div
+          className="mr-[5rem] lg:mr-0 self-center lg:flex lg:flex-row-reverse"
+        >
+          <p
+            className="text-green-500 ml-4 text-xs  self-center  hidden "
+          >
+            Author
+          </p>
+          <p
+            className="pl-2 font-semibold self-center text-sm mr-auto"
+          >
+            hazarcan
+          </p>
+        </div>
+      </div>
+      <div
+        className="text-xl flex mb-[1px] self-center cursor-pointer whitespace-nowrap"
+      >
+        <p
+          className="mr-3 text-xs  self-center cursor-text"
+        >
+          0NaN/0NaN/NaN
+        </p>
         <svg
+          className="hidden "
           fill="currentColor"
           height="1em"
           onClick={[Function]}
@@ -44,17 +63,12 @@ exports[`renders an Question component correctly 1`] = `
         </svg>
       </div>
       <div
-        className="absolute -right-0 top-12 lg:-right-48 lg:top-0 z-10 w-44 rounded-lg shadow-lg  border-opacity-50transition  py-1 lg:py-3 border-[1px]  hidden opacity-0  bg-[#F0F0F0]"
+        className="absolute -right-0 top-12 lg:-right-48 lg:top-0 z-10 w-44 rounded-lg shadow-lg transition-all ease-in-out  py-1 lg:py-3 border-[1px] lg:border-0 hidden opacity-0  bg-[#F0F0F0]"
         id="dropdown"
       >
         <button
-          className="w-full lg:w-full text-sm text-left hover:text-black hover:bg-gray-200 transition px-2 lg:px-4 py-1"
-          type="button"
-        >
-          Edit Question
-        </button>
-        <button
-          className="w-full lg:w-full text-sm text-left text-red-600 hover:text-red-700 hover:bg-gray-200 transition px-2 lg:px-4 py-1"
+          className="w-full lg:w-full text-sm text-left text-red-600 hover:text-red-700 hover:bg-gray-200 transition px-2 lg:px-4 py-1 "
+          onClick={[Function]}
           type="button"
         >
           Delete Question
