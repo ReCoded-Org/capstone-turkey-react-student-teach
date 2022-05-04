@@ -21,7 +21,7 @@ exports[`renders an Question component correctly 1`] = `
           >
             <img
               alt="user.png"
-              className="w-10 h-10 rounded-full"
+              className="w-[3.2rem] h-[3.2rem] mr-2 rounded-full"
               src="https://via.placeholder.com/150"
             />
             <h1

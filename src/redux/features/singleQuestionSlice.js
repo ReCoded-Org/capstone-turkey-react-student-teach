@@ -11,7 +11,6 @@ const getAnswers = createAsyncThunk(
         )
           .then((response) => response.json())
           .then((data) => {
-            console.log('right over here', { ...comment, creator: data });
             return { ...comment, creator: data };
           });
       }),
@@ -32,7 +31,6 @@ export const getQuestion = createAsyncThunk(
         )
           .then((response) => response.json())
           .then((stdata) => {
-            console.log('fetched question', { ...data, student: stdata });
             const dispatch = useDispatch();
             dispatch(getAnswers(data.comments));
             return { ...data, student: stdata };
@@ -66,7 +64,6 @@ const singleQuestionSlice = createSlice({
       state.status.comments = 'loading';
     },
     [getAnswers.fulfilled]: (state, action) => {
-      console.log('fetched answers', action.payload);
       state.comment = action.payload;
       state.status.comments = 'success';
     },
