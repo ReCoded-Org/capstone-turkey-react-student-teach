@@ -8,152 +8,148 @@ exports[`renders an Question component correctly 1`] = `
     className="mx-auto my-8 max-w-3xl px-6 pt-4 pb-6 rounded-md bg-[#F0F0F0]  text-black"
   >
     <div
-      className="flex  justify-between mb-5"
+      className="flex flex-col justify-between"
     >
       <div
-        className="flex whitespace-nowrap"
-      >
-        <img
-          alt="user.png"
-          className="w-10 h-10 rounded-full"
-          src="https://via.placeholder.com/150"
-        />
-        <div
-          className="mr-[5rem] lg:mr-0 self-center lg:flex lg:flex-row-reverse"
-        >
-          <p
-            className="text-green-500 ml-4 text-xs  self-center  hidden "
-          >
-            Author
-          </p>
-          <p
-            className="pl-2 font-semibold self-center text-sm mr-auto"
-          >
-            hazarcan
-          </p>
-        </div>
-      </div>
-      <div
-<<<<<<< HEAD
-        className="text-xl self-center cursor-pointer"
-=======
-        className="text-xl flex mb-[1px] self-center cursor-pointer whitespace-nowrap"
->>>>>>> 8fe146ceddc2d662456868d1c8a0a63d0e9dcbc0
-      >
-        <p
-          className="mr-3 text-xs  self-center cursor-text"
-        >
-          0NaN/0NaN/NaN
-        </p>
-        <svg
-          className="hidden "
-          fill="currentColor"
-          height="1em"
-          onClick={[Function]}
-          stroke="currentColor"
-          strokeWidth="0"
-          style={
-            Object {
-              "color": undefined,
-            }
-          }
-          viewBox="0 0 192 512"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
-          />
-        </svg>
-      </div>
-      <div
-        className="absolute -right-0 top-12 lg:-right-48 lg:top-0 z-10 w-44 rounded-lg shadow-lg transition-all ease-in-out  py-1 lg:py-3 border-[1px] lg:border-0 hidden opacity-0  bg-[#F0F0F0]"
-        id="dropdown"
-      >
-        <button
-<<<<<<< HEAD
-          className="w-full lg:w-full text-sm text-left text-red-600 hover:text-red-700 hover:bg-gray-200 transition px-2 lg:px-4 py-1"
-=======
-          className="w-full lg:w-full text-sm text-left text-red-600 hover:text-red-700 hover:bg-gray-200 transition px-2 lg:px-4 py-1 "
-          onClick={[Function]}
->>>>>>> 8fe146ceddc2d662456868d1c8a0a63d0e9dcbc0
-          type="button"
-        >
-          Delete Question
-        </button>
-      </div>
-    </div>
-    <a
-      href="/"
-      onClick={[Function]}
-    >
-      <h3
-        className="text-2xl mb-5"
-      >
-        <span
-          className="text-[#CA7560] "
-        >
-          Q
-        </span>
-        : 
-        Loeerasdsa
-      </h3>
-      <p
-        className="text-sm mb-7 pl-7 "
-      >
-        questionText
-      </p>
-    </a>
-  </div>
-  <div
-    className="relative w-full px-2 lg:px-20 "
-  >
-    <form
-      action="#"
-      onReset={[Function]}
-      onSubmit={[Function]}
-    >
-      <div
-        className="flex flex-row items-end"
+        className="mb-10"
       >
         <div
-          className="w-full"
+          className="flex justify-between"
         >
-          <textarea
-            className="my-1 focus:ring-cusOrange focus:border-cusOrange block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-            name="replyToQuestion"
-            onBlur={[Function]}
-            onChange={[Function]}
-            placeholder="Answer the question"
-            rows={2}
-          />
-        </div>
-        <button
-          className="text-gray-100 bg-orange rounded px-5 py-2 ml-2 my-1"
-          disabled={false}
-          type="submit"
-        >
-          <svg
-            fill="currentColor"
-            height="1em"
-            stroke="currentColor"
-            strokeWidth="0"
-            style={
-              Object {
-                "color": undefined,
-              }
-            }
-            viewBox="0 0 512 512"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
+          <div
+            className="mr-[5rem] lg:mr-0 self-center lg:flex lg:flex-row-reverse"
           >
-            <path
-              d="M8.309 189.836L184.313 37.851C199.719 24.546 224 35.347 224 56.015v80.053c160.629 1.839 288 34.032 288 186.258 0 61.441-39.581 122.309-83.333 154.132-13.653 9.931-33.111-2.533-28.077-18.631 45.344-145.012-21.507-183.51-176.59-185.742V360c0 20.7-24.3 31.453-39.687 18.164l-176.004-152c-11.071-9.562-11.086-26.753 0-36.328z"
+            <h1
+              className="flex pl-2 font-semibold self-center text-sm mr-auto"
+            >
+              hazarcan
+              <p
+                className="text-green-500 ml-4 text-xs  self-center  hidden "
+              >
+                Author
+              </p>
+            </h1>
+            <img
+              alt="user.png"
+              className="w-10 h-10 rounded-full"
+              src="https://via.placeholder.com/150"
             />
-          </svg>
-        </button>
+          </div>
+          <div
+            className="text-xl flex mb-[1px] self-center cursor-pointer whitespace-nowrap"
+          >
+            <p
+              className="mr-3 text-xs  self-center cursor-text"
+            >
+              0NaN/0NaN/NaN
+            </p>
+            <svg
+              className="hidden "
+              fill="currentColor"
+              height="1em"
+              onClick={[Function]}
+              stroke="currentColor"
+              strokeWidth="0"
+              style={
+                Object {
+                  "color": undefined,
+                }
+              }
+              viewBox="0 0 192 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
+              />
+            </svg>
+          </div>
+          <div
+            className="absolute -right-0 top-12 lg:-right-48 lg:top-0 z-10 w-44 rounded-lg shadow-lg transition-all ease-in-out  py-1 lg:py-3 border-[1px] lg:border-0 hidden opacity-0  bg-[#F0F0F0]"
+            id="dropdown"
+          >
+            <button
+              className="w-full lg:w-full text-sm text-left text-red-600 hover:text-red-700 hover:bg-gray-200 transition px-2 lg:px-4 py-1 "
+              onClick={[Function]}
+              type="button"
+            >
+              Delete Question
+            </button>
+          </div>
+        </div>
       </div>
-    </form>
+      <a
+        href="/"
+        onClick={[Function]}
+      >
+        <h3
+          className="text-2xl mb-5"
+        >
+          <span
+            className="text-[#CA7560] "
+          >
+            Q
+          </span>
+          : 
+          Loeerasdsa
+        </h3>
+        <p
+          className="text-sm mb-7 pl-7"
+        >
+          questionText
+        </p>
+      </a>
+    </div>
+    <div
+      className="relative px-2 lg:px-20 "
+    >
+      <form
+        action="#"
+        onReset={[Function]}
+        onSubmit={[Function]}
+      >
+        <div
+          className="flex flex-col items-end text-black"
+        >
+          <div
+            className="w-full"
+          >
+            <textarea
+              className="my-1 w-[20rem] focus:ring-cusOrange focus:border-cusOrange block shadow-sm sm:text-sm border-gray-300 rounded-md text-black bg-white"
+              name="replyToQuestion"
+              onBlur={[Function]}
+              onChange={[Function]}
+              placeholder="Answer the question"
+              rows={2}
+            />
+          </div>
+          <button
+            className="text-gray-100 bg-orange rounded px-5 py-2 ml-2 my-1"
+            disabled={false}
+            type="submit"
+          >
+            <svg
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              strokeWidth="0"
+              style={
+                Object {
+                  "color": undefined,
+                }
+              }
+              viewBox="0 0 512 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8.309 189.836L184.313 37.851C199.719 24.546 224 35.347 224 56.015v80.053c160.629 1.839 288 34.032 288 186.258 0 61.441-39.581 122.309-83.333 154.132-13.653 9.931-33.111-2.533-28.077-18.631 45.344-145.012-21.507-183.51-176.59-185.742V360c0 20.7-24.3 31.453-39.687 18.164l-176.004-152c-11.071-9.562-11.086-26.753 0-36.328z"
+              />
+            </svg>
+          </button>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
 `;
