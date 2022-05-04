@@ -31,7 +31,6 @@ const deleteQuestionSliceSlice = createSlice({
       state.status = 'loading';
     },
     [deleteQuestionSlice.fulfilled]: (state, { payload }) => {
-      console.log(payload);
       state.status = 'success';
       state.message.push(payload);
     },
