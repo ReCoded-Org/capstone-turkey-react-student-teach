@@ -2,13 +2,13 @@
 
 exports[`renders an Question component correctly 1`] = `
 <div
-  className=" relative max-w-3xl mx-auto"
+  className="relative max-w-3xl mx-auto"
 >
   <div
-    className=" mx-auto my-8 max-w-3xl px-6 pt-4 pb-6 bg-[#F0F0F0]"
+    className="mx-auto my-8 max-w-3xl px-6 pt-4 pb-6 rounded-md bg-[#F0F0F0] text-black"
   >
     <div
-      className="flex mb-5"
+      className="flex justify-between mb-5"
     >
       <img
         alt="user.png"
@@ -44,26 +44,14 @@ exports[`renders an Question component correctly 1`] = `
         </svg>
       </div>
       <div
-        className="absolute -right-0 top-12 lg:-right-48 lg:top-0 z-10 w-44 rounded-lg shadow-lg  border-[#CA7560] border-[4px]  border-opacity-50 bg-white transition  py-1 lg:py-3 hidden opacity-0"
+        className="absolute -right-0 top-12 lg:-right-48 lg:top-0 z-10 w-44 rounded-lg shadow-lg  border-opacity-50transition  py-1 lg:py-3 border-[1px]  hidden opacity-0  bg-[#F0F0F0]"
         id="dropdown"
       >
         <button
-          className=" w-full lg:w-full text-sm text-left text-gray-800 hover:text-gray-900 hover:bg-gray-200 transition px-2 lg:px-4 py-1"
+          className="w-full lg:w-full text-sm text-left hover:text-black hover:bg-gray-200 transition px-2 lg:px-4 py-1"
           type="button"
         >
           Edit Question
-        </button>
-        <button
-          className="w-full lg:w-full text-sm text-left hover:bg-gray-200 transition px-2 lg:px-4 py-1"
-          type="button"
-        >
-          Add to Bookmark
-        </button>
-        <button
-          className="w-full lg:w-full text-sm text-left  hover:bg-gray-200 transition px-2 lg:px-4 py-1"
-          type="button"
-        >
-          Share
         </button>
         <button
           className="w-full lg:w-full text-sm text-left text-red-600 hover:text-red-700 hover:bg-gray-200 transition px-2 lg:px-4 py-1"
@@ -73,12 +61,14 @@ exports[`renders an Question component correctly 1`] = `
         </button>
       </div>
     </div>
-    <h3
-      className="text-2xl mb-5"
+    <a
+      href="/"
+      onClick={[Function]}
     >
-      <span
-        className="text-[#CA7560] "
+      <h3
+        className="text-2xl mb-5"
       >
+<<<<<<< HEAD
         Q
       </span>
       : 
@@ -86,34 +76,35 @@ exports[`renders an Question component correctly 1`] = `
     <p
       className="text-sm mb-7 pl-7 line-clamp-3"
     />
+=======
+        <span
+          className="text-[#CA7560] "
+        >
+          Q
+        </span>
+        : 
+        Loeerasdsa
+      </h3>
+      <p
+        className="text-sm mb-7 pl-7 line-clamp-3"
+      >
+        questionText
+      </p>
+    </a>
+>>>>>>> 65962305ce35a77f77d8fdb5c2edef94f05c7e83
   </div>
   <div
-    className="relative w-full px-2 lg:px-20 "
+    className="relative w-full px-2 lg:px-20  "
   >
     <input
+<<<<<<< HEAD
       className=" line-clamp-6 pr-14 md:pr-16 lg:pr-14 focus:outline-none border-[#CA7560] border-[3px] border-opacity-50 rounded-lg py-4 pl-5 text-xs w-full "
+=======
+      className="line-clamp-5 pr-14 md:pr-16 lg:pr-14 focus:outline-none border-[#CA7560] border-[3px] border-opacity-50 rounded-lg py-4 pl-5 text-xs w-full bg-[#F0F0F0] placeholder-slate-400"
+>>>>>>> 65962305ce35a77f77d8fdb5c2edef94f05c7e83
       placeholder="Answer the question..."
       type="text"
     />
-    <svg
-      className="absolute top-[19px] text-gray-600 cursor-pointer text-lg right-8 md:right-12 lg:right-28 hover:scale-105"
-      fill="currentColor"
-      height="1em"
-      stroke="currentColor"
-      strokeWidth="0"
-      style={
-        Object {
-          "color": undefined,
-        }
-      }
-      viewBox="0 0 512 512"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M464 448H48c-26.51 0-48-21.49-48-48V112c0-26.51 21.49-48 48-48h416c26.51 0 48 21.49 48 48v288c0 26.51-21.49 48-48 48zM112 120c-30.928 0-56 25.072-56 56s25.072 56 56 56 56-25.072 56-56-25.072-56-56-56zM64 384h384V272l-87.515-87.515c-4.686-4.686-12.284-4.686-16.971 0L208 320l-55.515-55.515c-4.686-4.686-12.284-4.686-16.971 0L64 336v48z"
-      />
-    </svg>
   </div>
 </div>
 `;

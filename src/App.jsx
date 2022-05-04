@@ -1,39 +1,80 @@
-import { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
-
+import { useState, useEffect } from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import './App.css';
 import Navbar from './components/navbar/Navbar';
 import Home from './pages/Home/Home';
 import Questions from './pages/questions/Questions';
-import SingleQuestion from './pages/SingleQuestion/SingleQuestion';
 import Contact from './pages/contact/Contact';
 import About from './pages/about/About';
 import UserProfile from './pages/userProfile/UserProfile';
-import OverlayCard from './components/cards/overlayCard/OverlayCard';
+import NotFoundPage from './pages/notFoundPage/NotFoundPage';
+import Footer from './components/Footer/Footer';
+import Question from './pages/singleQuestions/question';
 import {
   ABOUT_ROUTE,
   CONTACT_ROUTE,
   QUESTIONS_ROUTE,
+  QUESTION_ROUTE,
   HOME_ROUTE,
   USERPROFILE_ROUTE,
 } from './routes';
+import { fetchAllTutorSlice } from './redux/features/fetchAllTutorsSlice';
 
 function App() {
-  const [burger, setBurger] = useState(true);
+  const userSignedIn = useSelector((state) => state.signIn.user.userInfo.id);
+  const userSignedUp = useSelector(
+    (state) => state.signIn.signUp.isSignedUp.id,
+  );
+  const [timeOut, setTimeOut] = useState(false);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      return setTimeOut(true);
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }, [timeOut]);
+
+  useEffect(() => {
+    dispatch(fetchAllTutorSlice({ userId: userSignedIn || userSignedUp }));
+  }, [userSignedIn, userSignedUp, dispatch]);
+
+  const signIn = useSelector((state) => state.signIn);
+  const isSuccess = signIn.user.status;
+  const isUser = signIn.user.userInfo;
+  const isUserSignedUp = signIn.signUp.isSignedUp;
+
   return (
     <div className="App">
-      <Navbar onBurgerClick={() => setBurger(true)} />
-      {burger ? null : <OverlayCard />}
+      <Navbar />
+
       <Routes>
         <Route path={HOME_ROUTE} element={<Home />} />
-        <Route path={QUESTIONS_ROUTE}>
-          <Route path=":questionID" element={<SingleQuestion />} />
-          <Route index element={<Questions />} />
-        </Route>
+        <Route path={QUESTION_ROUTE} element={<Question />} />
+        <Route path={QUESTIONS_ROUTE} element={<Questions />} />
         <Route path={CONTACT_ROUTE} element={<Contact />} />
         <Route path={ABOUT_ROUTE} element={<About />} />
-        <Route path={USERPROFILE_ROUTE} element={<UserProfile />} />
+        <Route
+          path={USERPROFILE_ROUTE}
+          element={
+            isSuccess === 'success' ||
+            signIn.signUp.status === 'success' ||
+            isUser.firstName ||
+            isUserSignedUp.firstName ? (
+              <UserProfile />
+            ) : (
+              <Navigate to="/" />
+            )
+          }
+        />
+        <Route
+          path="*"
+          element={timeOut ? <Navigate to="/" /> : <NotFoundPage />}
+        />
       </Routes>
+      <Footer />
     </div>
   );
 }

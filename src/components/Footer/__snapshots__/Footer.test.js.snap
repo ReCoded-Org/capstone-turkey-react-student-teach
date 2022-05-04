@@ -1,0 +1,201 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Initial test for Footer.jsx 1`] = `
+<div
+  className="bg-zinc-100 "
+>
+  <div
+    className="container mx-auto justify-center grid pt-[5rem]"
+  >
+    <h2
+      className="mb-6 text-2xl font-semibold  tracking-[.75px] text-center"
+    >
+      Subscribe to Our Newsletter
+    </h2>
+    <form
+      action="#"
+      className="flex flex-col justify-center items-center md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 2xl:grid-cols-1 grid-cols-1"
+      onReset={[Function]}
+      onSubmit={[Function]}
+    >
+      <input
+        className=" lg:w-[312px] h-auto text-base font-semibold transition ease-in-out outline outline-1 outline-secondary-color rounded-md text-font-color px-2 py-2 mb-3  text-center border-secondary-color focus:invalid:border-primary-color focus:border-2 focus:border-primary-color xs:w-[270px] xs-justify-center xs:justify-center xs:text-center xs:align-middle mx-auto"
+        id="email"
+        name="email"
+        onBlur={[Function]}
+        onChange={[Function]}
+        placeholder="Your Email Address"
+        type="email"
+        value=""
+      />
+      <a
+        href="!#"
+      >
+        <button
+          className="lg:w-[468px] h-auto text-base border border-transparent font-semibold text-white  hover:bg-white rounded-md px-5 py-3 w-[10rem] xs:justify-center xs:align-middle hover:text-primary-color hover:border-primary-color bg-primary-color border-primary-color"
+          type="submit"
+        >
+          Submit
+        </button>
+      </a>
+    </form>
+    <div
+      className="grid lg:grid-cols-4 gap-4 md:grid-cols-1  xs:grid-rows-1 sm:grid-cols-1 mt-16 sm:justify-center xs:justify-center xs:align-middle xs:grid-cols-1 xs:pb-8"
+    >
+      <div
+        className="flex flex-col xs:justify-items-center xs:align-middle sm:justify-items-center md:justify-items-center lg:justify-center"
+      >
+        <svg
+          className="block text-[3rem] h-[5rem] w-fit mb-3 self-center"
+          fill="none"
+          height="211"
+          viewBox="0 0 196 211"
+          width="196"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M188.278 123.622C185.421 120.366 182.564 117.11 179.161 113.257C178.56 115.142 178.095 116.41 177.841 117.838C171.599 147.502 150.611 168.283 121.316 173.91C102.479 177.409 85.3831 173.584 68.8065 166.01C50.2804 157.492 37.4434 143.035 28.0868 125.1C23.2842 115.858 21.9075 105.621 22.1568 94.9993C22.2795 92.2098 22.5079 89.5006 23.574 86.348C24.1085 87.8361 24.941 89.3708 24.7927 90.8796C22.4831 127.862 56.7944 163.172 97.0126 168.382C112.767 170.466 128.035 167.493 142.375 158.95C159.21 148.882 171.285 127.983 171.028 109.048C165.22 112.735 161.872 120.637 153.362 120.645C159.131 113.505 164.273 106.969 169.435 100.627C171.19 98.5404 173.548 97.6329 175.014 99.6497C180.169 106.457 185.045 113.413 189.729 120.402C190.064 120.837 189.494 122.025 189.376 122.836C189.308 123.144 188.75 123.44 188.278 123.622Z"
+            fill="#383838"
+          />
+          <path
+            clipRule="evenodd"
+            d="M53.5534 10.665C43.5265 13.4382 33.9294 21.454 29.4487 30.7968C27.0768 35.7429 26.7618 37.5726 26.8387 45.9233C26.9092 53.4751 27.3773 56.4035 29.1212 60.202C32.1677 66.8384 40.5542 75.2844 47.3141 78.5263C52.2603 80.8982 54.09 81.2131 62.4407 81.1363C69.9924 81.0658 72.9209 80.5977 76.7194 78.8538C83.3558 75.8073 91.8018 67.4207 95.0437 60.6608C97.4027 55.7398 97.7353 53.8429 97.6897 45.5341C97.644 37.2252 97.2906 35.3321 94.8777 30.4373C91.5283 23.6456 82.9436 15.3506 76.3551 12.5398C71.1047 10.2996 58.5948 9.27131 53.5534 10.665ZM52.4233 17.5723C25.0716 27.5188 26.2645 66.4478 54.1645 74.3926C76.5309 80.7618 97.4341 59.6277 90.8195 37.3327C86.0205 21.1558 68.0294 11.8975 52.4233 17.5723Z"
+            fill="#383838"
+            fillRule="evenodd"
+          />
+          <path
+            clipRule="evenodd"
+            d="M76.2674 42.1741L55.6375 63.0526L46.7757 54.3195C37.8546 45.5287 34.985 44.062 34.2636 47.9226C33.9012 49.8641 53.4003 69.7777 55.6521 69.7653C56.4 69.7612 66.9349 59.7193 79.0633 47.4498C101.228 25.0268 103.398 22.1588 98.6747 21.5323C97.3894 21.3617 91.1873 27.0751 76.2674 42.1741Z"
+            fill="#CA7560"
+            fillRule="evenodd"
+          />
+        </svg>
+        <div
+          className="lg:text-left text-sm w-[screen] max-h-max xs:w-[260px] xs:h-[200px] mx-auto text-center"
+        >
+          Studenteach is completed by two groups selected for the React.js bootcamp and back end bootcamp conducted by Re:coded. 
+          <br />
+          Attendees of the bootcamps have completed their individual tasks by gathering occasionally 3 times a week. All attendees have been given chances to develop their skills in every possible realm they could possibly face in real world.
+        </div>
+      </div>
+      <ul
+        className="flex flex-col align-middle m-6 xs:m-1 sm:mt-1 text-center"
+      >
+        <span
+          className="p-1 font-semibold text-2xl xs:mt-16"
+        >
+          Useful Links
+        </span>
+        <a
+          className="mt-9 mb-3 xs:mt-3 inline-block"
+          href="https://www.re-coded.com/"
+        >
+          <li
+            className="text-secondary-color text-base hover:text-font-color"
+          >
+            Re:coded
+          </li>
+        </a>
+        <a
+          className="mt-9 mb-3 xs:mt-3 inline-block"
+          href="https://flatironschool.com/"
+        >
+          <li
+            className="text-secondary-color text-base hover:text-font-color"
+          >
+            Flatiron School
+          </li>
+        </a>
+        <a
+          className="mt-9 mb-3 xs:mt-3 inline-block"
+          href="https://github.com/ReCoded-Org/capstone-turkey-react-student-teach"
+        >
+          <li
+            className="text-secondary-color text-base hover:text-font-color"
+          >
+            Project Repo
+          </li>
+        </a>
+      </ul>
+      <ul
+        className="flex flex-col align-middle m-6 xs:m-1 sm:m-1 text-center"
+      >
+        <span
+          className="p-1 font-semibold text-2xl"
+        >
+          Useful Links
+        </span>
+        <a
+          className="mt-9 mb-3 xs:mt-3 inline-block"
+          href="https://reactjs.org/"
+        >
+          <li
+            className="text-secondary-color text-base hover:text-font-color"
+          >
+            React
+          </li>
+        </a>
+        <a
+          className="mt-9 mb-3 xs:mt-3 inline-block"
+          href="https://overreacted.io/"
+        >
+          <li
+            className="text-secondary-color text-base hover:text-font-color"
+          >
+            Overreacted.io
+          </li>
+        </a>
+        <a
+          className="mt-9 mb-3 xs:mt-3 inline-block"
+          href="https://developer.mozilla.org/en-US/"
+        >
+          <li
+            className="text-secondary-color text-base hover:text-font-color"
+          >
+            MDN
+          </li>
+        </a>
+      </ul>
+      <ul
+        className="flex flex-col align-middle m-6 xs:mb-1 sm:m-1 text-center"
+      >
+        <span
+          className="p-1 font-semibold text-2xl"
+        >
+          Useful Links
+        </span>
+        <a
+          className="mt-9 mb-3 xs:mt-3 inline-block"
+          href="https://dev.to/"
+        >
+          <li
+            className="text-secondary-color text-base hover:text-font-color"
+          >
+            dev.to
+          </li>
+        </a>
+        <a
+          className="mt-9 mb-3 xs:mt-3 inline-block"
+          href="https://www.youtube.com/c/WebDevSimplified"
+        >
+          <li
+            className="text-secondary-color text-base hover:text-font-color"
+          >
+            Kyle
+          </li>
+        </a>
+        <a
+          className="mt-9 mb-3 xs:mt-3 inline-block"
+          href="https://www.youtube.com/c/DevEd"
+        >
+          <li
+            className="text-secondary-color text-base hover:text-font-color pb-10"
+          >
+            Ed
+          </li>
+        </a>
+      </ul>
+    </div>
+  </div>
+</div>
+`;

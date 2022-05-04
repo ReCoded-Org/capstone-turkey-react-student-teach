@@ -1,12 +1,18 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { FaEllipsisV, FaThumbsDown, FaThumbsUp } from 'react-icons/fa';
+import { useSelector } from 'react-redux';
 
 function Answer({ children, image, username }) {
   const [open, setOpen] = useState(false);
+  const darkMode = useSelector((state) => state.darkModeReducer.darkMode);
   return (
     <div className="flex flex-col mt-8 max-w-[50rem]">
-      <div className="group relative bg-gray-100 rounded-lg px-5 py-4">
+      <div
+        className={`group relative  rounded-lg px-5 py-4 ${
+          darkMode ? 'bg-secondaryDark' : 'bg-gray-100'
+        } ${darkMode ? 'text-white' : 'text-black'} `}
+      >
         <div className="flex justify-between items-center mb-2">
           <div className="flex items-center">
             <a href="/user-profile">
@@ -21,7 +27,9 @@ function Answer({ children, image, username }) {
             </a>
           </div>
           <button
-            className=" opacity-0 group-hover:opacity-100 text-gray-500 hover:text-gray-600 hover:bg-gray-200 transition rounded-full p-2"
+            className={`lg:opacity-0 lg:group-hover:opacity-100 hover:text-gray-600 hover:bg-gray-200 transition rounded-full p-2  ${
+              darkMode ? 'text-white' : 'text-gray-500 '
+            }`}
             data-dropdown-toggle="dropdown"
             id="dropdown"
             onClick={() => setOpen(!open)}
@@ -30,13 +38,15 @@ function Answer({ children, image, username }) {
             <FaEllipsisV />
           </button>
           <div
-            className={`absolute top-16 right-5 z-10 w-44 border rounded shadow-lg bg-white transition py-1 ${
+            className={`absolute top-16 right-5 z-10 w-44 border rounded shadow-lg transition py-1 ${
               open ? 'show opacity-100' : 'hidden opacity-0'
-            }`}
+            } ${darkMode ? 'bg-secondaryDark' : 'bg-white'}`}
             id="dropdown"
           >
             <button
-              className="w-full text-left text-gray-800 hover:text-gray-900 hover:bg-gray-200 transition px-4 py-1"
+              className={`w-full text-left  hover:text-gray-900 hover:bg-gray-200 transition px-4 py-1 ${
+                darkMode ? 'text-white' : 'text-gray-800'
+              }`}
               type="button"
             >
               Edit answer
@@ -48,7 +58,7 @@ function Answer({ children, image, username }) {
               Delete answer
             </button>
             <button
-              className="w-full text-left text-green-700 hover:text-green-800 hover:bg-gray-200 transition px-4 py-1"
+              className="w-full text-left text-green-600 hover:text-green-800 hover:bg-gray-200 transition px-4 py-1"
               type="button"
             >
               Mark as correct answer

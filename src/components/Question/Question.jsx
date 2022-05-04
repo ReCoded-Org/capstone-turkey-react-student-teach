@@ -1,21 +1,30 @@
 import { useState, useEffect, useRef } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import * as Yup from 'yup';
 import { ErrorMessage, Field, Formik, Form } from 'formik';
 import { FaEllipsisV, FaReply, FaSpinner } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import { addComment } from '../../redux/features/addCommentSlice';
 
 const ReplySchema = Yup.object().shape({
   content: Yup.string().min(3).required(),
 });
 
-function Question({ status, question }) {
+function Question({
+  avatar,
+  userName,
+  questionTitle,
+  questionText,
+  isLink,
+  questionId = '',
+  status,
+  question,
+}) {
   const [open, setOpen] = useState(false);
   const sideMenuRef = useRef();
   const ellipsisIconRef = useRef();
   const dispatch = useDispatch();
-
   useEffect(() => {
     const checkIfClickedOutsideOfSideMenu = (e) => {
       if (
@@ -34,20 +43,17 @@ function Question({ status, question }) {
       );
     };
   }, [open]);
+  const darkMode = useSelector((state) => state.darkModeReducer.darkMode);
 
   return (
     <div className=" relative max-w-3xl mx-auto">
       <div className=" mx-auto my-8 max-w-3xl px-6 pt-4 pb-6 bg-[#F0F0F0]">
-        <div className="flex mb-5">
+        <div className="flex justify-between mb-5">
           {status === 'loading' ? (
             <div />
           ) : (
             <img
-              src={
-                question.student?.avatar
-                  ? question.student.avatar
-                  : '/images/avatar.jpg'
-              }
+              src={avatar}
               className="w-10 h-10 rounded-full"
               alt="user.png"
             />
@@ -58,9 +64,7 @@ function Question({ status, question }) {
           ) : (
             <>
               <p className="pl-2 font-semibold self-center text-sm mr-auto">
-                {question.student?.name
-                  ? question.student.name
-                  : "Student's Name"}
+                {userName || "Student's Name"}
               </p>
               <div
                 ref={ellipsisIconRef}
@@ -70,29 +74,11 @@ function Question({ status, question }) {
               </div>
               <div
                 ref={sideMenuRef}
-                className={`absolute -right-0 top-12 lg:-right-48 lg:top-0 z-10 w-44 rounded-lg shadow-lg  border-[#CA7560] border-[4px]  border-opacity-50 bg-white transition  py-1 lg:py-3 ${
-                  open ? 'show opacity-100' : 'hidden opacity-0'
-                }`}
+                className={`absolute -right-0 top-12 lg:-right-48 lg:top-0 z-10 w-44 rounded-lg shadow-lg  border-opacity-50transition  py-1 lg:py-3 border-[1px]  ${
+                  open ? 'show opacity-100' : 'hidden opacity-0 '
+                } ${darkMode ? 'bg-secondaryDark' : 'bg-[#F0F0F0]'}`}
                 id="dropdown"
               >
-                <button
-                  className=" w-full lg:w-full text-sm text-left text-gray-800 hover:text-gray-900 hover:bg-gray-200 transition px-2 lg:px-4 py-1"
-                  type="button"
-                >
-                  Edit Question
-                </button>
-                <button
-                  className="w-full lg:w-full text-sm text-left hover:bg-gray-200 transition px-2 lg:px-4 py-1"
-                  type="button"
-                >
-                  Add to Bookmark
-                </button>
-                <button
-                  className="w-full lg:w-full text-sm text-left  hover:bg-gray-200 transition px-2 lg:px-4 py-1"
-                  type="button"
-                >
-                  Share
-                </button>
                 <button
                   className="w-full lg:w-full text-sm text-left text-red-600 hover:text-red-700 hover:bg-gray-200 transition px-2 lg:px-4 py-1"
                   type="button"
@@ -103,11 +89,12 @@ function Question({ status, question }) {
             </>
           )}
         </div>
-
-        <h3 className="text-2xl mb-5">
-          <span className="text-[#CA7560] ">Q</span>: {question?.title}
-        </h3>
-        <p className="text-sm mb-7 pl-7 ">{question?.content}</p>
+        <Link to={isLink ? `/question/${questionId}` : ''}>
+          <h3 className="text-2xl mb-5">
+            <span className="text-[#CA7560] ">Q</span>: {questionTitle}
+          </h3>
+          <p className="text-sm mb-7 pl-7 ">{questionText}</p>
+        </Link>
       </div>
 
       <div className="relative w-full px-2 lg:px-20 ">
@@ -166,11 +153,20 @@ function Question({ status, question }) {
   );
 }
 Question.propTypes = {
+  avatar: PropTypes.string.isRequired,
+  userName: PropTypes.string.isRequired,
+  questionTitle: PropTypes.string.isRequired,
+  questionText: PropTypes.string.isRequired,
+  questionId: PropTypes.string,
+  isLink: PropTypes.bool,
   status: PropTypes.string,
   // eslint-disable-next-line react/forbid-prop-types
   question: PropTypes.any,
 };
+
 Question.defaultProps = {
+  isLink: false,
+  questionId: '',
   status: '',
   question: null,
 };

@@ -2,30 +2,55 @@
 
 exports[`Navbar snapshot 1`] = `
 <div
-  className=""
+  className="bg-white  text-black lg:pb-[5rem]"
 >
   <section
-    className="md:h-[30vh] mt-10 m-8 lg:min-h-[50vh] lg:mx-[0rem] lg:flex lg:justify-center"
+    className="min-h-[30vh] pt-10 lg:min-h-[50vh] flex justify-center"
   >
-    <div>
-      <img
-        alt="cover"
-        className="w-[50rem] h-[8rem] object-fill rounded lg:h-[20rem] relative"
-        src="cover-placeholder.png"
-      />
+    <div
+      className="self-center"
+    >
+      <div
+        className="relative self-center"
+      >
+        <img
+          alt="cover"
+          className="w-[50rem] h-[8rem] object-fill rounded-md lg:h-[20rem] select-none"
+          src="coverPlaceholder.jpg"
+        />
+      </div>
       <div
         className="mt-3"
       >
-        <img
-          alt="profile"
-          className="h-[4rem] w-[4rem] object-cover ml-5 rounded-full absolute border-[2px] border-white top-[11.3rem] lg:top-[21rem] lg:h-[7rem] lg:w-[7rem] lg:ml-[3rem]"
-          src="Profile_placeholer.png"
-        />
         <div
-          className="flex flex-col justify-center items-center"
+          className="relative "
         >
+          <img
+            alt="profile"
+            aria-hidden="true"
+            className="h-[4rem] w-[4rem] object-cover ml-5 rounded-full absolute border-[2px] border-white top-[-3.3rem] lg:top-[-5rem] lg:h-[7rem] lg:w-[7rem] lg:ml-[3rem] cursor-pointer select-none"
+            onClick={[Function]}
+            src="profilePlaceholer.png"
+          />
+          <span
+            aria-hidden={true}
+            className="h-[6.9rem] w-[6.9rem] top-[-5rem] left-[3.1rem] bg-white absolute rounded-full opacity-0 hover:opacity-60 font-bold cursor-pointer transition-all ease-in-out duration-300 lg:flex justify-center items-center hidden text-black"
+            onClick={[Function]}
+          >
+            <h1
+              className="opacity-100"
+            >
+              Edit
+            </h1>
+          </span>
+        </div>
+        <div
+          className="flex flex-col justify-center items-center relative"
+        >
+          
+          
           <svg
-            className="place-self-end mr-3 text-cusOrange cursor-pointer"
+            className="place-self-end mr-3 p-1 text-2xl lg:text-3xl  rounded-full text-cusOrange cursor-pointer hover:bg-cusOrange hover:text-white hover:opacity-90 ease-in-out transition-all duration-300 absolute top-[-.6rem]"
             fill="currentColor"
             height="1em"
             onClick={[Function]}
@@ -49,34 +74,29 @@ exports[`Navbar snapshot 1`] = `
             />
           </svg>
           <h1
-            className="mt-2 "
+            className="mt-5 font-semibold text-xl"
           >
-            Username
-          </h1>
-          <h1
-            className="mt-2 "
-          >
-            Web Developer
+             
           </h1>
         </div>
       </div>
     </div>
   </section>
   <section
-    className="text-sm md:h-[50vh] m-7 lg:min-h-[70vh] lg:text-base"
+    className="text-sm md:min-h-[50vh] m-7 mb-0 lg:min-h-[70vh] lg:text-base"
   >
     <div
-      className="flex justify-around items-center lg:justify-center lg:mr-7"
+      className="flex justify-around items-center lg:justify-center p-5 lg:mr-7"
     >
       <button
-        className="px-5 py-3 hover:scale-110 ease-in-out transition-all hover:text-cusOrange text-white rounded bg-cusOrange hover:text-white "
+        className="px-3 py-2 lg:px-5 lg:py-3 lg:mr-10 ease-in-out transition-all hover:text-cusOrange text-white rounded bg-cusOrange hover:text-white "
         onClick={[Function]}
         type="button"
       >
         Latest Questions
       </button>
       <button
-        className="px-5 py-3 hover:scale-110 ease-in-out transition-all hover:text-cusOrange null"
+        className="px-3 py-2 lg:px-5 lg:py-3 ease-in-out transition-all hover:text-cusOrange lg:ml-10 null"
         onClick={[Function]}
         type="button"
       >
@@ -84,15 +104,16 @@ exports[`Navbar snapshot 1`] = `
       </button>
     </div>
     <div
-      className="flex flex-col items-center justify-center lg:pb-10"
+      className="flex flex-col items-center justify-center pb-10 text-black"
     >
       <div>
         <div
-          className=" relative max-w-3xl mx-auto"
+          className="relative max-w-3xl mx-auto"
         >
           <div
-            className=" mx-auto my-8 max-w-3xl px-6 pt-4 pb-6 bg-[#F0F0F0]"
+            className="mx-auto my-8 max-w-3xl px-6 pt-4 pb-6 rounded-md bg-[#F0F0F0] text-black"
           >
+<<<<<<< HEAD
             <div
               className="flex mb-5"
             >
@@ -159,14 +180,17 @@ exports[`Navbar snapshot 1`] = `
                 </button>
               </div>
             </div>
+=======
+>>>>>>> 65962305ce35a77f77d8fdb5c2edef94f05c7e83
             <h3
-              className="text-2xl mb-5"
+              className="text-2xl mb-5 flex flex-col items-center"
             >
               <span
                 className="text-[#CA7560] "
               >
-                Q
+                No question added yet.
               </span>
+<<<<<<< HEAD
               : 
             </h3>
             <p
@@ -430,6 +454,16 @@ exports[`Navbar snapshot 1`] = `
                 d="M464 448H48c-26.51 0-48-21.49-48-48V112c0-26.51 21.49-48 48-48h416c26.51 0 48 21.49 48 48v288c0 26.51-21.49 48-48 48zM112 120c-30.928 0-56 25.072-56 56s25.072 56 56 56 56-25.072 56-56-25.072-56-56-56zM64 384h384V272l-87.515-87.515c-4.686-4.686-12.284-4.686-16.971 0L208 320l-55.515-55.515c-4.686-4.686-12.284-4.686-16.971 0L64 336v48z"
               />
             </svg>
+=======
+              <button
+                className="w-fit text-sm mt-10 text-gray-100 bg-cusOrange transition rounded px-8 py-2 mb-10 lg:mb-0 whitespace-nowrap text-center hover:bg-white border-[1px] hover:text-primary-color hover:border-primary-color bg-primary-color border-primary-color"
+                onClick={[Function]}
+                type="button"
+              >
+                Add question?
+              </button>
+            </h3>
+>>>>>>> 65962305ce35a77f77d8fdb5c2edef94f05c7e83
           </div>
         </div>
       </div>

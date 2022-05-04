@@ -10,6 +10,7 @@ import {
 } from 'react-icons/fa';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
+import { useSelector } from 'react-redux';
 import FormField from '../../components/FormField/FormField';
 
 const ContactSchema = Yup.object().shape({
@@ -18,9 +19,15 @@ const ContactSchema = Yup.object().shape({
   message: Yup.string(),
 });
 function Contact() {
+  const darkMode = useSelector((state) => state.darkModeReducer.darkMode);
+
   return (
-    <div className="lg:flex lg:flex-row-reverse lg:justify-end lg:w-screen lg:text-base md:text-base text-sm">
-      <section className="h-3/4 mt-10 md:mt-[4rem] md:h-[60vh] flex flex-col justify-center items-center lg:w-screen lg:mt-[10rem]">
+    <div className="lg:flex lg:flex-row-reverse lg:justify-end lg:w-[100%] lg:text-base md:text-base text-sm">
+      <section
+        className={`h-screen lg:h-[94vh] flex flex-col justify-center items-center lg:w-[100%]  ${
+          darkMode ? 'text-white' : 'text-black'
+        }  ${darkMode ? 'bg-primaryDark' : 'bg-zinc-100'}`}
+      >
         <h1 className="mb-10 font-semibold text-2xl md:text-3xl lg:text-[2.3rem] lg:mb-[3.5]">
           Level up Your brand
         </h1>
@@ -28,7 +35,7 @@ function Contact() {
           initialValues={{
             name: '',
             email: '',
-            textarea: '',
+            message: '',
             service: [],
           }}
           validationSchema={ContactSchema}
@@ -143,7 +150,7 @@ function Contact() {
         </Formik>
       </section>
 
-      <section className="bg-cusOrange mt-10 md:h-3/4 lg:h-[94.3vh] lg:mt-0 lg:flex lg:flex-col lg:items-start lg:pr-[2rem]">
+      <section className="bg-cusOrange pt-10 md:h-3/4 lg:h-[94vh] lg:pt-0 lg:flex lg:flex-col lg:items-start lg:pr-[2rem]">
         <div className="p-4 flex flex-col items-center text-center lg:flex lg:items-start lg:mt-[5rem] lg:text-left lg:ml-10">
           <h1 className="font-bold lg:text-xl">Get in touch</h1>
           <h4 className="mt-2 lg:mt-1">

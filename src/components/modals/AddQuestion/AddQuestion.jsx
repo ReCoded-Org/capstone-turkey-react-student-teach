@@ -3,42 +3,64 @@
 import PropTypes from 'prop-types';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
-import Dropzone from 'react-dropzone';
-import { FaFileUpload, FaSpinner } from 'react-icons/fa';
-import prettyBytes from 'pretty-bytes';
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { FaSpinner } from 'react-icons/fa';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
 import Modal from '../Modal/Modal';
 import FormField from '../../FormField/FormField';
 import { addQuestion } from '../../../redux/features/addQuestionSlice';
 
 const SignInSchema = Yup.object().shape({
-  title: Yup.string().min(3).max(24).required(),
-  question: Yup.string().email().required(),
+  title: Yup.string().min(3).max(50).required(),
+  question: Yup.string().required(),
 });
 
 function AddQuestion({ open, setOpen }) {
-  // eslint-disable-next-line no-unused-vars
-  const [newPic, setNewPic] = useState('');
+  const darkMode = useSelector((state) => state.darkModeReducer.darkMode);
+  const [status, setStatus] = useState([]);
   const dispatch = useDispatch();
+  const signInToken = useSelector((state) => state.signIn.user.userInfo.token);
+  const signUpToken = useSelector(
+    (state) => state.signIn.signUp.isSignedUp.token,
+  );
+  const addQuestionStatus = useSelector(
+    (state) => state.addQuestionReducer.message,
+  );
+  useEffect(() => {
+    let cancel = true;
+    if (cancel) {
+      setStatus(addQuestionStatus[addQuestionStatus.length - 1]?.status);
+    }
+    const timer = setTimeout(() => {
+      setStatus('');
+    }, 3000);
+    return () => {
+      cancel = false;
+      clearTimeout(timer);
+    };
+  }, [addQuestionStatus]);
+
   return (
-    <Modal label="Ask question" open={open} setOpen={setOpen}>
+    <Modal label="Ask your question" open={open} setOpen={setOpen}>
       <Formik
         initialValues={{
           title: '',
           question: '',
         }}
         validationSchema={SignInSchema}
-        onSubmit={(values, { setSubmitting }) => {
+        onSubmit={(values, { setSubmitting, resetForm }) => {
+          dispatch(
+            addQuestion({
+              questionTitle: values.title,
+              questionContnet: values.question,
+              jwt: signInToken || signUpToken,
+            }),
+          );
           setTimeout(() => {
-            dispatch(
-              addQuestion({
-                questionTitle: values.title,
-                questionContnet: values.question,
-              }),
-            );
             setSubmitting(false);
-          }, 1000);
+            resetForm();
+            setOpen(false);
+          }, 1500);
         }}
       >
         {({
@@ -47,7 +69,7 @@ function AddQuestion({ open, setOpen }) {
           errors,
           isSubmitting,
         }) => (
-          <Form>
+          <Form className="min-h-[35vh] scale-90 lg:scale-100 min-w-[70vw] lg:min-w-[15vw]">
             <FormField
               className="mb-3"
               errors={errors}
@@ -55,7 +77,9 @@ function AddQuestion({ open, setOpen }) {
               name="title"
               touched={touched}
               type="text"
+              placeholder="Question title"
             />
+
             <FormField
               className="mb-3"
               errors={errors}
@@ -63,77 +87,41 @@ function AddQuestion({ open, setOpen }) {
               name="question"
               touched={touched}
               type="textarea"
+              placeholder="Question content"
             />
-            <label
-              htmlFor="attachments"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Attachments
-            </label>
-            <Dropzone
-              accept="image/*"
-              onDrop={() => {}}
-              maxFiles={4}
-              maxSize={4194304} // 4MB
-            >
-              {({ acceptedFiles, getRootProps, getInputProps }) => (
-                <section>
-                  <div
-                    // eslint-disable-next-line react/jsx-props-no-spreading
-                    {...getRootProps({
-                      className:
-                        'dropzone flex flex-col items-center bg-gray-50 rounded-lg outline-dashed outline-gray-200 px-4 py-5 my-2',
-                    })}
-                  >
-                    <input
-                      // eslint-disable-next-line react/jsx-props-no-spreading
-                      {...getInputProps()}
-                      id="attachments"
-                    />
-                    <FaFileUpload className="w-9 h-9 text-gray-400 mb-3" />
-                    <p className="text-sm text-gray-500 text-center">
-                      Drag and drop images, or click to browse
-                    </p>
-                    {acceptedFiles.length ? (
-                      <aside className="mt-4">
-                        <h4 className="text-red-600">Files</h4>
-                        <ul className="list-disc text-sm">
-                          {acceptedFiles.map((file) => {
-                            const reader = new FileReader();
-                            reader.onload = () => {
-                              setNewPic(reader.result);
-                            };
-                            reader.readAsDataURL(file);
+            {status === 201 ? (
+              <h1 className="text-center text-green-500">Posted successfuly</h1>
+            ) : null}
+            {status === 403 || status === 422 ? (
+              <h1 className="text-center text-red-500">Failed to post</h1>
+            ) : null}
 
-                            return (
-                              <li key={file.path} className="ml-4">
-                                {file.path} - {prettyBytes(file.size)}
-                              </li>
-                            );
-                          })}
-                        </ul>
-                      </aside>
-                    ) : null}
-                  </div>
-                </section>
-              )}
-            </Dropzone>
             <div className="flex justify-between items-center mt-7">
               {isSubmitting ? (
                 <button
                   type="submit"
-                  className="text-lg bg-red-700 text-gray-200 rounded flex items-center px-5 py-2"
+                  className="text-lg w-full bg-cusOrange text-white rounded pl-10 pr-5 py-2 mb-10 lg:mb-0 relative border-[1px]"
                   disabled
                 >
-                  <FaSpinner className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" />
-                  Publishing...
+                  <FaSpinner className="animate-spin h-5 text-white mr-[4rem] lg:mr-[6rem] absolute right-[7rem] top-[0.8rem] " />
+                  Updating...
                 </button>
               ) : (
                 <button
                   type="submit"
-                  className="text-lg text-gray-100 bg-red-600 hover:bg-red-700 transition rounded px-5 py-2"
+                  className={`text-lg w-full text-gray-100 bg-cusOrange transition rounded px-8 py-2 mb-10 lg:mb-0   hover:bg-white border-[1px] ${
+                    darkMode
+                      ? 'hover:text-cusOrange'
+                      : 'hover:text-primary-color'
+                  } ${
+                    darkMode
+                      ? 'hover:border-white'
+                      : 'hover:border-primary-color'
+                  } ${darkMode ? 'bg-cusOrange' : 'bg-primary-color'} ${
+                    darkMode ? 'border-white' : 'border-primary-color'
+                  }`}
                 >
-                  Publish
+                  Submit
                 </button>
               )}
             </div>
