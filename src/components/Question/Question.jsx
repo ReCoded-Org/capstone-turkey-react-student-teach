@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -7,8 +6,6 @@ import { ErrorMessage, Field, Formik, Form } from 'formik';
 import { FaEllipsisV, FaReply, FaSpinner } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { addComment } from '../../redux/features/addCommentSlice';
-import questionPhoto from '../../assets/images/questionImage.png';
-import personPhoto from '../../assets/images/avatar.jpg';
 import { deleteQuestionSlice } from '../../redux/features/deleteQuestionSlice';
 import { fetchQuestions } from '../../redux/features/questionsSlice';
 
@@ -23,7 +20,6 @@ function Question({
   questionText,
   isLink,
   status,
-  question,
   questionId,
   studentId,
   createdAt,
@@ -84,7 +80,7 @@ function Question({
   return (
     <div className=" relative max-w-3xl mx-auto">
       <div
-        className={`mx-auto my-8 max-w-3xl px-6 pt-4 pb-6 rounded-md ${`${
+        className={`mx-auto my-8 px-10 pt-4 pb-6 rounded-md scale-[90%] ${`${
           darkMode ? 'bg-secondaryDark' : 'bg-[#F0F0F0]'
         }`}  ${darkMode ? 'text-white' : 'text-black'}`}
       >
@@ -94,12 +90,15 @@ function Question({
               <div />
             ) : (
               <div className="flex justify-between">
-                <div className="mr-[5rem] lg:mr-0 self-center lg:flex lg:flex-row-reverse">
-                  <h1 className="flex pl-2 font-semibold self-center text-sm mr-auto">
-                    {userName}
-
+                <div className="mr-[5rem] flex whitespace-nowrap lg:mr-0 self-center lg:flex-row">
+                  <img
+                    src={avatar}
+                    className="w-10 h-10 rounded-full"
+                    alt="user.png"
+                  />
+                  <h1 className="lg:flex lg:flex-row-reverse pl-2 self-center flex flex-col items-start text-sm mr-auto ">
                     <p
-                      className={`text-green-500 ml-4 text-xs  self-center  ${
+                      className={`text-green-500 text-xs lg:ml-3 self-start lg:self-center ${
                         studentId === userInfoSignedIn.id ||
                         studentId === userInfoSignedUp.id
                           ? 'flex'
@@ -108,12 +107,8 @@ function Question({
                     >
                       Author
                     </p>
+                    {userName}
                   </h1>
-                  <img
-                    src={avatar}
-                    className="w-10 h-10 rounded-full"
-                    alt="user.png"
-                  />
                 </div>
 
                 <div
@@ -160,18 +155,19 @@ function Question({
             <p className="text-sm mb-7 pl-7">{questionText}</p>
           </Link>
         </div>
-        <div className="relative px-2 lg:px-20 ">
+        <div className="relative min-w-[70vw] lg:min-w-[35vw] max-w-[40vw]">
           <Formik
             initialValues={{
-              title: '',
-              question: '',
+              content: '',
             }}
             validationSchema={ReplySchema}
             onSubmit={(values, { setSubmitting }) => {
               dispatch(
                 addComment({
-                  questionID: question.id,
-                  creatorID: question.student.id, // Change this after merging with userslices
+                  questionID: questionId,
+                  creatorID: studentId,
+                  jwt: signInToken || signUpToken,
+                  content: values.content,
                 }),
               );
               setTimeout(() => {
@@ -185,10 +181,10 @@ function Question({
                   <div className="w-full">
                     <Field
                       as="textarea"
-                      className={`my-1 w-[20rem] focus:ring-cusOrange focus:border-cusOrange block shadow-sm sm:text-sm border-gray-300 rounded-md ${
+                      className={`my-1 min-w-full focus:ring-cusOrange focus:border-cusOrange block shadow-sm sm:text-sm border-gray-300 rounded-md ${
                         darkMode ? 'text-white' : 'text-black'
                       } ${darkMode ? 'bg-primaryDark' : 'bg-white'}`}
-                      name="replyToQuestion"
+                      name="content"
                       rows={2}
                       placeholder="Answer the question"
                     />
@@ -226,8 +222,6 @@ Question.propTypes = {
   questionId: PropTypes.string,
   isLink: PropTypes.bool,
   status: PropTypes.string,
-  // eslint-disable-next-line react/forbid-prop-types
-  question: PropTypes.any,
   studentId: PropTypes.string,
   createdAt: PropTypes.string,
 };
@@ -236,7 +230,7 @@ Question.defaultProps = {
   isLink: false,
   questionId: '',
   status: '',
-  question: null,
+
   studentId: '',
   createdAt: '',
 };
