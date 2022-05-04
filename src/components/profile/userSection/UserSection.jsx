@@ -13,13 +13,19 @@ function UserSection() {
   const signedUpUserLastName = useSelector(
     (state) => state.signIn.signUp.isSignedUp.lastName,
   );
-  const avatar = useSelector(
-    (state) => state.fetchAllTutorReducer.user?.avatar,
+  const userSignedIn = useSelector((state) => state.signIn.user.userInfo.id);
+  const userSignedUp = useSelector(
+    (state) => state.signIn.signUp.isSignedUp.id,
   );
+  const users = useSelector((state) => state.fetchAllUsers.users);
+  const user = users.filter((u) =>
+    u.id === userSignedIn || userSignedUp ? u : false,
+  );
+  const avatar = user[0]?.avatar;
+
   const formatName = (input) => {
     return input && input.charAt(0).toUpperCase() + input.slice(1);
   };
-
   const formattedFirstName = formatName(firstName);
   const formattedLastName = formatName(lastName);
 

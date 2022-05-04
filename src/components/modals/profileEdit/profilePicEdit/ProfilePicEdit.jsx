@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Modal from '../../Modal/Modal';
 import { uploadPicCloudinary } from '../../../../redux/features/uploadPicCloudinarySlice';
-import { fetchAllTutorSlice } from '../../../../redux/features/fetchAllTutorsSlice';
+import { fetchAllUsers } from '../../../../redux/features/fetchAllUsersSlice';
 
 function ProfilePicEdit({ open, setOpen, label }) {
   const [newProfilePic, setNewProfilePic] = useState('');
@@ -35,11 +35,8 @@ function ProfilePicEdit({ open, setOpen, label }) {
               setTimeout(() => {
                 setSubmitting(false);
                 setOpen(false);
-                dispatch(
-                  fetchAllTutorSlice({
-                    userId: userInfoSignedIn?.id || userInfoSignedUp?.id,
-                  }),
-                );
+                dispatch(fetchAllUsers());
+
                 setNewProfilePic('');
               }, 3000);
             }}
