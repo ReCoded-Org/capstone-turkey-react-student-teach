@@ -10,7 +10,7 @@ exports[`Contact page snapshot 1`] = `
     <h1
       className="mb-10 font-semibold text-2xl md:text-3xl lg:text-[2.3rem] lg:mb-[3.5]"
     >
-      Level up Your brand
+      Send Us a Message
     </h1>
     <form
       action="#"
@@ -79,103 +79,6 @@ exports[`Contact page snapshot 1`] = `
           rows="5"
           value=""
         />
-      </div>
-      <h1
-        className="text-left font-medium"
-      >
-        Services
-      </h1>
-      <div
-        className="flex my-5 w-max lg:ml-5"
-      >
-        <div
-          className="flex flex-col items-start mr-5 w-max"
-        >
-          <div
-            className="contact-checkbox-field"
-          >
-            <label
-              className="text-sm font-medium text-black"
-              htmlFor="service"
-            >
-              Web Design
-            </label>
-            <input
-              checked={false}
-              className="mr-2 text-cusOrange focus:ring-0 bg-white"
-              id="service"
-              name="service"
-              onBlur={[Function]}
-              onChange={[Function]}
-              type="checkbox"
-              value="WebDesign"
-            />
-          </div>
-          <div
-            className="contact-checkbox-field"
-          >
-            <label
-              className="text-sm font-medium text-black"
-              htmlFor="service"
-            >
-              Content Creation
-            </label>
-            <input
-              checked={false}
-              className="mr-2 text-cusOrange focus:ring-0 bg-white"
-              id="service"
-              name="service"
-              onBlur={[Function]}
-              onChange={[Function]}
-              type="checkbox"
-              value="ContentCreation"
-            />
-          </div>
-        </div>
-        <div
-          className="flex flex-col items-start w-max"
-        >
-          <div
-            className="contact-checkbox-field"
-          >
-            <label
-              className="text-sm font-medium text-black"
-              htmlFor="service"
-            >
-              UX Desgin
-            </label>
-            <input
-              checked={false}
-              className="mr-2 text-cusOrange focus:ring-0 bg-white"
-              id="service"
-              name="service"
-              onBlur={[Function]}
-              onChange={[Function]}
-              type="checkbox"
-              value="UxDesgin"
-            />
-          </div>
-          <div
-            className="contact-checkbox-field"
-          >
-            <label
-              className="text-sm font-medium text-black"
-              htmlFor="service"
-            >
-              Other
-            </label>
-            <input
-              checked={false}
-              className="mr-2 text-cusOrange focus:ring-0 bg-white"
-              id="service"
-              name="service"
-              onBlur={[Function]}
-              onChange={[Function]}
-              type="checkbox"
-              value="Other"
-            />
-          </div>
-        </div>
       </div>
       <button
         className="text-lg text-gray-100 bg-cusOrange transition rounded px-8 py-2 mb-10 lg:mb-0 hover:scale-110 ease-in-out"

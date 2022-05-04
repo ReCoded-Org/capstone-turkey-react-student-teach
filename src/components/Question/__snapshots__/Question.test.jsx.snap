@@ -5,7 +5,7 @@ exports[`renders an Question component correctly 1`] = `
   className=" relative max-w-3xl mx-auto"
 >
   <div
-    className="mx-auto my-8 max-w-3xl px-6 pt-4 pb-6 rounded-md bg-[#F0F0F0]  text-black"
+    className="mx-auto my-8 px-10 pt-4 pb-6 rounded-md scale-[90%] bg-[#F0F0F0]  text-black"
   >
     <div
       className="flex flex-col justify-between"
@@ -17,23 +17,23 @@ exports[`renders an Question component correctly 1`] = `
           className="flex justify-between"
         >
           <div
-            className="mr-[5rem] lg:mr-0 self-center lg:flex lg:flex-row-reverse"
+            className="mr-[5rem] flex whitespace-nowrap lg:mr-0 self-center lg:flex-row"
           >
-            <h1
-              className="flex pl-2 font-semibold self-center text-sm mr-auto"
-            >
-              hazarcan
-              <p
-                className="text-green-500 ml-4 text-xs  self-center  hidden "
-              >
-                Author
-              </p>
-            </h1>
             <img
               alt="user.png"
               className="w-10 h-10 rounded-full"
               src="https://via.placeholder.com/150"
             />
+            <h1
+              className="lg:flex lg:flex-row-reverse pl-2 self-center flex flex-col items-start text-sm mr-auto "
+            >
+              <p
+                className="text-green-500 text-xs lg:ml-3 self-start lg:self-center hidden "
+              >
+                Author
+              </p>
+              hazarcan
+            </h1>
           </div>
           <div
             className="text-xl flex mb-[1px] self-center cursor-pointer whitespace-nowrap"
@@ -101,7 +101,7 @@ exports[`renders an Question component correctly 1`] = `
       </a>
     </div>
     <div
-      className="relative px-2 lg:px-20 "
+      className="relative min-w-[70vw] lg:min-w-[35vw] max-w-[40vw]"
     >
       <form
         action="#"
@@ -115,12 +115,13 @@ exports[`renders an Question component correctly 1`] = `
             className="w-full"
           >
             <textarea
-              className="my-1 w-[20rem] focus:ring-cusOrange focus:border-cusOrange block shadow-sm sm:text-sm border-gray-300 rounded-md text-black bg-white"
-              name="replyToQuestion"
+              className="my-1 min-w-full focus:ring-cusOrange focus:border-cusOrange block shadow-sm sm:text-sm border-gray-300 rounded-md text-black bg-white"
+              name="content"
               onBlur={[Function]}
               onChange={[Function]}
               placeholder="Answer the question"
               rows={2}
+              value=""
             />
           </div>
           <button
