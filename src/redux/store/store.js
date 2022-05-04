@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import addQuestionSlice from '../features/addQuestionSlice';
+import singleQuestionSlice from '../features/singleQuestionSlice';
 import editProfileSlice from '../features/editProfileSlice';
 import darkModeSlice from '../features/darkModeSlice';
 import userSlice from '../features/userSlice';
@@ -29,6 +30,7 @@ const initialState = {
 const store = configureStore({
   reducer: {
     addQuestionReducer: addQuestionSlice,
+    singleQuestionReducer: singleQuestionSlice,
     editProfileReducer: editProfileSlice,
     editProfilePicReducer: editProfilePicSlice,
     darkModeReducer: darkModeSlice,

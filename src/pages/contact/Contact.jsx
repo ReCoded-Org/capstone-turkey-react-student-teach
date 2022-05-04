@@ -29,7 +29,7 @@ function Contact() {
         }  ${darkMode ? 'bg-primaryDark' : 'bg-zinc-100'}`}
       >
         <h1 className="mb-10 font-semibold text-2xl md:text-3xl lg:text-[2.3rem] lg:mb-[3.5]">
-          Level up Your brand
+          Send Us a Message
         </h1>
         <Formik
           initialValues={{
@@ -84,49 +84,6 @@ function Contact() {
                 type="textarea"
                 placeholder="Tell us about your project"
               />
-              <h1 className="text-left font-medium">Services</h1>
-              <div className="flex my-5 w-max lg:ml-5">
-                <div className="flex flex-col items-start mr-5 w-max">
-                  <FormField
-                    className="contact-checkbox-field"
-                    errors={errors}
-                    name="service"
-                    label="Web Design"
-                    value="WebDesign"
-                    id="WebDesign"
-                    type="checkbox"
-                  />
-                  <FormField
-                    className="contact-checkbox-field"
-                    errors={errors}
-                    name="service"
-                    label="Content Creation"
-                    value="ContentCreation"
-                    id="UxDesgin"
-                    type="checkbox"
-                  />
-                </div>
-                <div className="flex flex-col items-start w-max">
-                  <FormField
-                    className="contact-checkbox-field"
-                    errors={errors}
-                    name="service"
-                    label="UX Desgin"
-                    value="UxDesgin"
-                    id="UxDesgin"
-                    type="checkbox"
-                  />
-                  <FormField
-                    className="contact-checkbox-field"
-                    errors={errors}
-                    name="service"
-                    label="Other"
-                    value="Other"
-                    id="UxDesgin"
-                    type="checkbox"
-                  />
-                </div>
-              </div>
 
               {isSubmitting ? (
                 <button
