@@ -13,6 +13,7 @@ function Question({ id, profileImage, question, answer, student }) {
   useEffect(() => {
     dispatch(fetchAllUsers());
   }, [dispatch]);
+
   return (
     <div className="flex flex-col lg:even:float-right mb-4 xl:mb-12 w-12/12 lg:w-10/12 h-20 sm:h-28 truncate">
       <div

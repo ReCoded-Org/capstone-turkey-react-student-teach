@@ -34,9 +34,15 @@ function LatestQuestions() {
   const formattedLastSignUp =
     lastNameSignUp &&
     lastNameSignUp.charAt(0).toUpperCase() + lastNameSignUp.slice(1);
-  const avatar = useSelector(
-    (state) => state.fetchAllTutorReducer.user?.avatar,
+  const userSignedIn = useSelector((state) => state.signIn.user.userInfo.id);
+  const userSignedUp = useSelector(
+    (state) => state.signIn.signUp.isSignedUp.id,
   );
+  const users = useSelector((state) => state.fetchAllUsers.users);
+  const user = users.filter((u) =>
+    u.id === userSignedIn || userSignedUp ? u : false,
+  );
+  const avatar = user[0]?.avatar;
   const userNameSignIn = `${formattedFirstName}  ${formattedLastName}`;
   const userNameSignUp = `${formattedFirstNameSignUp} ${formattedLastSignUp}`;
 
