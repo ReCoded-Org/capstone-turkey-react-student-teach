@@ -14,7 +14,7 @@ const question = () => {
   // eslint-disable-next-line no-underscore-dangle
   const ques = data.questions?.filter((q) => q?._id === id);
   const dispatch = useDispatch();
-
+  const darkMode = useSelector((state) => state.darkModeReducer.darkMode);
   const users = useSelector((state) => state.fetchAllUsers);
   const user = users.users?.filter((u) =>
     u.id === ques[0]?.student ? u : false,
@@ -28,16 +28,20 @@ const question = () => {
   if (users.status !== 'success' || data.status !== 'success')
     return <div>looding</div>;
   return (
-    <Question
-      avatar={
-        user[0]?.avatar === undefined ? userProfilePlaceholder : user[0].avatar
-      }
-      userName={userFullName}
-      questionTitle={ques[0]?.title}
-      questionText={ques[0]?.content}
-      studentId={user[0].id}
-      createdAt={ques[0]?.createdAt}
-    />
+    <div className={`${darkMode ? 'bg-primaryDark' : 'bg-white'} py-10`}>
+      <Question
+        avatar={
+          user[0]?.avatar === undefined
+            ? userProfilePlaceholder
+            : user[0].avatar
+        }
+        userName={userFullName}
+        questionTitle={ques[0]?.title}
+        questionText={ques[0]?.content}
+        studentId={user[0].id}
+        createdAt={ques[0]?.createdAt}
+      />
+    </div>
   );
 };
 

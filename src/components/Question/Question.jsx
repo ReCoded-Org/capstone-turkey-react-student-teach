@@ -93,7 +93,7 @@ function Question({
                 <div className="mr-[5rem] flex whitespace-nowrap lg:mr-0 self-center lg:flex-row">
                   <img
                     src={avatar}
-                    className="w-10 h-10 rounded-full"
+                    className="w-[3.2rem] h-[3.2rem] mr-2 rounded-full"
                     alt="user.png"
                   />
                   <h1 className="lg:flex lg:flex-row-reverse pl-2 self-center flex flex-col items-start text-sm mr-auto ">
