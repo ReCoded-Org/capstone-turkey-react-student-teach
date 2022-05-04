@@ -6,7 +6,7 @@ import Question from './Question';
 import { fetchQuestions } from '../../redux/features/questionsSlice';
 import AddQuestion from '../modals/AddQuestion/AddQuestion';
 import Hands from '../../assets/hands/Hands';
-import Avatar from '../../assets/images/avatar.jpg';
+import userProfilePlaceholder from '../../assets/images/profilePlaceholer.png';
 import CheckAuth from '../modals/checkAuth/CheckAuth';
 
 function HomeContent() {
@@ -93,7 +93,7 @@ function HomeContent() {
                 id={q._id}
                 question={q.title}
                 student={q.student}
-                profileImage={Avatar}
+                profileImage={userProfilePlaceholder}
                 answer={
                   q.comments[0]
                     ? q.comments[0]

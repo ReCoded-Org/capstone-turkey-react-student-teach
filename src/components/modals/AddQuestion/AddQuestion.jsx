@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 import Modal from '../Modal/Modal';
 import FormField from '../../FormField/FormField';
 import { addQuestion } from '../../../redux/features/addQuestionSlice';
+import { fetchQuestions } from '../../../redux/features/questionsSlice';
 
 const SignInSchema = Yup.object().shape({
   title: Yup.string().min(3).max(50).required(),
@@ -56,6 +57,7 @@ function AddQuestion({ open, setOpen }) {
               jwt: signInToken || signUpToken,
             }),
           );
+          dispatch(fetchQuestions());
           setTimeout(() => {
             setSubmitting(false);
             resetForm();
