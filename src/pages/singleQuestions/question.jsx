@@ -6,7 +6,7 @@ import Question from '../../components/Question/Question';
 import { fetchQuestions } from '../../redux/features/questionsSlice';
 import { fetchAllUsers } from '../../redux/features/fetchAllUsersSlice';
 // eslint-disable-next-line no-unused-vars
-import Avatar from '../../assets/images/avatar.jpg';
+import userProfilePlaceholder from '../../assets/images/profilePlaceholer.png';
 
 const question = () => {
   const { id } = useParams();
@@ -29,7 +29,9 @@ const question = () => {
     return <div>looding</div>;
   return (
     <Question
-      avatar={user[0]?.avatar === undefined ? Avatar : user[0].avatar}
+      avatar={
+        user[0]?.avatar === undefined ? userProfilePlaceholder : user[0].avatar
+      }
       userName={userFullName}
       questionTitle={ques[0]?.title}
       questionText={ques[0]?.content}

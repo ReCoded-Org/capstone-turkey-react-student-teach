@@ -16,6 +16,7 @@ function ProfilePicEdit({ open, setOpen, label }) {
   const userInfoSignedUp = useSelector(
     (state) => state.signIn.signUp.isSignedUp,
   );
+
   return (
     <Modal label={label} open={open} setOpen={setOpen}>
       <div className="lg:flex lg:flex-row-reverse lg:justify-end lg:w-screen  md:text-base text-sm">
@@ -40,7 +41,7 @@ function ProfilePicEdit({ open, setOpen, label }) {
                   }),
                 );
                 setNewProfilePic('');
-              }, 1000);
+              }, 2500);
             }}
           >
             {({

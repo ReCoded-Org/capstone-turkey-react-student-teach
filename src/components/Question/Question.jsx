@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { FaEllipsisV } from 'react-icons/fa';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { format } from 'fecha';
 import questionPhoto from '../../assets/images/questionImage.png';
 import personPhoto from '../../assets/images/avatar.jpg';
 import { deleteQuestionSlice } from '../../redux/features/deleteQuestionSlice';
@@ -79,6 +78,10 @@ function Question({
     return null;
   };
 
+  const year = new Date(createdAt).getFullYear();
+  const month = new Date(createdAt).getMonth() + 1;
+  const day = new Date(createdAt).getDay() + 1;
+
   return (
     <div className="relative max-w-3xl mx-auto">
       <div
@@ -113,9 +116,9 @@ function Question({
             ref={ellipsisIconRef}
             className="text-xl flex mb-[1px] self-center cursor-pointer whitespace-nowrap"
           >
-            <p className="mr-3 text-xs  self-center cursor-text">
-              {format(new Date(createdAt), 'dd MMMM, YYYY')}
-            </p>
+            <p className="mr-3 text-xs  self-center cursor-text">{`${
+              day >= 10 ? `${day}` : `0${day}`
+            }/${month >= 10 ? `${month}` : `0${month}`}/${year}`}</p>
             <FaEllipsisV
               className={`${
                 studentId === userInfoSignedIn.id ||

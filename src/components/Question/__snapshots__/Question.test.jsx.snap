@@ -39,7 +39,7 @@ exports[`renders an Question component correctly 1`] = `
         <p
           className="mr-3 text-xs  self-center cursor-text"
         >
-          
+          0NaN/0NaN/NaN
         </p>
         <svg
           className="hidden "
