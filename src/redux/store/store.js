@@ -11,6 +11,7 @@ import uploadPicCloudinarySlice from '../features/uploadPicCloudinarySlice';
 import editProfilePicSlice from '../features/editProfilePicSlice';
 // eslint-disable-next-line import/no-named-as-default
 import deleteQuestionSlice from '../features/deleteQuestionSlice';
+import commentsSlice from '../features/commentsSlice';
 
 const userInfoFromStorage = localStorage.getItem('userInfo')
   ? JSON.parse(localStorage.getItem('userInfo'))
@@ -40,6 +41,7 @@ const store = configureStore({
     deleteQuestionReducer: deleteQuestionSlice,
     signIn: userSlice,
     questions: questionsSlice,
+    commentsReducer: commentsSlice,
   },
   preloadedState: initialState,
   middleware: (getDefaultMiddleware) =>
