@@ -1,22 +1,4 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { useDispatch } from 'react-redux';
-
-const getAnswers = createAsyncThunk(
-  'singleQuestionSlice/getQuestion',
-  async (comments) => {
-    return Promise.all(
-      comments.map(async (comment) => {
-        return fetch(
-          `https://studentsteach.re-coded.com/api/tutors/${comment.creator}`,
-        )
-          .then((response) => response.json())
-          .then((data) => {
-            return { ...comment, creator: data };
-          });
-      }),
-    );
-  },
-);
 
 export const getQuestion = createAsyncThunk(
   'singleQuestionSlice/getQuestion',
@@ -31,8 +13,6 @@ export const getQuestion = createAsyncThunk(
         )
           .then((response) => response.json())
           .then((stdata) => {
-            const dispatch = useDispatch();
-            dispatch(getAnswers(data.comments));
             return { ...data, student: stdata };
           });
       });
@@ -43,10 +23,8 @@ const singleQuestionSlice = createSlice({
   name: 'singleQuestion',
   initialState: {
     question: '',
-    comments: [],
     status: {
       question: '',
-      comments: '',
     },
   },
   extraReducers: {
@@ -59,16 +37,6 @@ const singleQuestionSlice = createSlice({
     },
     [getQuestion.rejected]: (state) => {
       state.status = 'failed';
-    },
-    [getAnswers.pending]: (state) => {
-      state.status.comments = 'loading';
-    },
-    [getAnswers.fulfilled]: (state, action) => {
-      state.comment = action.payload;
-      state.status.comments = 'success';
-    },
-    [getAnswers.rejected]: (state) => {
-      state.status.comments = 'failed';
     },
   },
 });
