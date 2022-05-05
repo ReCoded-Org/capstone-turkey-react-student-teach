@@ -90,7 +90,7 @@ function AllQuestionsContent() {
               renderQuestion.length - 11 * (currentPage - 1),
             )
             .reverse()
-            .map((q) => 
+            .map((q) => (
               <Question
                 key={uuidv4()}
                 // eslint-disable-next-line no-underscore-dangle
