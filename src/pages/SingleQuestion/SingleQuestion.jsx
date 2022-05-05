@@ -36,7 +36,7 @@ export default function SingleQuestion() {
   }, [dispatch]);
 
   if (users.status !== 'success' || data.status !== 'success')
-    return <div>looding</div>;
+    return <div>loading</div>;
   return (
     <div className={`${darkMode ? 'bg-primaryDark' : 'bg-white'} py-10`}>
       <Question
