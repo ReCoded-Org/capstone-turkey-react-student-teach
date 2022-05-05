@@ -119,6 +119,7 @@ exports[`renders an Question component correctly 1`] = `
               name="content"
               onBlur={[Function]}
               onChange={[Function]}
+              onKeyDown={[Function]}
               placeholder="Answer the question"
               rows={2}
               value=""

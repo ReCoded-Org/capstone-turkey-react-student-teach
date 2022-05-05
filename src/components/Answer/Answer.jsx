@@ -7,7 +7,7 @@ function Answer({ children, image, username }) {
   const [open, setOpen] = useState(false);
   const darkMode = useSelector((state) => state.darkModeReducer.darkMode);
   return (
-    <div className="flex flex-col mt-8 max-w-[50rem]">
+    <div className="flex flex-col mt-8 lg:min-w-[30rem] max-w-[50rem]">
       <div
         className={`group relative  rounded-lg px-5 py-4 ${
           darkMode ? 'bg-secondaryDark' : 'bg-gray-100'
@@ -19,11 +19,11 @@ function Answer({ children, image, username }) {
               <img
                 src={image}
                 alt={`${username}'s profile pic`}
-                className="w-9 rounded-full mr-2"
+                className="w-10 h-10 rounded-full mr-2"
               />
             </a>
             <a href="/user-profie">
-              <h3 className="font-medium">{username}</h3>
+              <h3 className="">{username}</h3>
             </a>
           </div>
           <button
@@ -65,7 +65,10 @@ function Answer({ children, image, username }) {
             </button>
           </div>
         </div>
-        {children}
+        <div className="ml-5 flex items-center">
+          <h1 className="text-cusOrange font-semibold text-xl mr-1">A:</h1>
+          <div className="mt-1">{children}</div>
+        </div>
       </div>
       <div className="flex justify-end px-5 py-3">
         <BelowButton>

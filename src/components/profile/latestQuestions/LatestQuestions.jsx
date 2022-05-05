@@ -83,7 +83,7 @@ function LatestQuestions() {
           return null;
         })}
       {isThereQuestion ? null : (
-        <CheckContent label="No questions added yet." />
+        <CheckContent label="No questions added yet." question />
       )}
     </div>
   );

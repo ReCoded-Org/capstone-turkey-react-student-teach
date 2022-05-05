@@ -2,7 +2,7 @@
 
 exports[`renders an answer component 1`] = `
 <div
-  className="flex flex-col mt-8 max-w-[50rem]"
+  className="flex flex-col mt-8 lg:min-w-[30rem] max-w-[50rem]"
 >
   <div
     className="group relative  rounded-lg px-5 py-4 bg-gray-100 text-black "
@@ -18,7 +18,7 @@ exports[`renders an answer component 1`] = `
         >
           <img
             alt="suateneskoc's profile pic"
-            className="w-9 rounded-full mr-2"
+            className="w-10 h-10 rounded-full mr-2"
             src="https://via.placeholder.com/150"
           />
         </a>
@@ -26,7 +26,7 @@ exports[`renders an answer component 1`] = `
           href="/user-profie"
         >
           <h3
-            className="font-medium"
+            className=""
           >
             suateneskoc
           </h3>
@@ -82,15 +82,28 @@ exports[`renders an answer component 1`] = `
         </button>
       </div>
     </div>
-    <p>
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-    </p>
+    <div
+      className="ml-5 flex items-center"
+    >
+      <h1
+        className="text-cusOrange font-semibold text-xl mr-1"
+      >
+        A:
+      </h1>
+      <div
+        className="mt-1"
+      >
+        <p>
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </p>
+      </div>
+    </div>
   </div>
   <div
     className="flex justify-end px-5 py-3"
   >
     <button
-      className="w-16 flex justify-center items-center bg-gray-100 hover:bg-gray-200 transition rounded-full py-1 mx-1 text-gray-500 hover:text-gray-600"
+      className="text-gray-400 hover:text-gray-500 bg-gray-100 hover:bg-gray-200  w-16 flex justify-center items-center transition rounded-full py-1 mx-1 "
       type="button"
     >
       <svg
@@ -113,7 +126,7 @@ exports[`renders an answer component 1`] = `
       </svg>
     </button>
     <button
-      className="w-16 flex justify-center items-center bg-gray-100 hover:bg-gray-200 transition rounded-full py-1 mx-1 text-gray-500 hover:text-gray-600"
+      className="text-gray-400 hover:text-gray-500 bg-gray-100 hover:bg-gray-200  w-16 flex justify-center items-center transition rounded-full py-1 mx-1 "
       type="button"
     >
       <svg
@@ -136,7 +149,7 @@ exports[`renders an answer component 1`] = `
       </svg>
     </button>
     <button
-      className="w-16 flex justify-center items-center bg-gray-100 hover:bg-gray-200 transition rounded-full py-1 mx-1 text-sm text-orange-600 hover:text-orange-700"
+      className="text-gray-400 hover:text-gray-500 bg-gray-100 hover:bg-gray-200  w-16 flex justify-center items-center transition rounded-full py-1 mx-1 text-sm text-orange-600 hover:text-orange-700"
       type="button"
     >
       Reply

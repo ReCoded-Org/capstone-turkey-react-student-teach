@@ -162,12 +162,6 @@ function Question({
             }}
             validationSchema={ReplySchema}
             onSubmit={(values, { setSubmitting, resetForm }) => {
-              console.log({
-                questionID: questionId,
-                creatorID: studentId,
-                jwt: signInToken || signUpToken,
-                content: values.content,
-              });
               dispatch(
                 addComment({
                   questionID: questionId,

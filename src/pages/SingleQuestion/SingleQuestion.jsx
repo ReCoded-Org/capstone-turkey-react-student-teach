@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
 import { fetchQuestions } from '../../redux/features/questionsSlice';
 import { fetchAllUsers } from '../../redux/features/fetchAllUsersSlice';
 import Question from '../../components/Question/Question';
@@ -10,8 +11,11 @@ import Answer from '../../components/Answer/Answer';
 export default function SingleQuestion() {
   const dispatch = useDispatch();
   const darkMode = useSelector((state) => state.darkModeReducer.darkMode);
+  const userSignedIn = useSelector((state) => state.signIn.user.userInfo.id);
+  const userSignedUp = useSelector(
+    (state) => state.signIn.signUp.isSignedUp.id,
+  );
   const { id } = useParams();
-  console.log('questionid', id);
   const data = useSelector((state) => state.questions);
   // eslint-disable-next-line no-underscore-dangle
   const ques = data.questions?.filter((q) => q?._id === id);
@@ -22,14 +26,14 @@ export default function SingleQuestion() {
   );
   const userFullName = `${user[0]?.firstName}  ${user[0]?.lastName}`;
 
+  const usersComment = useSelector((state) => state.fetchAllUsers.users);
+  const userComment = usersComment.filter((u) =>
+    u.id === userSignedIn || userSignedUp ? u : false,
+  );
   useEffect(() => {
     dispatch(fetchQuestions());
     dispatch(fetchAllUsers());
   }, [dispatch]);
-
-  useEffect(() => {
-    console.log('comments', comments);
-  }, []);
 
   if (users.status !== 'success' || data.status !== 'success')
     return <div>looding</div>;
@@ -55,27 +59,12 @@ export default function SingleQuestion() {
             .map((comment) => {
               return (
                 <Answer
-                  image={
-                    users.users?.filter(
-                      (creator) => creator.id === comment.creatorID,
-                    )[0]?.avatar === undefined
-                      ? userProfilePlaceholder
-                      : users.users?.filter(
-                          (creator) => creator.id === comment.creatorID,
-                        )[0].avatar
-                  }
-                  username={`${
-                    users.users?.filter(
-                      (creator) => creator.id === comment.creatorID,
-                    )[0]?.firstName
-                  } ${
-                    users.users?.filter(
-                      (creator) => creator.id === comment.creatorID,
-                    )[0]?.lastName
-                  }`}
-                >
-                  {comment.content}
-                </Answer>
+                  key={uuidv4()}
+                  username={`${userComment[0]?.firstName} ${userComment[0]?.lastName}`}
+                  // eslint-disable-next-line react/no-children-prop
+                  children={comment?.content}
+                  image={userComment[0]?.avatar}
+                />
               );
             })}
         </div>
