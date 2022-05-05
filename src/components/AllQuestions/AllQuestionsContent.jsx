@@ -1,3 +1,6 @@
+/* eslint-disable no-use-before-define */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable consistent-return */
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
@@ -14,6 +17,7 @@ function AllQuestionsContent() {
   const [addQuestionModal, setAddQuestionModal] = useState(false);
   const [questions, setQuestions] = useState();
   const [input, setInput] = useState();
+  const [currentPage, setCurrentPage] = useState(1);
   const signIn = useSelector((state) => state.signIn);
   const isSuccess = signIn.user.status;
   const isUser = signIn.user.userInfo;
@@ -24,7 +28,14 @@ function AllQuestionsContent() {
   function onHandle(e) {
     if (e.length > 2 || e.length === 0) setInput(e);
   }
-
+  function page(status) {
+    if (status === '+') {
+      if (currentPage < renderQuestion.length / 11 - 1)
+        setCurrentPage(currentPage + 1);
+    } else if (status === '-') {
+      if (currentPage > 1) setCurrentPage(currentPage - 1);
+    }
+  }
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -74,9 +85,12 @@ function AllQuestionsContent() {
         </section>
         <div className="mt-5 md:mr-7 lg:mr-10 pb-10">
           {renderQuestion
-            ?.slice(renderQuestion.length - 21, renderQuestion.length)
+            ?.slice(
+              renderQuestion.length - (11 * (currentPage - 1) + 11),
+              renderQuestion.length - 11 * (currentPage - 1),
+            )
             .reverse()
-            .map((q) => (
+            .map((q) => 
               <Question
                 key={uuidv4()}
                 // eslint-disable-next-line no-underscore-dangle
@@ -91,6 +105,77 @@ function AllQuestionsContent() {
                 }
               />
             ))}
+          <div className="flex flex-col items-center my-12">
+            <div className="flex text-gray-700">
+              <div
+                type="button"
+                className="h-12 w-12 mr-1 flex justify-center items-center rounded-full bg-gray-100 cursor-pointer"
+                onClick={() => page('-')}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="100%"
+                  height="100%"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="feather feather-chevron-left w-6 h-6"
+                >
+                  <polyline points="15 18 9 12 15 6" />
+                </svg>
+              </div>
+              <div className="flex h-12 font-medium rounded-full bg-gray-100">
+                <div
+                  type="button"
+                  className={`w-12 md:flex justify-center items-center hidden  cursor-pointer leading-5 transition duration-150 ease-in  rounded-full ${
+                    currentPage === 1 ? 'bg-[#CA7560] text-white' : ''
+                  }  `}
+                  onClick={() => page('-')}
+                >
+                  {currentPage === 1 ? currentPage : currentPage - 1}
+                </div>
+                <div
+                  type="button"
+                  className={`w-12 md:flex justify-center items-center hidden  cursor-pointer leading-5 transition duration-150 ease-in  rounded-full  ${
+                    currentPage === 1 ? '' : 'bg-[#CA7560] text-white'
+                  }  `}
+                  onClick={(e) => page(e.value)}
+                >
+                  {currentPage === 1 ? currentPage + 1 : currentPage}
+                </div>
+                <div
+                  type="button"
+                  className="w-12 md:flex justify-center items-center hidden  cursor-pointer leading-5 transition duration-150 ease-in  rounded-full  "
+                  onClick={() => page('+')}
+                >
+                  {currentPage === 1 ? currentPage + 2 : currentPage + 1}
+                </div>
+              </div>
+              <div
+                type="button"
+                className="h-12 w-12 ml-1 flex justify-center items-center rounded-full bg-gray-100 cursor-pointer "
+                onClick={() => page('+')}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="100%"
+                  height="100%"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="feather feather-chevron-right w-6 h-6"
+                >
+                  <polyline points="9 18 15 12 9 6" />
+                </svg>
+              </div>
+            </div>
+          </div>
         </div>
         {isSuccess === 'success' ||
         signIn.signUp.status === 'success' ||
