@@ -74,7 +74,7 @@ function AllQuestionsContent() {
         </section>
         <div className="mt-5 md:mr-7 lg:mr-10 pb-10">
           {renderQuestion
-            ?.slice(renderQuestion.length - 21, renderQuestion.length)
+            ?.slice(renderQuestion.length - 11, renderQuestion.length)
             .reverse()
             .map((q) => (
               <Question
