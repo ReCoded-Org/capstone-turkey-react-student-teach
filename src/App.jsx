@@ -19,13 +19,9 @@ import {
   HOME_ROUTE,
   USERPROFILE_ROUTE,
 } from './routes';
-import { fetchAllTutorSlice } from './redux/features/fetchAllTutorsSlice';
+import { fetchAllUsers } from './redux/features/fetchAllUsersSlice';
 
 function App() {
-  const userSignedIn = useSelector((state) => state.signIn.user.userInfo.id);
-  const userSignedUp = useSelector(
-    (state) => state.signIn.signUp.isSignedUp.id,
-  );
   const [timeOut, setTimeOut] = useState(false);
   const dispatch = useDispatch();
 
@@ -38,8 +34,8 @@ function App() {
   }, [timeOut]);
 
   useEffect(() => {
-    dispatch(fetchAllTutorSlice({ userId: userSignedIn || userSignedUp }));
-  }, [userSignedIn, userSignedUp, dispatch]);
+    dispatch(fetchAllUsers());
+  }, [dispatch]);
 
   const signIn = useSelector((state) => state.signIn);
   const isSuccess = signIn.user.status;

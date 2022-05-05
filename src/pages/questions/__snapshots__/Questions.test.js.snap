@@ -1,7 +1,48 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Navbar snapshot 1`] = `
-<div>
-  Questions
+<div
+  className="bg-zinc-100  pt-5 pb-[5rem]"
+>
+  <div
+    className=" container mx-auto w-full pt-8 rounded-md transition-all ease-in-out duration-300  text-center lg:text-left bg-white text-black "
+  >
+    <section
+      className="flex min-h-[9vh] lg:min-h-[15vh]"
+    >
+      <div
+        className="relative  hidden min-w-[70vw] lg:flex flex-col items-center"
+      >
+        <div
+          className="group flex absolute top-[50%] left-[50%] -translate-y-2/4 -translate-x-2/4 bg-[#CA7560] rounded-[40px] p-2.5 "
+        >
+          <input
+            className="group-hover:w-52  group-hover:py-2.5 w-0 border-none outline-none focus:ring-transparent p-0 bg-transparent border-0 text-[1.1rem] duration-500 ease-in text-white "
+            onChange={[Function]}
+            placeholder="search...."
+            style={
+              Object {
+                "twRingColor": "none",
+              }
+            }
+            type="text"
+          />
+          <span
+            className="group-hover:bg-[#CA7560] hover:rotate-[360deg] scale-75 text-black float-right w-10 text-[1.3rem] h-10 rounded-full bg-[#CA7560] flex justify-center duration-500 cursor-pointer no-underline "
+            type="button"
+          >
+            <img
+              alt=""
+              src="search.svg"
+            />
+          </span>
+        </div>
+      </div>
+    </section>
+    <div
+      className="mt-5 md:mr-7 lg:mr-10 pb-10"
+    />
+    <div />
+  </div>
 </div>
 `;

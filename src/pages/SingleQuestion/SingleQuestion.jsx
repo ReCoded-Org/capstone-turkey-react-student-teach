@@ -55,6 +55,8 @@ export default function SingleQuestion() {
       <div className="flex justify-center">
         <div className="flex-col">
           {comments
+            ?.slice(comments.length - 221, comments?.length)
+            .reverse()
             .filter((comment) => comment.questionID === id)
             .map((comment) => {
               return (

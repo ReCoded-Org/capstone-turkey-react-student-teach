@@ -32,21 +32,15 @@ function LatestAnswers() {
           ?.slice(comments.length - 21, comments?.length)
           .reverse()
           .map((answer) => {
-            if (
-              answer?.creatorID === userSignedIn ||
-              answer?.creatorID === userSignedUp
-            ) {
-              return (
-                <Answer
-                  key={uuidv4()}
-                  username={`${user[0]?.firstName} ${user[0]?.lastName}`}
-                  // eslint-disable-next-line react/no-children-prop
-                  children={answer?.content}
-                  image={user[0]?.avatar}
-                />
-              );
-            }
-            return false;
+            return (
+              <Answer
+                key={uuidv4()}
+                username={`${user[0]?.firstName} ${user[0]?.lastName}`}
+                // eslint-disable-next-line react/no-children-prop
+                children={answer?.content}
+                image={user[0]?.avatar}
+              />
+            );
           })
       ) : (
         <CheckContent label="No Answers to display" question={false} />
