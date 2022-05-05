@@ -1,4 +1,3 @@
-/* eslint-disable consistent-return */
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
@@ -33,7 +32,7 @@ function AllQuestionsContent() {
         );
         setQuestions(result.data);
       } catch (err) {
-        console.log(err);
+        return err;
       }
     };
     if (input?.length > 2) fetchData();
