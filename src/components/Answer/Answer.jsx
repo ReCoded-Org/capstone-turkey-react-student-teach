@@ -68,10 +68,10 @@ function Answer({ children, image, username }) {
         {children}
       </div>
       <div className="flex justify-end px-5 py-3">
-        <BelowButton className="text-gray-500 hover:text-gray-600">
+        <BelowButton>
           <FaThumbsUp />
         </BelowButton>
-        <BelowButton className="text-gray-500 hover:text-gray-600">
+        <BelowButton>
           <FaThumbsDown />
         </BelowButton>
         <BelowButton className="text-sm text-orange-600 hover:text-orange-700">
@@ -91,10 +91,15 @@ Answer.propTypes = {
 };
 
 function BelowButton({ children, className }) {
+  const darkMode = useSelector((state) => state.darkModeReducer.darkMode);
   return (
     <button
       type="button"
-      className={`w-16 flex justify-center items-center bg-gray-100 hover:bg-gray-200 transition rounded-full py-1 mx-1 ${className}`}
+      className={`${
+        darkMode
+          ? 'text-gray-400 hover:text-gray-300 bg-gray-700 hover:bg-gray-600'
+          : 'text-gray-400 hover:text-gray-500 bg-gray-100 hover:bg-gray-200'
+      }  w-16 flex justify-center items-center transition rounded-full py-1 mx-1 ${className}`}
     >
       {children}
     </button>
