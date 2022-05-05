@@ -38,8 +38,7 @@ function Newsletter() {
             type="email"
             validate={validateEmail}
             placeholder="Your Email Address"
-            className=" lg:w-[312px] h-auto text-base font-semibold transition ease-in-out outline outline-1 outline-secondary-color rounded-md text-font-color px-2 py-2 mb-3  text-center border-secondary-color
-            focus:invalid:border-primary-color focus:border-2 focus:border-primary-color xs:w-[270px] xs-justify-center xs:justify-center xs:text-center xs:align-middle mx-auto"
+            className=" lg:w-[312px] h-auto text-base font-semibold transition ease-in-out outline outline-1 outline-secondary-color rounded-md text-font-color px-2 py-2 mb-3  text-center border-secondary-color focus:invalid:border-primary-color focus:border-2 focus:border-primary-color xs:w-[270px] xs-justify-center xs:justify-center xs:text-center xs:align-middle mx-auto"
           />
           {errors.email && touched.email ? (
             <div className="text-center text-red-600 mb-4">{errors.email}</div>

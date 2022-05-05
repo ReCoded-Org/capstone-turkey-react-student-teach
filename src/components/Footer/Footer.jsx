@@ -12,10 +12,7 @@ function Footer() {
           Subscribe to Our Newsletter
         </h2>
         <Newsletter />
-        <div
-          className="grid lg:grid-cols-4 gap-4 md:grid-cols-1  xs:grid-rows-1 sm:grid-cols-1 mt-16 sm:justify-center xs:justify-center xs:align-middle xs:grid-cols-1
-          xs:pb-8"
-        >
+        <div className="grid lg:grid-cols-4 gap-4 md:grid-cols-1  xs:grid-rows-1 sm:grid-cols-1 mt-16 sm:justify-center xs:justify-center xs:align-middle xs:grid-cols-1 xs:pb-8">
           <div className="flex flex-col lg:block">
             {logoFooter}
             <div className="lg:text-left text-sm w-[screen] max-h-max xs:w-[260px] xs:h-[200px] mx-auto text-center">

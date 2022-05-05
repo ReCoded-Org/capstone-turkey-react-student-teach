@@ -13,11 +13,20 @@ exports[`Render when text of no Question found removes 1`] = `
       <div
         className="flex items-center  "
       >
-        <img
-          alt="s profile pic"
-          className="object-cover bg-white w-8 h-8 sm:w-10 xl:w-16 sm:h-10 xl:h-16 rounded-full mr-8 sm:mr-10 xl:mr-20"
-          src=""
-        />
+        <div
+          className=""
+        >
+          <img
+            alt="s profile pic"
+            className="object-cover bg-white w-8 h-8 sm:w-10 xl:w-16 sm:h-10 xl:h-16 rounded-full mr-8 sm:mr-10 xl:mr-20"
+            src=""
+          />
+          <p
+            className="text-green-500 lg:ml-[.9rem]  mt-2 text-xs self-start lg:self-center hidden "
+          >
+            Author
+          </p>
+        </div>
         <a
           href="/question/"
           onClick={[Function]}
@@ -64,11 +73,20 @@ exports[`Render when text of no Question found removes 2`] = `
       <div
         className="flex items-center  "
       >
-        <img
-          alt="s profile pic"
-          className="object-cover bg-white w-8 h-8 sm:w-10 xl:w-16 sm:h-10 xl:h-16 rounded-full mr-8 sm:mr-10 xl:mr-20"
-          src="none"
-        />
+        <div
+          className=""
+        >
+          <img
+            alt="s profile pic"
+            className="object-cover bg-white w-8 h-8 sm:w-10 xl:w-16 sm:h-10 xl:h-16 rounded-full mr-8 sm:mr-10 xl:mr-20"
+            src="none"
+          />
+          <p
+            className="text-green-500 lg:ml-[.9rem]  mt-2 text-xs self-start lg:self-center hidden "
+          >
+            Author
+          </p>
+        </div>
         <a
           href="/question/"
           onClick={[Function]}

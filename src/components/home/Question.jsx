@@ -14,6 +14,10 @@ function Question({ id, profileImage, question, answer, student }) {
     dispatch(fetchAllUsers());
   }, [dispatch]);
 
+  const userInfoSignedIn = useSelector((state) => state.signIn.user.userInfo);
+  const userInfoSignedUp = useSelector(
+    (state) => state.signIn.signUp.isSignedUp,
+  );
   return (
     <div className="flex flex-col lg:even:float-right mb-4 xl:mb-12 w-12/12 lg:w-10/12 h-20 sm:h-28 truncate">
       <div
@@ -23,13 +27,25 @@ function Question({ id, profileImage, question, answer, student }) {
       >
         <div className="flex justify-between items-center mb-2 ">
           <div className="flex items-center  ">
-            <img
-              className="object-cover bg-white w-8 h-8 sm:w-10 xl:w-16 sm:h-10 xl:h-16 rounded-full mr-8 sm:mr-10 xl:mr-20"
-              src={
-                user[0]?.avatar === undefined ? profileImage : user[0].avatar
-              }
-              alt="s profile pic"
-            />
+            <div className="">
+              <img
+                className="object-cover bg-white w-8 h-8 sm:w-10 xl:w-16 sm:h-10 xl:h-16 rounded-full mr-8 sm:mr-10 xl:mr-20"
+                src={
+                  user[0]?.avatar === undefined ? profileImage : user[0].avatar
+                }
+                alt="s profile pic"
+              />
+              <p
+                className={`text-green-500 lg:ml-[.9rem]  mt-2 text-xs self-start lg:self-center ${
+                  student === userInfoSignedIn.id ||
+                  student === userInfoSignedUp.id
+                    ? 'flex'
+                    : 'hidden'
+                } `}
+              >
+                Author
+              </p>
+            </div>
 
             <Link to={`/question/${id}`}>
               <div className="text-sm sm:text-base xl:text-xl  truncate w-[15rem] sm:w-[30rem] lg:w-[40rem] xl:w-[50rem] 2xl:w-[60rem]">
