@@ -19,13 +19,13 @@ function Question({ id, profileImage, question, answer, student }) {
     (state) => state.signIn.signUp.isSignedUp,
   );
   return (
-    <div className="flex flex-col lg:even:float-right mb-4 xl:mb-12 w-12/12 lg:w-10/12 h-20 sm:h-28 truncate">
+    <div className="flex flex-col lg:even:float-right mb-4 xl:mb-12 w-12/12 lg:w-10/12 h-20 sm:h-32 truncate">
       <div
         className={`group relative  rounded-lg px-5 py-4 ${
           darkMode ? 'bg-secondaryDark' : 'bg-gray-100'
         } `}
       >
-        <div className="flex justify-between items-center mb-2 ">
+        <div className="flex justify-between items-center ">
           <div className="flex items-center  ">
             <div className="">
               <img
