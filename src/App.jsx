@@ -10,7 +10,7 @@ import About from './pages/about/About';
 import UserProfile from './pages/userProfile/UserProfile';
 import NotFoundPage from './pages/notFoundPage/NotFoundPage';
 import Footer from './components/Footer/Footer';
-import SingleQuestion from './pages/SingleQuestion/SingleQuestion';
+import Question from './pages/singleQuestions/question';
 import {
   ABOUT_ROUTE,
   CONTACT_ROUTE,
@@ -52,7 +52,7 @@ function App() {
 
       <Routes>
         <Route path={HOME_ROUTE} element={<Home />} />
-        <Route path={QUESTION_ROUTE} element={<SingleQuestion />} />
+        <Route path={QUESTION_ROUTE} element={<Question />} />
         <Route path={QUESTIONS_ROUTE} element={<Questions />} />
         <Route path={CONTACT_ROUTE} element={<Contact />} />
         <Route path={ABOUT_ROUTE} element={<About />} />
