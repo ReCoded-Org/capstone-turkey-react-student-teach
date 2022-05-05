@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 import { ErrorMessage, Field, Formik, Form } from 'formik';
 import { FaEllipsisV, FaReply, FaSpinner } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import { addComment } from '../../redux/features/addCommentSlice';
+import { addComment } from '../../redux/features/commentsSlice';
 import { deleteQuestionSlice } from '../../redux/features/deleteQuestionSlice';
 import { fetchQuestions } from '../../redux/features/questionsSlice';
 
@@ -161,7 +161,13 @@ function Question({
               content: '',
             }}
             validationSchema={ReplySchema}
-            onSubmit={(values, { setSubmitting }) => {
+            onSubmit={(values, { setSubmitting, resetForm }) => {
+              console.log({
+                questionID: questionId,
+                creatorID: studentId,
+                jwt: signInToken || signUpToken,
+                content: values.content,
+              });
               dispatch(
                 addComment({
                   questionID: questionId,
@@ -172,10 +178,11 @@ function Question({
               );
               setTimeout(() => {
                 setSubmitting(false);
+                resetForm();
               }, 1000);
             }}
           >
-            {({ isSubmitting }) => (
+            {({ isSubmitting, submitForm }) => (
               <Form>
                 <div className="flex flex-col items-end text-black">
                   <div className="w-full">
@@ -187,6 +194,12 @@ function Question({
                       name="content"
                       rows={2}
                       placeholder="Answer the question"
+                      onKeyDown={(e) => {
+                        if (e.keyCode === 13 && e.shiftKey === false) {
+                          e.preventDefault();
+                          submitForm();
+                        }
+                      }}
                     />
                     <ErrorMessage
                       className="text-sm text-red-600"
